@@ -1,0 +1,119 @@
+FunctionExport ExecuteUbergraph_PRJ_ShootingPlant
+0:      EX_PushExecutionFlow 639
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 35
+20:     EX_VirtualFunction GoBoom
+34:     EX_PopExecutionFlow
+35:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+55:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+65:     EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_Event_HitResult]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+237:    EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageOnly
+                EX_LocalVariable [CallFunc_BreakHitResult_Location]
+                EX_NameConst None
+                EX_NoObject
+                EX_NoObject
+                EX_InstanceVariable [Damage]
+            RValue = []
+302:    EX_PopExecutionFlow
+303:    EX_Jump 15
+308:    EX_Context
+            EX_InstanceVariable [ParticleComponent]
+            EX_VirtualFunction Deactivate
+            RValue = []
+344:    EX_Context
+            EX_InstanceVariable [SK_ShootingPlant_Projectile]
+            EX_VirtualFunction Deactivate
+            RValue = []
+380:    EX_Context
+            EX_InstanceVariable [SK_ShootingPlant_Projectile]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+414:    EX_Context
+            EX_InstanceVariable [SK_ShootingPlant_Projectile]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+452:    EX_Context
+            EX_InstanceVariable [PointLight]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+486:    EX_VirtualFunction DisableAndDestroy
+500:    EX_PopExecutionFlow
+501:    EX_Jump 15
+506:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CollisionComponent]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+556:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+584:    EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ProjectileExplosion->SpawnEffects
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            RValue = []
+634:    EX_Jump 308
+639:    EX_Return
+            EX_Nothing
+641:    EX_EndOfScript
+FunctionExport GoBoom
+0:      EX_LocalFinalFunction export PRJ_ShootingPlant_C->ExecuteUbergraph_PRJ_ShootingPlant
+            EX_IntConst 506
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_0_HitSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Damage]
+            EX_LocalVariable [Damage]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_anyHealthLost]
+            EX_LocalVariable [anyHealthLost]
+54:     EX_LocalFinalFunction export PRJ_ShootingPlant_C->ExecuteUbergraph_PRJ_ShootingPlant
+            EX_IntConst 501
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_ShootingPlant_C->ExecuteUbergraph_PRJ_ShootingPlant
+            EX_IntConst 303
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

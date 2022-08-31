@@ -1,0 +1,406 @@
+FunctionExport ExecuteUbergraph_BP_FragilePlatform
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction Break Platform
+24:     EX_Jump 1341
+29:     EX_LocalVirtualFunction OnRep_CrackState
+43:     EX_VirtualFunction ForceNetUpdate
+57:     EX_Context
+            EX_InstanceVariable [Crack Timer]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+89:     EX_Jump 1341
+94:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst CrackState
+123:    EX_Jump 29
+128:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+138:    EX_Let
+            EX_LocalVariable [CallFunc_Add_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 1
+177:    EX_Let
+            EX_LocalVariable [CallFunc_GetValidValue_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetNodeHelperLibrary->GetValidValue
+                EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/FragilePlatform/EFragilePlatformState->EFragilePlatformState
+                EX_LocalVariable [CallFunc_Add_ByteByte_ReturnValue]
+223:    EX_Let
+            EX_InstanceVariable [CrackState]
+            EX_LocalVariable [CallFunc_GetValidValue_ReturnValue]
+250:    EX_Jump 94
+255:    EX_LocalVirtualFunction OnRep_Rotation
+269:    EX_Jump 1341
+274:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 12
+            EX_NameConst Rotation
+303:    EX_Jump 255
+308:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+318:    EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst -180
+                EX_FloatConst 180
+356:    EX_Let
+            EX_InstanceVariable [Rotation]
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+383:    EX_Jump 274
+388:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+408:    EX_JumpIfNot 1341
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+422:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [Amount of actors inside]
+                EX_IntConst 1
+464:    EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+491:    EX_Let
+            EX_InstanceVariable [Amount of actors inside]
+            EX_LocalVariable [Temp_int_Variable_1]
+518:    EX_Context
+            EX_InstanceVariable [Crack Timer]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Play
+            RValue = []
+550:    EX_Jump 1341
+555:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+575:    EX_JumpIfNot 1341
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+589:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_InstanceVariable [Amount of actors inside]
+                EX_IntConst 1
+631:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+658:    EX_Let
+            EX_InstanceVariable [Amount of actors inside]
+            EX_LocalVariable [Temp_int_Variable]
+685:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_InstanceVariable [Amount of actors inside]
+                EX_IntConst 0
+719:    EX_JumpIfNot 738
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+733:    EX_Jump 1341
+738:    EX_Context
+            EX_InstanceVariable [Crack Timer]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Stop
+            RValue = []
+770:    EX_Jump 1341
+775:    EX_Jump 1341
+780:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+800:    EX_JumpIfNot 1341
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_2]
+814:    EX_Jump 308
+819:    EX_Context
+            EX_InstanceVariable [Crack Timer]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->SetTimelineLength
+                EX_InstanceVariable [Time Between Cracks]
+            RValue = []
+860:    EX_Let
+            EX_InstanceVariable [current state health]
+            EX_InstanceVariable [State max health]
+887:    EX_Jump 780
+892:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Platform]
+            EX_ObjectConst import /Game/Audio/SFX/BiomePackages/SaltCaves/FragilePlatform/FragilePlatformCollapse_Cue->FragilePlatformCollapse_Cue
+            EX_NoObject
+            EX_FloatConst 1
+            EX_NoObject
+928:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Platform]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+978:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Art/Particles/DestructionFX/P_FragileSaltPlatform_Break->P_FragileSaltPlatform_Break
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+1047:   EX_VirtualFunction ForceNetUpdate
+1061:   EX_Jump 1341
+1066:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 3
+1097:   EX_JumpIfNot 1341
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+1111:   EX_Jump 128
+1116:   EX_VirtualFunction ForceNetUpdate
+1130:   EX_Jump 1341
+1135:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor_1]
+1171:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1200:   EX_JumpIfNot 1341
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1214:   EX_Jump 388
+1219:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+1255:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+1284:   EX_JumpIfNot 1341
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+1298:   EX_Jump 555
+1303:   EX_Jump 1066
+1308:   EX_LocalVirtualFunction Take damage on state
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Amount]
+1331:   EX_Jump 1116
+1336:   EX_Jump 10
+1341:   EX_Return
+            EX_Nothing
+1343:   EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_6_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 1336
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_5_DamageSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Amount]
+            EX_LocalVariable [Amount]
+18:     EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 1308
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Box_K2Node_ComponentBoundEvent_4_ComponentEndOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 1219
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent_1]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor_1]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp_1]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex_1]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 1135
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport Break Platform
+0:      EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 892
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 819
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Crack Timer__UpdateFunc
+0:      EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 775
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Crack Timer__FinishedFunc
+0:      EX_LocalFinalFunction export BP_FragilePlatform_C->ExecuteUbergraph_BP_FragilePlatform
+            EX_IntConst 1303
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_CrackState
+0:      EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 1
+31:     EX_JumpIfNot 140
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+45:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 2
+76:     EX_JumpIfNot 421
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+90:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 3
+121:    EX_JumpIfNot 481
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+135:    EX_Jump 495
+140:    EX_LetBool
+            EX_LocalVariable [CallFunc_SetStaticMesh_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Platform]
+                EX_VirtualFunction SetStaticMesh
+                    EX_InstanceVariable [Stage2 mesh]
+                RValue = [CallFunc_SetStaticMesh_ReturnValue_1]
+195:    EX_VirtualFunction ForceNetUpdate
+209:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+237:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/BiomePackages/SaltCaves/FragilePlatform/FragilePlatformCombined_Crack_Cue->FragilePlatformCombined_Crack_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+297:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Platform]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+347:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Art/Particles/DestructionFX/P_FragileSaltPlatform_Break_Stage->P_FragileSaltPlatform_Break_Stage
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+416:    EX_Jump 495
+421:    EX_LetBool
+            EX_LocalVariable [CallFunc_SetStaticMesh_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Platform]
+                EX_VirtualFunction SetStaticMesh
+                    EX_InstanceVariable [Stage3 mesh]
+                RValue = [CallFunc_SetStaticMesh_ReturnValue]
+476:    EX_Jump 195
+481:    EX_LocalVirtualFunction Break Platform
+495:    EX_Return
+            EX_Nothing
+497:    EX_EndOfScript
+FunctionExport Take damage on state
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [Damage]
+                EX_InstanceVariable [current state health]
+46:     EX_Let
+            EX_LocalVariable [left over Damage]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+73:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [current state health]
+                EX_LocalVariable [Damage]
+119:    EX_Let
+            EX_InstanceVariable [current state health]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+146:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_InstanceVariable [current state health]
+                EX_FloatConst 0
+180:    EX_JumpIfNot 468
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+194:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 3
+225:    EX_JumpIfNot 468
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+239:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+249:    EX_Let
+            EX_LocalVariable [CallFunc_Add_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_ByteByte
+                EX_InstanceVariable [CrackState]
+                EX_ByteConst 1
+288:    EX_Let
+            EX_LocalVariable [CallFunc_GetValidValue_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetNodeHelperLibrary->GetValidValue
+                EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/FragilePlatform/EFragilePlatformState->EFragilePlatformState
+                EX_LocalVariable [CallFunc_Add_ByteByte_ReturnValue]
+334:    EX_Let
+            EX_InstanceVariable [CrackState]
+            EX_LocalVariable [CallFunc_GetValidValue_ReturnValue]
+361:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst CrackState
+390:    EX_LocalVirtualFunction OnRep_CrackState
+404:    EX_VirtualFunction ForceNetUpdate
+418:    EX_Let
+            EX_InstanceVariable [current state health]
+            EX_InstanceVariable [State max health]
+445:    EX_LocalVirtualFunction Take damage on state
+            EX_LocalVariable [left over Damage]
+468:    EX_Return
+            EX_Nothing
+470:    EX_EndOfScript
+FunctionExport OnRep_Rotation
+0:      EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 90
+                EX_InstanceVariable [Rotation]
+                EX_FloatConst 90
+47:     EX_Context
+            EX_InstanceVariable [Platform]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeRotation
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeRotation_SweepHitResult]
+                EX_True
+            RValue = []
+99:     EX_Return
+            EX_Nothing
+101:    EX_EndOfScript

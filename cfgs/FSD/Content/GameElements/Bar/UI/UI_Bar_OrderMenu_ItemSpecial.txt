@@ -1,0 +1,1028 @@
+FunctionExport OnDrinksPurchased__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnHover__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnUnhover__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnPurchaseDenied__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnSelected__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnDrinkUnlocked__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+0:      EX_PushExecutionFlow 3084
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [OrderShout]
+                    RValue = [OrderShout]
+            RValue = []
+100:    EX_PopExecutionFlow
+101:    EX_JumpIfNot 497
+            EX_True
+107:    EX_LetBool
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue]
+            EX_CallMath import /Script/FSD->DrinkableDataAsset->AreSpecialDrinksUnlocked
+                EX_Self
+128:    EX_JumpIfNot 512
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue]
+142:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsDrinkFree_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Drink]
+                EX_FinalFunction import /Script/FSD->DrinkableDataAsset->IsDrinkFree
+                    EX_Self
+                RValue = [CallFunc_IsDrinkFree_ReturnValue]
+185:    EX_JumpIfNot 527
+            EX_LocalVariable [CallFunc_IsDrinkFree_ReturnValue]
+199:    EX_Context
+            EX_InstanceVariable [Drink]
+            EX_FinalFunction import /Script/FSD->DrinkableDataAsset->OnRoundOrdered
+                EX_InstanceVariable [Character]
+            RValue = []
+240:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/DiggingSoundsMaterial/GoldCoins_Cue->GoldCoins_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+300:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+321:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SaveToDisk
+            RValue = []
+353:    EX_CallMulticastDelegate export UI_Bar_OrderMenu_ItemSpecial_C->OnDrinksPurchased__DelegateSignature
+            EX_InstanceVariable [OnDrinksPurchased]
+            EX_InstanceVariable [Drink]
+381:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [OrderShout]
+                    RValue = [OrderShout]
+432:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+442:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 2145455798
+                EX_NameConst ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+                EX_Self
+496:    EX_PopExecutionFlow
+497:    EX_LocalVirtualFunction BuyFailed
+511:    EX_PopExecutionFlow
+512:    EX_LocalVirtualFunction TryUnlock
+526:    EX_PopExecutionFlow
+527:    EX_LetBool
+            EX_LocalVariable [CallFunc_TryPurchaseDrink_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Drink]
+                EX_FinalFunction import /Script/FSD->DrinkableDataAsset->TryPurchaseDrink
+                    EX_Self
+                RValue = [CallFunc_TryPurchaseDrink_ReturnValue]
+570:    EX_JumpIfNot 589
+            EX_LocalVariable [CallFunc_TryPurchaseDrink_ReturnValue]
+584:    EX_Jump 199
+589:    EX_LocalVirtualFunction BuyFailed
+603:    EX_PopExecutionFlow
+604:    EX_LocalVirtualFunction BuyFailed
+618:    EX_PopExecutionFlow
+619:    EX_LetBool
+            EX_LocalVariable [CallFunc_TryUnlockSpecialDrinks_ReturnValue]
+            EX_CallMath import /Script/FSD->DrinkableDataAsset->TryUnlockSpecialDrinks
+                EX_Self
+640:    EX_JumpIfNot 604
+            EX_LocalVariable [CallFunc_TryUnlockSpecialDrinks_ReturnValue]
+654:    EX_CallMulticastDelegate export UI_Bar_OrderMenu_ItemSpecial_C->OnDrinkUnlocked__DelegateSignature
+            EX_InstanceVariable [OnDrinkUnlocked]
+            EX_InstanceVariable [Drink]
+682:    EX_LocalVirtualFunction UpdateItemStatus
+696:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+717:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenWindowFromClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenWindowFromClass
+                    EX_ObjectConst import /Game/GameElements/Bar/UI/UI_Bar_UnlockBeerPopup->UI_Bar_UnlockBeerPopup_C
+                    EX_IntConst 1000
+                    EX_True
+                RValue = [CallFunc_OpenWindowFromClass_ReturnValue]
+774:    EX_Context
+            EX_LocalVariable [CallFunc_OpenWindowFromClass_ReturnValue]
+            EX_LocalVirtualFunction SetDrink
+                EX_InstanceVariable [Drink]
+            RValue = []
+819:    EX_PopExecutionFlow
+820:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+868:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+904:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+933:    EX_Context
+            EX_InstanceVariable [DrinkNameLabel]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+974:    EX_Context
+            EX_InstanceVariable [RankText]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+1015:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 18
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_2]
+            RValue = []
+1063:   EX_Context
+            EX_InstanceVariable [RankHolder]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_2]
+            RValue = []
+1104:   EX_PopExecutionFlow
+1105:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [TextBlock_168]
+                EX_ByteConst 0
+                EX_Self
+            RValue = []
+1153:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+1201:   EX_Context
+            EX_InstanceVariable [Image_387]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+1242:   EX_Context
+            EX_InstanceVariable [Image_389]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+1283:   EX_Jump 820
+1288:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue_3]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Idle]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+1335:   EX_LocalVirtualFunction UpdateItemStatus
+1349:   EX_BindDelegate OnCreditsChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1372:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1393:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnCreditsChanged]
+                RValue = [OnCreditsChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1434:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1455:   EX_BindDelegate OnPlayerProgressChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+1478:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnPlayerProgressChanged]
+                RValue = [OnPlayerProgressChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+1519:   EX_BindDelegate OnHoverFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+1542:   EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationFinished
+            EX_InstanceVariable [Hover]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+1570:   EX_PopExecutionFlow
+1571:   EX_LocalVirtualFunction UpdateItemStatus
+1585:   EX_PopExecutionFlow
+1586:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue_2]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Click]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 2
+                EX_False
+1633:   EX_LocalVirtualFunction UpdateItemStatus
+1647:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 101
+                EX_IntConst -1123707781
+                EX_NameConst ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+                EX_Self
+1701:   EX_PopExecutionFlow
+1702:   EX_CallMulticastDelegate export UI_Bar_OrderMenu_ItemSpecial_C->OnHover__DelegateSignature
+            EX_InstanceVariable [OnHover]
+            EX_Self
+1722:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue_1]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Hover]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 4
+                EX_False
+1769:   EX_Context
+            EX_InstanceVariable [UI_Bar_PlayerRankWarning]
+            EX_LocalVirtualFunction AnimPlay
+            RValue = []
+1805:   EX_Context
+            EX_InstanceVariable [UI_Bar_LockWarning]
+            EX_LocalVirtualFunction AnimPlay
+            RValue = []
+1841:   EX_PopExecutionFlow
+1842:   EX_CallMulticastDelegate export UI_Bar_OrderMenu_ItemSpecial_C->OnUnhover__DelegateSignature
+            EX_InstanceVariable [OnUnhover]
+            EX_Self
+1862:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Hover]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 1
+                EX_FloatConst 4
+                EX_False
+1909:   EX_Context
+            EX_InstanceVariable [UI_Bar_PlayerRankWarning]
+            EX_LocalVirtualFunction AnimStop
+            RValue = []
+1945:   EX_Context
+            EX_InstanceVariable [UI_Bar_LockWarning]
+            EX_LocalVirtualFunction AnimStop
+            RValue = []
+1981:   EX_PopExecutionFlow
+1982:   EX_LetBool
+            EX_InstanceVariable [Selected]
+            EX_True
+1993:   EX_LocalVirtualFunction UpdateItemStatus
+2007:   EX_CallMulticastDelegate export UI_Bar_OrderMenu_ItemSpecial_C->OnSelected__DelegateSignature
+            EX_InstanceVariable [OnSelected]
+            EX_Self
+2027:   EX_PopExecutionFlow
+2028:   EX_LetBool
+            EX_InstanceVariable [Selected]
+            EX_False
+2039:   EX_LocalVirtualFunction UpdateItemStatus
+2053:   EX_PopExecutionFlow
+2054:   EX_Jump 1571
+2059:   EX_LocalVirtualFunction UpdateItemStatus
+2073:   EX_PopExecutionFlow
+2074:   EX_Jump 1982
+2079:   EX_Jump 2028
+2084:   EX_Jump 2059
+2089:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/UI/Menu/Button_Fail_Cue->Button_Fail_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+2149:   EX_CallMulticastDelegate export UI_Bar_OrderMenu_ItemSpecial_C->OnPurchaseDenied__DelegateSignature
+            EX_InstanceVariable [OnPurchaseDenied]
+2168:   EX_PopExecutionFlow
+2169:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+2189:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_2]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+2210:   EX_LetBool
+            EX_LocalVariable [CallFunc_CanAfford_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_2]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->CanAfford
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                            EX_InstanceVariable [DrinkSettings]
+                            RValue = [DrinkSettings]
+                        EX_InstanceVariable [SpecialBeerUnlockCost]
+                        RValue = [SpecialBeerUnlockCost]
+                RValue = [CallFunc_CanAfford_ReturnValue]
+2305:   EX_JumpIfNot 604
+            EX_LocalVariable [CallFunc_CanAfford_ReturnValue]
+2319:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_StructConst import /Script/Engine->FormatArgumentData
+                EX_StringConst 
+                EX_ByteConst 0
+                EX_TextConst
+                EX_IntConst 0
+                EX_FloatConst 0
+                EX_ByteConst 0
+2362:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = Unlock Special Beers?
+                    LocalizedKey = CABD47134CCB6488B173A3AC7700044D
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+2460:   EX_LetObj
+            EX_StructMemberContext [WidgetClass]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Popup_YesNoPrompt->Basic_Popup_YesNoPrompt_C
+2488:   EX_Let
+            EX_StructMemberContext [ZOrder]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_IntConst 100
+2520:   EX_Let
+            EX_StructMemberContext [Title]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_TextConst
+                SourceString = Unlock
+                LocalizedKey = D4C88D8642E4291A3114C5975E17C779
+                LocalizedNamespace = 
+2593:   EX_Let
+            EX_StructMemberContext [Message]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+2629:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+2649:   EX_LetObj
+            EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+            EX_CallMath import /Script/FSD->YesNoPromptAction->PromptPurchase
+                EX_Self
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                        EX_InstanceVariable [DrinkSettings]
+                        RValue = [DrinkSettings]
+                    EX_InstanceVariable [SpecialBeerUnlockCost]
+                    RValue = [SpecialBeerUnlockCost]
+2732:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+2761:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+2771:   EX_BindDelegate Yes_026492834E69A68487066993DA576F51
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+2794:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+                EX_InstanceVariable [Yes]
+                RValue = [Yes]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+2835:   EX_BindDelegate No_026492834E69A68487066993DA576F51
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+2858:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+                EX_InstanceVariable [No]
+                RValue = [No]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+2899:   EX_Context
+            EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+            EX_VirtualFunction Activate
+            RValue = []
+2935:   EX_PopExecutionFlow
+2936:   EX_LetObj
+            EX_InstanceVariable [Drink]
+            EX_LocalVariable [K2Node_CustomEvent_Drinkable]
+2955:   EX_LocalVirtualFunction UpdateItemStatus
+2969:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+2989:   EX_Context
+            EX_InstanceVariable [UI_Bar_LockWarning]
+            EX_LocalVirtualFunction SetFixedPrice
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue_1]
+                        EX_InstanceVariable [DrinkSettings]
+                        RValue = [DrinkSettings]
+                    EX_InstanceVariable [SpecialBeerUnlockCost]
+                    RValue = [SpecialBeerUnlockCost]
+            RValue = []
+3078:   EX_PopExecutionFlow
+3079:   EX_Jump 1105
+3084:   EX_Return
+            EX_Nothing
+3086:   EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 3079
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetDrinkable
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Drinkable]
+            EX_LocalVariable [Drinkable]
+18:     EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2936
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport TryUnlock
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2169
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BuyFailed
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2089
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnHoverFinished
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2084
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Unselect
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2079
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Select
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2074
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnPlayerProgressChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Rank]
+            EX_LocalVariable [Rank]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Stars]
+            EX_LocalVariable [Stars]
+36:     EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 2054
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__BuyButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 1842
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__BuyButton_K2Node_ComponentBoundEvent_115_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 1702
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_21_OnButtonClickedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 1586
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnCreditsChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Credits]
+            EX_LocalVariable [Credits]
+18:     EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 1571
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 1288
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Yes_026492834E69A68487066993DA576F51
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 619
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport No_026492834E69A68487066993DA576F51
+0:      EX_LocalFinalFunction export UI_Bar_OrderMenu_ItemSpecial_C->ExecuteUbergraph_UI_Bar_OrderMenu_ItemSpecial
+            EX_IntConst 604
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport IsInteractable
+0:      EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_True
+11:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+21:     EX_EndOfScript
+FunctionExport GetBorderColor
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsPressed_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [BuyButton]
+                EX_FinalFunction import /Script/UMG->Button->IsPressed
+                RValue = [CallFunc_IsPressed_ReturnValue]
+42:     EX_JumpIfNot 136
+            EX_LocalVariable [CallFunc_IsPressed_ReturnValue]
+56:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 1
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+104:    EX_Let
+            EX_LocalOutVariable
+                [OutputColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+131:    EX_Jump 321
+136:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 1
+156:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 0
+176:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Selected]
+195:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 283
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 260
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 274
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+294:    EX_Let
+            EX_LocalOutVariable
+                [OutputColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+321:    EX_Return
+            EX_Nothing
+323:    EX_EndOfScript
+FunctionExport UpdateItemStatus
+0:      EX_PushExecutionFlow 2143
+5:      EX_LetBool
+            EX_LocalVariable [CanAfford]
+            EX_False
+16:     EX_LetBool
+            EX_LocalVariable [HavePlayerRank]
+            EX_False
+27:     EX_Let
+            EX_LocalVariable [WarningColor_Rank]
+            EX_ByteConst 18
+47:     EX_Let
+            EX_LocalVariable [WarningColor_CantAfford]
+            EX_ByteConst 12
+67:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Drink]
+96:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+106:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsDrinkFree_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Drink]
+                EX_FinalFunction import /Script/FSD->DrinkableDataAsset->IsDrinkFree
+                    EX_Self
+                RValue = [CallFunc_IsDrinkFree_ReturnValue]
+149:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+170:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [DrinkablePrice]
+                    RValue = [DrinkablePrice]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                    EX_InstanceVariable [Credits]
+                    RValue = [Credits]
+252:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_IsDrinkFree_ReturnValue]
+                EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+290:    EX_LetBool
+            EX_LocalVariable [CanAfford]
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+309:    EX_LetBool
+            EX_LocalVariable [HavePlayerRank]
+            EX_True
+320:    EX_LetBool
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue_2]
+            EX_CallMath import /Script/FSD->DrinkableDataAsset->AreSpecialDrinksUnlocked
+                EX_Self
+341:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CanAfford]
+                EX_LocalVariable [HavePlayerRank]
+379:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+                EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue_2]
+417:    EX_LetBool
+            EX_InstanceVariable [CanOrder]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+436:    EX_LocalVirtualFunction GetBorderColor
+            EX_LocalVariable [CallFunc_GetBorderColor_OutputColor]
+459:    EX_Context
+            EX_InstanceVariable [Img_Frame]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_GetBorderColor_OutputColor]
+            RValue = []
+500:    EX_PushExecutionFlow 1773
+505:    EX_Context
+            EX_InstanceVariable [DrinkNameLabel]
+            EX_VirtualFunction SetText
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [DrinkableName]
+                    RValue = [DrinkableName]
+            RValue = []
+572:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetDrinkableIcon_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Drink]
+                EX_FinalFunction import /Script/FSD->DrinkableDataAsset->GetDrinkableIcon
+                RValue = [CallFunc_GetDrinkableIcon_ReturnValue]
+614:    EX_Context
+            EX_InstanceVariable [DrinkIconLeft]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetDrinkableIcon_ReturnValue]
+                EX_False
+            RValue = []
+660:    EX_Context
+            EX_InstanceVariable [DrinkIconRight]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetDrinkableIcon_ReturnValue]
+                EX_False
+            RValue = []
+706:    EX_LetBool
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue]
+            EX_CallMath import /Script/FSD->DrinkableDataAsset->AreSpecialDrinksUnlocked
+                EX_Self
+727:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue]
+756:    EX_Context
+            EX_InstanceVariable [UI_Bar_DrinkCost]
+            EX_LocalVirtualFunction ShowCost
+                EX_InstanceVariable [Drink]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            RValue = []
+810:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_2]
+            EX_ByteConst 3
+830:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_3]
+            EX_ByteConst 1
+850:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [RequiredPlayerRank]
+                    RValue = [RequiredPlayerRank]
+                EX_IntConst 1
+906:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [HavePlayerRank]
+935:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+973:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+992:    EX_Context
+            EX_InstanceVariable [RankHolder]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 1080
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1057
+                        EX_LocalVariable [Temp_byte_Variable_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1071
+                        EX_LocalVariable [Temp_byte_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_2]
+            RValue = []
+1081:   EX_Context
+            EX_InstanceVariable [UI_Bar_PlayerRankWarning]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 1169
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1146
+                        EX_LocalVariable [Temp_byte_Variable_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1160
+                        EX_LocalVariable [Temp_byte_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_2]
+            RValue = []
+1170:   EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 0.3
+1193:   EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 1
+1216:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [RequiredPlayerRank]
+                    RValue = [RequiredPlayerRank]
+                EX_IntConst 1
+1272:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [HavePlayerRank]
+1301:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+1339:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_3]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+1358:   EX_Context
+            EX_InstanceVariable [Overlay_1]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_3]
+                    OffsetToSwitchEnd = 1442
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1419
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1433
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_3]
+            RValue = []
+1443:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [RankHolder]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+1485:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+1495:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [RequiredPlayerRank]
+                    RValue = [RequiredPlayerRank]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+1566:   EX_Context
+            EX_InstanceVariable [RankText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+1611:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_LocalVariable [WarningColor_CantAfford]
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1666:   EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+1702:   EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+1731:   EX_Context
+            EX_InstanceVariable [RankText]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+1772:   EX_PopExecutionFlow
+1773:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 1
+1793:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 3
+1813:   EX_LetBool
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue_1]
+            EX_CallMath import /Script/FSD->DrinkableDataAsset->AreSpecialDrinksUnlocked
+                EX_Self
+1834:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue_1]
+1853:   EX_Context
+            EX_InstanceVariable [UI_Bar_LockWarning]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 1941
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1918
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1932
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+1942:   EX_Let
+            EX_LocalVariable [Temp_float_Variable_2]
+            EX_FloatConst 0.3
+1965:   EX_Let
+            EX_LocalVariable [Temp_float_Variable_3]
+            EX_FloatConst 1
+1988:   EX_LetBool
+            EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue_1]
+            EX_CallMath import /Script/FSD->DrinkableDataAsset->AreSpecialDrinksUnlocked
+                EX_Self
+2009:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_AreSpecialDrinksUnlocked_ReturnValue_1]
+2038:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+2057:   EX_Context
+            EX_InstanceVariable [Overlay_1]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_2]
+                    OffsetToSwitchEnd = 2141
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 2118
+                        EX_LocalVariable [Temp_float_Variable_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 2132
+                        EX_LocalVariable [Temp_float_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+2142:   EX_PopExecutionFlow
+2143:   EX_Return
+            EX_Nothing
+2145:   EX_EndOfScript
+FunctionExport GetTemporaryBuf
+0:      EX_PushExecutionFlow 106
+5:      EX_PushExecutionFlow 95
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Drink]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+49:     EX_LetObj
+            EX_LocalOutVariable
+                [Buff]
+            EX_Context
+                EX_InstanceVariable [Drink]
+                EX_InstanceVariable [Buff]
+                RValue = [Buff]
+90:     EX_Jump 106
+95:     EX_LetObj
+            EX_LocalOutVariable
+                [Buff]
+            EX_NoObject
+106:    EX_Return
+            EX_Nothing
+108:    EX_EndOfScript
+FunctionExport HasPlayerRank
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+21:     EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerRank_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetPlayerRank
+                RValue = [CallFunc_GetPlayerRank_ReturnValue]
+71:     EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_GetPlayerRank_ReturnValue]
+                EX_Context
+                    EX_InstanceVariable [Drink]
+                    EX_InstanceVariable [RequiredPlayerRank]
+                    RValue = [RequiredPlayerRank]
+131:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+150:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+160:    EX_EndOfScript

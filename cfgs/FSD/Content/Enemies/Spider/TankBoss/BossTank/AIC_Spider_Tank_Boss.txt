@@ -1,0 +1,208 @@
+FunctionExport ExecuteUbergraph_AIC_Spider_Tank_Boss
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalFinalFunction import /Game/Enemies/Spider/AIC_Spider->AIC_Spider_C->ReceiveBeginPlay
+20:     EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst RangedAttackCooldown
+61:     EX_Context
+            EX_InstanceVariable [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsFloat
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_FloatConst 5
+            RValue = []
+107:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst AOEAttackCooldown
+148:    EX_Context
+            EX_InstanceVariable [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsFloat
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+                EX_FloatConst 5
+            RValue = []
+194:    EX_Jump 1358
+199:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst ArmorDestroyed
+240:    EX_Context
+            EX_InstanceVariable [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_2]
+                EX_True
+            RValue = []
+282:    EX_Jump 1358
+287:    EX_LocalFinalFunction import /Game/Enemies/Spider/AIC_Spider->AIC_Spider_C->ReceivePossess
+            EX_LocalVariable [K2Node_Event_PossessedPawn]
+306:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsENE_Spider_Tank_Boss]
+            EX_DynamicCast import /Game/Enemies/Spider/TankBoss/BossTank/ENE_Spider_Tank_Boss->ENE_Spider_Tank_Boss_C
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+342:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsENE_Spider_Tank_Boss]
+371:    EX_JumpIfNot 1358
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+385:    EX_BindDelegate OnArmorDestroyed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+408:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsENE_Spider_Tank_Boss]
+                EX_InstanceVariable [OnArmorDestroyed]
+                RValue = [OnArmorDestroyed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+449:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+470:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                        EX_InstanceVariable [ActivePlayerCharacters]
+                        RValue = [ActivePlayerCharacters]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+551:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 1
+585:    EX_JumpIfNot 976
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+599:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+619:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+            EX_DynamicCast import /Script/FSD->SpiderEnemy
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+655:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+684:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameMode
+                EX_Self
+705:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetDifficultyManager_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameMode->GetDifficultyManager
+                RValue = [CallFunc_GetDifficultyManager_ReturnValue]
+747:    EX_Let
+            EX_LocalVariable [CallFunc_GetBossDifficultyScaler_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetDifficultyManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DifficultyManager->GetBossDifficultyScaler
+                RValue = [CallFunc_GetBossDifficultyScaler_ReturnValue]
+797:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_GetBossDifficultyScaler_ReturnValue]
+                EX_FloatConst 0.1
+839:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 0.9
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+881:    EX_Let
+            EX_LocalVariable [CallFunc_AddModifier_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+                    EX_InstanceVariable [PawnStats]
+                    RValue = [PawnStats]
+                EX_FinalFunction import /Script/FSD->PawnStatsComponent->AddModifier
+                    EX_ObjectConst import /Game/GameElements/PawnStats/PST_MovementSpeed->PST_MovementSpeed
+                    EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                RValue = [CallFunc_AddModifier_ReturnValue]
+971:    EX_Jump 1358
+976:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+996:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy_1]
+            EX_DynamicCast import /Script/FSD->SpiderEnemy
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue_1]
+1032:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy_1]
+1061:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameMode
+                EX_Self
+1082:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetDifficultyManager_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDGameMode->GetDifficultyManager
+                RValue = [CallFunc_GetDifficultyManager_ReturnValue_1]
+1124:   EX_Let
+            EX_LocalVariable [CallFunc_GetBossDifficultyScaler_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetDifficultyManager_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->DifficultyManager->GetBossDifficultyScaler
+                RValue = [CallFunc_GetBossDifficultyScaler_ReturnValue_1]
+1174:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_GetBossDifficultyScaler_ReturnValue_1]
+                EX_FloatConst 0.1
+1216:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1.1
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+1258:   EX_Let
+            EX_LocalVariable [CallFunc_AddModifier_ReturnValue_1]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy_1]
+                    EX_InstanceVariable [PawnStats]
+                    RValue = [PawnStats]
+                EX_FinalFunction import /Script/FSD->PawnStatsComponent->AddModifier
+                    EX_ObjectConst import /Game/GameElements/PawnStats/PST_MovementSpeed->PST_MovementSpeed
+                    EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+                RValue = [CallFunc_AddModifier_ReturnValue_1]
+1348:   EX_Jump 1358
+1353:   EX_Jump 10
+1358:   EX_Return
+            EX_Nothing
+1360:   EX_EndOfScript
+FunctionExport StartSpeedModifier
+0:      EX_LocalFinalFunction export AIC_Spider_Tank_Boss_C->ExecuteUbergraph_AIC_Spider_Tank_Boss
+            EX_IntConst 1358
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Spider_Tank_Boss_C->ExecuteUbergraph_AIC_Spider_Tank_Boss
+            EX_IntConst 1353
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_Spider_Tank_Boss_C->ExecuteUbergraph_AIC_Spider_Tank_Boss
+            EX_IntConst 287
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnArmorDestroyed
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_EnrageDuration]
+            EX_LocalVariable [EnrageDuration]
+18:     EX_LocalFinalFunction export AIC_Spider_Tank_Boss_C->ExecuteUbergraph_AIC_Spider_Tank_Boss
+            EX_IntConst 199
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

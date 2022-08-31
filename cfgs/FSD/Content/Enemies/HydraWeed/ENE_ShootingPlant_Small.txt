@@ -1,0 +1,675 @@
+FunctionExport ExecuteUbergraph_ENE_ShootingPlant_Small
+0:      EX_PushExecutionFlow 3359
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_InstanceVariable [TerrainPlacement]
+            EX_FinalFunction import /Script/FSD->TerrainPlacementComponent->RemoveBlockers
+            RValue = []
+47:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+57:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsWeakPoint_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->IsWeakPoint
+                EX_StructMemberContext [PhysMaterial]
+                    EX_LocalVariable [K2Node_ComponentBoundEvent_damageData]
+95:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsWeakPoint_ReturnValue]
+114:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 2
+134:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+154:    EX_Let
+            EX_InstanceVariable [DeathType]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 225
+                case 0:
+                    EX_False
+                    NextCaseOffset = 202
+                    EX_LocalVariable [Temp_byte_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 216
+                    EX_LocalVariable [Temp_byte_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+225:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 17
+            EX_NameConst DeathType
+254:    EX_LocalVirtualFunction OnRep_DeathType
+268:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Core]
+297:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+307:    EX_Context
+            EX_InstanceVariable [Core]
+            EX_LocalVirtualFunction OnShooterKilled
+                EX_Self
+            RValue = []
+344:    EX_PopExecutionFlow
+345:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_False
+356:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+367:    EX_PopExecutionFlow
+368:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 15
+            EX_NameConst IsVisible
+397:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Core]
+426:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+436:    EX_Context
+            EX_InstanceVariable [Core]
+            EX_LocalVirtualFunction WakupCore
+            RValue = []
+472:    EX_PopExecutionFlow
+473:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+483:    EX_LetBool
+            EX_InstanceVariable [IsVisible]
+            EX_True
+494:    EX_Jump 368
+499:    EX_Context
+            EX_InstanceVariable [Capsule]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+537:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [SkeletalMesh]
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/HydraWeed/HydraWeed_Death_NoScream_Cue->HydraWeed_Death_NoScream_Cue
+            EX_ObjectConst import /Game/Enemies/HydraWeed/Particles/P_Shooter_HydraWeed_Kill->P_Shooter_HydraWeed_Kill
+            EX_FloatConst 1
+            EX_NoObject
+581:    EX_PopExecutionFlow
+582:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAnimInstance_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_FinalFunction import /Script/Engine->SkeletalMeshComponent->GetAnimInstance
+                RValue = [CallFunc_GetAnimInstance_ReturnValue_2]
+624:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsABP_Hydra_Weed_Shooter]
+            EX_DynamicCast import /Game/Enemies/HydraWeed/Assets/ABP_HydraWeed_Shooter->ABP_HydraWeed_Shooter_C
+                EX_LocalVariable [CallFunc_GetAnimInstance_ReturnValue_2]
+660:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_3]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsABP_Hydra_Weed_Shooter]
+689:    EX_LetBool
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsABP_Hydra_Weed_Shooter]
+                EX_InstanceVariable [WaitToGrow]
+                RValue = [WaitToGrow]
+            EX_False
+722:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_VectorConst 1.4,1.4,1.4
+            RValue = []
+767:    EX_Context
+            EX_InstanceVariable [Growth]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+799:    EX_PopExecutionFlow
+800:    EX_LocalVirtualFunction WakeUp
+814:    EX_PopExecutionFlow
+815:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Pawn->GetController
+835:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsAIC_Hydra_Weed_Shooter]
+            EX_DynamicCast import /Game/Enemies/HydraWeed/AIC_HydraWeed_Shooter->AIC_HydraWeed_Shooter_C
+                EX_LocalVariable [CallFunc_GetController_ReturnValue]
+871:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsAIC_Hydra_Weed_Shooter]
+900:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+910:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsAIC_Hydra_Weed_Shooter]
+            EX_LocalVirtualFunction StartBehavior
+            RValue = []
+946:    EX_PopExecutionFlow
+947:    EX_JumpIfNot 1011
+            EX_InstanceVariable [IsPassive]
+961:    EX_Let
+            EX_Context
+                EX_InstanceVariable [PawnSensing]
+                EX_InstanceVariable [SightRadius]
+                RValue = [SightRadius]
+            EX_InstanceVariable [PassiveSightRadius]
+1010:   EX_PopExecutionFlow
+1011:   EX_Let
+            EX_Context
+                EX_InstanceVariable [PawnSensing]
+                EX_InstanceVariable [SightRadius]
+                RValue = [SightRadius]
+            EX_InstanceVariable [AggressiveSightRadius]
+1060:   EX_PopExecutionFlow
+1061:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_InstanceVariable [Growth_Size_F8D1ED0F47A0109E69BA949410BBFBDF]
+1103:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_InstanceVariable [MaxLightIntensity]
+1149:   EX_Context
+            EX_InstanceVariable [PointLight]
+            EX_FinalFunction import /Script/Engine->LightComponent->SetIntensity
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            RValue = []
+1190:   EX_PopExecutionFlow
+1191:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1211:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+1221:   EX_PopExecutionFlow
+1222:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+1233:   EX_PopExecutionFlowIfNot
+            EX_False
+1235:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+1246:   EX_PopExecutionFlow
+1247:   EX_JumpIfNot 1222
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+1261:   EX_PopExecutionFlow
+1262:   EX_LetBool
+            EX_InstanceVariable [IsPupating]
+            EX_False
+1273:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1293:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+1303:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsENE_Hydra_Weed_Core]
+            EX_DynamicCast import /Game/Enemies/HydraWeed/ENE_HydraWeed_Core->ENE_HydraWeed_Core_C
+                EX_InstanceVariable [Core]
+1339:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsENE_Hydra_Weed_Core]
+1368:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+1378:   EX_JumpIfNot 1415
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsENE_Hydra_Weed_Core]
+                EX_InstanceVariable [IsDormant]
+                RValue = [IsDormant]
+1414:   EX_PopExecutionFlow
+1415:   EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 0
+                EX_FloatConst 2
+1453:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 800
+                EX_IntConst -203910383
+                EX_NameConst ExecuteUbergraph_ENE_ShootingPlant_Small
+                EX_Self
+1511:   EX_PopExecutionFlow
+1512:   EX_Context
+            EX_InstanceVariable [Timeline_0]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+1544:   EX_PopExecutionFlow
+1545:   EX_PushExecutionFlow 1729
+1550:   EX_PushExecutionFlow 1565
+1555:   EX_PushExecutionFlow 1851
+1560:   EX_Jump 1247
+1565:   EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable_1]
+                EX_IntConst 0
+1599:   EX_JumpIfNot 1628
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+1613:   EX_JumpIfNot 2221
+            EX_InstanceVariable [IsPupating]
+1627:   EX_PopExecutionFlow
+1628:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_InstanceVariable [NumHitsToWakeUp]
+                EX_IntConst 1
+1670:   EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+1697:   EX_Let
+            EX_InstanceVariable [NumHitsToWakeUp]
+            EX_LocalVariable [Temp_int_Variable_1]
+1724:   EX_Jump 1565
+1729:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [IsPassive]
+1739:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsENE_Hydra_Weed_Core_1]
+            EX_DynamicCast import /Game/Enemies/HydraWeed/ENE_HydraWeed_Core->ENE_HydraWeed_Core_C
+                EX_InstanceVariable [Core]
+1775:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_4]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsENE_Hydra_Weed_Core_1]
+1804:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_4]
+1814:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsENE_Hydra_Weed_Core_1]
+            EX_LocalVirtualFunction ResumeFight
+            RValue = []
+1850:   EX_PopExecutionFlow
+1851:   EX_JumpIfNot 1866
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+1865:   EX_PopExecutionFlow
+1866:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+1877:   EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/Enemies/HydraWeed/Assets/ANIM_HydraWeed_Hit_A->ANIM_HydraWeed_Hit_A
+1896:   EX_Let
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomIntegerInRange
+                EX_IntConst 0
+                EX_IntConst 1
+1934:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetAnimInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_FinalFunction import /Script/Engine->SkeletalMeshComponent->GetAnimInstance
+                RValue = [CallFunc_GetAnimInstance_ReturnValue]
+1976:   EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/Enemies/HydraWeed/Assets/ANIM_HydraWeed_Hit_B->ANIM_HydraWeed_Hit_B
+1995:   EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+2022:   EX_Let
+            EX_LocalVariable [CallFunc_PlaySlotAnimation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetAnimInstance_ReturnValue]
+                EX_FinalFunction import /Script/Engine->AnimInstance->PlaySlotAnimation
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_int_Variable]
+                        OffsetToSwitchEnd = 2132
+                        case 0:
+                            EX_IntConst 0
+                            NextCaseOffset = 2105
+                            EX_LocalVariable [Temp_object_Variable]
+                        case 1:
+                            EX_IntConst 1
+                            NextCaseOffset = 2123
+                            EX_LocalVariable [Temp_object_Variable_1]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default_1]
+                    EX_NameConst HitReact
+                    EX_FloatConst 0
+                    EX_FloatConst 0.1
+                    EX_FloatConst 1
+                    EX_IntConst 1
+                RValue = [CallFunc_PlaySlotAnimation_ReturnValue]
+2166:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.25
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 345
+                EX_IntConst 2083266775
+                EX_NameConst ExecuteUbergraph_ENE_ShootingPlant_Small
+                EX_Self
+2220:   EX_PopExecutionFlow
+2221:   EX_PushExecutionFlow 2266
+2226:   EX_JumpIfNot 2241
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable_1]
+2240:   EX_PopExecutionFlow
+2241:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable_1]
+            EX_True
+2252:   EX_PopExecutionFlowIfNot
+            EX_False
+2254:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable_1]
+            EX_True
+2265:   EX_PopExecutionFlow
+2266:   EX_JumpIfNot 2281
+            EX_LocalVariable [Temp_bool_IsClosed_Variable_1]
+2280:   EX_PopExecutionFlow
+2281:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable_1]
+            EX_True
+2292:   EX_PushExecutionFlow 2302
+2297:   EX_Jump 473
+2302:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 815
+                EX_IntConst -17622432
+                EX_NameConst ExecuteUbergraph_ENE_ShootingPlant_Small
+                EX_Self
+2356:   EX_PopExecutionFlow
+2357:   EX_PopExecutionFlow
+2358:   EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction SetPhysMaterialOverride
+                EX_ObjectConst import /Game/Enemies/ShootingPlant/PM_ShootingPlant_Frozen->PM_ShootingPlant_Frozen
+            RValue = []
+2403:   EX_Jump 1512
+2408:   EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction SetPhysMaterialOverride
+                EX_NoObject
+            RValue = []
+2445:   EX_Let
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_InstanceVariable [GlobalAnimRateScale]
+                RValue = [GlobalAnimRateScale]
+            EX_FloatConst 1
+2490:   EX_PopExecutionFlow
+2491:   EX_Context
+            EX_InstanceVariable [Capsule]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+2529:   EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [SkeletalMesh]
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/HydraWeed/HydraWeed_Death_Cue->HydraWeed_Death_Cue
+            EX_ObjectConst import /Game/Enemies/HydraWeed/Particles/P_Shooter_HydraWeed_Kill->P_Shooter_HydraWeed_Kill
+            EX_FloatConst 1
+            EX_NoObject
+2573:   EX_PopExecutionFlow
+2574:   EX_PushExecutionFlow 2584
+2579:   EX_Jump 1191
+2584:   EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_VectorConst 0,0,0
+            RValue = []
+2629:   EX_Context
+            EX_InstanceVariable [PointLight]
+            EX_FinalFunction import /Script/Engine->LightComponent->SetIntensity
+                EX_FloatConst 0
+            RValue = []
+2666:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 3
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 582
+                EX_IntConst 160916021
+                EX_NameConst ExecuteUbergraph_ENE_ShootingPlant_Small
+                EX_Self
+2720:   EX_PopExecutionFlow
+2721:   EX_Jump 1613
+2726:   EX_Jump 2491
+2731:   EX_Let
+            EX_LocalVariable [CallFunc_GetSocketRotation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketRotation
+                    EX_NameConst HydraWeed_Head
+                RValue = [CallFunc_GetSocketRotation_ReturnValue]
+2798:   EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst HydraWeed_Head
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+2865:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Enemies/HydraWeed/Assets/P_Hydra_Weed_HeadExplode->P_Hydra_Weed_HeadExplode
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_GetSocketRotation_ReturnValue]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+2930:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+2958:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/HydraWeed/HydraWeed_Death_Cue->HydraWeed_Death_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+3018:   EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_FinalFunction import /Script/Engine->SkinnedMeshComponent->HideBoneByName
+                EX_NameConst HydraWeed_Head
+                EX_ByteConst 1
+            RValue = []
+3065:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 499
+                EX_IntConst 6035091
+                EX_NameConst ExecuteUbergraph_ENE_ShootingPlant_Small
+                EX_Self
+3119:   EX_PopExecutionFlow
+3120:   EX_Let
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_InstanceVariable [GlobalAnimRateScale]
+                RValue = [GlobalAnimRateScale]
+            EX_InstanceVariable [Timeline_0_NewTrack_0_B7C1F10347624A87CE535C859B0970CF]
+3169:   EX_PopExecutionFlow
+3170:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetAnimInstance_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_FinalFunction import /Script/Engine->SkeletalMeshComponent->GetAnimInstance
+                RValue = [CallFunc_GetAnimInstance_ReturnValue_1]
+3212:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant_Anim_Instance]
+            EX_DynamicCast import /Script/FSD->ShootingPlantAnimInstance
+                EX_LocalVariable [CallFunc_GetAnimInstance_ReturnValue_1]
+3248:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant_Anim_Instance]
+3277:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+3287:   EX_LetObj
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant_Anim_Instance]
+                EX_InstanceVariable [Target]
+                RValue = [Target]
+            EX_InstanceVariable [Target]
+3328:   EX_PopExecutionFlow
+3329:   EX_Jump 3120
+3334:   EX_PopExecutionFlow
+3335:   EX_LetBool
+            EX_InstanceVariable [IsPassive]
+            EX_LocalVariable [K2Node_CustomEvent_BePassive]
+3354:   EX_Jump 947
+3359:   EX_Return
+            EX_Nothing
+3361:   EX_EndOfScript
+FunctionExport BndEvt__ENE_ShootingPlant_Small_Health_K2Node_ComponentBoundEvent_2_DeathSigDetailed__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_healthComponent]
+            EX_LocalVariable [healthComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageAmount]
+            EX_LocalVariable [damageAmount]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_tags]
+            EX_LocalOutVariable
+                [tags]
+72:     EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 15
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport ToggleAggressionLevel
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_BePassive]
+            EX_LocalVariable [BePassive]
+18:     EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 3335
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnRep_Target
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 3170
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport WeakpointDeath
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2731
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport NormalDeath
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2726
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport WakeUp
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2721
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2574
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnUnFrozen
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2408
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_source]
+            EX_LocalVariable [source]
+18:     EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2358
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__PawnSensing_K2Node_ComponentBoundEvent_0_SeePawnDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Pawn]
+            EX_LocalVariable [Pawn]
+18:     EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 2357
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Health_K2Node_ComponentBoundEvent_31_HealthChangedSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_health]
+            EX_LocalVariable [health]
+18:     EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 1545
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Growth__UpdateFunc
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 1061
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Growth__FinishedFunc
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 1262
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_0__UpdateFunc
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 3329
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_0__FinishedFunc
+0:      EX_LocalFinalFunction export ENE_ShootingPlant_Small_C->ExecuteUbergraph_ENE_ShootingPlant_Small
+            EX_IntConst 3334
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport GetMesh
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [SkeletalMesh]
+19:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+29:     EX_EndOfScript
+FunctionExport OnRep_DeathType
+0:      EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [DeathType]
+                EX_ByteConst 1
+31:     EX_JumpIfNot 95
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+45:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [DeathType]
+                EX_ByteConst 2
+76:     EX_JumpIfNot 114
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+90:     EX_Jump 128
+95:     EX_LocalVirtualFunction NormalDeath
+109:    EX_Jump 128
+114:    EX_LocalVirtualFunction WeakpointDeath
+128:    EX_Return
+            EX_Nothing
+130:    EX_EndOfScript
+FunctionExport Receive_GetMeshComponent
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [SkeletalMesh]
+19:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+29:     EX_EndOfScript
+FunctionExport GetIsTargetable
+0:      EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [IsVisible]
+19:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+29:     EX_EndOfScript

@@ -1,0 +1,328 @@
+FunctionExport ExecuteUbergraph_HUD_Refinery_Objective
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [Basic_HUD_BracketWindowBig_Single]
+            EX_LocalVirtualFunction Set Background Opacity
+                EX_FloatConst 1
+            RValue = []
+51:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Refinery]
+80:     EX_JumpIfNot 99
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+94:     EX_Jump 444
+99:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetActorOfClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetActorOfClass
+                EX_Self
+                EX_ObjectConst import /Script/FSD->FSDRefinery
+129:    EX_LocalVirtualFunction SetRefinery
+            EX_LocalVariable [CallFunc_GetActorOfClass_ReturnValue]
+152:    EX_Jump 444
+157:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+            EX_DynamicCast import /Script/FSD->RefineryObjective
+                EX_LocalVariable [K2Node_Event_obj]
+193:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+222:    EX_JumpIfNot 444
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+236:    EX_LetObj
+            EX_InstanceVariable [Objective]
+            EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+255:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_InstanceVariable [Objective]
+                    EX_InstanceVariable [Refinery]
+                    RValue = [Refinery]
+306:    EX_JumpIfNot 370
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+320:    EX_LocalVirtualFunction SetRefinery
+            EX_Context
+                EX_InstanceVariable [Objective]
+                EX_InstanceVariable [Refinery]
+                RValue = [Refinery]
+365:    EX_Jump 444
+370:    EX_BindDelegate SetRefinery
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+393:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Objective]
+                EX_InstanceVariable [OnRefinerySpawned]
+                RValue = [OnRefinerySpawned]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+434:    EX_Jump 444
+439:    EX_Jump 10
+444:    EX_Return
+            EX_Nothing
+446:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Refinery_Objective_C->ExecuteUbergraph_HUD_Refinery_Objective
+            EX_IntConst 439
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetObjective
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_obj]
+            EX_LocalVariable [obj]
+18:     EX_LocalFinalFunction export HUD_Refinery_Objective_C->ExecuteUbergraph_HUD_Refinery_Objective
+            EX_IntConst 157
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetRefinery
+0:      EX_PushExecutionFlow 847
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InRefinery]
+34:     EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_LocalVariable [InRefinery]
+                EX_InstanceVariable [Refinery]
+72:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+110:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+120:    EX_LetObj
+            EX_InstanceVariable [Refinery]
+            EX_LocalVariable [InRefinery]
+139:    EX_PushExecutionFlow 397
+144:    EX_PushExecutionFlow 259
+149:    EX_BindDelegate OnRefineryStateChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+172:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Refinery]
+                EX_InstanceVariable [OnRefineryStateChanged]
+                RValue = [OnRefineryStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+213:    EX_LocalVirtualFunction OnRefineryStateChanged
+            EX_Context
+                EX_InstanceVariable [Refinery]
+                EX_InstanceVariable [RefineryState]
+                RValue = [RefineryState]
+258:    EX_PopExecutionFlow
+259:    EX_BindDelegate OnProgressChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+282:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Refinery]
+                EX_InstanceVariable [OnRefineryProgressChanged]
+                RValue = [OnRefineryProgressChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+323:    EX_Let
+            EX_LocalVariable [CallFunc_GetRefiningProgress_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Refinery]
+                EX_FinalFunction import /Script/FSD->FSDRefinery->GetRefiningProgress
+                RValue = [CallFunc_GetRefiningProgress_ReturnValue]
+373:    EX_LocalVirtualFunction OnProgressChanged
+            EX_LocalVariable [CallFunc_GetRefiningProgress_ReturnValue]
+396:    EX_PopExecutionFlow
+397:    EX_BindDelegate OnSetupPipeline
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+420:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Refinery]
+                EX_InstanceVariable [OnPipelineRegistered]
+                RValue = [OnPipelineRegistered]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+461:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+484:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+507:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_InstanceVariable [Refinery]
+                        EX_InstanceVariable [PipelineStarts]
+                        RValue = [PipelineStarts]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+588:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+626:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+636:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+663:    EX_PushExecutionFlow 773
+668:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_Context
+                    EX_InstanceVariable [Refinery]
+                    EX_InstanceVariable [PipelineStarts]
+                    RValue = [PipelineStarts]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+749:    EX_LocalVirtualFunction OnSetupPipeline
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+772:    EX_PopExecutionFlow
+773:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+815:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+842:    EX_Jump 507
+847:    EX_Return
+            EX_Nothing
+849:    EX_EndOfScript
+FunctionExport OnSetupPipeline
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_Context
+                    EX_LocalVariable [InPipelineStart]
+                    EX_InstanceVariable [PipelineID]
+                    RValue = [PipelineID]
+                EX_IntConst 1
+64:     EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+91:     EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_int_Variable]
+                OffsetToSwitchEnd = 171
+                case 0:
+                    EX_IntConst 0
+                    NextCaseOffset = 126
+                    EX_InstanceVariable [Pipeline_Left]
+                case 1:
+                    EX_IntConst 1
+                    NextCaseOffset = 144
+                    EX_InstanceVariable [Pipeline_Center]
+                case 2:
+                    EX_IntConst 2
+                    NextCaseOffset = 162
+                    EX_InstanceVariable [Pipeline_Right]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_LocalVirtualFunction SetPipelineStart
+                EX_LocalVariable [InPipelineStart]
+            RValue = []
+206:    EX_FinalFunction import /Script/UMG->Widget->InvalidateLayoutAndVolatility
+216:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Conv_IntToString
+                EX_Context
+                    EX_LocalVariable [InPipelineStart]
+                    EX_InstanceVariable [PipelineID]
+                    RValue = [PipelineID]
+275:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst Pipeline Registred: 
+                EX_LocalVariable [CallFunc_Conv_IntToString_ReturnValue]
+334:    EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_False
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.66
+                EX_FloatConst 1
+                EX_FloatConst 1
+            EX_FloatConst 20
+395:    EX_Return
+            EX_Nothing
+397:    EX_EndOfScript
+FunctionExport OnProgressChanged
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [InProgress01]
+                EX_FloatConst 100
+42:     EX_Let
+            EX_LocalVariable [CallFunc_FFloor_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FFloor
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+79:     EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst percent
+115:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+144:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_TextConst
+173:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_FFloor_ReturnValue]
+209:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+241:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+270:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+290:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {percent}%
+                    LocalizedKey = 28EA4BAE4F1C64D93A0E1FB0EEA08E05
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+377:    EX_Context
+            EX_InstanceVariable [Text_MainPercent]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+422:    EX_Let
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MapRangeClamped
+                EX_LocalVariable [InProgress01]
+                EX_FloatConst 0
+                EX_FloatConst 1
+                EX_FloatConst 0.5
+                EX_FloatConst 0.97
+479:    EX_Context
+            EX_InstanceVariable [Refinery_Progressbar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+            RValue = []
+520:    EX_FinalFunction import /Script/UMG->Widget->InvalidateLayoutAndVolatility
+530:    EX_Return
+            EX_Nothing
+532:    EX_EndOfScript
+FunctionExport OnRefineryStateChanged
+0:      EX_FinalFunction import /Script/UMG->Widget->InvalidateLayoutAndVolatility
+10:     EX_Return
+            EX_Nothing
+12:     EX_EndOfScript

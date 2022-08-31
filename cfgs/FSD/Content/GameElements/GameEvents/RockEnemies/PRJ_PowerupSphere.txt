@@ -1,0 +1,295 @@
+FunctionExport ExecuteUbergraph_PRJ_PowerupSphere
+0:      EX_PushExecutionFlow 1446
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_InstanceVariable [Moving]
+            EX_False
+26:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 14
+            EX_NameConst Moving
+55:     EX_LocalVirtualFunction OnRep_Moving
+69:     EX_PopExecutionFlow
+70:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+80:     EX_Jump 15
+85:     EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 0.75
+                EX_FloatConst 1.25
+123:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakRotator
+            EX_Context
+                EX_InstanceVariable [RotatingMovement]
+                EX_InstanceVariable [RotationRate]
+                RValue = [RotationRate]
+            EX_LocalVariable [CallFunc_BreakRotator_Roll]
+            EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+            EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+191:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+237:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst 0
+284:    EX_Let
+            EX_Context
+                EX_InstanceVariable [RotatingMovement]
+                EX_InstanceVariable [RotationRate]
+                RValue = [RotationRate]
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+333:    EX_BindDelegate EndLife
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+356:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 15
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+409:    EX_Let
+            EX_InstanceVariable [LifetimeHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+436:    EX_PopExecutionFlow
+437:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+457:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+467:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 15
+486:    EX_PopExecutionFlow
+487:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+537:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/GameEvents/RockEnemies/Particles/P_PickAxePowerUp_PickUp->P_PickAxePowerUp_PickUp
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+606:    EX_PushExecutionFlow 738
+611:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+657:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+667:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+                EX_FinalFunction import /Script/Engine->GameplayStatics->SpawnSound2D
+                    EX_Self
+                    EX_ObjectConst import /Game/Audio/SFX/GameEvents/RockEnemies/FIX_PickupAxePower_Cue->FIX_PickupAxePower_Cue
+                    EX_FloatConst 1
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_NoObject
+                    EX_False
+                    EX_True
+                RValue = [CallFunc_SpawnSound2D_ReturnValue]
+737:    EX_PopExecutionFlow
+738:    EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+772:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+792:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+802:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 1
+821:    EX_LetBool
+            EX_LocalVariable [CallFunc_TryPushActiveStatusEffect_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__StatusEffectsComponent
+                EX_FinalFunction import /Script/FSD->StatusEffectsComponent->TryPushActiveStatusEffect
+                    EX_ObjectConst import /Game/GameElements/GameEvents/RockEnemies/STE_FastPowerAttacks->STE_FastPowerAttacks_C
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_Self
+                RValue = [CallFunc_TryPushActiveStatusEffect_ReturnValue]
+882:    EX_Context
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_InstanceVariable [MiningItem]
+                RValue = [MiningItem]
+            EX_FinalFunction import /Script/FSD->PickaxeItem->RefreshSpecialCooldown
+            RValue = []
+958:    EX_Context
+            EX_InstanceVariable [P_PickAxePowerUp_Glow]
+            EX_VirtualFunction Deactivate
+            RValue = []
+994:    EX_PopExecutionFlow
+995:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+1031:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1060:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1070:   EX_Jump 487
+1075:   EX_Jump 70
+1080:   EX_LetBool
+            EX_Context
+                EX_InstanceVariable [MovementComponent]
+                EX_InstanceVariable [bShouldBounce]
+                RValue = [bShouldBounce]
+            EX_False
+1113:   EX_PopExecutionFlow
+1114:   EX_Let
+            EX_Context
+                EX_InstanceVariable [RotatingMovement]
+                EX_InstanceVariable [RotationRate]
+                RValue = [RotationRate]
+            EX_RotationConst 0,0,0
+1167:   EX_PopExecutionFlow
+1168:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+1218:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/GameEvents/RockEnemies/Particles/P_PickAxePowerUp_PickUp->P_PickAxePowerUp_PickUp
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+1287:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+1337:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/GameEvents/PowerUpSprinkler/PowerUp_Disapear_Cue->PowerUp_Disapear_Cue
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+1407:   EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+1441:   EX_Jump 437
+1446:   EX_Return
+            EX_Nothing
+1448:   EX_EndOfScript
+FunctionExport EndLife
+0:      EX_LocalFinalFunction export PRJ_PowerupSphere_C->ExecuteUbergraph_PRJ_PowerupSphere
+            EX_IntConst 1168
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__MovementComponent_K2Node_ComponentBoundEvent_1_OnProjectileStopDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_ImpactResult]
+            EX_LocalOutVariable
+                [ImpactResult]
+18:     EX_LocalFinalFunction export PRJ_PowerupSphere_C->ExecuteUbergraph_PRJ_PowerupSphere
+            EX_IntConst 1114
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__MovementComponent_K2Node_ComponentBoundEvent_0_OnProjectileBounceDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_ImpactResult_1]
+            EX_LocalOutVariable
+                [ImpactResult]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_ImpactVelocity]
+            EX_LocalOutVariable
+                [ImpactVelocity]
+36:     EX_LocalFinalFunction export PRJ_PowerupSphere_C->ExecuteUbergraph_PRJ_PowerupSphere
+            EX_IntConst 1080
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_PowerupSphere_C->ExecuteUbergraph_PRJ_PowerupSphere
+            EX_IntConst 1075
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__PowerUpTrigger_K2Node_ComponentBoundEvent_2_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export PRJ_PowerupSphere_C->ExecuteUbergraph_PRJ_PowerupSphere
+            EX_IntConst 995
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export PRJ_PowerupSphere_C->ExecuteUbergraph_PRJ_PowerupSphere
+            EX_IntConst 85
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_Moving
+0:      EX_Context
+            EX_InstanceVariable [P_PickAxePowerUp_Glow]
+            EX_VirtualFunction Activate
+                EX_False
+            RValue = []
+37:     EX_Context
+            EX_InstanceVariable [MovementComponent]
+            EX_VirtualFunction StopMovementImmediately
+            RValue = []
+73:     EX_FinalFunction import /Script/FSD->ProjectileBase->StopMovement
+83:     EX_Return
+            EX_Nothing
+85:     EX_EndOfScript

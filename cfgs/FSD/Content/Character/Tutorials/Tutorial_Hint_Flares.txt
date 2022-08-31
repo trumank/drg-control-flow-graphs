@@ -1,0 +1,63 @@
+FunctionExport ExecuteUbergraph_Tutorial_Hint_Flares
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasTutorialBeenShown_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TutorialComponent->HasTutorialBeenShown
+30:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_HasTutorialBeenShown_ReturnValue]
+49:     EX_FinalFunction import /Script/FSD->TutorialComponent->MarkTutorialReadyInSeconds
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 111
+                case 0:
+                    EX_False
+                    NextCaseOffset = 88
+                    EX_InstanceVariable [FirstTimeDelay]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 102
+                    EX_InstanceVariable [AfterUseDelay]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+112:    EX_BindDelegate OnFlareThrown
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+135:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [PlayerCharacter]
+                EX_InstanceVariable [OnFlareThrown]
+                RValue = [OnFlareThrown]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+176:    EX_Jump 245
+181:    EX_FinalFunction import /Script/FSD->TutorialComponent->MarkTutorialReadyInSeconds
+            EX_InstanceVariable [AfterUseDelay]
+200:    EX_Jump 245
+205:    EX_FinalFunction import /Script/FSD->TutorialComponent->CancelTutorial
+            EX_True
+216:    EX_FinalFunction import /Script/FSD->TutorialComponent->MarkTutorialReadyInSeconds
+            EX_InstanceVariable [AfterUseDelay]
+235:    EX_Jump 245
+240:    EX_Jump 181
+245:    EX_Return
+            EX_Nothing
+247:    EX_EndOfScript
+FunctionExport ReceiveOnInitialized
+0:      EX_LocalFinalFunction export Tutorial_Hint_Flares_C->ExecuteUbergraph_Tutorial_Hint_Flares
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveOnHidden
+0:      EX_LocalFinalFunction export Tutorial_Hint_Flares_C->ExecuteUbergraph_Tutorial_Hint_Flares
+            EX_IntConst 240
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFlareThrown
+0:      EX_LocalFinalFunction export Tutorial_Hint_Flares_C->ExecuteUbergraph_Tutorial_Hint_Flares
+            EX_IntConst 205
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

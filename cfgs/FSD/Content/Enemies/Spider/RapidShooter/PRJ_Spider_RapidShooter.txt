@@ -1,0 +1,112 @@
+FunctionExport ExecuteUbergraph_PRJ_Spider_RapidShooter
+0:      EX_PushExecutionFlow 662
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+35:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+45:     EX_Context
+            EX_InstanceVariable [Damage]
+            EX_FinalFunction import /Script/FSD->DamageComponent->DamageTargetFromHit
+                EX_LocalVariable [K2Node_Event_HitResult]
+            RValue = []
+86:     EX_PopExecutionFlow
+87:     EX_VirtualFunction DisableAndDestroy
+101:    EX_Context
+            EX_InstanceVariable [SK_ShootingPlant_Projectile]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+135:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_Event_HitResult]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+307:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+335:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_VectorToRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_VectorToRotator
+                EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+372:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Enemies/Spider/RapidShooter/P_Spider_RapidShooterExplosionImpact->P_Spider_RapidShooterExplosionImpact
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Conv_VectorToRotator_ReturnValue]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 1
+                EX_True
+437:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+465:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/RapidShooter/RapidShooter_Projectile_Impact_Cue->RapidShooter_Projectile_Impact_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+525:    EX_Context
+            EX_InstanceVariable [ParticleComponent]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_DetachFromComponent
+                EX_ByteConst 1
+                EX_ByteConst 1
+                EX_ByteConst 1
+                EX_True
+            RValue = []
+564:    EX_Context
+            EX_InstanceVariable [ParticleComponent]
+            EX_VirtualFunction Deactivate
+            RValue = []
+600:    EX_PopExecutionFlow
+601:    EX_PushExecutionFlow 616
+606:    EX_PushExecutionFlow 15
+611:    EX_Jump 87
+616:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnDecalAtActor_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameplayStatics->SpawnDecalAtActor
+                EX_Self
+                EX_ObjectConst import /Game/Art/Decals/M_Decal_Splat_Blue->M_Decal_Splat_Blue
+                EX_FloatConst 120
+                EX_FloatConst 10
+                EX_FloatConst 3
+661:    EX_PopExecutionFlow
+662:    EX_Return
+            EX_Nothing
+664:    EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_Spider_RapidShooter_C->ExecuteUbergraph_PRJ_Spider_RapidShooter
+            EX_IntConst 601
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

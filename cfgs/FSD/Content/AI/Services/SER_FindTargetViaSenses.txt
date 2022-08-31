@@ -1,0 +1,237 @@
+FunctionExport ExecuteUbergraph_SER_FindTargetViaSenses
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_NoObject
+21:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsGameplay_Tag_Asset_Interface]
+            EX_ObjToInterfaceCast import /Script/GameplayTags->GameplayTagAssetInterface
+                EX_LocalVariable [K2Node_CustomEvent_Pawn]
+57:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsGameplay_Tag_Asset_Interface]
+86:     EX_JumpIfNot 307
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+100:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyMatchingGameplayTags_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsGameplay_Tag_Asset_Interface]
+                EX_VirtualFunction HasAnyMatchingGameplayTags
+                    EX_InstanceVariable [AllowedTargets]
+                RValue = [CallFunc_HasAnyMatchingGameplayTags_ReturnValue]
+156:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_HasAnyMatchingGameplayTags_ReturnValue]
+175:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Temp_object_Variable]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+221:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [Temp_bool_Variable]
+                EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+259:    EX_JumpIfNot 1391
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+273:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [TargetKey]
+            EX_LocalVariable [K2Node_CustomEvent_Pawn]
+302:    EX_Jump 1391
+307:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_False
+318:    EX_Jump 175
+323:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_NoObject
+334:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [Temp_object_Variable_1]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue_1]
+380:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+410:    EX_LetBool
+            EX_LocalVariable [CallFunc_LineOfSightTo_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_OwnerController]
+                EX_VirtualFunction LineOfSightTo
+                    EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                    EX_VectorConst 0,0,0
+                    EX_False
+                RValue = [CallFunc_LineOfSightTo_ReturnValue]
+479:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsAlive_ReturnValue_1]
+                EX_LocalVariable [CallFunc_LineOfSightTo_ReturnValue]
+517:    EX_JumpIfNot 536
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+531:    EX_Jump 1391
+536:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [TargetKey]
+            EX_NoObject
+557:    EX_Jump 1391
+562:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_ControlledPawn_1]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/AIModule->PawnSensingComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+613:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+642:    EX_JumpIfNot 1391
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+656:    EX_BindDelegate OnSensePawn
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+679:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_ControlledPawn_1]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/AIModule->PawnSensingComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+730:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [OnSeePawn]
+                RValue = [OnSeePawn]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+771:    EX_Jump 1391
+776:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue_1]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+806:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue_1]
+835:    EX_JumpIfNot 854
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+849:    EX_Jump 1391
+854:    EX_LetBool
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->DoesImplementInterface
+                EX_LocalVariable [K2Node_CustomEvent_Pawn]
+                EX_ObjectConst import /Script/FSD->Targetable
+892:    EX_JumpIfNot 1391
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue]
+906:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+            EX_ObjToInterfaceCast import /Script/FSD->Targetable
+                EX_LocalVariable [K2Node_CustomEvent_Pawn]
+942:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+971:    EX_JumpIfNot 10
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+985:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetTargetHealthComponent_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+                EX_VirtualFunction GetTargetHealthComponent
+                RValue = [CallFunc_GetTargetHealthComponent_ReturnValue]
+1032:   EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_LocalVariable [CallFunc_GetTargetHealthComponent_ReturnValue]
+1051:   EX_Jump 21
+1056:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+1086:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+1115:   EX_JumpIfNot 1391
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+1129:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+1159:   EX_LetBool
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->DoesImplementInterface
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                EX_ObjectConst import /Script/FSD->Targetable
+1197:   EX_JumpIfNot 1391
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue_1]
+1211:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+1241:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTargetable_1]
+            EX_ObjToInterfaceCast import /Script/FSD->Targetable
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+1277:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTargetable_1]
+1306:   EX_JumpIfNot 323
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+1320:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetTargetHealthComponent_ReturnValue_1]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsTargetable_1]
+                EX_VirtualFunction GetTargetHealthComponent
+                RValue = [CallFunc_GetTargetHealthComponent_ReturnValue_1]
+1367:   EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_LocalVariable [CallFunc_GetTargetHealthComponent_ReturnValue_1]
+1386:   EX_Jump 334
+1391:   EX_Return
+            EX_Nothing
+1393:   EX_EndOfScript
+FunctionExport ReceiveTickAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+54:     EX_LocalFinalFunction export SER_FindTargetViaSenses_C->ExecuteUbergraph_SER_FindTargetViaSenses
+            EX_IntConst 1056
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport OnSensePawn
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Pawn]
+            EX_LocalVariable [Pawn]
+18:     EX_LocalFinalFunction export SER_FindTargetViaSenses_C->ExecuteUbergraph_SER_FindTargetViaSenses
+            EX_IntConst 776
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveSearchStartAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController_1]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn_1]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export SER_FindTargetViaSenses_C->ExecuteUbergraph_SER_FindTargetViaSenses
+            EX_IntConst 562
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

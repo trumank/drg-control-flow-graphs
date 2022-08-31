@@ -1,0 +1,226 @@
+FunctionExport ExecuteUbergraph_Widget_HandheldTablet_UseProgress
+0:      EX_PushExecutionFlow 402
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction UpdateIcon
+29:     EX_PopExecutionFlow
+30:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Character]
+59:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+69:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetUseComponent
+                RValue = [CallFunc_GetUseComponent_ReturnValue]
+111:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetActiveUsable_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+                EX_FinalFunction import /Script/FSD->CharacterUseComponent->GetActiveUsable
+                RValue = [CallFunc_GetActiveUsable_ReturnValue]
+153:    EX_LetObj
+            EX_InstanceVariable [Usable]
+            EX_LocalVariable [CallFunc_GetActiveUsable_ReturnValue]
+172:    EX_PopExecutionFlow
+173:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 15
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+221:    EX_Context
+            EX_InstanceVariable [UseProgress]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+262:    EX_PopExecutionFlow
+263:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+283:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+319:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+348:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+358:    EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+377:    EX_PushExecutionFlow 15
+382:    EX_Jump 30
+387:    EX_LocalVirtualFunction UpdateProgress
+401:    EX_PopExecutionFlow
+402:    EX_Return
+            EX_Nothing
+404:    EX_EndOfScript
+FunctionExport Tick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_MyGeometry]
+            EX_LocalVariable [MyGeometry]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_InDeltaTime]
+            EX_LocalVariable [InDeltaTime]
+36:     EX_LocalFinalFunction export Widget_HandheldTablet_UseProgress_C->ExecuteUbergraph_Widget_HandheldTablet_UseProgress
+            EX_IntConst 387
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export Widget_HandheldTablet_UseProgress_C->ExecuteUbergraph_Widget_HandheldTablet_UseProgress
+            EX_IntConst 263
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export Widget_HandheldTablet_UseProgress_C->ExecuteUbergraph_Widget_HandheldTablet_UseProgress
+            EX_IntConst 173
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateProgress
+0:      EX_Context
+            EX_InstanceVariable [UseProgress]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+38:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Usable]
+67:     EX_JumpIfNot 307
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+81:     EX_Let
+            EX_LocalVariable [CallFunc_GetUseProgressInPercent_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Usable]
+                EX_VirtualFunction GetUseProgressInPercent
+                    EX_InstanceVariable [Character]
+                RValue = [CallFunc_GetUseProgressInPercent_ReturnValue]
+144:    EX_Context
+            EX_InstanceVariable [UseProgress]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CallFunc_GetUseProgressInPercent_ReturnValue]
+            RValue = []
+185:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_Context
+                    EX_InstanceVariable [UseProgress]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+                EX_FloatConst 0
+241:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SetVisibilityIf
+                EX_InstanceVariable [UseProgress]
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SetVisibilityIf_IsVisible]
+            RValue = []
+307:    EX_Return
+            EX_Nothing
+309:    EX_EndOfScript
+FunctionExport GetUsableIcon
+0:      EX_PushExecutionFlow 387
+5:      EX_PushExecutionFlow 158
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Usable]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+49:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetUsableIcon_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Usable]
+                EX_VirtualFunction GetUsableIcon
+                RValue = [CallFunc_GetUsableIcon_ReturnValue]
+95:     EX_LetObj
+            EX_LocalVariable [Icon]
+            EX_LocalVariable [CallFunc_GetUsableIcon_ReturnValue]
+114:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Icon]
+143:    EX_JumpIfNot 182
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+157:    EX_PopExecutionFlow
+158:    EX_LetObj
+            EX_LocalOutVariable
+                [OutTexture]
+            EX_LocalVariable [Icon]
+177:    EX_Jump 387
+182:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Usable]
+                EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+                RValue = [CallFunc_GetOwner_ReturnValue]
+224:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+                EX_ObjectConst import /Script/FSD->ObjectInfoComponent
+262:    EX_LetObj
+            EX_LocalVariable [ObjectInfo]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+281:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [ObjectInfo]
+310:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+320:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInGameIcon_ReturnValue]
+            EX_Context
+                EX_LocalVariable [ObjectInfo]
+                EX_VirtualFunction GetInGameIcon
+                    EX_NoObject
+                RValue = [CallFunc_GetInGameIcon_ReturnValue]
+367:    EX_LetObj
+            EX_LocalVariable [Icon]
+            EX_LocalVariable [CallFunc_GetInGameIcon_ReturnValue]
+386:    EX_PopExecutionFlow
+387:    EX_Return
+            EX_Nothing
+389:    EX_EndOfScript
+FunctionExport UpdateIcon
+0:      EX_Context
+            EX_InstanceVariable [UseImage]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+38:     EX_LocalVirtualFunction GetUsableIcon
+            EX_LocalVariable [CallFunc_GetUsableIcon_OutTexture]
+61:     EX_Context
+            EX_InstanceVariable [UseImage]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetUsableIcon_OutTexture]
+                EX_True
+            RValue = []
+107:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetUsableIcon_OutTexture]
+136:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SetVisibilityIf
+                EX_InstanceVariable [UseImage]
+                EX_ByteConst 3
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SetVisibilityIf_IsVisible]
+            RValue = []
+202:    EX_Return
+            EX_Nothing
+204:    EX_EndOfScript

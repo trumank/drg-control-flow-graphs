@@ -1,0 +1,39 @@
+FunctionExport ExecuteUbergraph_MOD_Proxy_SpawnWave
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+30:     EX_JumpIfNot 187
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+44:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameMode
+                EX_Self
+65:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetWaveManager_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameMode->GetWaveManager
+                RValue = [CallFunc_GetWaveManager_ReturnValue]
+107:    EX_LetObj
+            EX_LocalVariable [CallFunc_TriggerWave_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWaveManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->EnemyWaveManager->TriggerWave
+                    EX_InstanceVariable [Wave]
+                RValue = [CallFunc_TriggerWave_ReturnValue]
+158:    EX_LetObj
+            EX_InstanceVariable [WaveInstance]
+            EX_LocalVariable [CallFunc_TriggerWave_ReturnValue]
+177:    EX_Jump 187
+182:    EX_Jump 10
+187:    EX_Return
+            EX_Nothing
+189:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export MOD_Proxy_SpawnWave_C->ExecuteUbergraph_MOD_Proxy_SpawnWave
+            EX_IntConst 182
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

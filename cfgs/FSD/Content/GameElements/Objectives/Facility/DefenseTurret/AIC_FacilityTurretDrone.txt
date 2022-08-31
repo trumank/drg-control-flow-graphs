@@ -1,0 +1,105 @@
+FunctionExport ExecuteUbergraph_AIC_FacilityTurretDrone
+0:      EX_PushExecutionFlow 620
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_JumpIfNot 560
+            EX_InstanceVariable [IsSetup]
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefenseTurret/BT_FacilityTurretDrone->BT_FacilityTurretDrone
+62:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Facility_Turret_Drone]
+            EX_DynamicCast import /Game/GameElements/Objectives/Facility/DefenseTurret/BP_FacilityTurretDrone->BP_FacilityTurretDrone_C
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+98:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Facility_Turret_Drone]
+127:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+137:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Facility_Turret_Drone]
+            EX_LocalVirtualFunction SetSpawnTransform
+                EX_InstanceVariable [TargetTransform]
+            RValue = []
+182:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_InstanceVariable [TargetTransform]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+228:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_Self
+249:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst TargetLocation
+290:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->DeepPathfinderMovement
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+341:    EX_Let
+            EX_LocalVariable [CallFunc_FindNearestPathfinderPoint_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->FindNearestPathfinderPoint
+                    EX_LocalVariable [CallFunc_BreakTransform_Location]
+                    EX_FloatConst 500
+                RValue = [CallFunc_FindNearestPathfinderPoint_ReturnValue]
+405:    EX_Context
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsVector
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_LocalVariable [CallFunc_FindNearestPathfinderPoint_ReturnValue]
+            RValue = []
+455:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_Self
+476:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Initialized
+517:    EX_Context
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+                EX_True
+            RValue = []
+559:    EX_PopExecutionFlow
+560:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 1877594131
+                EX_NameConst ExecuteUbergraph_AIC_FacilityTurretDrone
+                EX_Self
+614:    EX_PopExecutionFlow
+615:    EX_Jump 15
+620:    EX_Return
+            EX_Nothing
+622:    EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_FacilityTurretDrone_C->ExecuteUbergraph_AIC_FacilityTurretDrone
+            EX_IntConst 615
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetTargetTransform
+0:      EX_LetBool
+            EX_InstanceVariable [IsSetup]
+            EX_True
+11:     EX_Let
+            EX_InstanceVariable [TargetTransform]
+            EX_LocalVariable [targetTransform]
+38:     EX_Return
+            EX_Nothing
+40:     EX_EndOfScript

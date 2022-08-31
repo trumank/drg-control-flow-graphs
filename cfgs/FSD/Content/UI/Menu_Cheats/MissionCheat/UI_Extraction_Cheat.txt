@@ -1,0 +1,47 @@
+FunctionExport ExecuteUbergraph_UI_Extraction_Cheat
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+31:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameState->GetPrimaryObjective
+                RValue = [CallFunc_GetPrimaryObjective_ReturnValue]
+73:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsResource_Objective]
+            EX_DynamicCast import /Script/FSD->ResourceObjective
+                EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+109:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsResource_Objective]
+138:    EX_JumpIfNot 245
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+152:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCheatManager_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetCheatManager
+                EX_Self
+173:    EX_Context
+            EX_LocalVariable [CallFunc_GetCheatManager_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDCheatManager->AddResourceToTeamDeposit
+                EX_ObjectConst import /Game/GameElements/Resources/Veins/RES_VEIN_Morkite->RES_VEIN_Morkite
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsResource_Objective]
+                    EX_InstanceVariable [ResourcesRequired]
+                    RValue = [ResourcesRequired]
+            RValue = []
+245:    EX_Return
+            EX_Nothing
+247:    EX_EndOfScript
+FunctionExport BndEvt__CheatMenu_FillMorkite_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Button]
+            EX_LocalVariable [Button]
+18:     EX_LocalFinalFunction export UI_Extraction_Cheat_C->ExecuteUbergraph_UI_Extraction_Cheat
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

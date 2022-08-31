@@ -1,0 +1,134 @@
+FunctionExport ExecuteUbergraph_ITM_MenuDamageIndicator
+0:      EX_PushExecutionFlow 633
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+35:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+71:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+100:    EX_JumpIfNot 290
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+114:    EX_BindDelegate OnHit
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+137:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [HealthComponent]
+                    RValue = [HealthComponent]
+                EX_InstanceVariable [OnHit]
+                RValue = [OnHit]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+200:    EX_BindDelegate OnAnimFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+223:    EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationFinished
+            EX_InstanceVariable [DamageTaken]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+251:    EX_Context
+            EX_InstanceVariable [Image_Damage]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+289:    EX_PopExecutionFlow
+290:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 659353215
+                EX_NameConst ExecuteUbergraph_ITM_MenuDamageIndicator
+                EX_Self
+344:    EX_PopExecutionFlow
+345:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Menu]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+387:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+397:    EX_Context
+            EX_InstanceVariable [Image_Damage]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 3
+            RValue = []
+435:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [DamageTaken]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+482:    EX_PopExecutionFlow
+483:    EX_Jump 15
+488:    EX_Jump 345
+493:    EX_Let
+            EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetAnimationCurrentTime
+                EX_InstanceVariable [DamageTaken]
+530:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+                EX_FloatConst 0
+564:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+574:    EX_Context
+            EX_InstanceVariable [Image_Damage]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+612:    EX_PopExecutionFlow
+613:    EX_LetObj
+            EX_InstanceVariable [Menu]
+            EX_LocalVariable [K2Node_CustomEvent_EscapeMenu]
+632:    EX_PopExecutionFlow
+633:    EX_Return
+            EX_Nothing
+635:    EX_EndOfScript
+FunctionExport SetMenu
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_EscapeMenu]
+            EX_LocalVariable [EscapeMenu]
+18:     EX_LocalFinalFunction export ITM_MenuDamageIndicator_C->ExecuteUbergraph_ITM_MenuDamageIndicator
+            EX_IntConst 613
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAnimFinished
+0:      EX_LocalFinalFunction export ITM_MenuDamageIndicator_C->ExecuteUbergraph_ITM_MenuDamageIndicator
+            EX_IntConst 493
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnHit
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Damage]
+            EX_LocalVariable [Damage]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_anyHealthLost]
+            EX_LocalVariable [anyHealthLost]
+54:     EX_LocalFinalFunction export ITM_MenuDamageIndicator_C->ExecuteUbergraph_ITM_MenuDamageIndicator
+            EX_IntConst 488
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_MenuDamageIndicator_C->ExecuteUbergraph_ITM_MenuDamageIndicator
+            EX_IntConst 483
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

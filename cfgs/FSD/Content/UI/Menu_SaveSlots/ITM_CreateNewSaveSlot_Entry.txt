@@ -1,0 +1,653 @@
+FunctionExport OnSaveslotCreated__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_ComponentBoundEvent_Text_1]
+47:     EX_Let
+            EX_InstanceVariable [SaveSlotName]
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+74:     EX_Jump 1719
+79:     EX_LocalVirtualFunction CheckForIlligalChars
+            EX_InstanceVariable [SaveSlotName]
+            EX_LocalVariable [CallFunc_CheckForIlligalChars_IsIlligal]
+111:    EX_JumpIfNot 144
+            EX_LocalVariable [CallFunc_CheckForIlligalChars_IsIlligal]
+125:    EX_LocalVirtualFunction SaveNameInputError
+139:    EX_Jump 1719
+144:    EX_LetBool
+            EX_InstanceVariable [ResetProgress]
+            EX_True
+155:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+176:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SaveToDisk
+            RValue = []
+208:    EX_LocalVirtualFunction SaveSlotNameExists
+            EX_LocalVariable [CallFunc_SaveSlotNameExists_Exists]
+231:    EX_JumpIfNot 927
+            EX_LocalVariable [CallFunc_SaveSlotNameExists_Exists]
+245:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+266:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenSingleUseWindow
+                    EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Popup_YesNoPrompt->Basic_Popup_YesNoPrompt_C
+                    EX_IntConst 550
+                RValue = [CallFunc_OpenSingleUseWindow_ReturnValue]
+322:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_InstanceVariable [SaveSlotName]
+359:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst savename
+396:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+425:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+461:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+493:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+525:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+554:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+574:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = Warning: You already have a Save Slot with the name: {savename}. Pressing Yes will OVERWRITE that Save Slot. This action can NOT be undone.
+                    LocalizedKey = F0DE8CC24899CD20B47F32B88633A42A
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+790:    EX_BindDelegate Answer
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+813:    EX_Context
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_FinalFunction import /Script/FSD->YesNoPromptWidget->Show
+                EX_TextConst
+                    SourceString = Overwrite Save Game
+                    LocalizedKey = 39372B544339618DCC3FD89FF759E7A2
+                    LocalizedNamespace = 
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            RValue = []
+922:    EX_Jump 1719
+927:    EX_JumpIfNot 1223
+            EX_InstanceVariable [ResetProgress]
+941:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+962:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenSingleUseWindow
+                    EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Popup_YesNoPrompt->Basic_Popup_YesNoPrompt_C
+                    EX_IntConst 550
+                RValue = [CallFunc_OpenSingleUseWindow_ReturnValue_1]
+1018:   EX_BindDelegate TutorialAnswer
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1041:   EX_Context
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->YesNoPromptWidget->Show
+                EX_TextConst
+                    SourceString = Tutorial level
+                    LocalizedKey = 9381F8C44458A76F5AE71D86F1FAAEE7
+                    LocalizedNamespace = 
+                EX_TextConst
+                    SourceString = Do you want to restart the tutorial level?
+                    LocalizedKey = B7E85C654866AB4950538A86AC7FF40B
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            RValue = []
+1218:   EX_Jump 1719
+1223:   EX_LocalVirtualFunction ChangeSave
+            EX_InstanceVariable [SaveSlotName]
+            EX_InstanceVariable [ResetProgress]
+            EX_False
+1256:   EX_CallMulticastDelegate export ITM_CreateNewSaveSlot_Entry_C->OnSaveslotCreated__DelegateSignature
+            EX_InstanceVariable [OnSaveslotCreated]
+1275:   EX_Jump 1719
+1280:   EX_LocalVirtualFunction CheckForIlligalChars
+            EX_InstanceVariable [SaveSlotName]
+            EX_LocalVariable [CallFunc_CheckForIlligalChars_IsIlligal_1]
+1312:   EX_JumpIfNot 1345
+            EX_LocalVariable [CallFunc_CheckForIlligalChars_IsIlligal_1]
+1326:   EX_LocalVirtualFunction SaveNameInputError
+1340:   EX_Jump 1719
+1345:   EX_LetBool
+            EX_InstanceVariable [ResetProgress]
+            EX_False
+1356:   EX_Jump 155
+1361:   EX_JumpIfNot 1719
+            EX_LocalVariable [K2Node_CustomEvent_Yes_1]
+1375:   EX_Jump 927
+1380:   EX_Jump 79
+1385:   EX_LocalVirtualFunction ChangeSave
+            EX_InstanceVariable [SaveSlotName]
+            EX_InstanceVariable [ResetProgress]
+            EX_LocalVariable [K2Node_CustomEvent_Yes]
+1426:   EX_Jump 1256
+1431:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_ComponentBoundEvent_Text]
+1468:   EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+1505:   EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue]
+                EX_IntConst 0
+1539:   EX_JumpIfNot 1719
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+1553:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_ComponentBoundEvent_Text]
+1590:   EX_Let
+            EX_LocalVariable [CallFunc_GetSubstring_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->GetSubstring
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+                EX_IntConst 0
+                EX_IntConst 19
+1637:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_GetSubstring_ReturnValue]
+1674:   EX_Context
+            EX_InstanceVariable [SaveslotName_Input]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue_1]
+            RValue = []
+1719:   EX_Return
+            EX_Nothing
+1721:   EX_EndOfScript
+FunctionExport BndEvt__SaveslotName_Input_K2Node_ComponentBoundEvent_1_OnTextChanged__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Text]
+            EX_LocalVariable [Text]
+18:     EX_LocalFinalFunction export ITM_CreateNewSaveSlot_Entry_C->ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+            EX_IntConst 1431
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport TutorialAnswer
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Yes]
+            EX_LocalVariable [Yes]
+18:     EX_LocalFinalFunction export ITM_CreateNewSaveSlot_Entry_C->ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+            EX_IntConst 1385
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Basic_NewProgress_K2Node_ComponentBoundEvent_0_OnReleased__DelegateSignature
+0:      EX_LocalFinalFunction export ITM_CreateNewSaveSlot_Entry_C->ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+            EX_IntConst 1380
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Answer
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Yes_1]
+            EX_LocalVariable [Yes]
+18:     EX_LocalFinalFunction export ITM_CreateNewSaveSlot_Entry_C->ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+            EX_IntConst 1361
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Basic_ButtonCutCorner_K2Node_ComponentBoundEvent_3_OnReleased__DelegateSignature
+0:      EX_LocalFinalFunction export ITM_CreateNewSaveSlot_Entry_C->ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+            EX_IntConst 1280
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__SaveslotName_Input_K2Node_ComponentBoundEvent_2_OnTextCommitted__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Text_1]
+            EX_LocalVariable [Text]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_CommitMethod]
+            EX_LocalVariable [CommitMethod]
+36:     EX_LocalFinalFunction export ITM_CreateNewSaveSlot_Entry_C->ExecuteUbergraph_ITM_CreateNewSaveSlot_Entry
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SaveNameInputError
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_Context
+                    EX_Self
+                    EX_InstanceVariable [FlashingText]
+                    RValue = [FlashingText]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+61:     EX_Let
+            EX_LocalVariable [Temp_text_Variable]
+            EX_TextConst
+                SourceString = Save name cannot include the word backup...
+                LocalizedKey = D54D2D6D4C93DA04362831A793E5E818
+                LocalizedNamespace = 
+162:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_1]
+            EX_TextConst
+                SourceString = Save name cannot contain special characters...
+                LocalizedKey = 734B51A44BED021C1BDC0AB625D9BD22
+                LocalizedNamespace = 
+266:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_2]
+            EX_TextConst
+                SourceString = Please input name of save...
+                LocalizedKey = 5CB43AC54F5E37993891C2B20507BC51
+                LocalizedNamespace = 
+352:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsEmpty_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->IsEmpty
+                EX_InstanceVariable [SaveSlotName]
+381:    EX_LetBool
+            EX_LocalVariable [CallFunc_Contains_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Contains
+                EX_InstanceVariable [SaveSlotName]
+                EX_StringConst backup
+                EX_False
+                EX_False
+420:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_IsEmpty_ReturnValue]
+439:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Contains_ReturnValue]
+458:    EX_Context
+            EX_Context
+                EX_InstanceVariable [SaveslotName_Input]
+                EX_InstanceVariable [InputField]
+                RValue = [InputField]
+            EX_FinalFunction import /Script/UMG->EditableTextBox->SetHintText
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 608
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 585
+                        EX_SwitchValue
+                            EX_LocalVariable [Temp_bool_Variable]
+                            OffsetToSwitchEnd = 585
+                            case 0:
+                                EX_False
+                                NextCaseOffset = 562
+                                EX_LocalVariable [Temp_text_Variable_1]
+                            case 1:
+                                EX_True
+                                NextCaseOffset = 576
+                                EX_LocalVariable [Temp_text_Variable]
+                            default:
+                                EX_LocalVariable [K2Node_Select_Default]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 599
+                        EX_LocalVariable [Temp_text_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+609:    EX_Context
+            EX_InstanceVariable [SaveslotName_Input]
+            EX_LocalVirtualFunction SetText
+                EX_TextConst
+            RValue = []
+647:    EX_Let
+            EX_InstanceVariable [SaveSlotName]
+            EX_StringConst 
+667:    EX_Return
+            EX_Nothing
+669:    EX_EndOfScript
+FunctionExport SaveSlotNameExists
+0:      EX_PushExecutionFlow 560
+5:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+26:     EX_Let
+            EX_LocalVariable [CallFunc_GetAllSavesFromDisk_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSaveGame->GetAllSavesFromDisk
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+63:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+86:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+109:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetAllSavesFromDisk_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+168:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+206:    EX_JumpIfNot 470
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+220:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+247:    EX_PushExecutionFlow 486
+252:    EX_Let
+            EX_LocalVariable [CallFunc_Replace_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Replace
+                EX_InstanceVariable [SaveSlotName]
+                EX_StringConst  
+                EX_StringConst _
+                EX_ByteConst 1
+297:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllSavesFromDisk_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+356:    EX_Let
+            EX_LocalVariable [CallFunc_GetName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetName
+                RValue = [CallFunc_GetName_ReturnValue]
+406:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->EqualEqual_StrStr
+                EX_LocalVariable [CallFunc_GetName_ReturnValue]
+                EX_LocalVariable [CallFunc_Replace_ReturnValue]
+444:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_StrStr_ReturnValue]
+454:    EX_LetBool
+            EX_LocalOutVariable
+                [Exists]
+            EX_True
+465:    EX_Jump 560
+470:    EX_LetBool
+            EX_LocalOutVariable
+                [Exists]
+            EX_False
+481:    EX_Jump 560
+486:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+528:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+555:    EX_Jump 109
+560:    EX_Return
+            EX_Nothing
+562:    EX_EndOfScript
+FunctionExport ChangeSave
+0:      EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 0
+20:     EX_Let
+            EX_LocalVariable [CallFunc_Replace_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Replace
+                EX_LocalVariable [Name]
+                EX_StringConst  
+                EX_StringConst _
+                EX_ByteConst 1
+65:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 2
+85:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [Reset]
+104:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+124:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameUserSettings->SetCurrentUserSaveSlotName
+                EX_Self
+                EX_LocalVariable [CallFunc_Replace_ReturnValue]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 218
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 195
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 209
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+219:    EX_Let
+            EX_LocalVariable [CallFunc_Replace_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Replace
+                EX_LocalVariable [Name]
+                EX_StringConst  
+                EX_StringConst _
+                EX_ByteConst 1
+264:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+285:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+306:    EX_Let
+            EX_LocalVariable [CallFunc_GetAvailableUserSlotIndex_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSaveGame->GetAvailableUserSlotIndex
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+343:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SetIndexAndName
+                EX_LocalVariable [CallFunc_GetAvailableUserSlotIndex_ReturnValue]
+                EX_LocalVariable [CallFunc_Replace_ReturnValue]
+            RValue = []
+393:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [StartTutorial]
+422:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+443:    EX_LetBool
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_InstanceVariable [HasPlayedTutorial]
+                RValue = [HasPlayedTutorial]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+484:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+505:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SaveToDisk
+            RValue = []
+537:    EX_Return
+            EX_Nothing
+539:    EX_EndOfScript
+FunctionExport CheckForIlligalChars
+0:      EX_PushExecutionFlow 697
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_Contains_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Contains
+                EX_LocalVariable [InString]
+                EX_StringConst backup
+                EX_False
+                EX_False
+44:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsEmpty_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->IsEmpty
+                EX_LocalVariable [InString]
+73:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_IsEmpty_ReturnValue]
+                EX_LocalVariable [CallFunc_Contains_ReturnValue]
+111:    EX_JumpIfNot 141
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+125:    EX_LetBool
+            EX_LocalOutVariable
+                [IsIlligal]
+            EX_True
+136:    EX_Jump 697
+141:    EX_LetBool
+            EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+            EX_False
+152:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+175:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+198:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+227:    EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterArrayFromString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->GetCharacterArrayFromString
+                EX_InstanceVariable [IlligalChars]
+264:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetCharacterArrayFromString_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+323:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+361:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+399:    EX_JumpIfNot 607
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+413:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+440:    EX_PushExecutionFlow 623
+445:    EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterArrayFromString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->GetCharacterArrayFromString
+                EX_InstanceVariable [IlligalChars]
+482:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetCharacterArrayFromString_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+541:    EX_LetBool
+            EX_LocalVariable [CallFunc_Contains_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Contains
+                EX_LocalVariable [InString]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_False
+                EX_False
+581:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Contains_ReturnValue_1]
+591:    EX_LetBool
+            EX_LocalOutVariable
+                [IsIlligal]
+            EX_True
+602:    EX_Jump 697
+607:    EX_LetBool
+            EX_LocalOutVariable
+                [IsIlligal]
+            EX_False
+618:    EX_Jump 697
+623:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+665:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+692:    EX_Jump 198
+697:    EX_Return
+            EX_Nothing
+699:    EX_EndOfScript
+FunctionExport CreateCurrentProgressButtonToolTip
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentProgressTooltip]
+29:     EX_JumpIfNot 67
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [CurrentProgressTooltip]
+62:     EX_Jump 304
+67:     EX_Context
+            EX_ObjectConst import /Game/UI/ToolTips/LIB_ToolTips->Default__LIB_ToolTips_C
+            EX_LocalVirtualFunction CreateBasicToolTip
+                EX_InstanceVariable [Basic_CurrentProgress]
+                EX_TextConst
+                    SourceString = Create a new save, with the current progress maintained.
+                    LocalizedKey = 3EB089A244A343A2504E418846C08614
+                    LocalizedNamespace = 
+                EX_StructConst import /Script/CoreUObject->Vector2D
+                    EX_FloatConst 0
+                    EX_FloatConst 50
+                EX_StructConst import /Script/CoreUObject->Vector2D
+                    EX_FloatConst 0.5
+                    EX_FloatConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_CreateBasicToolTip_ToolTipWidget]
+            RValue = []
+266:    EX_LetObj
+            EX_InstanceVariable [CurrentProgressTooltip]
+            EX_LocalVariable [CallFunc_CreateBasicToolTip_ToolTipWidget]
+285:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [CurrentProgressTooltip]
+304:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+314:    EX_EndOfScript

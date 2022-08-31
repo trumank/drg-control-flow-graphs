@@ -1,0 +1,248 @@
+FunctionExport ExecuteUbergraph_ITM_SeasonEndWarningTimer
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction Refresh
+24:     EX_BindDelegate Refresh
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+47:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->FSDEventManager
+77:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                EX_InstanceVariable [OnFSDEventsRefresh]
+                RValue = [OnFSDEventsRefresh]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+118:    EX_Return
+            EX_Nothing
+120:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ITM_SeasonEndWarningTimer_C->ExecuteUbergraph_ITM_SeasonEndWarningTimer
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Refresh
+0:      EX_LetBool
+            EX_LocalVariable [EndDateValid]
+            EX_False
+11:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->FSDEventManager
+41:     EX_LetBool
+            EX_LocalVariable [CallFunc_GetSeasonExpiryDate_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDEventManager->GetSeasonExpiryDate
+                    EX_LocalVariable [CallFunc_GetSeasonExpiryDate_ExpiryDate]
+                RValue = [CallFunc_GetSeasonExpiryDate_ReturnValue]
+92:     EX_Let
+            EX_LocalVariable [CallFunc_MakeTimespan_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTimespan
+                EX_IntConst 0
+                EX_IntConst 24
+                EX_IntConst 0
+                EX_IntConst 0
+                EX_IntConst 0
+145:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_DateTimeTimespan_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_DateTimeTimespan
+                EX_LocalVariable [CallFunc_GetSeasonExpiryDate_ExpiryDate]
+                EX_LocalVariable [CallFunc_MakeTimespan_ReturnValue]
+191:    EX_Let
+            EX_LocalVariable [EndDate]
+            EX_LocalVariable [CallFunc_Subtract_DateTimeTimespan_ReturnValue]
+218:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_Self
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_GetSeasonExpiryDate_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+296:    EX_JumpIfNot 1744
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+310:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_LocalVariable [RefreshHandle]
+330:    EX_BindDelegate Refresh
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+353:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 1
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+406:    EX_Let
+            EX_LocalVariable [RefreshHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+433:    EX_Let
+            EX_LocalVariable [CallFunc_Now_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Now
+461:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_DateTimeDateTime_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_DateTimeDateTime
+                EX_LocalVariable [EndDate]
+                EX_LocalVariable [CallFunc_Now_ReturnValue]
+507:    EX_Let
+            EX_LocalVariable [Remaining]
+            EX_LocalVariable [CallFunc_Subtract_DateTimeDateTime_ReturnValue]
+534:    EX_Let
+            EX_LocalVariable [CallFunc_GetTotalDays_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GetTotalDays
+                EX_LocalVariable [Remaining]
+571:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_GetTotalDays_ReturnValue]
+                EX_FloatConst 0
+605:    EX_JumpIfNot 1699
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+619:    EX_Context
+            EX_InstanceVariable [StateSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [CountDownBox]
+            RValue = []
+664:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTimespan
+            EX_LocalVariable [Remaining]
+            EX_LocalVariable [CallFunc_BreakTimespan_Days]
+            EX_LocalVariable [CallFunc_BreakTimespan_Hours]
+            EX_LocalVariable [CallFunc_BreakTimespan_Minutes]
+            EX_LocalVariable [CallFunc_BreakTimespan_Seconds]
+            EX_LocalVariable [CallFunc_BreakTimespan_Milliseconds]
+728:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst seconds
+764:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+793:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_TextConst
+822:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_BreakTimespan_Seconds]
+858:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+890:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+919:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst minutes
+955:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+984:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_TextConst
+1013:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_BreakTimespan_Minutes]
+1049:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+1081:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+1110:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_StringConst hours
+1144:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_ByteConst 0
+1173:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_TextConst
+1202:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_LocalVariable [CallFunc_BreakTimespan_Hours]
+1238:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_FloatConst 0
+1270:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_ByteConst 0
+1299:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_StringConst days
+1332:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_ByteConst 0
+1361:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_TextConst
+1390:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_LocalVariable [CallFunc_BreakTimespan_Days]
+1426:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_FloatConst 0
+1458:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_ByteConst 0
+1487:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_3]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+1534:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {days}d {hours}h {minutes}m {seconds}s
+                    LocalizedKey = 354DEF8441DF0A269F76CB91DF37B5D8
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+1649:   EX_Context
+            EX_InstanceVariable [CountdownText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+1694:   EX_Jump 1744
+1699:   EX_Context
+            EX_InstanceVariable [StateSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [AnyTimeNowBox]
+            RValue = []
+1744:   EX_Return
+            EX_Nothing
+1746:   EX_EndOfScript

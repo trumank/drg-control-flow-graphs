@@ -1,0 +1,571 @@
+FunctionExport OnItemSelected__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnGrenadePurchased__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+0:      EX_PushExecutionFlow 1832
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemClass_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_CustomEvent_Widget]
+                    EX_InstanceVariable [ItemClass]
+                    RValue = [ItemClass]
+                EX_FinalFunction import /Script/FSD->ItemID->GetItemClass
+                RValue = [CallFunc_GetItemClass_ReturnValue]
+79:     EX_LocalVirtualFunction SetActiveGrenade
+            EX_LocalVariable [CallFunc_GetItemClass_ReturnValue]
+            EX_False
+            EX_LocalVariable [K2Node_CustomEvent_IsUnlocked]
+            EX_LocalVariable [CallFunc_SetActiveGrenade_ItemClass]
+121:    EX_PopExecutionFlow
+122:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+145:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Grenades]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+204:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+242:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+252:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+279:    EX_PushExecutionFlow 389
+284:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [Grenades]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+343:    EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVirtualFunction Refresh
+                EX_LocalVariable [CallFunc_Refresh_OutState]
+            RValue = []
+388:    EX_PopExecutionFlow
+389:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+431:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+458:    EX_Jump 145
+463:    EX_BindDelegate ItemEquipped_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+486:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Widget_2]
+                EX_InstanceVariable [ItemEquipped]
+                RValue = [ItemEquipped]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+527:    EX_BindDelegate OnItemTryPurchase
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+550:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Widget_2]
+                EX_InstanceVariable [ItemTryPurchase]
+                RValue = [ItemTryPurchase]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+591:    EX_BindDelegate OnItemHovered
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+614:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Widget_2]
+                EX_InstanceVariable [ItemHovered]
+                RValue = [ItemHovered]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+655:    EX_BindDelegate OnItemUnhovered
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+678:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Widget_2]
+                EX_InstanceVariable [ItemUnhovered]
+                RValue = [ItemUnhovered]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+719:    EX_PopExecutionFlow
+720:    EX_LetObj
+            EX_InstanceVariable [YesNoPrompt]
+            EX_LocalVariable [K2Node_CustomEvent_YesNoPrompt]
+739:    EX_PopExecutionFlow
+740:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+763:    EX_Jump 122
+768:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+789:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEquippedItemID_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetEquippedItemID
+                    EX_ByteConst 4
+                    EX_InstanceVariable [PlayerID]
+                RValue = [CallFunc_GetEquippedItemID_ReturnValue]
+842:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemClass_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEquippedItemID_ReturnValue]
+                EX_FinalFunction import /Script/FSD->ItemID->GetItemClass
+                RValue = [CallFunc_GetItemClass_ReturnValue_1]
+884:    EX_LocalVirtualFunction SetActiveGrenade
+            EX_LocalVariable [CallFunc_GetItemClass_ReturnValue_1]
+            EX_False
+            EX_True
+            EX_LocalVariable [CallFunc_SetActiveGrenade_ItemClass_1]
+918:    EX_PopExecutionFlow
+919:    EX_LocalVirtualFunction RefreshItems
+933:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemClass_ReturnValue_2]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_ItemClass]
+                EX_FinalFunction import /Script/FSD->ItemID->GetItemClass
+                RValue = [CallFunc_GetItemClass_ReturnValue_2]
+975:    EX_LocalVirtualFunction SetActiveGrenade
+            EX_LocalVariable [CallFunc_GetItemClass_ReturnValue_2]
+            EX_True
+            EX_True
+            EX_LocalVariable [CallFunc_SetActiveGrenade_ItemClass_2]
+1009:   EX_PopExecutionFlow
+1010:   EX_CallMulticastDelegate export ITM_UpgGear_SideBar_GrenadeSelect_C->OnGrenadePurchased__DelegateSignature
+            EX_InstanceVariable [OnGrenadePurchased]
+1029:   EX_PopExecutionFlow
+1030:   EX_LocalVirtualFunction RefreshItems
+1044:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/DiggingSoundsMaterial/GoldCoins_Cue->GoldCoins_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+1104:   EX_Jump 1010
+1109:   EX_Context
+            EX_InstanceVariable [PurchaseWidget]
+            EX_LocalVirtualFunction EquipItem
+            RValue = []
+1145:   EX_Jump 1030
+1150:   EX_Context
+            EX_InstanceVariable [PurchaseWidget]
+            EX_LocalVirtualFunction TryPurchaseItem
+                EX_LocalVariable [CallFunc_TryPurchaseItem_Success]
+            RValue = []
+1195:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_TryPurchaseItem_Success]
+1205:   EX_Jump 1109
+1210:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_CustomEvent_Yes]
+1220:   EX_Jump 1150
+1225:   EX_Context
+            EX_InstanceVariable [PurchaseWidget]
+            EX_LocalVirtualFunction GetCraftingCost
+                EX_LocalVariable [CallFunc_GetCraftingCost_Cost]
+            RValue = []
+1270:   EX_Context
+            EX_InstanceVariable [YesNoPrompt]
+            EX_LocalVirtualFunction SetResources
+                EX_LocalVariable [CallFunc_GetCraftingCost_Cost]
+            RValue = []
+1315:   EX_BindDelegate OnYesNo
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+1338:   EX_Context
+            EX_InstanceVariable [PurchaseWidget]
+            EX_LocalVirtualFunction GetGrenadeInfo
+                EX_LocalVariable [CallFunc_GetGrenadeInfo_Name]
+                EX_LocalVariable [CallFunc_GetGrenadeInfo_Description]
+            RValue = []
+1392:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst Description
+1432:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+1461:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_GetGrenadeInfo_Description]
+1497:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+1529:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+1561:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+1590:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+1610:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = '{Description}'
+
+Purchase this grenade?
+                    LocalizedKey = 3AB176AF44767F2CEF7F02BAAE27AD9B
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+1728:   EX_Context
+            EX_InstanceVariable [YesNoPrompt]
+            EX_FinalFunction import /Script/FSD->YesNoPromptWidget->Show
+                EX_LocalVariable [CallFunc_GetGrenadeInfo_Name]
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            RValue = []
+1787:   EX_PopExecutionFlow
+1788:   EX_LetObj
+            EX_InstanceVariable [PurchaseWidget]
+            EX_LocalVariable [K2Node_CustomEvent_GrenadeWidget]
+1807:   EX_Jump 1225
+1812:   EX_LocalVirtualFunction Reset Grenade Preview
+1826:   EX_PopExecutionFlow
+1827:   EX_Jump 1812
+1832:   EX_Return
+            EX_Nothing
+1834:   EX_EndOfScript
+FunctionExport OnItemHovered
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Widget]
+            EX_LocalVariable [Widget]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_IsUnlocked]
+            EX_LocalVariable [IsUnlocked]
+36:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 15
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnItemUnhovered
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Widget_1]
+            EX_LocalVariable [Widget]
+18:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 1827
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnItemTryPurchase
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_GrenadeWidget]
+            EX_LocalVariable [GrenadeWidget]
+18:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 1788
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnYesNo
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Yes]
+            EX_LocalVariable [Yes]
+18:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 1210
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ItemEquipped_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ItemClass]
+            EX_LocalVariable [ItemClass]
+18:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 919
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Reset Grenade Preview
+0:      EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 768
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport RefreshItems
+0:      EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 740
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetYesNoPrompt
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_YesNoPrompt]
+            EX_LocalVariable [YesNoPrompt]
+18:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 720
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnWidgetCreated
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Widget_2]
+            EX_LocalVariable [Widget]
+18:     EX_LocalFinalFunction export ITM_UpgGear_SideBar_GrenadeSelect_C->ExecuteUbergraph_ITM_UpgGear_SideBar_GrenadeSelect
+            EX_IntConst 463
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetItem
+0:      EX_PushExecutionFlow 1622
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_LocalVariable [CharacterID]
+                EX_InstanceVariable [PlayerID]
+43:     EX_JumpIfNot 1184
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+57:     EX_LetObj
+            EX_InstanceVariable [PlayerID]
+            EX_LocalVariable [CharacterID]
+76:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [Grenades]
+            RValue = []
+117:    EX_Context
+            EX_InstanceVariable [ItemBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+153:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+176:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+199:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetHeroInventoryList_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetHeroInventoryList
+                EX_LocalVariable [CharacterID]
+228:    EX_Let
+            EX_LocalVariable [CallFunc_GetLoadedItemList_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetHeroInventoryList_ReturnValue]
+                EX_FinalFunction import /Script/FSD->InventoryList->GetLoadedItemList
+                    EX_ByteConst 4
+                RValue = [CallFunc_GetLoadedItemList_ReturnValue]
+280:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetLoadedItemList_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+339:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+377:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+387:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+414:    EX_PushExecutionFlow 1548
+419:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetHeroInventoryList_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetHeroInventoryList
+                EX_LocalVariable [CharacterID]
+448:    EX_Let
+            EX_LocalVariable [CallFunc_GetLoadedItemList_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetHeroInventoryList_ReturnValue]
+                EX_FinalFunction import /Script/FSD->InventoryList->GetLoadedItemList
+                    EX_ByteConst 4
+                RValue = [CallFunc_GetLoadedItemList_ReturnValue]
+500:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetLoadedItemList_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+559:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsGrenade]
+            EX_MetaCast import /Script/FSD->Grenade
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+595:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsGrenade]
+624:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+634:    EX_LetObj
+            EX_LocalVariable [Grenade]
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsGrenade]
+653:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+677:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_Loadout/ITM_UpgGear_SideBar_GrenadeSelect_GrenadeIcon->ITM_UpgGear_SideBar_GrenadeSelect_GrenadeIcon_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+738:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+757:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_InstanceVariable [Grenades]
+                    EX_LocalVariable [Widget]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+825:    EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 10
+857:    EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 10
+889:    EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 10
+921:    EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 10
+953:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToVerticalBoxEx_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->AddChildToVerticalBoxEx
+                EX_InstanceVariable [ItemBox]
+                EX_LocalVariable [Widget]
+                EX_ByteConst 2
+                EX_ByteConst 2
+                EX_FloatConst 0
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+                EX_LocalVariable [CallFunc_AddChildToVerticalBoxEx_OutSlot]
+                EX_LocalVariable [CallFunc_AddChildToVerticalBoxEx_OutVerticalBox]
+1027:   EX_LocalVirtualFunction OnWidgetCreated
+            EX_LocalVariable [Widget]
+1050:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetItemID
+                EX_LocalVariable [Grenade]
+1079:   EX_Context
+            EX_LocalVariable [Widget]
+            EX_LocalVirtualFunction SetItem
+                EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+                EX_LocalVariable [CharacterID]
+                EX_LocalVariable [CallFunc_SetItem_OutState]
+            RValue = []
+1142:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_SetItem_OutState]
+                EX_ByteConst 4
+1173:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+1183:   EX_PopExecutionFlow
+1184:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+1207:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+1230:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Grenades]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+1289:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+1327:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+1337:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+1364:   EX_PushExecutionFlow 1474
+1369:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [Grenades]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1428:   EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVirtualFunction Refresh
+                EX_LocalVariable [CallFunc_Refresh_OutState]
+            RValue = []
+1473:   EX_PopExecutionFlow
+1474:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+1516:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+1543:   EX_Jump 1230
+1548:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1590:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1617:   EX_Jump 199
+1622:   EX_Return
+            EX_Nothing
+1624:   EX_EndOfScript
+FunctionExport SetActiveGrenade
+0:      EX_PushExecutionFlow 143
+5:      EX_PushExecutionFlow 124
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ClassClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ClassClass
+                EX_LocalVariable [newClass]
+                EX_InstanceVariable [ActiveClass]
+48:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_ClassClass_ReturnValue]
+58:     EX_LetObj
+            EX_InstanceVariable [ActiveClass]
+            EX_LocalVariable [newClass]
+77:     EX_CallMulticastDelegate export ITM_UpgGear_SideBar_GrenadeSelect_C->OnItemSelected__DelegateSignature
+            EX_InstanceVariable [OnItemSelected]
+            EX_InstanceVariable [ActiveClass]
+            EX_LocalVariable [InEquip]
+            EX_LocalVariable [IsUnlocked]
+123:    EX_PopExecutionFlow
+124:    EX_LetObj
+            EX_LocalOutVariable
+                [ItemClass]
+            EX_InstanceVariable [ActiveClass]
+143:    EX_Return
+            EX_Nothing
+145:    EX_EndOfScript

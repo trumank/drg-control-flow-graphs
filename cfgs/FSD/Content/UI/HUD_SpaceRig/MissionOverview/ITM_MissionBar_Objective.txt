@@ -1,0 +1,201 @@
+FunctionExport ExecuteUbergraph_ITM_MissionBar_Objective
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+58:     EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+94:     EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+123:    EX_Context
+            EX_InstanceVariable [DATA_Amount]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+164:    EX_Context
+            EX_InstanceVariable [Basic_ResourceIcon]
+            EX_LocalVirtualFunction SetResource
+                EX_ObjectConst import /Game/GameElements/Resources/RES_Credits->RES_Credits
+            RValue = []
+209:    EX_Jump 576
+214:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 16
+237:    EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_IntConst 18
+260:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [SecondaryObjective]
+279:    EX_Context
+            EX_InstanceVariable [DATA_Objective]
+            EX_LocalVirtualFunction SetFontSize
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 367
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 344
+                        EX_LocalVariable [Temp_int_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 358
+                        EX_LocalVariable [Temp_int_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+368:    EX_Jump 10
+373:    EX_Context
+            EX_InstanceVariable [DATA_Objective]
+            EX_LocalVirtualFunction SetText
+                EX_InstanceVariable [ObjectiveText]
+            RValue = []
+418:    EX_Jump 214
+423:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [SecondaryObjective]
+442:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 0
+462:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 8
+482:    EX_Context
+            EX_InstanceVariable [DATA_Objective]
+            EX_LocalVirtualFunction SetTextColor
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 570
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 547
+                        EX_LocalVariable [Temp_byte_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 561
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+571:    EX_Jump 373
+576:    EX_Return
+            EX_Nothing
+578:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_MissionBar_Objective_C->ExecuteUbergraph_ITM_MissionBar_Objective
+            EX_IntConst 423
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetObjective
+0:      EX_Let
+            EX_LocalVariable [MissionLength]
+            EX_FloatConst 0
+23:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_LocalVariable [ObjectiveType]
+52:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Mission]
+81:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+119:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_Self
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+197:    EX_JumpIfNot 754
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+211:    EX_Let
+            EX_LocalVariable [CallFunc_GetMissionScale_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Mission]
+                EX_VirtualFunction GetMissionScale
+                RValue = [CallFunc_GetMissionScale_ReturnValue]
+265:    EX_Let
+            EX_LocalVariable [MissionLength]
+            EX_LocalVariable [CallFunc_GetMissionScale_ReturnValue]
+292:    EX_Let
+            EX_LocalVariable [CallFunc_GetObjectiveDescriptionFromClass_ReturnValue]
+            EX_CallMath import /Script/FSD->Objective->GetObjectiveDescriptionFromClass
+                EX_LocalVariable [ObjectiveType]
+                EX_LocalVariable [MissionLength]
+338:    EX_Context
+            EX_InstanceVariable [DATA_Objective]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_GetObjectiveDescriptionFromClass_ReturnValue]
+            RValue = []
+383:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+404:    EX_Let
+            EX_LocalVariable [CallFunc_GetObjectiveCredits_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetObjectiveCredits
+                EX_LocalVariable [ObjectiveType]
+                EX_LocalVariable [MissionLength]
+450:    EX_Let
+            EX_LocalVariable [CallFunc_GetTotalHazardBonus_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDMissionSettings->GetTotalHazardBonus
+                EX_Self
+                EX_LocalVariable [Mission]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [CurrentDifficultySetting]
+                    RValue = [CurrentDifficultySetting]
+519:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [CallFunc_GetObjectiveCredits_ReturnValue]
+556:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_GetTotalHazardBonus_ReturnValue]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+602:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+648:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_FloatToText
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                EX_ByteConst 0
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+                EX_IntConst 0
+                EX_IntConst 0
+709:    EX_Context
+            EX_InstanceVariable [DATA_Amount]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            RValue = []
+754:    EX_Return
+            EX_Nothing
+756:    EX_EndOfScript

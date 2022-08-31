@@ -1,0 +1,238 @@
+FunctionExport ExecuteUbergraph_ITM_MatrixCore
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetIconSize
+            EX_InstanceVariable [IconSize]
+33:     EX_Jump 43
+38:     EX_Jump 10
+43:     EX_Return
+            EX_Nothing
+45:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_MatrixCore_C->ExecuteUbergraph_ITM_MatrixCore
+            EX_IntConst 38
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetIconSize
+0:      EX_Let
+            EX_InstanceVariable [IconSize]
+            EX_LocalVariable [IconSize]
+27:     EX_Context
+            EX_InstanceVariable [RewardSizer]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetWidthOverride
+                EX_InstanceVariable [IconSize]
+            RValue = []
+68:     EX_Context
+            EX_InstanceVariable [RewardSizer]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetHeightOverride
+                EX_InstanceVariable [IconSize]
+            RValue = []
+109:    EX_Return
+            EX_Nothing
+111:    EX_EndOfScript
+FunctionExport FromDeepDiveStage
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetDeepDiveManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetDeepDiveManager
+                EX_Self
+21:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetActiveDeepDive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetDeepDiveManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepDiveManager->GetActiveDeepDive
+                RValue = [CallFunc_GetActiveDeepDive_ReturnValue]
+63:     EX_LetObj
+            EX_LocalVariable [DeepDive]
+            EX_LocalVariable [CallFunc_GetActiveDeepDive_ReturnValue]
+82:     EX_Let
+            EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [DeepDive]
+                EX_FinalFunction import /Script/FSD->DeepDive->GetGivenRewardAtStage
+                    EX_LocalVariable [StageIndex]
+                RValue = [CallFunc_GetGivenRewardAtStage_ReturnValue]
+141:    EX_LetObj
+            EX_LocalVariable [Reward]
+            EX_StructMemberContext [Schematic]
+                EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue]
+169:    EX_Let
+            EX_LocalVariable [CallFunc_GetStageRewardType_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [DeepDive]
+                    EX_InstanceVariable [Template]
+                    RValue = [Template]
+                EX_FinalFunction import /Script/FSD->DeepDiveTemplate->GetStageRewardType
+                    EX_LocalVariable [StageIndex]
+                RValue = [CallFunc_GetStageRewardType_ReturnValue]
+250:    EX_LocalVirtualFunction FromReward
+            EX_LocalVariable [Reward]
+            EX_LocalVariable [CallFunc_GetStageRewardType_ReturnValue]
+282:    EX_Let
+            EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [DeepDive]
+                EX_FinalFunction import /Script/FSD->DeepDive->GetGivenRewardAtStage
+                    EX_LocalVariable [StageIndex]
+                RValue = [CallFunc_GetGivenRewardAtStage_ReturnValue]
+341:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_StructMemberContext [WasAlreadyGiven]
+                    EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue]
+379:    EX_VirtualFunction SetIsEnabled
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+402:    EX_Return
+            EX_Nothing
+404:    EX_EndOfScript
+FunctionExport FromReward
+0:      EX_LetObj
+            EX_InstanceVariable [Schematic]
+            EX_LocalVariable [InReward]
+19:     EX_Context
+            EX_InstanceVariable [CoreIcon]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+57:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InReward]
+86:     EX_JumpIfNot 236
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+100:    EX_Context
+            EX_InstanceVariable [CoreIcon]
+            EX_LocalVirtualFunction FromSchematic
+                EX_LocalVariable [InReward]
+                EX_False
+            RValue = []
+146:    EX_Context
+            EX_InstanceVariable [BackgroundImage]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [InReward]
+                        EX_InstanceVariable [Category]
+                        RValue = [Category]
+                    EX_InstanceVariable [BackgroundTint]
+                    RValue = [BackgroundTint]
+            RValue = []
+231:    EX_Jump 648
+236:    EX_Context
+            EX_InstanceVariable [CoreIcon]
+            EX_LocalVirtualFunction FromSchematicType
+                EX_LocalVariable [InRewardType]
+            RValue = []
+281:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_NoObject
+292:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/GameElements/Schematics/Categories/SCAT_Resources->SCAT_Resources
+311:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_2]
+            EX_ObjectConst import /Game/GameElements/Schematics/Categories/SCAT_Vanity_Armor->SCAT_Vanity_Armor
+330:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_3]
+            EX_ObjectConst import /Game/GameElements/Schematics/Categories/SCAT_OC_Balanced->SCAT_OC_Balanced
+349:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_LocalVariable [InRewardType]
+376:    EX_LetObj
+            EX_LocalVariable [Category]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_byte_Variable]
+                OffsetToSwitchEnd = 471
+                case 0:
+                    EX_ByteConst 0
+                    NextCaseOffset = 417
+                    EX_LocalVariable [Temp_object_Variable_3]
+                case 1:
+                    EX_ByteConst 1
+                    NextCaseOffset = 432
+                    EX_LocalVariable [Temp_object_Variable_2]
+                case 2:
+                    EX_ByteConst 2
+                    NextCaseOffset = 447
+                    EX_LocalVariable [Temp_object_Variable_1]
+                case 3:
+                    EX_ByteConst 3
+                    NextCaseOffset = 462
+                    EX_LocalVariable [Temp_object_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+471:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Category]
+500:    EX_JumpIfNot 582
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+514:    EX_Context
+            EX_InstanceVariable [BackgroundImage]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_Context
+                    EX_LocalVariable [Category]
+                    EX_InstanceVariable [BackgroundTint]
+                    RValue = [BackgroundTint]
+            RValue = []
+577:    EX_Jump 648
+582:    EX_Context
+            EX_InstanceVariable [BackgroundImage]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+            RValue = []
+648:    EX_Return
+            EX_Nothing
+650:    EX_EndOfScript
+FunctionExport GetMatrixCoreToolTip
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Schematic]
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [ShowToolTip]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+67:     EX_JumpIfNot 250
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+81:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+102:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOrCreateSingletonWidget_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->GetOrCreateSingletonWidget
+                    EX_ObjectConst import /Game/UI/Menu_MissionStart/TOOLTIP_MatrixCore->TOOLTIP_MatrixCore_C
+                    EX_LocalVariable [CallFunc_GetOrCreateSingletonWidget_WidgetCreated]
+                RValue = [CallFunc_GetOrCreateSingletonWidget_ReturnValue]
+162:    EX_LetObj
+            EX_LocalVariable [ToolTip]
+            EX_LocalVariable [CallFunc_GetOrCreateSingletonWidget_ReturnValue]
+181:    EX_Context
+            EX_LocalVariable [ToolTip]
+            EX_LocalVirtualFunction FromSchematic
+                EX_InstanceVariable [Schematic]
+            RValue = []
+226:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [ToolTip]
+245:    EX_Jump 261
+250:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_NoObject
+261:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+271:    EX_EndOfScript

@@ -1,0 +1,146 @@
+FunctionExport ExecuteUbergraph_BP_CabinController
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction RemoveOwner
+24:     EX_Jump 665
+29:     EX_LocalVirtualFunction OnRep_OwnerState
+43:     EX_Jump 665
+48:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst OwnerState
+77:     EX_Jump 29
+82:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+92:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDPlayerState_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CabinOwner]
+                EX_FinalFunction import /Script/FSD->FSDPlayerController->GetFSDPlayerState
+                RValue = [CallFunc_GetFSDPlayerState_ReturnValue]
+134:    EX_LetObj
+            EX_InstanceVariable [OwnerState]
+            EX_LocalVariable [CallFunc_GetFSDPlayerState_ReturnValue]
+153:    EX_Jump 48
+158:    EX_LocalVirtualFunction OnRep_OwnerState
+172:    EX_Context
+            EX_InstanceVariable [CabinSign]
+            EX_VirtualFunction SetOwner
+                EX_NoObject
+            RValue = []
+209:    EX_Jump 665
+214:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst OwnerState
+243:    EX_Jump 158
+248:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+258:    EX_LetObj
+            EX_InstanceVariable [OwnerState]
+            EX_NoObject
+269:    EX_Jump 214
+274:    EX_BindDelegate Set Cabin Owner
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+297:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [StartSpot]
+                EX_InstanceVariable [OnPlayerSpawn]
+                RValue = [OnPlayerSpawn]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+338:    EX_Jump 665
+343:    EX_BindDelegate Controller leave
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+366:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [CabinOwner]
+                EX_InstanceVariable [OnDestroyed]
+                RValue = [OnDestroyed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+407:    EX_Jump 82
+412:    EX_LetObj
+            EX_InstanceVariable [CabinOwner]
+            EX_NoObject
+423:    EX_Jump 248
+428:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerController_SpaceRig->BP_PlayerController_SpaceRig_C
+                EX_LocalVariable [K2Node_CustomEvent_Controller]
+464:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+493:    EX_JumpIfNot 665
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+507:    EX_LetObj
+            EX_InstanceVariable [CabinOwner]
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+526:    EX_Jump 343
+531:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_LocalVariable [K2Node_CustomEvent_DestroyedActor]
+567:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+596:    EX_JumpIfNot 665
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+610:    EX_CallMulticastDelegate import /Script/FSD->PlayerSpawnInHub__DelegateSignature
+            EX_Context
+                EX_InstanceVariable [StartSpot]
+                EX_InstanceVariable [OnPlayerLeave]
+                RValue = [OnPlayerLeave]
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+660:    EX_Jump 10
+665:    EX_Return
+            EX_Nothing
+667:    EX_EndOfScript
+FunctionExport Controller leave
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DestroyedActor]
+            EX_LocalVariable [DestroyedActor]
+18:     EX_LocalFinalFunction export BP_CabinController_C->ExecuteUbergraph_BP_CabinController
+            EX_IntConst 531
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Set Cabin Owner
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Controller]
+            EX_LocalVariable [Controller]
+18:     EX_LocalFinalFunction export BP_CabinController_C->ExecuteUbergraph_BP_CabinController
+            EX_IntConst 428
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport RemoveOwner
+0:      EX_LocalFinalFunction export BP_CabinController_C->ExecuteUbergraph_BP_CabinController
+            EX_IntConst 412
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_CabinController_C->ExecuteUbergraph_BP_CabinController
+            EX_IntConst 274
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_OwnerState
+0:      EX_Context
+            EX_InstanceVariable [CabinSign]
+            EX_LocalVirtualFunction SetCabinOwner
+                EX_InstanceVariable [OwnerState]
+            RValue = []
+45:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [InfirmaryStats]
+74:     EX_JumpIfNot 133
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+88:     EX_Context
+            EX_InstanceVariable [InfirmaryStats]
+            EX_LocalVirtualFunction Set Stats Owner
+                EX_InstanceVariable [OwnerState]
+            RValue = []
+133:    EX_Return
+            EX_Nothing
+135:    EX_EndOfScript

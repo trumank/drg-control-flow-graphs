@@ -1,0 +1,493 @@
+FunctionExport ExecuteUbergraph_BP_Salvage_FuelPoint
+0:      EX_PushExecutionFlow 972
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction Call In Pod
+29:     EX_PopExecutionFlow
+30:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+58:     EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+121:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Objectives/Salvage/BP_SalvageFuelCells_Beacon->BP_SalvageFuelCells_Beacon_C
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_NoObject
+163:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+191:    EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+254:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+292:    EX_PopExecutionFlow
+293:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 11
+            EX_NameConst Pod
+322:    EX_Jump 30
+327:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+337:    EX_LetObj
+            EX_InstanceVariable [Pod]
+            EX_LocalVariable [CallFunc_DropToTarget_ReturnValue]
+356:    EX_Jump 293
+361:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 15
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -1696767355
+                EX_NameConst ExecuteUbergraph_BP_Salvage_FuelPoint
+                EX_Self
+415:    EX_PopExecutionFlow
+416:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+444:    EX_LetObj
+            EX_LocalVariable [CallFunc_DropToTarget_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__RessuplyPod
+                EX_FinalFunction import /Script/FSD->RessuplyPod->DropToTarget
+                    EX_Self
+                    EX_ObjectConst import /Game/GameElements/Objectives/Salvage/BP_Salvage_FuelPod->BP_Salvage_FuelPod_C
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                    EX_NoObject
+                RValue = [CallFunc_DropToTarget_ReturnValue]
+506:    EX_Jump 327
+511:    EX_Jump 361
+516:    EX_Context
+            EX_InstanceVariable [Pod]
+            EX_LocalVirtualFunction OnDefenseStart
+            RValue = []
+552:    EX_PopExecutionFlow
+553:    EX_Context
+            EX_InstanceVariable [Pod]
+            EX_LocalVirtualFunction OnDefenseComplete
+            RValue = []
+589:    EX_PopExecutionFlow
+590:    EX_Context
+            EX_InstanceVariable [Pod]
+            EX_LocalVirtualFunction OnDefenseFailed
+            RValue = []
+626:    EX_PopExecutionFlow
+627:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_InstanceVariable [TriesToSpawn]
+                EX_IntConst 3
+661:    EX_JumpIfNot 720
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+675:    EX_LetBool
+            EX_LocalVariable [CallFunc_K2_SetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_SetActorLocation
+                EX_InstanceVariable [InitalLocation]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetActorLocation_SweepHitResult]
+                EX_False
+715:    EX_Jump 416
+720:    EX_LocalVirtualFunction CheckIfCloseToInvalidators
+            EX_LocalVariable [CallFunc_CheckIfCloseToInvalidators_IsClose]
+743:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_CheckIfCloseToInvalidators_IsClose]
+772:    EX_JumpIfNot 791
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+786:    EX_Jump 416
+791:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [TriesToSpawn]
+                EX_IntConst 1
+833:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+860:    EX_Let
+            EX_InstanceVariable [TriesToSpawn]
+            EX_LocalVariable [Temp_int_Variable]
+887:    EX_LocalVirtualFunction SolveTooCloseToInvalidator
+901:    EX_LocalVirtualFunction Call In Pod
+915:    EX_PopExecutionFlow
+916:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+944:    EX_Let
+            EX_InstanceVariable [InitalLocation]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+971:    EX_PopExecutionFlow
+972:    EX_Return
+            EX_Nothing
+974:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_Salvage_FuelPoint_C->ExecuteUbergraph_BP_Salvage_FuelPoint
+            EX_IntConst 916
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Call In Pod
+0:      EX_LocalFinalFunction export BP_Salvage_FuelPoint_C->ExecuteUbergraph_BP_Salvage_FuelPoint
+            EX_IntConst 627
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenseFail
+0:      EX_LocalFinalFunction export BP_Salvage_FuelPoint_C->ExecuteUbergraph_BP_Salvage_FuelPoint
+            EX_IntConst 590
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenseComplete
+0:      EX_LocalFinalFunction export BP_Salvage_FuelPoint_C->ExecuteUbergraph_BP_Salvage_FuelPoint
+            EX_IntConst 553
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenseStart
+0:      EX_LocalFinalFunction export BP_Salvage_FuelPoint_C->ExecuteUbergraph_BP_Salvage_FuelPoint
+            EX_IntConst 516
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport EnableRepair
+0:      EX_LocalFinalFunction export BP_Salvage_FuelPoint_C->ExecuteUbergraph_BP_Salvage_FuelPoint
+            EX_IntConst 511
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CheckIfCloseToInvalidators
+0:      EX_PushExecutionFlow 1200
+5:      EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+33:     EX_SetArray
+            EX_LocalVariable [CallFunc_SphereTraceMulti_OutHits]
+44:     EX_LetBool
+            EX_LocalVariable [CallFunc_SphereTraceMulti_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->SphereTraceMulti
+                EX_Self
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_FloatConst 130
+                EX_ByteConst 2
+                EX_False
+                EX_LocalVariable [Temp_object_Variable]
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_SphereTraceMulti_OutHits]
+                EX_True
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_FloatConst 5
+185:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+208:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+231:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_SphereTraceMulti_OutHits]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+290:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+328:    EX_JumpIfNot 1036
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+342:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+369:    EX_PushExecutionFlow 1052
+374:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+397:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+420:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [MoveIfCloseTo]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+479:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+517:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+527:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+554:    EX_PushExecutionFlow 1126
+559:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_SphereTraceMulti_OutHits]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+618:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+790:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+819:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MoveIfCloseTo]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+878:    EX_LetObj
+            EX_LocalVariable [CallFunc_Conv_SoftClassReferenceToClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->Conv_SoftClassReferenceToClass
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+907:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+            EX_MetaCast import /Script/Engine->Actor
+                EX_LocalVariable [CallFunc_Conv_SoftClassReferenceToClass_ReturnValue]
+943:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+972:    EX_LetBool
+            EX_LocalVariable [CallFunc_ClassIsChildOf_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->ClassIsChildOf
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+1010:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_ClassIsChildOf_ReturnValue]
+1020:   EX_LetBool
+            EX_LocalOutVariable
+                [IsClose]
+            EX_True
+1031:   EX_Jump 1200
+1036:   EX_LetBool
+            EX_LocalOutVariable
+                [IsClose]
+            EX_False
+1047:   EX_Jump 1200
+1052:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1094:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1121:   EX_Jump 231
+1126:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+1168:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+1195:   EX_Jump 420
+1200:   EX_Return
+            EX_Nothing
+1202:   EX_EndOfScript
+FunctionExport SolveTooCloseToInvalidator
+0:      EX_PushExecutionFlow 1169
+5:      EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+51:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [MoveIfCloseTo]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+110:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+148:    EX_JumpIfNot 750
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+162:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+189:    EX_PushExecutionFlow 1021
+194:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MoveIfCloseTo]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+253:    EX_LetObj
+            EX_LocalVariable [CallFunc_Conv_SoftClassReferenceToClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->Conv_SoftClassReferenceToClass
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+282:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+            EX_MetaCast import /Script/Engine->Actor
+                EX_LocalVariable [CallFunc_Conv_SoftClassReferenceToClass_ReturnValue]
+318:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+347:    EX_SetArray
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+358:    EX_CallMath import /Script/Engine->GameplayStatics->GetAllActorsOfClass
+            EX_Self
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+387:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+410:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+433:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+492:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+530:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+540:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+567:    EX_PushExecutionFlow 1095
+572:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+631:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue_1]
+681:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalVariable [LocationsToAvoid]
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+749:    EX_PopExecutionFlow
+750:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DropPod]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+800:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+821:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetProceduralSetup
+                EX_Self
+842:    EX_Let
+            EX_LocalVariable [CallFunc_FindRepairPointLocation_ReturnValue]
+            EX_CallMath import /Script/FSD->SalvageObjective->FindRepairPointLocation
+                EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_FloatConst 1500
+                EX_FloatConst 100
+                EX_ObjectConst import /Game/GameElements/Objectives/Salvage/Salvage_RepairPoint->Salvage_RepairPoint
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_LocalVariable [LocationsToAvoid]
+                EX_ObjectConst import /Game/GameElements/Objectives/Salvage/CRV_Salvage_RepairPointsCostCurve->CRV_Salvage_RepairPointsCostCurve
+934:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_FindRepairPointLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+980:    EX_LetBool
+            EX_LocalVariable [CallFunc_K2_SetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_SetActorLocation
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetActorLocation_SweepHitResult]
+                EX_False
+1020:   EX_PopExecutionFlow
+1021:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1063:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1090:   EX_Jump 51
+1095:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+1137:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+1164:   EX_Jump 433
+1169:   EX_Return
+            EX_Nothing
+1171:   EX_EndOfScript

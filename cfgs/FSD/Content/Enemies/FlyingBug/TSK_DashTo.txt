@@ -1,0 +1,114 @@
+FunctionExport ExecuteUbergraph_TSK_DashTo
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishAbort
+20:     EX_Jump 616
+25:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [DashPoints]
+54:     EX_JumpIfNot 616
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+68:     EX_BindDelegate CustomEvent
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+91:     EX_RemoveMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [DashPoints]
+                EX_InstanceVariable [OnStopDashEvent]
+                RValue = [OnStopDashEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+132:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_True
+143:    EX_Jump 616
+148:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [DashPoints]
+177:    EX_JumpIfNot 10
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+191:    EX_Context
+            EX_InstanceVariable [DashPoints]
+            EX_FinalFunction import /Script/FSD->DashPoints->StopDashing
+            RValue = []
+223:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst ShouldDash
+264:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_Event_OwnerController_1]
+                EX_InstanceVariable [Blackboard]
+                RValue = [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_False
+            RValue = []
+328:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst DashAgain
+369:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_Event_OwnerController_1]
+                EX_InstanceVariable [Blackboard]
+                RValue = [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+                EX_False
+            RValue = []
+433:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishAbort
+443:    EX_Jump 616
+448:    EX_Jump 148
+453:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [K2Node_Event_ControlledPawn]
+                EX_ObjectConst import /Script/FSD->DashPoints
+491:    EX_LetObj
+            EX_InstanceVariable [DashPoints]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+510:    EX_BindDelegate CustomEvent
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+533:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [OnStopDashEvent]
+                RValue = [OnStopDashEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+574:    EX_Context
+            EX_InstanceVariable [DashPoints]
+            EX_FinalFunction import /Script/FSD->DashPoints->StartDashing
+            RValue = []
+606:    EX_Jump 616
+611:    EX_Jump 25
+616:    EX_Return
+            EX_Nothing
+618:    EX_EndOfScript
+FunctionExport CustomEvent
+0:      EX_LocalFinalFunction export TSK_DashTo_C->ExecuteUbergraph_TSK_DashTo
+            EX_IntConst 611
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveExecuteAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_DashTo_C->ExecuteUbergraph_TSK_DashTo
+            EX_IntConst 453
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveAbortAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController_1]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn_1]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_DashTo_C->ExecuteUbergraph_TSK_DashTo
+            EX_IntConst 448
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

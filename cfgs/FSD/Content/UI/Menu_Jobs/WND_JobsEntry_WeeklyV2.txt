@@ -1,0 +1,483 @@
+FunctionExport ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+0:      EX_PushExecutionFlow 2636
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 200
+20:     EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_MissionSelectionMK3/ITM_CampaignItem_SmallEmpty->ITM_CampaignItem_SmallEmpty_C
+                    EX_NoObject
+                RValue = [CallFunc_Create_ReturnValue]
+73:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_IntConst 0
+107:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetBoolPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst FirstMission
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+148:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Box_CampaignItems]
+                EX_FinalFunction import /Script/UMG->HorizontalBox->AddChildToHorizontalBox
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToHorizontalBox_ReturnValue]
+199:    EX_PopExecutionFlow
+200:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+242:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+269:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_InstanceVariable [Campaign]
+                        EX_InstanceVariable [Missions]
+                        RValue = [Missions]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+350:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+388:    EX_JumpIfNot 434
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+402:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+429:    EX_Jump 15
+434:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+455:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                        EX_InstanceVariable [CampaignManager]
+                        RValue = [CampaignManager]
+                    EX_InstanceVariable [WeeklyBackendDataValid]
+                    RValue = [WeeklyBackendDataValid]
+528:    EX_JumpIfNot 701
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+542:    EX_Context
+            EX_InstanceVariable [ITM_WeeklyMissionOverlay]
+            EX_LocalVirtualFunction SetInvalid
+                EX_InstanceVariable [Campaign]
+            RValue = []
+587:    EX_Context
+            EX_InstanceVariable [ITM_WeeklyMissionOverlay]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+625:    EX_Context
+            EX_InstanceVariable [Weekly_Deadline_Timer]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+663:    EX_Context
+            EX_InstanceVariable [Overlay_Scaler]
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+700:    EX_PopExecutionFlow
+701:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsActiveCampaign_ReturnValue_1]
+            EX_LocalVirtualFunction IsActiveCampaign
+725:    EX_JumpIfNot 848
+            EX_LocalVariable [CallFunc_IsActiveCampaign_ReturnValue_1]
+739:    EX_Context
+            EX_InstanceVariable [ITM_WeeklyMissionOverlay]
+            EX_LocalVirtualFunction SetData
+                EX_InstanceVariable [Campaign]
+                EX_TextConst
+                    SourceString = Active Assignment
+                    LocalizedKey = 6D31300244F3C5211582B38F0A7C1516
+                    LocalizedNamespace = 
+                EX_False
+                EX_True
+            RValue = []
+843:    EX_Jump 587
+848:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+869:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsWeeklyCampaignCompleted_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+                    EX_InstanceVariable [CampaignManager]
+                    RValue = [CampaignManager]
+                EX_FinalFunction import /Script/FSD->CampaignManager->IsWeeklyCampaignCompleted
+                    EX_Self
+                    EX_Context
+                        EX_InstanceVariable [Campaign]
+                        EX_InstanceVariable [CampaignType]
+                        RValue = [CampaignType]
+                RValue = [CallFunc_IsWeeklyCampaignCompleted_ReturnValue]
+965:    EX_JumpIfNot 1091
+            EX_LocalVariable [CallFunc_IsWeeklyCampaignCompleted_ReturnValue]
+979:    EX_Context
+            EX_InstanceVariable [ITM_WeeklyMissionOverlay]
+            EX_LocalVirtualFunction SetData
+                EX_InstanceVariable [Campaign]
+                EX_TextConst
+                    SourceString = Assignment Completed
+                    LocalizedKey = 94EC90384F5980181E327597B0E23BD4
+                    LocalizedNamespace = 
+                EX_True
+                EX_True
+            RValue = []
+1086:   EX_Jump 587
+1091:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+1115:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+1151:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+1180:   EX_LetBool
+            EX_LocalVariable [CallFunc_CanStartCampaign_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Campaign]
+                EX_FinalFunction import /Script/FSD->Campaign->CanStartCampaign
+                    EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+                RValue = [CallFunc_CanStartCampaign_ReturnValue]
+1231:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_CanStartCampaign_ReturnValue]
+1260:   EX_JumpIfNot 1328
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+1274:   EX_Context
+            EX_InstanceVariable [ITM_WeeklyMissionOverlay]
+            EX_LocalVirtualFunction SetData
+                EX_InstanceVariable [Campaign]
+                EX_TextConst
+                EX_False
+                EX_False
+            RValue = []
+1323:   EX_Jump 587
+1328:   EX_Context
+            EX_InstanceVariable [ITM_WeeklyMissionOverlay]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+1366:   EX_Context
+            EX_InstanceVariable [Weekly_Deadline_Timer]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+1404:   EX_Context
+            EX_InstanceVariable [Overlay_Scaler]
+            EX_VirtualFunction SetIsEnabled
+                EX_True
+            RValue = []
+1441:   EX_PopExecutionFlow
+1442:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+1465:   EX_Jump 269
+1470:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+1493:   EX_Jump 1442
+1498:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 24
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1546:   EX_Context
+            EX_InstanceVariable [I_O2]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1587:   EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMaterialLibrary->CreateDynamicMaterialInstance
+                EX_Self
+                EX_ObjectConst import /Game/Art/Materials/_BaseMaterials/GeneratedGradients/M_Gradient_Horizontal_LeftToRight->M_Gradient_Horizontal_LeftToRight
+                EX_NameConst None
+                EX_ByteConst 0
+1632:   EX_LetObj
+            EX_InstanceVariable [DynMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+1651:   EX_Context
+            EX_InstanceVariable [DynMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Texture
+                EX_ObjectConst import /Game/UI/Art/Job_Terminal/Icons_CP_BurstFirePistol_Image->Icons_CP_BurstFirePistol_Image
+            RValue = []
+1705:   EX_Context
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst IntensityBasepoint
+                EX_FloatConst 4
+            RValue = []
+1755:   EX_Context
+            EX_InstanceVariable [Assignment_Image]
+            EX_VirtualFunction SetBrushFromMaterial
+                EX_InstanceVariable [DynMaterial]
+            RValue = []
+1800:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [I_BG2_2]
+                EX_FinalFunction import /Script/UMG->Image->GetDynamicMaterial
+                RValue = [CallFunc_GetDynamicMaterial_ReturnValue]
+1842:   EX_Context
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Texture
+                EX_ObjectConst import /Game/UI/Art/Icons/Icons_Campaign_Jobs/Icons_Assignment_Smoke_BG_Flat->Icons_Assignment_Smoke_BG_Flat
+            RValue = []
+1896:   EX_Context
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst IntensityBasepoint
+                EX_FloatConst 1.5
+            RValue = []
+1946:   EX_PopExecutionFlow
+1947:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+1968:   EX_LetObj
+            EX_LocalVariable [CallFunc_OpenWindowFromClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenWindowFromClass
+                    EX_ObjectConst import /Game/UI/Menu_Jobs/JobsV2_Redesign/WND_Assignment_Popup->WND_Assignment_Popup_C
+                    EX_IntConst 200
+                    EX_True
+                RValue = [CallFunc_OpenWindowFromClass_ReturnValue]
+2025:   EX_Context
+            EX_LocalVariable [CallFunc_OpenWindowFromClass_ReturnValue]
+            EX_LocalVirtualFunction SetData
+                EX_InstanceVariable [Campaign]
+            RValue = []
+2070:   EX_BindDelegate Event_Updated
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+2093:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_OpenWindowFromClass_ReturnValue]
+                EX_InstanceVariable [Updated]
+                RValue = [Updated]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+2134:   EX_PopExecutionFlow
+2135:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_2]
+            RValue = []
+2183:   EX_Context
+            EX_InstanceVariable [I_O2]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_2]
+            RValue = []
+2224:   EX_Context
+            EX_InstanceVariable [Overlay_Scaler]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderScale
+                EX_StructConst import /Script/CoreUObject->Vector2D
+                    EX_FloatConst 1.01
+                    EX_FloatConst 1.02
+            RValue = []
+2280:   EX_PopExecutionFlow
+2281:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 24
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+2329:   EX_Context
+            EX_InstanceVariable [I_O2]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+2370:   EX_Context
+            EX_InstanceVariable [Overlay_Scaler]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderScale
+                EX_StructConst import /Script/CoreUObject->Vector2D
+                    EX_FloatConst 1
+                    EX_FloatConst 1
+            RValue = []
+2426:   EX_PopExecutionFlow
+2427:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsActiveCampaign_ReturnValue]
+            EX_LocalVirtualFunction IsActiveCampaign
+2451:   EX_JumpIfNot 2527
+            EX_LocalVariable [CallFunc_IsActiveCampaign_ReturnValue]
+2465:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCampaingManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCampaingManager
+                EX_Self
+2486:   EX_LetObj
+            EX_InstanceVariable [Campaign]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCampaingManager_ReturnValue]
+                EX_InstanceVariable [ActiveCampaign]
+                RValue = [ActiveCampaign]
+2527:   EX_LocalVirtualFunction SetInfo
+2541:   EX_Context
+            EX_InstanceVariable [Box_CampaignItems]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+2577:   EX_Jump 1470
+2582:   EX_LetObj
+            EX_InstanceVariable [Campaign]
+            EX_LocalVariable [K2Node_Event_Campaign]
+2601:   EX_Jump 2527
+2606:   EX_Jump 2427
+2611:   EX_CallMulticastDelegate import /Game/UI/Menu_Jobs/WND_Jobs_Entry_Base->WND_Jobs_Entry_Base_C->Updated__DelegateSignature
+            EX_InstanceVariable [Updated]
+2630:   EX_PopExecutionFlow
+2631:   EX_Jump 2611
+2636:   EX_Return
+            EX_Nothing
+2638:   EX_EndOfScript
+FunctionExport Event_Updated
+0:      EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 2631
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Refresh
+0:      EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 2606
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetData
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Campaign]
+            EX_LocalVariable [Campaign]
+18:     EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 2582
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 2281
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_1_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 2135
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 1947
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export WND_JobsEntry_WeeklyV2_C->ExecuteUbergraph_WND_JobsEntry_WeeklyV2
+            EX_IntConst 1498
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport IsActiveCampaign
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+21:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsActiveCampaign_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                    EX_InstanceVariable [CampaignManager]
+                    RValue = [CampaignManager]
+                EX_FinalFunction import /Script/FSD->CampaignManager->IsActiveCampaign
+                    EX_InstanceVariable [Campaign]
+                RValue = [CallFunc_IsActiveCampaign_ReturnValue]
+94:     EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_IsActiveCampaign_ReturnValue]
+113:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+123:    EX_EndOfScript
+FunctionExport SetInfo
+0:      EX_Context
+            EX_InstanceVariable [Text_AssignmentName]
+            EX_VirtualFunction SetText
+                EX_Context
+                    EX_InstanceVariable [Campaign]
+                    EX_InstanceVariable [Title]
+                    RValue = [Title]
+            RValue = []
+67:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetPicture_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Campaign]
+                EX_FinalFunction import /Script/FSD->Campaign->GetPicture
+                RValue = [CallFunc_GetPicture_ReturnValue]
+109:    EX_Context
+            EX_InstanceVariable [DynMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Texture
+                EX_LocalVariable [CallFunc_GetPicture_ReturnValue]
+            RValue = []
+163:    EX_Context
+            EX_InstanceVariable [Weekly_Deadline_Timer]
+            EX_LocalVirtualFunction SetData
+                EX_InstanceVariable [Campaign]
+            RValue = []
+208:    EX_Return
+            EX_Nothing
+210:    EX_EndOfScript
+FunctionExport VisibleAndEnabled
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Widget]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+42:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+                EX_Context
+                    EX_LocalVariable [Widget]
+                    EX_InstanceVariable [bIsEnabled]
+                    RValue = [bIsEnabled]
+102:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+121:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+131:    EX_EndOfScript

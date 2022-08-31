@@ -1,0 +1,126 @@
+FunctionExport ExecuteUbergraph_SER_FindNearestPlayerTarget
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_InstanceVariable [MyPawn]
+            EX_LocalVariable [K2Node_Event_ControlledPawn]
+29:     EX_JumpIfNot 310
+            EX_InstanceVariable [ChangeTarget]
+43:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerTarget_ReturnValue]
+            EX_CallMath import /Script/FSD->AIFunctionLibrary->GetPlayerTarget
+                EX_InstanceVariable [MyPawn]
+                EX_InstanceVariable [MaxRange]
+                EX_InstanceVariable [MustBeAlive]
+                EX_False
+                EX_InstanceVariable [AccountForAttackers]
+                EX_NoObject
+                EX_False
+102:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetPlayerTarget_ReturnValue]
+131:    EX_JumpIfNot 388
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+145:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerTarget_ReturnValue]
+            EX_CallMath import /Script/FSD->AIFunctionLibrary->GetPlayerTarget
+                EX_InstanceVariable [MyPawn]
+                EX_InstanceVariable [MaxRange]
+                EX_InstanceVariable [MustBeAlive]
+                EX_False
+                EX_InstanceVariable [AccountForAttackers]
+                EX_NoObject
+                EX_False
+204:    EX_LetObj
+            EX_InstanceVariable [NewTarget]
+            EX_LocalVariable [CallFunc_GetPlayerTarget_ReturnValue]
+223:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsObject_ReturnValue_1]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsObject
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+253:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_InstanceVariable [NewTarget]
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsObject_ReturnValue_1]
+291:    EX_JumpIfNot 427
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+305:    EX_Jump 743
+310:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsObject_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsObject
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+340:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsObject_ReturnValue]
+369:    EX_JumpIfNot 43
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+383:    EX_Jump 743
+388:    EX_JumpIfNot 743
+            EX_InstanceVariable [ClearIfNone]
+402:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->ClearBlackboardValue
+            EX_Self
+            EX_InstanceVariable [TargetKey]
+422:    EX_Jump 743
+427:    EX_JumpIfNot 714
+            EX_InstanceVariable [ChangeTargeOnlyBasedOnDistance]
+441:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+471:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+500:    EX_JumpIfNot 714
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+514:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+544:    EX_Let
+            EX_LocalVariable [CallFunc_GetDistanceTo_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [MyPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetDistanceTo
+                    EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                RValue = [CallFunc_GetDistanceTo_ReturnValue]
+603:    EX_Let
+            EX_LocalVariable [CallFunc_GetDistanceTo_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [MyPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetDistanceTo
+                    EX_InstanceVariable [NewTarget]
+                RValue = [CallFunc_GetDistanceTo_ReturnValue_1]
+662:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_GetDistanceTo_ReturnValue_1]
+                EX_LocalVariable [CallFunc_GetDistanceTo_ReturnValue]
+700:    EX_JumpIfNot 743
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+714:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [TargetKey]
+            EX_InstanceVariable [NewTarget]
+743:    EX_Return
+            EX_Nothing
+745:    EX_EndOfScript
+FunctionExport ReceiveTickAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+54:     EX_LocalFinalFunction export SER_FindNearestPlayerTarget_C->ExecuteUbergraph_SER_FindNearestPlayerTarget
+            EX_IntConst 10
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript

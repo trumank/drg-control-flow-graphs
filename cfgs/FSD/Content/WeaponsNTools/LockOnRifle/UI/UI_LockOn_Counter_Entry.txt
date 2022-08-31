@@ -1,0 +1,120 @@
+FunctionExport ExecuteUbergraph_UI_LockOn_Counter_Entry
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_JumpIfNot 61
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+24:     EX_LocalVirtualFunction SetState
+            EX_InstanceVariable [PreviewOn]
+            EX_InstanceVariable [PreviewLimit]
+56:     EX_Jump 93
+61:     EX_LocalVirtualFunction SetState
+            EX_InstanceVariable [IsOn]
+            EX_InstanceVariable [IsLimit]
+93:     EX_Return
+            EX_Nothing
+95:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_LockOn_Counter_Entry_C->ExecuteUbergraph_UI_LockOn_Counter_Entry
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetState
+0:      EX_PushExecutionFlow 646
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [NewIsLimit]
+34:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [NewIsOn]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+72:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Foreground]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+158:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [NewIsOn]
+                EX_LocalVariable [NewIsLimit]
+196:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Limit]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+282:    EX_PushExecutionFlow 420
+287:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction UpdateBool
+                EX_InstanceVariable [IsOn]
+                EX_LocalVariable [NewIsOn]
+                EX_Self
+                EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+            RValue = []
+360:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+370:    EX_JumpIfNot 626
+            EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+384:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimationForward_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimationForward
+                EX_InstanceVariable [AnimPing]
+                EX_FloatConst 4
+                EX_True
+419:    EX_PopExecutionFlow
+420:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction UpdateBool
+                EX_InstanceVariable [IsLimit]
+                EX_LocalVariable [NewIsLimit]
+                EX_Self
+                EX_LocalVariable [CallFunc_UpdateBool_ValueChanged_1]
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue_1]
+            RValue = []
+493:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UpdateBool_ValueChanged_1]
+503:    EX_JumpIfNot 606
+            EX_LocalVariable [CallFunc_UpdateBool_OutValue_1]
+517:    EX_Let
+            EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetAnimationCurrentTime
+                EX_InstanceVariable [AnimLimit]
+554:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimLimit]
+                EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_True
+605:    EX_PopExecutionFlow
+606:    EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [AnimLimit]
+625:    EX_PopExecutionFlow
+626:    EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [AnimPing]
+645:    EX_PopExecutionFlow
+646:    EX_Return
+            EX_Nothing
+648:    EX_EndOfScript

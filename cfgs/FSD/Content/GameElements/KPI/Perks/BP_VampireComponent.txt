@@ -1,0 +1,100 @@
+FunctionExport ExecuteUbergraph_BP_VampireComponent
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [K2Node_CustomEvent_damageClass]
+                EX_ObjectConst import /Game/GameElements/Damage/DMG_Physical->DMG_Physical
+48:     EX_LetBool
+            EX_LocalVariable [CallFunc_DoesContainerMatchTagQuery_ReturnValue]
+            EX_CallMath import /Script/GameplayTags->BlueprintGameplayTagLibrary->DoesContainerMatchTagQuery
+                EX_LocalVariable [K2Node_CustomEvent_enemyTags]
+                EX_InstanceVariable [Query]
+86:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_DoesContainerMatchTagQuery_ReturnValue]
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+124:    EX_JumpIfNot 494
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+138:    EX_Let
+            EX_LocalVariable [CallFunc_Heal_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [PlayerCharacter]
+                    EX_InstanceVariable [HealthComponent]
+                    RValue = [HealthComponent]
+                EX_VirtualFunction Heal
+                    EX_InstanceVariable [FloatValue]
+                RValue = [CallFunc_Heal_ReturnValue]
+223:    EX_VirtualFunction Client_VampireTriggered
+237:    EX_Jump 494
+242:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+262:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+                RValue = [CallFunc_HasAuthority_ReturnValue]
+304:    EX_JumpIfNot 494
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+318:    EX_BindDelegate OnEnemyKIlled
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+341:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerCharacter]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue]
+383:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+                EX_InstanceVariable [OnEnemyKilledEvent]
+                RValue = [OnEnemyKilledEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+424:    EX_Jump 494
+429:    EX_Jump 242
+434:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_InstanceVariable [VampireHealCue]
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+494:    EX_Return
+            EX_Nothing
+496:    EX_EndOfScript
+FunctionExport Client_VampireTriggered
+0:      EX_LocalFinalFunction export BP_VampireComponent_C->ExecuteUbergraph_BP_VampireComponent
+            EX_IntConst 434
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Receive_OnInitialized
+0:      EX_LocalFinalFunction export BP_VampireComponent_C->ExecuteUbergraph_BP_VampireComponent
+            EX_IntConst 429
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnEnemyKIlled
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_enemyTags]
+            EX_LocalOutVariable
+                [enemyTags]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_enemy]
+            EX_LocalVariable [enemy]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_damageClass]
+            EX_LocalVariable [damageClass]
+54:     EX_LocalFinalFunction export BP_VampireComponent_C->ExecuteUbergraph_BP_VampireComponent
+            EX_IntConst 10
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript

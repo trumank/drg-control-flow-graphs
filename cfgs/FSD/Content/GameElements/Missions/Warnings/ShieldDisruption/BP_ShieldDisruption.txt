@@ -1,0 +1,49 @@
+FunctionExport ExecuteUbergraph_BP_ShieldDisruption
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_PlayerCharacter]
+                EX_InstanceVariable [PawnAfflictionComponent]
+                RValue = [PawnAfflictionComponent]
+            EX_FinalFunction import /Script/FSD->PawnAfflictionComponent->PushAffliction
+                EX_ObjectConst import /Game/GameElements/PawnAffliction/PAF_ShieldDisruption->PAF_ShieldDisruption
+                EX_False
+            RValue = []
+74:     EX_Jump 199
+79:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsServer_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsServer
+                EX_Self
+100:    EX_JumpIfNot 199
+            EX_LocalVariable [CallFunc_IsServer_ReturnValue]
+114:    EX_BindDelegate PlayerSpawned
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+137:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+158:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnPlayerCharacterRegistered]
+                RValue = [OnPlayerCharacterRegistered]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+199:    EX_Return
+            EX_Nothing
+201:    EX_EndOfScript
+FunctionExport PlayerSpawned
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PlayerCharacter]
+            EX_LocalVariable [PlayerCharacter]
+18:     EX_LocalFinalFunction export BP_ShieldDisruption_C->ExecuteUbergraph_BP_ShieldDisruption
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport StartLogic
+0:      EX_LocalFinalFunction export BP_ShieldDisruption_C->ExecuteUbergraph_BP_ShieldDisruption
+            EX_IntConst 79
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

@@ -1,0 +1,477 @@
+FunctionExport GetCharacterID
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_JumpIfNot 145
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+99:     EX_LetObj
+            EX_LocalOutVariable
+                [CharacterID]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [CharacterID]
+                RValue = [CharacterID]
+140:    EX_Jump 164
+145:    EX_LetObj
+            EX_LocalOutVariable
+                [CharacterID]
+            EX_ObjectConst import /Game/Character/DrillerID->DrillerID
+164:    EX_Return
+            EX_Nothing
+166:    EX_EndOfScript
+FunctionExport ReceiveEntryEquipClick
+0:      EX_PushExecutionFlow 767
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [InEquipped]
+34:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+44:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+            EX_DynamicCast import /Script/FSD->VictoryPose
+                EX_LocalVariable [InData]
+80:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+109:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+119:    EX_LocalVirtualFunction GetCharacterID
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+142:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+            EX_FinalFunction import /Script/FSD->VictoryPose->Equip
+                EX_Self
+                EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+            RValue = []
+184:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+207:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+230:    EX_LocalVirtualFunction GetEntries
+            EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+253:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+312:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+350:    EX_JumpIfNot 673
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+364:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+391:    EX_PushExecutionFlow 693
+396:    EX_LocalVirtualFunction GetEntries
+            EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+419:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+478:    EX_LetObj
+            EX_LocalVariable [OtherEntry]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+497:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_Context
+                    EX_LocalVariable [OtherEntry]
+                    EX_InstanceVariable [Index]
+                    RValue = [Index]
+                EX_Context
+                    EX_LocalVariable [InEntryWidget]
+                    EX_InstanceVariable [Index]
+                    RValue = [Index]
+579:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+589:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [OtherEntry]
+                EX_LocalVariable [InEntryWidget]
+627:    EX_Context
+            EX_LocalVariable [OtherEntry]
+            EX_LocalVirtualFunction SetEquipped
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            RValue = []
+672:    EX_PopExecutionFlow
+673:    EX_CallMulticastDelegate import /Game/UI/Menu_Cheats/VanityCheatWidgets/Cheat_EquipList->Cheat_EquipList_C->OnEntryChanged__DelegateSignature
+            EX_InstanceVariable [OnEntryChanged]
+692:    EX_PopExecutionFlow
+693:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+735:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+762:    EX_Jump 230
+767:    EX_Return
+            EX_Nothing
+769:    EX_EndOfScript
+FunctionExport ReceiveEntryOwnedClick
+0:      EX_JumpIfNot 200
+            EX_LocalVariable [InOwned]
+14:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose_1]
+            EX_DynamicCast import /Script/FSD->VictoryPose
+                EX_LocalVariable [InData]
+50:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose_1]
+79:     EX_JumpIfNot 381
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+93:     EX_LocalVirtualFunction GetCharacterID
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+116:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose_1]
+            EX_FinalFunction import /Script/FSD->VictoryPose->ResetUnlock
+                EX_Self
+                EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+            RValue = []
+158:    EX_Context
+            EX_LocalVariable [InEntryWidget]
+            EX_LocalVirtualFunction SetOwned
+                EX_False
+            RValue = []
+195:    EX_Jump 381
+200:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+            EX_DynamicCast import /Script/FSD->VictoryPose
+                EX_LocalVariable [InData]
+236:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+265:    EX_JumpIfNot 381
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+279:    EX_LocalVirtualFunction GetCharacterID
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+302:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+            EX_FinalFunction import /Script/FSD->VictoryPose->Unlock
+                EX_Self
+                EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+            RValue = []
+344:    EX_Context
+            EX_LocalVariable [InEntryWidget]
+            EX_LocalVirtualFunction SetOwned
+                EX_True
+            RValue = []
+381:    EX_Return
+            EX_Nothing
+383:    EX_EndOfScript
+FunctionExport GetCharacter
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_JumpIfNot 118
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+99:     EX_LetObj
+            EX_LocalOutVariable
+                [OutCharacter]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+118:    EX_Return
+            EX_Nothing
+120:    EX_EndOfScript
+FunctionExport Refresh
+0:      EX_PushExecutionFlow 1482
+5:      EX_LocalFinalFunction import /Game/UI/Menu_Cheats/VanityCheatWidgets/Cheat_EquipList->Cheat_EquipList_C->Refresh
+15:     EX_LocalVirtualFunction Clear
+29:     EX_LocalVirtualFunction GetCharacterID
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+52:     EX_LetObj
+            EX_LocalVariable [CharacterID]
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+71:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CharacterID]
+100:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+110:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEquippedVictoryPose_ReturnValue]
+            EX_CallMath import /Script/FSD->VictoryPoseFunctionLibrary->GetEquippedVictoryPose
+                EX_Self
+                EX_LocalVariable [CharacterID]
+140:    EX_LetObj
+            EX_LocalVariable [Equipped]
+            EX_LocalVariable [CallFunc_GetEquippedVictoryPose_ReturnValue]
+159:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+182:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+205:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+225:    EX_Let
+            EX_LocalVariable [CallFunc_GetVictoryPoses_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [VictoryPoseSettings]
+                    RValue = [VictoryPoseSettings]
+                EX_FinalFunction import /Script/FSD->VictoryPoseSettings->GetVictoryPoses
+                RValue = [CallFunc_GetVictoryPoses_ReturnValue]
+297:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetVictoryPoses_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+356:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+394:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+404:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+431:    EX_PushExecutionFlow 1408
+436:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+456:    EX_Let
+            EX_LocalVariable [CallFunc_GetVictoryPoses_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [VictoryPoseSettings]
+                    RValue = [VictoryPoseSettings]
+                EX_FinalFunction import /Script/FSD->VictoryPoseSettings->GetVictoryPoses
+                RValue = [CallFunc_GetVictoryPoses_ReturnValue]
+528:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetVictoryPoses_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+587:    EX_LetObj
+            EX_LocalVariable [VictoryPose]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+606:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsUnlocked_ReturnValue]
+            EX_Context
+                EX_LocalVariable [VictoryPose]
+                EX_FinalFunction import /Script/FSD->VictoryPose->IsUnlocked
+                    EX_Self
+                    EX_LocalVariable [CharacterID]
+                RValue = [CallFunc_IsUnlocked_ReturnValue]
+658:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsUnlockedNotFromStart_ReturnValue]
+            EX_Context
+                EX_LocalVariable [VictoryPose]
+                EX_FinalFunction import /Script/FSD->VictoryPose->IsUnlockedNotFromStart
+                    EX_Self
+                    EX_LocalVariable [CharacterID]
+                RValue = [CallFunc_IsUnlockedNotFromStart_ReturnValue]
+710:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsUnlockedNotFromStart_ReturnValue]
+739:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [Equipped]
+                EX_LocalVariable [VictoryPose]
+777:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+797:    EX_Let
+            EX_LocalVariable [CallFunc_GetVictoryPoses_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [VictoryPoseSettings]
+                    RValue = [VictoryPoseSettings]
+                EX_FinalFunction import /Script/FSD->VictoryPoseSettings->GetVictoryPoses
+                RValue = [CallFunc_GetVictoryPoses_ReturnValue]
+869:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetVictoryPoses_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+928:    EX_LocalVirtualFunction IsSchematicOwned
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_InstanceVariable [Aquisition]
+                RValue = [Aquisition]
+            EX_LocalVariable [CharacterID]
+            EX_LocalVariable [CallFunc_IsSchematicOwned_IsOwned]
+991:    EX_LocalVirtualFunction HasSchematic
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_InstanceVariable [Aquisition]
+                RValue = [Aquisition]
+            EX_LocalVariable [CharacterID]
+            EX_LocalVariable [CallFunc_HasSchematic_HasSchematic]
+1054:   EX_LocalVirtualFunction AddEntry
+            EX_Context
+                EX_LocalVariable [VictoryPose]
+                EX_InstanceVariable [Title]
+                RValue = [Title]
+            EX_Context
+                EX_LocalVariable [VictoryPose]
+                EX_InstanceVariable [Description]
+                RValue = [Description]
+            EX_LocalVariable [CallFunc_IsUnlocked_ReturnValue]
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_LocalVariable [VictoryPose]
+            EX_TextConst
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_LocalVariable [CallFunc_IsSchematicOwned_IsOwned]
+            EX_LocalVariable [CallFunc_HasSchematic_HasSchematic]
+            EX_NoObject
+            EX_LocalVariable [CallFunc_AddEntry_OutEntryWidget]
+1196:   EX_LetObj
+            EX_LocalVariable [Entry]
+            EX_LocalVariable [CallFunc_AddEntry_OutEntryWidget]
+1215:   EX_BindDelegate ReceiveEntryEquipClick
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+1238:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [Entry]
+                EX_InstanceVariable [OnEquipClicked]
+                RValue = [OnEquipClicked]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+1279:   EX_BindDelegate ReceiveEntryOwnedClick
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+1302:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [Entry]
+                EX_InstanceVariable [OnOwnedClicked]
+                RValue = [OnOwnedClicked]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+1343:   EX_BindDelegate ReceiveEntrySchematicClick
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1366:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [Entry]
+                EX_InstanceVariable [OnSchematicClicked]
+                RValue = [OnSchematicClicked]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1407:   EX_PopExecutionFlow
+1408:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1450:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1477:   EX_Jump 205
+1482:   EX_Return
+            EX_Nothing
+1484:   EX_EndOfScript
+FunctionExport ReceiveEntrySchematicClick
+0:      EX_JumpIfNot 254
+            EX_LocalVariable [InOwned]
+14:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose_1]
+            EX_DynamicCast import /Script/FSD->VictoryPose
+                EX_LocalVariable [InData]
+50:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose_1]
+79:     EX_JumpIfNot 532
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+93:     EX_LocalVirtualFunction GetCharacterID
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+116:    EX_LocalVirtualFunction GetSchematicFromAquisition
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose_1]
+                EX_InstanceVariable [Aquisition]
+                RValue = [Aquisition]
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+            EX_LocalVariable [CallFunc_GetSchematicFromAquisition_Schematic_1]
+179:    EX_Context
+            EX_LocalVariable [CallFunc_GetSchematicFromAquisition_Schematic_1]
+            EX_FinalFunction import /Script/FSD->Schematic->RemoveSchematicFromPlayerInventory
+                EX_Self
+            RValue = []
+212:    EX_Context
+            EX_LocalVariable [InEntryWidget]
+            EX_LocalVirtualFunction SetSchematicOwned
+                EX_False
+            RValue = []
+249:    EX_Jump 532
+254:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+            EX_DynamicCast import /Script/FSD->VictoryPose
+                EX_LocalVariable [InData]
+290:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+319:    EX_JumpIfNot 532
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+333:    EX_LocalVirtualFunction GetCharacterID
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+356:    EX_LocalVirtualFunction GetSchematicFromAquisition
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsVictory_Pose]
+                EX_InstanceVariable [Aquisition]
+                RValue = [Aquisition]
+            EX_LocalVariable [CallFunc_GetCharacterID_CharacterID]
+            EX_LocalVariable [CallFunc_GetSchematicFromAquisition_Schematic]
+419:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetSchematicFromAquisition_Schematic]
+448:    EX_JumpIfNot 532
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+462:    EX_Context
+            EX_LocalVariable [CallFunc_GetSchematicFromAquisition_Schematic]
+            EX_FinalFunction import /Script/FSD->Schematic->AddSchematicToPlayerInventory
+                EX_Self
+            RValue = []
+495:    EX_Context
+            EX_LocalVariable [InEntryWidget]
+            EX_LocalVirtualFunction SetSchematicOwned
+                EX_True
+            RValue = []
+532:    EX_Return
+            EX_Nothing
+534:    EX_EndOfScript

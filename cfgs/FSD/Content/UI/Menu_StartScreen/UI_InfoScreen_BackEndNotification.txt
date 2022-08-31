@@ -1,0 +1,152 @@
+FunctionExport ExecuteUbergraph_UI_InfoScreen_BackEndNotification
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->SetSizeBoxSettings
+            EX_InstanceVariable [OptionalSize]
+            EX_InstanceVariable [SizeSettings]
+38:     EX_JumpIfNot 360
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+52:     EX_LocalVirtualFunction SetNotification
+            EX_InstanceVariable [Notification]
+75:     EX_Jump 360
+80:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->FSDEventManager
+110:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+139:    EX_JumpIfNot 360
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+153:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->FSDEventManager
+183:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetBackendNotificationEvent_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDEventManager->GetBackendNotificationEvent
+                    EX_LocalVariable [CallFunc_GetBackendNotificationEvent_notification]
+                RValue = [CallFunc_GetBackendNotificationEvent_ReturnValue]
+234:    EX_JumpIfNot 360
+            EX_LocalVariable [CallFunc_GetBackendNotificationEvent_ReturnValue]
+248:    EX_LocalVirtualFunction SetNotification
+            EX_LocalVariable [CallFunc_GetBackendNotificationEvent_notification]
+271:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 4
+287:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Blink]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+334:    EX_Jump 360
+339:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+355:    EX_Jump 80
+360:    EX_Return
+            EX_Nothing
+362:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_InfoScreen_BackEndNotification_C->ExecuteUbergraph_UI_InfoScreen_BackEndNotification
+            EX_IntConst 339
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_InfoScreen_BackEndNotification_C->ExecuteUbergraph_UI_InfoScreen_BackEndNotification
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetNotification
+0:      EX_LetBool
+            EX_LocalVariable [IsInfoMsg]
+            EX_False
+11:     EX_Let
+            EX_InstanceVariable [Notification]
+            EX_LocalVariable [InNotification]
+38:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_StriStri_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->EqualEqual_StriStri
+                EX_StructMemberContext [MessageType]
+                    EX_InstanceVariable [Notification]
+                EX_StringConst Info
+82:     EX_LetBool
+            EX_LocalVariable [IsInfoMsg]
+            EX_LocalVariable [CallFunc_EqualEqual_StriStri_ReturnValue]
+101:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 1
+121:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 4
+141:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [IsInfoMsg]
+160:    EX_Context
+            EX_InstanceVariable [LeftDot]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 248
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 225
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 239
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+249:    EX_Context
+            EX_InstanceVariable [RightDot]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 337
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 314
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 328
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+338:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_StructMemberContext [Header]
+                    EX_InstanceVariable [Notification]
+384:    EX_Context
+            EX_InstanceVariable [Header_Text]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue_1]
+            RValue = []
+429:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_StructMemberContext [Message]
+                    EX_InstanceVariable [Notification]
+475:    EX_Context
+            EX_InstanceVariable [Body_Text]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+520:    EX_Return
+            EX_Nothing
+522:    EX_EndOfScript

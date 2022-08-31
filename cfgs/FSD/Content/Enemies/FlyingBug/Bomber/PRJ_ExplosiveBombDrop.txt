@@ -1,0 +1,110 @@
+FunctionExport ExecuteUbergraph_PRJ_ExplosiveBombDrop
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_True
+                EX_False
+            RValue = []
+44:     EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+72:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+118:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_Event_HitResult]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+290:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_VectorToRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_VectorToRotator
+                EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+327:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [Impact Particles]
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_LocalVariable [CallFunc_Conv_VectorToRotator_ReturnValue]
+                EX_LocalVariable [CallFunc_BreakTransform_Scale]
+                EX_True
+                EX_ByteConst 0
+                EX_True
+388:    EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+416:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+462:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_InstanceVariable [Impact Sound]
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+532:    EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+560:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+606:    EX_Context
+            EX_InstanceVariable [Explosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageOnly
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_NameConst None
+                EX_NoObject
+                EX_NoObject
+                EX_InstanceVariable [Damage]
+            RValue = []
+671:    EX_Context
+            EX_InstanceVariable [CollisionComponent]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+709:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 0.5
+728:    EX_Return
+            EX_Nothing
+730:    EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_ExplosiveBombDrop_C->ExecuteUbergraph_PRJ_ExplosiveBombDrop
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

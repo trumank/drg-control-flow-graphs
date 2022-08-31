@@ -1,0 +1,1688 @@
+FunctionExport ExecuteUbergraph_HUD_Chat
+0:      EX_PushExecutionFlow 6355
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_BindDelegate NewMesssage
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+38:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->MessagingSubSystem
+68:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                EX_InstanceVariable [OnNewMessage]
+                RValue = [OnNewMessage]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+109:    EX_BindDelegate OnFontSizeChange
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+132:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+152:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_InstanceVariable [OnFontSizeChanged]
+                RValue = [OnFontSizeChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+193:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+213:    EX_Let
+            EX_LocalVariable [CallFunc_GetChatFontSize_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetChatFontSize
+                RValue = [CallFunc_GetChatFontSize_ReturnValue]
+263:    EX_LocalVirtualFunction SetMaxLinesFromFontSize
+            EX_LocalVariable [CallFunc_GetChatFontSize_ReturnValue]
+286:    EX_PopExecutionFlow
+287:    EX_BindDelegate ChatOpenCooldown
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+310:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+                EX_FloatConst 2
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+363:    EX_Let
+            EX_InstanceVariable [ConsoleChatStartDelay]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+390:    EX_PopExecutionFlow
+391:    EX_BindDelegate ChatClosedCooldown
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+414:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+                EX_FloatConst 2
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+467:    EX_Let
+            EX_InstanceVariable [ConsoleChatStartDelay]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue_1]
+494:    EX_LetBool
+            EX_InstanceVariable [IsChatOpen]
+            EX_False
+505:    EX_LocalVirtualFunction Update Chat Background
+519:    EX_JumpIfNot 610
+            EX_InstanceVariable [InLoadMenu]
+533:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_7]
+            EX_VirtualFunction GetOwningPlayer
+557:    EX_Context
+            EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+            EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->SetInputMode_UIOnlyEx
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_7]
+                EX_InstanceVariable [InputChatBox]
+                EX_ByteConst 0
+            RValue = []
+609:    EX_PopExecutionFlow
+610:    EX_Context
+            EX_InstanceVariable [InputChatBox]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 2
+            RValue = []
+648:    EX_Context
+            EX_InstanceVariable [Border_0]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 2
+            RValue = []
+686:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+707:    EX_LetBool
+            EX_LocalVariable [CallFunc_AnyWindowsOpen_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->AnyWindowsOpen
+                RValue = [CallFunc_AnyWindowsOpen_ReturnValue]
+749:    EX_JumpIfNot 764
+            EX_LocalVariable [CallFunc_AnyWindowsOpen_ReturnValue]
+763:    EX_PopExecutionFlow
+764:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_6]
+            EX_VirtualFunction GetOwningPlayer
+788:    EX_Context
+            EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+            EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->SetInputMode_GameOnly
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_6]
+            RValue = []
+829:    EX_PopExecutionFlow
+830:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_FinalFunction import /Script/UMG->Widget->IsVisible
+850:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsHUDVisible_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->IsHUDVisible
+                EX_Self
+871:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+                EX_LocalVariable [CallFunc_IsHUDVisible_ReturnValue]
+909:    EX_JumpIfNot 1248
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+923:    EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [CanChatBeOpened]
+933:    EX_LocalVirtualFunction OpenChat
+947:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_1]
+            EX_VirtualFunction GetOwningPlayer
+971:    EX_Context
+            EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+            EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->SetInputMode_UIOnlyEx
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_1]
+                EX_InstanceVariable [InputChatBox]
+                EX_ByteConst 0
+            RValue = []
+1023:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_9]
+            EX_False
+1034:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_10]
+            EX_False
+1045:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_11]
+            EX_True
+1056:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_12]
+            EX_False
+1067:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_13]
+            EX_True
+1078:   EX_Let
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FrontendBlueprintLibrary->FSDTargetPlatform
+1106:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_2]
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue_1]
+1133:   EX_LetBool
+            EX_InstanceVariable [CanChatBeOpened]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_byte_Variable_2]
+                OffsetToSwitchEnd = 1243
+                case 0:
+                    EX_ByteConst 0
+                    NextCaseOffset = 1174
+                    EX_LocalVariable [Temp_bool_Variable_13]
+                case 1:
+                    EX_ByteConst 1
+                    NextCaseOffset = 1189
+                    EX_LocalVariable [Temp_bool_Variable_12]
+                case 2:
+                    EX_ByteConst 2
+                    NextCaseOffset = 1204
+                    EX_LocalVariable [Temp_bool_Variable_11]
+                case 3:
+                    EX_ByteConst 3
+                    NextCaseOffset = 1219
+                    EX_LocalVariable [Temp_bool_Variable_10]
+                case 4:
+                    EX_ByteConst 4
+                    NextCaseOffset = 1234
+                    EX_LocalVariable [Temp_bool_Variable_9]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_5]
+1243:   EX_Jump 287
+1248:   EX_LocalVirtualFunction CloseChat
+1262:   EX_PopExecutionFlow
+1263:   EX_PushExecutionFlow 1447
+1268:   EX_PushExecutionFlow 1335
+1273:   EX_PushExecutionFlow 1283
+1278:   EX_Jump 15
+1283:   EX_BindDelegate OnBackgroundFadeFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_5]
+            EX_Self
+1306:   EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationFinished
+            EX_InstanceVariable [BackgroundFade]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_5]
+1334:   EX_PopExecutionFlow
+1335:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [OutsiteChatbox]
+1364:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1383:   EX_LetObj
+            EX_InstanceVariable [InputChatBox]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 1446
+                case 0:
+                    EX_False
+                    NextCaseOffset = 1423
+                    EX_InstanceVariable [NewChatEdit]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 1437
+                    EX_InstanceVariable [OutsiteChatbox]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+1446:   EX_PopExecutionFlow
+1447:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_2]
+            EX_VirtualFunction GetOwningPlayer
+1471:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_2]
+1507:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+1536:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1546:   EX_BindDelegate OnOpenChat
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1569:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+                EX_InstanceVariable [OnChatOpened]
+                RValue = [OnChatOpened]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1610:   EX_PopExecutionFlow
+1611:   EX_LetBool
+            EX_LocalVariable [CallFunc_RemoveChildAt_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->RemoveChildAt
+                    EX_IntConst 0
+                RValue = [CallFunc_RemoveChildAt_ReturnValue]
+1658:   EX_PopExecutionFlow
+1659:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->HasAnyChildren
+                RValue = [CallFunc_HasAnyChildren_ReturnValue]
+1701:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [ChatBackground]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue_1]
+1743:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_BoolBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_BoolBool
+                EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue]
+                EX_LocalVariable [CallFunc_IsVisible_ReturnValue_1]
+1781:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_BoolBool_ReturnValue]
+1791:   EX_Context
+            EX_InstanceVariable [ChatBackground]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+1829:   EX_Context
+            EX_InstanceVariable [ChatBar]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+1867:   EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 5
+1890:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->HasAnyChildren
+                RValue = [CallFunc_HasAnyChildren_ReturnValue_1]
+1932:   EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 2
+1955:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_19]
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue_1]
+1974:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_4]
+            EX_ByteConst 1
+1994:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_5]
+            EX_ByteConst 0
+2014:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_20]
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue_1]
+2033:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [BackgroundFade]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_20]
+                    OffsetToSwitchEnd = 2124
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 2101
+                        EX_LocalVariable [Temp_byte_Variable_4]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 2115
+                        EX_LocalVariable [Temp_byte_Variable_5]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_2]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_19]
+                    OffsetToSwitchEnd = 2177
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 2154
+                        EX_LocalVariable [Temp_float_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 2168
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+                EX_False
+2179:   EX_PopExecutionFlow
+2180:   EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+2230:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+                EX_InstanceVariable [MaxLines]
+2268:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+2278:   EX_Jump 1611
+2283:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_3]
+            EX_VirtualFunction GetOwningPlayer
+2307:   EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Chat/HUD_ChatLine->HUD_ChatLine_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_3]
+                RValue = [CallFunc_Create_ReturnValue]
+2368:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetFloatPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Duration
+            EX_InstanceVariable [Duration]
+2409:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetFloatPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst FadeOut
+            EX_InstanceVariable [FadeTime]
+2450:   EX_LocalVirtualFunction FilterMessage
+            EX_LocalVariable [K2Node_CustomEvent_Msg]
+            EX_LocalVariable [CallFunc_FilterMessage_FilteredMessage]
+2482:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetSystemLibrary
+            EX_FinalFunction import /Script/Engine->KismetSystemLibrary->SetStructurePropertyByName
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_NameConst Msg
+                EX_LocalVariable [CallFunc_FilterMessage_FilteredMessage]
+            RValue = []
+2545:   EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChild_ReturnValue]
+2596:   EX_BindDelegate OnMessageHidden_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_6]
+            EX_Self
+2619:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [OnMessageHidden]
+                RValue = [OnMessageHidden]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_6]
+2660:   EX_PopExecutionFlow
+2661:   EX_LocalVirtualFunction Update Chat Background
+2675:   EX_PopExecutionFlow
+2676:   EX_LocalVirtualFunction Update Chat Background
+2690:   EX_Jump 2180
+2695:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->HasAnyChildren
+                RValue = [CallFunc_HasAnyChildren_ReturnValue_2]
+2737:   EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [ChatBackground]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue_2]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+2823:   EX_Context
+            EX_InstanceVariable [ChatBar]
+            EX_VirtualFunction SetVisibility
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+2868:   EX_PopExecutionFlow
+2869:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+2917:   EX_Context
+            EX_InstanceVariable [ChatBar]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+2958:   EX_PopExecutionFlow
+2959:   EX_Context
+            EX_InstanceVariable [ChatBackground]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+2997:   EX_Context
+            EX_InstanceVariable [ChatBar]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+3035:   EX_Jump 1263
+3040:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_14]
+            EX_False
+3051:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_15]
+            EX_False
+3062:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_16]
+            EX_True
+3073:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_17]
+            EX_False
+3084:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_18]
+            EX_True
+3095:   EX_Let
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue_2]
+            EX_CallMath import /Script/FSD->FrontendBlueprintLibrary->FSDTargetPlatform
+3123:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_3]
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue_2]
+3150:   EX_LetBool
+            EX_InstanceVariable [CanChatBeOpened]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_byte_Variable_3]
+                OffsetToSwitchEnd = 3260
+                case 0:
+                    EX_ByteConst 0
+                    NextCaseOffset = 3191
+                    EX_LocalVariable [Temp_bool_Variable_18]
+                case 1:
+                    EX_ByteConst 1
+                    NextCaseOffset = 3206
+                    EX_LocalVariable [Temp_bool_Variable_17]
+                case 2:
+                    EX_ByteConst 2
+                    NextCaseOffset = 3221
+                    EX_LocalVariable [Temp_bool_Variable_16]
+                case 3:
+                    EX_ByteConst 3
+                    NextCaseOffset = 3236
+                    EX_LocalVariable [Temp_bool_Variable_15]
+                case 4:
+                    EX_ByteConst 4
+                    NextCaseOffset = 3251
+                    EX_LocalVariable [Temp_bool_Variable_14]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_6]
+3260:   EX_Jump 391
+3265:   EX_Jump 2695
+3270:   EX_LocalVirtualFunction SendChatMessage
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Text_3]
+            EX_LocalVariable [K2Node_ComponentBoundEvent_CommitMethod_1]
+3302:   EX_PopExecutionFlow
+3303:   EX_Context
+            EX_InstanceVariable [NewChatEdit]
+            EX_FinalFunction import /Script/UMG->EditableTextBox->SetText
+                EX_TextConst
+            RValue = []
+3337:   EX_Context
+            EX_InstanceVariable [InputChatBox]
+            EX_FinalFunction import /Script/UMG->EditableTextBox->SetText
+                EX_TextConst
+            RValue = []
+3371:   EX_LocalVirtualFunction CloseChat
+3385:   EX_PopExecutionFlow
+3386:   EX_LetBool
+            EX_LocalVariable [CallFunc_TextIsEmpty_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextIsEmpty
+                EX_LocalVariable [K2Node_ComponentBoundEvent_Text_2]
+3415:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_TextIsEmpty_ReturnValue]
+3444:   EX_JumpIfNot 3764
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+3458:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst InText
+3493:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+3522:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Text_2]
+3558:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+3590:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+3622:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+3651:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+3671:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {InText} |
+                EX_LocalVariable [K2Node_MakeArray_Array]
+3722:   EX_Context
+            EX_InstanceVariable [NewChatEdit]
+            EX_FinalFunction import /Script/UMG->EditableTextBox->SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+3763:   EX_PopExecutionFlow
+3764:   EX_LocalVirtualFunction PlatformDependentClose
+3778:   EX_PopExecutionFlow
+3779:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+3800:   EX_JumpIfNot 4860
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [CanCommunicateOnline]
+                RValue = [CanCommunicateOnline]
+3836:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_CommitMethod]
+                EX_ByteConst 0
+3867:   EX_JumpIfNot 4860
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+3881:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_CommitMethod]
+                EX_ByteConst 1
+3912:   EX_JumpIfNot 4017
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+3926:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_CommitMethod]
+                EX_ByteConst 2
+3957:   EX_JumpIfNot 4860
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+3971:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_CommitMethod]
+                EX_ByteConst 3
+4002:   EX_JumpIfNot 4860
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+4016:   EX_PopExecutionFlow
+4017:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_CustomEvent_InText]
+4054:   EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+4091:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue]
+                EX_IntConst 250
+4125:   EX_JumpIfNot 4500
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+4139:   EX_LetBool
+            EX_LocalVariable [CallFunc_TextIsEmpty_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextIsEmpty
+                EX_LocalVariable [K2Node_CustomEvent_InText]
+4168:   EX_JumpIfNot 4187
+            EX_LocalVariable [CallFunc_TextIsEmpty_ReturnValue_1]
+4182:   EX_Jump 3303
+4187:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+4211:   EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue]
+4283:   EX_LocalVirtualFunction GetSenderType
+            EX_LocalVariable [CallFunc_GetSenderType_SenderType]
+4306:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_4]
+            EX_VirtualFunction GetOwningPlayer
+4330:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_1]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_4]
+4366:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_1]
+4395:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_CustomEvent_InText]
+4432:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_1]
+            EX_VirtualFunction Server_NewMessage
+                EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+                EX_LocalVariable [CallFunc_GetSenderType_SenderType]
+            RValue = []
+4495:   EX_Jump 3303
+4500:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+4524:   EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue]
+4596:   EX_LocalVirtualFunction GetSenderType
+            EX_LocalVariable [CallFunc_GetSenderType_SenderType]
+4619:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_4]
+            EX_VirtualFunction GetOwningPlayer
+4643:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_1]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_4]
+4679:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_1]
+4708:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_CustomEvent_InText]
+4745:   EX_Let
+            EX_LocalVariable [CallFunc_GetSubstring_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->GetSubstring
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+                EX_IntConst 0
+                EX_IntConst 250
+4792:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_1]
+            EX_VirtualFunction Server_NewMessage
+                EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+                EX_LocalVariable [CallFunc_GetSubstring_ReturnValue]
+                EX_LocalVariable [CallFunc_GetSenderType_SenderType]
+            RValue = []
+4855:   EX_Jump 3303
+4860:   EX_LocalVirtualFunction CloseChat
+4874:   EX_PopExecutionFlow
+4875:   EX_LocalVirtualFunction SendChatMessage
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Text_1]
+            EX_LocalVariable [K2Node_ComponentBoundEvent_CommitMethod]
+4907:   EX_PopExecutionFlow
+4908:   EX_LocalVirtualFunction Add Chat Message
+            EX_LocalVariable [K2Node_CustomEvent_Message]
+4931:   EX_PushExecutionFlow 2676
+4936:   EX_LetObj
+            EX_LocalVariable [CallFunc_FSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->FSDGameUserSettings
+4956:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_5]
+            EX_VirtualFunction GetOwningPlayer
+4980:   EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue_1]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_5]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue_1]
+5052:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->NotEqual_StrStr
+                EX_StructMemberContext [Sender]
+                    EX_LocalVariable [K2Node_CustomEvent_Message]
+                EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue_1]
+5099:   EX_LetBool
+            EX_LocalVariable [CallFunc_GetPlaySoundOnChatMessage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_FSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPlaySoundOnChatMessage
+                RValue = [CallFunc_GetPlaySoundOnChatMessage_ReturnValue]
+5141:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GetPlaySoundOnChatMessage_ReturnValue]
+                EX_LocalVariable [CallFunc_NotEqual_StrStr_ReturnValue]
+5179:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+5189:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+                EX_FinalFunction import /Script/Engine->GameplayStatics->SpawnSound2D
+                    EX_Self
+                    EX_ObjectConst import /Game/Audio/SFX/UI/Menu/Button_Click_Cue->Button_Click_Cue
+                    EX_FloatConst 1
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_NoObject
+                    EX_False
+                    EX_True
+                RValue = [CallFunc_SpawnSound2D_ReturnValue]
+5259:   EX_PopExecutionFlow
+5260:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_ComponentBoundEvent_Text]
+5297:   EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+5334:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue_1]
+                EX_IntConst 0
+5368:   EX_JumpIfNot 5545
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue_1]
+5382:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [K2Node_ComponentBoundEvent_Text]
+5419:   EX_Let
+            EX_LocalVariable [CallFunc_GetSubstring_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->GetSubstring
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue_1]
+                EX_IntConst 0
+                EX_IntConst 250
+5466:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_GetSubstring_ReturnValue_1]
+5503:   EX_Context
+            EX_InstanceVariable [NewChatEdit]
+            EX_FinalFunction import /Script/UMG->EditableTextBox->SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+5544:   EX_PopExecutionFlow
+5545:   EX_LocalVirtualFunction PlatformDependentClose
+5559:   EX_PopExecutionFlow
+5560:   EX_Context
+            EX_InstanceVariable [ChatMessages]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+5596:   EX_Jump 2959
+5601:   EX_LocalVirtualFunction SetMaxLinesFromFontSize
+            EX_LocalVariable [K2Node_CustomEvent_NewValue]
+5624:   EX_LocalVirtualFunction UpdateChatMessages
+            EX_True
+5639:   EX_PopExecutionFlow
+5640:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_False
+5651:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_False
+5662:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_3]
+            EX_True
+5673:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_4]
+            EX_False
+5684:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_5]
+            EX_True
+5695:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_6]
+            EX_True
+5706:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_7]
+            EX_False
+5717:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_8]
+            EX_False
+5728:   EX_Let
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue]
+            EX_CallMath import /Script/FSD->FrontendBlueprintLibrary->FSDTargetPlatform
+5756:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue]
+5783:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_byte_Variable]
+                    OffsetToSwitchEnd = 5902
+                    case 0:
+                        EX_ByteConst 0
+                        NextCaseOffset = 5833
+                        EX_LocalVariable [Temp_bool_Variable_5]
+                    case 1:
+                        EX_ByteConst 1
+                        NextCaseOffset = 5848
+                        EX_LocalVariable [Temp_bool_Variable_4]
+                    case 2:
+                        EX_ByteConst 2
+                        NextCaseOffset = 5863
+                        EX_LocalVariable [Temp_bool_Variable_3]
+                    case 3:
+                        EX_ByteConst 3
+                        NextCaseOffset = 5878
+                        EX_LocalVariable [Temp_bool_Variable_2]
+                    case 4:
+                        EX_ByteConst 4
+                        NextCaseOffset = 5893
+                        EX_LocalVariable [Temp_bool_Variable_1]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_3]
+                EX_InstanceVariable [IsChatOpen]
+5912:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_2]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+5932:   EX_Let
+            EX_LocalVariable [CallFunc_GetInputSource_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetInputSource
+5960:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_LocalVariable [CallFunc_GetInputSource_ReturnValue]
+5987:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_byte_Variable_1]
+                    OffsetToSwitchEnd = 6085
+                    case 0:
+                        EX_ByteConst 0
+                        NextCaseOffset = 6046
+                        EX_LocalVariable [Temp_bool_Variable_8]
+                    case 1:
+                        EX_ByteConst 1
+                        NextCaseOffset = 6061
+                        EX_LocalVariable [Temp_bool_Variable_7]
+                    case 2:
+                        EX_ByteConst 2
+                        NextCaseOffset = 6076
+                        EX_LocalVariable [Temp_bool_Variable_6]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_4]
+6086:   EX_JumpIfNot 6115
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue_1]
+6100:   EX_LocalVirtualFunction CloseChat
+6114:   EX_PopExecutionFlow
+6115:   EX_LetBool
+            EX_InstanceVariable [IsChatOpen]
+            EX_True
+6126:   EX_PopExecutionFlow
+6127:   EX_LetBool
+            EX_InstanceVariable [CanChatBeOpened]
+            EX_True
+6138:   EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [ConsoleChatStartDelay]
+6158:   EX_PopExecutionFlow
+6159:   EX_LetBool
+            EX_InstanceVariable [CanChatBeOpened]
+            EX_True
+6170:   EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [ConsoleChatStartDelay]
+6190:   EX_PopExecutionFlow
+6191:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_8]
+            EX_VirtualFunction GetOwningPlayer
+6215:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_2]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_8]
+6251:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_2]
+6280:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+6290:   EX_BindDelegate OnOpenChat
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+6313:   EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_2]
+                EX_InstanceVariable [OnChatOpened]
+                RValue = [OnChatOpened]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+6354:   EX_PopExecutionFlow
+6355:   EX_Return
+            EX_Nothing
+6357:   EX_EndOfScript
+FunctionExport Destruct
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 6191
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ChatClosedCooldown
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 6159
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ChatOpenCooldown
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 6127
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PlatformDependentClose
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 5640
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFontSizeChange
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_NewValue]
+            EX_LocalVariable [NewValue]
+18:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 5601
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 5560
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__NewChatEdit_K2Node_ComponentBoundEvent_2_OnEditableTextBoxChangedEvent__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Text]
+            EX_LocalOutVariable
+                [Text]
+18:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 5260
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport NewMesssage
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Message]
+            EX_LocalOutVariable
+                [Message]
+18:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 4908
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__NewChatEdit_K2Node_ComponentBoundEvent_19_OnEditableTextBoxCommittedEvent__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Text_1]
+            EX_LocalOutVariable
+                [Text]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_CommitMethod]
+            EX_LocalVariable [CommitMethod]
+36:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 4875
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SendChatMessage
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InText]
+            EX_LocalOutVariable
+                [InText]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_CommitMethod]
+            EX_LocalVariable [CommitMethod]
+36:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 3779
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__OutsiteChatbox_K2Node_ComponentBoundEvent_1_OnEditableTextBoxChangedEvent__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Text_2]
+            EX_LocalOutVariable
+                [Text]
+18:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 3386
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__OutsiteChatbox_K2Node_ComponentBoundEvent_0_OnEditableTextCommittedEvent__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Text_3]
+            EX_LocalOutVariable
+                [Text]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_CommitMethod_1]
+            EX_LocalVariable [CommitMethod]
+36:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 3270
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnBackgroundFadeFinished
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 3265
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CloseChat
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 3040
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 2869
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnMessageHidden_Event
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 2661
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Add Chat Message
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Msg]
+            EX_LocalVariable [Msg]
+18:     EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 2283
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Update Chat Background
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 1659
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnOpenChat
+0:      EX_LocalFinalFunction export HUD_Chat_C->ExecuteUbergraph_HUD_Chat
+            EX_IntConst 830
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BeginChat
+0:      EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_StringConst Chat
+            EX_True
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.66
+                EX_FloatConst 1
+                EX_FloatConst 1
+            EX_FloatConst 2
+58:     EX_Return
+            EX_Nothing
+60:     EX_EndOfScript
+FunctionExport OpenChat
+0:      EX_PushExecutionFlow 1015
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [OutsiteChatbox]
+34:     EX_JumpIfNot 831
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+48:     EX_Context
+            EX_InstanceVariable [InputChatBox]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+86:     EX_Context
+            EX_InstanceVariable [ChatMessages]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+122:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->MessagingSubSystem
+152:    EX_SetArray
+            EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+163:    EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->MessagingSubSystem->LatestMessages
+                EX_InstanceVariable [MaxLines]
+                EX_True
+                EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+            RValue = []
+214:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+237:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+260:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+319:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+357:    EX_JumpIfNot 874
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+371:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+398:    EX_PushExecutionFlow 941
+403:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+462:    EX_LocalVirtualFunction IsStringNotEmpty
+            EX_StructMemberContext [Msg]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty]
+503:    EX_LocalVirtualFunction IsStringNotEmpty
+            EX_StructMemberContext [Sender]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty_1]
+544:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_StructMemberContext [MsgType]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_ByteConst 1
+584:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_StructMemberContext [MsgType]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_ByteConst 0
+624:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+                EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty]
+662:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+                EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty_1]
+700:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+738:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+748:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+807:    EX_LocalVirtualFunction Add Chat Message
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+830:    EX_PopExecutionFlow
+831:    EX_Context
+            EX_InstanceVariable [Border_0]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+869:    EX_Jump 48
+874:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ChatMessages]
+                EX_FinalFunction import /Script/UMG->PanelWidget->HasAnyChildren
+                RValue = [CallFunc_HasAnyChildren_ReturnValue]
+916:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAnyChildren_ReturnValue]
+926:    EX_LocalVirtualFunction Update Chat Background
+940:    EX_PopExecutionFlow
+941:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+983:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1010:   EX_Jump 260
+1015:   EX_Return
+            EX_Nothing
+1017:   EX_EndOfScript
+FunctionExport GetSenderType
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+24:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+            EX_DynamicCast import /Script/FSD->FSDPlayerState
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+82:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+111:    EX_JumpIfNot 207
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+125:    EX_Let
+            EX_LocalVariable [CallFunc_GetChatSenderType_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetChatSenderType
+                RValue = [CallFunc_GetChatSenderType_ReturnValue]
+175:    EX_Let
+            EX_LocalOutVariable
+                [SenderType]
+            EX_LocalVariable [CallFunc_GetChatSenderType_ReturnValue]
+202:    EX_Jump 227
+207:    EX_Let
+            EX_LocalOutVariable
+                [SenderType]
+            EX_ByteConst 0
+227:    EX_Return
+            EX_Nothing
+229:    EX_EndOfScript
+FunctionExport IsStringNotEmpty
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Trim_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Trim
+                EX_LocalVariable [String]
+37:     EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [CallFunc_Trim_ReturnValue]
+74:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue]
+                EX_IntConst 0
+108:    EX_LetBool
+            EX_LocalOutVariable
+                [IsEmpty]
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+127:    EX_Return
+            EX_Nothing
+129:    EX_EndOfScript
+FunctionExport UpdateChatMessages
+0:      EX_PushExecutionFlow 828
+5:      EX_Context
+            EX_InstanceVariable [ChatMessages]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+41:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->MessagingSubSystem
+71:     EX_SetArray
+            EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+82:     EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->MessagingSubSystem->LatestMessages
+                EX_InstanceVariable [MaxLines]
+                EX_LocalVariable [resetAge]
+                EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+            RValue = []
+141:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+164:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+187:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+246:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+284:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+294:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+321:    EX_PushExecutionFlow 754
+326:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+385:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_StructMemberContext [MsgType]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_ByteConst 1
+425:    EX_LocalVirtualFunction IsStringNotEmpty
+            EX_StructMemberContext [Msg]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty]
+466:    EX_LocalVirtualFunction IsStringNotEmpty
+            EX_StructMemberContext [Sender]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty_1]
+507:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+                EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty]
+545:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_StructMemberContext [MsgType]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_ByteConst 0
+585:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+                EX_LocalVariable [CallFunc_IsStringNotEmpty_IsEmpty_1]
+623:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+661:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+671:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_LatestMessages_OutMessages]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+730:    EX_LocalVirtualFunction Add Chat Message
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+753:    EX_PopExecutionFlow
+754:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+796:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+823:    EX_Jump 187
+828:    EX_Return
+            EX_Nothing
+830:    EX_EndOfScript
+FunctionExport SetMaxLinesFromFontSize
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [FontSize]
+37:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+                EX_FloatConst 5
+79:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_FloatConst 25
+121:    EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_InstanceVariable [MaxLinesConst]
+                EX_InstanceVariable [MinLinesConst]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+176:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+                EX_FloatConst 0.5
+218:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_FloatConst 2
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+260:    EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+297:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+339:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_2]
+                EX_FloatConst 3
+381:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+427:    EX_Let
+            EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FTrunc
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+464:    EX_Let
+            EX_InstanceVariable [MaxLines]
+            EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+491:    EX_Return
+            EX_Nothing
+493:    EX_EndOfScript
+FunctionExport FilterProfanityMessage
+0:      EX_Let
+            EX_LocalVariable [CallFunc_FilterProfanityText_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSteamUtils->FilterProfanityText
+                EX_LocalVariable [MessageToFilter]
+37:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_False
+48:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_False
+59:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_False
+70:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_3]
+            EX_False
+81:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+101:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_4]
+            EX_True
+112:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetUseProfanityFilter_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetUseProfanityFilter
+                RValue = [CallFunc_GetUseProfanityFilter_ReturnValue]
+154:    EX_Let
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue]
+            EX_CallMath import /Script/FSD->FrontendBlueprintLibrary->FSDTargetPlatform
+182:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue]
+209:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GetUseProfanityFilter_ReturnValue]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_byte_Variable]
+                    OffsetToSwitchEnd = 337
+                    case 0:
+                        EX_ByteConst 0
+                        NextCaseOffset = 268
+                        EX_LocalVariable [Temp_bool_Variable_4]
+                    case 1:
+                        EX_ByteConst 1
+                        NextCaseOffset = 283
+                        EX_LocalVariable [Temp_bool_Variable_3]
+                    case 2:
+                        EX_ByteConst 2
+                        NextCaseOffset = 298
+                        EX_LocalVariable [Temp_bool_Variable_2]
+                    case 3:
+                        EX_ByteConst 3
+                        NextCaseOffset = 313
+                        EX_LocalVariable [Temp_bool_Variable_1]
+                    case 4:
+                        EX_ByteConst 4
+                        NextCaseOffset = 328
+                        EX_LocalVariable [Temp_bool_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+338:    EX_Let
+            EX_LocalVariable [CallFunc_SelectString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SelectString
+                EX_LocalVariable [CallFunc_FilterProfanityText_ReturnValue]
+                EX_LocalVariable [MessageToFilter]
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+393:    EX_Let
+            EX_LocalOutVariable
+                [OutMessage]
+            EX_LocalVariable [CallFunc_SelectString_ReturnValue]
+420:    EX_Return
+            EX_Nothing
+422:    EX_EndOfScript
+FunctionExport FilterMessage
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [MsgType]
+                    EX_LocalVariable [InMessage]
+                EX_ByteConst 1
+40:     EX_JumpIfNot 258
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+54:     EX_LocalVirtualFunction FilterBlockedUserMessage
+            EX_LocalVariable [InMessage]
+            EX_LocalVariable [CallFunc_FilterBlockedUserMessage_FilteredMessageType]
+            EX_LocalVariable [CallFunc_FilterBlockedUserMessage_FilteredMessage]
+95:     EX_LocalVirtualFunction FilterProfanityMessage
+            EX_LocalVariable [CallFunc_FilterBlockedUserMessage_FilteredMessage]
+            EX_LocalVariable [CallFunc_FilterProfanityMessage_OutMessage]
+127:    EX_Let
+            EX_StructMemberContext [MsgType]
+                EX_LocalVariable [InMessage]
+            EX_LocalVariable [CallFunc_FilterBlockedUserMessage_FilteredMessageType]
+163:    EX_Let
+            EX_StructMemberContext [Msg]
+                EX_LocalVariable [InMessage]
+            EX_LocalVariable [CallFunc_FilterProfanityMessage_OutMessage]
+199:    EX_Let
+            EX_LocalVariable [K2Node_SetFieldsInStruct_StructOut]
+            EX_LocalVariable [InMessage]
+226:    EX_Let
+            EX_LocalOutVariable
+                [FilteredMessage]
+            EX_LocalVariable [K2Node_SetFieldsInStruct_StructOut]
+253:    EX_Jump 285
+258:    EX_Let
+            EX_LocalOutVariable
+                [FilteredMessage]
+            EX_LocalVariable [InMessage]
+285:    EX_Return
+            EX_Nothing
+287:    EX_EndOfScript
+FunctionExport FilterBlockedUserMessage
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+24:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_Base]
+            EX_DynamicCast import /Script/FSD->FSDPlayerControllerBase
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+60:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_Base]
+89:     EX_JumpIfNot 605
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+103:    EX_Let
+            EX_LocalVariable [CallFunc_MessageSenderIdAsString_ReturnValue]
+            EX_CallMath import /Script/FSD->MessagingSubSystem->MessageSenderIdAsString
+                EX_LocalVariable [InMessage]
+140:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlayerBlocked_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller_Base]
+                EX_FinalFunction import /Script/FSD->FSDPlayerControllerBase->IsPlayerBlocked
+                    EX_LocalVariable [CallFunc_MessageSenderIdAsString_ReturnValue]
+                RValue = [CallFunc_IsPlayerBlocked_ReturnValue]
+191:    EX_JumpIfNot 605
+            EX_LocalVariable [CallFunc_IsPlayerBlocked_ReturnValue]
+205:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst user
+238:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+267:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_TextConst
+296:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+328:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+360:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+389:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+409:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = Blocked a message from {user}.
+                    LocalizedKey = F10A39844231BB11F153D4940EF71D91
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+516:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+553:    EX_Let
+            EX_LocalOutVariable
+                [FilteredMessageType]
+            EX_ByteConst 1
+573:    EX_Let
+            EX_LocalOutVariable
+                [FilteredMessage]
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+600:    EX_Jump 677
+605:    EX_Let
+            EX_LocalOutVariable
+                [FilteredMessageType]
+            EX_StructMemberContext [MsgType]
+                EX_LocalVariable [InMessage]
+641:    EX_Let
+            EX_LocalOutVariable
+                [FilteredMessage]
+            EX_StructMemberContext [Msg]
+                EX_LocalVariable [InMessage]
+677:    EX_Return
+            EX_Nothing
+679:    EX_EndOfScript

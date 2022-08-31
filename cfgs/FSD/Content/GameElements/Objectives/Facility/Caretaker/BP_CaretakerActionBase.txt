@@ -1,0 +1,274 @@
+FunctionExport GetRandomLaunchLocation
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+20:     EX_Context
+            EX_ObjectConst import /Script/FSD->Default__FSDKismetArrayExtensionFunctions
+            EX_FinalFunction import /Script/FSD->FSDKismetArrayExtensionFunctions->Array_GetRandom
+                EX_InstanceVariable [DroneLaunchSockets]
+                EX_LocalVariable [CallFunc_Array_GetRandom_Item]
+            RValue = []
+70:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+            EX_DynamicCast import /Script/FSD->Caretaker
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+106:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+135:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+                    EX_InstanceVariable [Body]
+                    RValue = [Body]
+                EX_VirtualFunction GetSocketLocation
+                    EX_LocalVariable [CallFunc_Array_GetRandom_Item]
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+220:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+247:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+257:    EX_EndOfScript
+FunctionExport GetClosestLaunchLocation
+0:      EX_PushExecutionFlow 769
+5:      EX_Let
+            EX_LocalVariable [Closest]
+            EX_FloatConst 1E+09
+28:     EX_Let
+            EX_LocalVariable [NewDistance]
+            EX_FloatConst 0
+51:     EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+74:     EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 3
+108:    EX_JumpIfNot 663
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+122:    EX_PushExecutionFlow 695
+127:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+147:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+            EX_DynamicCast import /Script/FSD->Caretaker
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+183:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+212:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+                    EX_InstanceVariable [Body]
+                    RValue = [Body]
+                EX_VirtualFunction GetSocketLocation
+                    EX_ArrayGetByRef
+                        EX_InstanceVariable [DroneLaunchSockets]
+                        EX_LocalVariable [Temp_int_Variable]
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+307:    EX_Let
+            EX_LocalVariable [CallFunc_Vector_DistanceSquared_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Vector_DistanceSquared
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalOutVariable
+                    [TargetLocation]
+353:    EX_Let
+            EX_LocalVariable [NewDistance]
+            EX_LocalVariable [CallFunc_Vector_DistanceSquared_ReturnValue]
+380:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [NewDistance]
+                EX_LocalVariable [Closest]
+418:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+428:    EX_Let
+            EX_LocalVariable [Closest]
+            EX_LocalVariable [NewDistance]
+455:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+475:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+            EX_DynamicCast import /Script/FSD->Caretaker
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+511:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+540:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+                    EX_InstanceVariable [Body]
+                    RValue = [Body]
+                EX_VirtualFunction GetSocketLocation
+                    EX_ArrayGetByRef
+                        EX_InstanceVariable [DroneLaunchSockets]
+                        EX_LocalVariable [Temp_int_Variable]
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+635:    EX_Let
+            EX_LocalVariable [ReturnLocation]
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+662:    EX_PopExecutionFlow
+663:    EX_Let
+            EX_LocalOutVariable
+                [Result]
+            EX_LocalVariable [ReturnLocation]
+690:    EX_Jump 769
+695:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+737:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+764:    EX_Jump 74
+769:    EX_Return
+            EX_Nothing
+771:    EX_EndOfScript
+FunctionExport HasAutority
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+20:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+                RValue = [CallFunc_HasAuthority_ReturnValue]
+62:     EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+81:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+91:     EX_EndOfScript
+FunctionExport GetClosestPhaseBombSocket
+0:      EX_PushExecutionFlow 787
+5:      EX_Let
+            EX_LocalVariable [Closest]
+            EX_FloatConst 1E+15
+28:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+51:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+74:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [PhaseBombSockets]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+133:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+171:    EX_JumpIfNot 681
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+185:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+212:    EX_PushExecutionFlow 713
+217:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [PhaseBombSockets]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+276:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+296:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+            EX_DynamicCast import /Script/FSD->Caretaker
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+332:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+361:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsCaretaker]
+                    EX_InstanceVariable [Body]
+                    RValue = [Body]
+                EX_VirtualFunction GetSocketLocation
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+446:    EX_Let
+            EX_LocalVariable [CallFunc_Vector_DistanceSquared_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Vector_DistanceSquared
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [Location]
+492:    EX_Let
+            EX_LocalVariable [NewDistance]
+            EX_LocalVariable [CallFunc_Vector_DistanceSquared_ReturnValue]
+519:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [NewDistance]
+                EX_LocalVariable [Closest]
+557:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+567:    EX_Let
+            EX_LocalVariable [Closest]
+            EX_LocalVariable [NewDistance]
+594:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [PhaseBombSockets]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+653:    EX_Let
+            EX_LocalVariable [ClosestResult]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+680:    EX_PopExecutionFlow
+681:    EX_Let
+            EX_LocalOutVariable
+                [Result]
+            EX_LocalVariable [ClosestResult]
+708:    EX_Jump 787
+713:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+755:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+782:    EX_Jump 74
+787:    EX_Return
+            EX_Nothing
+789:    EX_EndOfScript
+FunctionExport GetEstimatedStartDuration
+0:      EX_Let
+            EX_LocalOutVariable
+                [StartDuration]
+            EX_InstanceVariable [EstimatedStartDuration]
+27:     EX_Return
+            EX_Nothing
+29:     EX_EndOfScript
+FunctionExport SpawnPatrolBots
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript

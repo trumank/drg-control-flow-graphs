@@ -1,0 +1,118 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Drone
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+30:     EX_JumpIfNot 712
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+44:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Pawn->GetController
+64:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_LocalVariable [CallFunc_GetController_ReturnValue]
+93:     EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst IsFlying
+134:    EX_Context
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_True
+            RValue = []
+176:    EX_Jump 712
+181:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsFlying_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [GroundToAir]
+                EX_FinalFunction import /Script/FSD->GroundToAirComponent->GetIsFlying
+                RValue = [CallFunc_GetIsFlying_ReturnValue]
+223:    EX_JumpIfNot 374
+            EX_LocalVariable [CallFunc_GetIsFlying_ReturnValue]
+237:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 150
+280:    EX_Context
+            EX_InstanceVariable [WingCenter]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeRotation
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeRotation_SweepHitResult]
+                EX_False
+            RValue = []
+332:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_VirtualFunction SetAnimClass
+                EX_NoObject
+            RValue = []
+369:    EX_Jump 10
+374:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 90
+417:    EX_Context
+            EX_InstanceVariable [WingCenter]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeRotation
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue_1]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeRotation_SweepHitResult_1]
+                EX_False
+            RValue = []
+469:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_VirtualFunction SetAnimClass
+                EX_ObjectConst import /Game/Enemies/Spider/Grunt/ABP_Spider_Grunt->ABP_Spider_Grunt_C
+            RValue = []
+514:    EX_Jump 712
+519:    EX_Jump 181
+524:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_Event_triggerName]
+                EX_NameConst StopFlight
+566:    EX_JumpIfNot 641
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+580:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_Event_triggerName]
+                EX_NameConst StartFlight
+622:    EX_JumpIfNot 679
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+636:    EX_Jump 712
+641:    EX_Context
+            EX_InstanceVariable [GroundToAir]
+            EX_FinalFunction import /Script/FSD->GroundToAirComponent->SetIsFlying
+                EX_False
+            RValue = []
+674:    EX_Jump 712
+679:    EX_Context
+            EX_InstanceVariable [GroundToAir]
+            EX_FinalFunction import /Script/FSD->GroundToAirComponent->SetIsFlying
+                EX_True
+            RValue = []
+712:    EX_Return
+            EX_Nothing
+714:    EX_EndOfScript
+FunctionExport OnMessageAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_triggerName]
+            EX_LocalVariable [triggerName]
+18:     EX_LocalFinalFunction export ENE_Spider_Drone_C->ExecuteUbergraph_ENE_Spider_Drone
+            EX_IntConst 524
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__GroundToAir_K2Node_ComponentBoundEvent_0_ChangedStateSig__DelegateSignature
+0:      EX_LocalFinalFunction export ENE_Spider_Drone_C->ExecuteUbergraph_ENE_Spider_Drone
+            EX_IntConst 519
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

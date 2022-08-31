@@ -1,0 +1,108 @@
+FunctionExport ExecuteUbergraph_ENE_Shredder
+0:      EX_PushExecutionFlow 577
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_True
+                EX_False
+            RValue = []
+49:     EX_PopExecutionFlow
+50:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+78:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/Enemies/Facility/FacilitySwarmer/FacilityRobotsSpawnInZap_Cue->FacilityRobotsSpawnInZap_Cue
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+148:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+182:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -596152013
+                EX_NameConst ExecuteUbergraph_ENE_Shredder
+                EX_Self
+236:    EX_PopExecutionFlow
+237:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+257:    EX_JumpIfNot 436
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+271:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_source]
+                EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+                RValue = [CallFunc_GetInstigator_ReturnValue]
+313:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+349:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+378:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+399:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->AddEnemyKill
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_InstanceVariable [Enemy]
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+436:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Mesh]
+            EX_ObjectConst import /Game/Audio/SFX/BiomePackages/Ice/GeneralFrozenShatter_Cue->GeneralFrozenShatter_Cue
+            EX_ObjectConst import /Game/Enemies/FlyingBug/Afflictions/P_FrozenDeath_FlyingBug->P_FrozenDeath_FlyingBug
+            EX_FloatConst 1
+            EX_NoObject
+480:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetAIController
+                EX_Self
+501:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+                EX_InstanceVariable [BrainComponent]
+                RValue = [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+566:    EX_PopExecutionFlow
+567:    EX_Jump 237
+572:    EX_Jump 50
+577:    EX_Return
+            EX_Nothing
+579:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Shredder_C->ExecuteUbergraph_ENE_Shredder
+            EX_IntConst 572
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_source]
+            EX_LocalVariable [source]
+18:     EX_LocalFinalFunction export ENE_Shredder_C->ExecuteUbergraph_ENE_Shredder
+            EX_IntConst 567
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

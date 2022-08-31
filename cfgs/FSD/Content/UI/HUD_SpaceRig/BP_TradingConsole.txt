@@ -1,0 +1,188 @@
+FunctionExport ExecuteUbergraph_BP_TradingConsole
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Script/FSD->Default__ActorFunctionLibrary
+            EX_FinalFunction import /Script/FSD->ActorFunctionLibrary->PlayCueOnClient
+                EX_NoObject
+                EX_ObjectConst import /Game/Audio/SFX/UI/Menu/Button_Click_keyboard_01_Cue->Button_Click_keyboard_01_Cue
+            RValue = []
+52:     EX_Jump 601
+57:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                EX_FinalFunction import /Script/Engine->Pawn->GetController
+                RValue = [CallFunc_GetController_ReturnValue]
+99:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerController_SpaceRig->BP_PlayerController_SpaceRig_C
+                EX_LocalVariable [CallFunc_GetController_ReturnValue]
+135:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+164:    EX_JumpIfNot 601
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+178:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_LocalVirtualFunction ShowLookAtConsole
+            RValue = []
+214:    EX_LocalVirtualFunction IsNewPlayer
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_LocalVariable [CallFunc_IsNewPlayer_IsNewPlayer]
+246:    EX_JumpIfNot 356
+            EX_LocalVariable [CallFunc_IsNewPlayer_IsNewPlayer]
+260:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->StatHat
+290:    EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->StatHat->AddStatCount
+                EX_StringConst player.usedterminal.trading
+                EX_IntConst 1
+            RValue = []
+356:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_VirtualFunction ShowTrading
+            RValue = []
+392:    EX_Jump 10
+397:    EX_Context
+            EX_InstanceVariable [InstantUsable]
+            EX_VirtualFunction SetCanUse
+                EX_True
+            RValue = []
+434:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Widget_Second]
+                EX_FinalFunction import /Script/UMG->WidgetComponent->GetUserWidgetObject
+                RValue = [CallFunc_GetUserWidgetObject_ReturnValue]
+476:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsDeal_Widget]
+            EX_DynamicCast import /Script/FSD->DealWidget
+                EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+512:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsDeal_Widget]
+541:    EX_JumpIfNot 601
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+555:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsDeal_Widget]
+            EX_LocalVirtualFunction UpdateDealText
+            RValue = []
+591:    EX_Jump 601
+596:    EX_Jump 397
+601:    EX_Return
+            EX_Nothing
+603:    EX_EndOfScript
+FunctionExport BndEvt__InstantUsable_K2Node_ComponentBoundEvent_0_UsedBySignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_user]
+            EX_LocalVariable [user]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_key]
+            EX_LocalVariable [key]
+36:     EX_LocalFinalFunction export BP_TradingConsole_C->ExecuteUbergraph_BP_TradingConsole
+            EX_IntConst 57
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_TradingConsole_C->ExecuteUbergraph_BP_TradingConsole
+            EX_IntConst 596
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport IsNewPlayer
+0:      EX_PushExecutionFlow 616
+5:      EX_LetBool
+            EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+            EX_False
+16:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+39:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+62:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+91:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [PlayersThatHaveUsed]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+150:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+188:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+226:    EX_JumpIfNot 402
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+240:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+267:    EX_PushExecutionFlow 542
+272:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [PlayersThatHaveUsed]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+331:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_LocalVariable [PlayerController]
+369:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+379:    EX_LetBool
+            EX_LocalVariable [FoundController]
+            EX_True
+390:    EX_LetBool
+            EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+            EX_True
+401:    EX_PopExecutionFlow
+402:    EX_JumpIfNot 469
+            EX_LocalVariable [FoundController]
+416:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [FoundController]
+445:    EX_LetBool
+            EX_LocalOutVariable
+                [IsNewPlayer]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+464:    EX_Jump 616
+469:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_InstanceVariable [PlayersThatHaveUsed]
+                    EX_LocalVariable [PlayerController]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+537:    EX_Jump 416
+542:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+584:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+611:    EX_Jump 62
+616:    EX_Return
+            EX_Nothing
+618:    EX_EndOfScript

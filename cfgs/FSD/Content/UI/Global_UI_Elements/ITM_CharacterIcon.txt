@@ -1,0 +1,409 @@
+FunctionExport ExecuteUbergraph_ITM_CharacterIcon
+0:      EX_PushExecutionFlow 171
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction SetShowSonySessionLeader
+            EX_InstanceVariable [ShowSessionLeader]
+38:     EX_LocalVirtualFunction SetShowPromotion
+            EX_InstanceVariable [ShowPromotion]
+61:     EX_LocalVirtualFunction SetCharacterImageAndColor
+            EX_InstanceVariable [Character]
+84:     EX_LocalVirtualFunction SetBaseSize
+            EX_InstanceVariable [Base Icon Size]
+107:    EX_PopExecutionFlow
+108:    EX_PushExecutionFlow 143
+113:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+123:    EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_ObjectConst import /Game/Character/EngineerID->EngineerID
+142:    EX_PopExecutionFlow
+143:    EX_LocalVirtualFunction SetShowHostIcon
+            EX_InstanceVariable [ShowHost]
+166:    EX_Jump 15
+171:    EX_Return
+            EX_Nothing
+173:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_CharacterIcon_C->ExecuteUbergraph_ITM_CharacterIcon
+            EX_IntConst 108
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetShowHostIcon
+0:      EX_LetBool
+            EX_InstanceVariable [ShowHost]
+            EX_LocalVariable [Index]
+19:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Icon_Host]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [ShowHost]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+105:    EX_Return
+            EX_Nothing
+107:    EX_EndOfScript
+FunctionExport SetCharacterImageAndColor
+0:      EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_LocalVariable [Character]
+19:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Character]
+48:     EX_JumpIfNot 233
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+62:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterData_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacterID->GetCharacterData
+                RValue = [CallFunc_GetCharacterData_ReturnValue]
+104:    EX_Let
+            EX_LocalVariable [CallFunc_GetColor_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacterData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacterData->GetColor
+                RValue = [CallFunc_GetColor_ReturnValue]
+154:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetIcon_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacterData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacterData->GetIcon
+                RValue = [CallFunc_GetIcon_ReturnValue]
+196:    EX_LocalVirtualFunction SetImage
+            EX_LocalVariable [CallFunc_GetIcon_ReturnValue]
+            EX_LocalVariable [CallFunc_GetColor_ReturnValue]
+228:    EX_Jump 313
+233:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 3
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+281:    EX_LocalVirtualFunction SetImage
+            EX_ObjectConst import /Game/Character/Vanity2/HairColors/T_HairColor_Black->T_HairColor_Black
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+313:    EX_Return
+            EX_Nothing
+315:    EX_EndOfScript
+FunctionExport SetImage
+0:      EX_Context
+            EX_InstanceVariable [Icon_Character]
+            EX_LocalVirtualFunction SetImage
+                EX_LocalVariable [Value]
+                EX_False
+            RValue = []
+46:     EX_Context
+            EX_InstanceVariable [Border_CharacterColor]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [InColorAndOpacity]
+            RValue = []
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport SetShowPromotion
+0:      EX_LetBool
+            EX_InstanceVariable [ShowPromotion]
+            EX_LocalVariable [Index]
+19:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Icon_Promotion]
+                EX_ByteConst 2
+                EX_ByteConst 4
+                EX_InstanceVariable [ShowPromotion]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+105:    EX_Return
+            EX_Nothing
+107:    EX_EndOfScript
+FunctionExport SetBaseSize
+0:      EX_PushExecutionFlow 867
+5:      EX_Let
+            EX_InstanceVariable [Base Icon Size]
+            EX_LocalVariable [Size]
+32:     EX_Context
+            EX_InstanceVariable [SizeBox_0]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetWidthOverride
+                EX_InstanceVariable [Base Icon Size]
+            RValue = []
+73:     EX_Context
+            EX_InstanceVariable [SizeBox_0]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetHeightOverride
+                EX_InstanceVariable [Base Icon Size]
+            RValue = []
+114:    EX_PushExecutionFlow 493
+119:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Base Icon Size]
+                EX_FloatConst 0.4
+161:    EX_Context
+            EX_InstanceVariable [Icon_Host]
+            EX_LocalVirtualFunction SetSize
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            RValue = []
+206:    EX_LetObj
+            EX_LocalVariable [CallFunc_SlotAsOverlaySlot_ReturnValue_1]
+            EX_CallMath import /Script/UMG->WidgetLayoutLibrary->SlotAsOverlaySlot
+                EX_InstanceVariable [Icon_Host]
+235:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Base Icon Size]
+                EX_FloatConst 0.4
+277:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+                EX_FloatConst -0.4
+319:    EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_3]
+355:    EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_FloatConst 0
+387:    EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_FloatConst 0
+419:    EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_FloatConst 0
+451:    EX_Context
+            EX_LocalVariable [CallFunc_SlotAsOverlaySlot_ReturnValue_1]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetPadding
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            RValue = []
+492:    EX_PopExecutionFlow
+493:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Base Icon Size]
+                EX_FloatConst 0.2
+535:    EX_Context
+            EX_InstanceVariable [Icon_SonyTeamLeader]
+            EX_LocalVirtualFunction SetSize
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            RValue = []
+580:    EX_LetObj
+            EX_LocalVariable [CallFunc_SlotAsOverlaySlot_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetLayoutLibrary->SlotAsOverlaySlot
+                EX_InstanceVariable [Icon_SonyTeamLeader]
+609:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Base Icon Size]
+                EX_FloatConst 0.2
+651:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst -0.2
+693:    EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+729:    EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+761:    EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+793:    EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+825:    EX_Context
+            EX_LocalVariable [CallFunc_SlotAsOverlaySlot_ReturnValue]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetPadding
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            RValue = []
+866:    EX_PopExecutionFlow
+867:    EX_Return
+            EX_Nothing
+869:    EX_EndOfScript
+FunctionExport SetFromPlayerState
+0:      EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+            EX_DynamicCast import /Script/FSD->FSDPlayerState
+                EX_LocalVariable [InState]
+36:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+65:     EX_JumpIfNot 518
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+79:     EX_LetObj
+            EX_LocalVariable [FsdState]
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+98:     EX_LocalVirtualFunction SetShowHostIcon
+            EX_Context
+                EX_LocalVariable [FsdState]
+                EX_InstanceVariable [bIsServer]
+                RValue = [bIsServer]
+143:    EX_Context
+            EX_InstanceVariable [Icon_Promotion]
+            EX_LocalVirtualFunction SetData
+                EX_LocalVariable [FsdState]
+            RValue = []
+188:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+209:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [CurrentPlayerSessionLeader]
+                    RValue = [CurrentPlayerSessionLeader]
+                EX_LocalVariable [FsdState]
+269:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_Context
+                    EX_LocalVariable [FsdState]
+                    EX_InstanceVariable [bIsServer]
+                    RValue = [bIsServer]
+320:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+358:    EX_LocalVirtualFunction SetShowSonySessionLeader
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+381:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [FsdState]
+                    EX_InstanceVariable [PlayerCharacter]
+                    RValue = [PlayerCharacter]
+432:    EX_JumpIfNot 606
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+446:    EX_LocalVirtualFunction SetCharacterImageAndColor
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [FsdState]
+                    EX_InstanceVariable [PlayerCharacter]
+                    RValue = [PlayerCharacter]
+                EX_InstanceVariable [CharacterID]
+                RValue = [CharacterID]
+513:    EX_Jump 671
+518:    EX_LocalVirtualFunction SetShowHostIcon
+            EX_False
+533:    EX_LocalVirtualFunction SetShowSonySessionLeader
+            EX_False
+548:    EX_Context
+            EX_InstanceVariable [Icon_Promotion]
+            EX_LocalVirtualFunction SetCharacterClass
+                EX_NoObject
+                EX_NoObject
+            RValue = []
+586:    EX_LocalVirtualFunction SetCharacterImageAndColor
+            EX_NoObject
+601:    EX_Jump 671
+606:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetSelectedCharacterID_ReturnValue]
+            EX_Context
+                EX_LocalVariable [FsdState]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSelectedCharacterID
+                RValue = [CallFunc_GetSelectedCharacterID_ReturnValue]
+648:    EX_LocalVirtualFunction SetCharacterImageAndColor
+            EX_LocalVariable [CallFunc_GetSelectedCharacterID_ReturnValue]
+671:    EX_Return
+            EX_Nothing
+673:    EX_EndOfScript
+FunctionExport SetFromPlayerCharacter
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Character]
+29:     EX_JumpIfNot 113
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue]
+85:     EX_LocalVirtualFunction SetFromPlayerState
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+108:    EX_Jump 128
+113:    EX_LocalVirtualFunction SetFromPlayerState
+            EX_NoObject
+128:    EX_Return
+            EX_Nothing
+130:    EX_EndOfScript
+FunctionExport SetFromCharacterClass
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InCharacterClass]
+29:     EX_JumpIfNot 101
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LocalVirtualFunction SetShowHostIcon
+            EX_False
+58:     EX_LocalVirtualFunction SetCharacterImageAndColor
+            EX_LocalVariable [InCharacterClass]
+81:     EX_LocalVirtualFunction SetShowPromotion
+            EX_False
+96:     EX_Jump 116
+101:    EX_LocalVirtualFunction SetFromPlayerState
+            EX_NoObject
+116:    EX_Return
+            EX_Nothing
+118:    EX_EndOfScript
+FunctionExport SetFromCharacterID
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CharacterID]
+29:     EX_JumpIfNot 71
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LocalVirtualFunction SetFromCharacterClass
+            EX_LocalVariable [CharacterID]
+66:     EX_Jump 86
+71:     EX_LocalVirtualFunction SetFromPlayerState
+            EX_NoObject
+86:     EX_Return
+            EX_Nothing
+88:     EX_EndOfScript
+FunctionExport SetShowSonySessionLeader
+0:      EX_LetBool
+            EX_InstanceVariable [ShowSessionLeader]
+            EX_LocalVariable [Index]
+19:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Icon_SonyTeamLeader]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [ShowSessionLeader]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+105:    EX_Return
+            EX_Nothing
+107:    EX_EndOfScript

@@ -1,0 +1,152 @@
+FunctionExport ExecuteUbergraph_HUD_BossFight_BaseEntry
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction GetBossFight
+            EX_LocalVariable [CallFunc_GetBossFight_BossFight]
+33:     EX_Let
+            EX_InstanceVariable [BossFightInfo]
+            EX_LocalVariable [CallFunc_GetBossFight_BossFight]
+60:     EX_BindDelegate OnHealthChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+83:     EX_AddMulticastDelegate
+            EX_Context
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+                EX_InstanceVariable [OnHealthChanged]
+                RValue = [OnHealthChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+133:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->BossFightSubSystem
+163:    EX_BindDelegate OnFightRemoved
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+186:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                EX_InstanceVariable [OnBossFightRemoved]
+                RValue = [OnBossFightRemoved]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+227:    EX_LocalVirtualFunction Setup Invulnerability
+241:    EX_Jump 725
+246:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/UI/BossHealthBar/BossHealthBar_AnimIn_Cue->BossHealthBar_AnimIn_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+306:    EX_Jump 10
+311:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBossActor_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_CustomEvent_BossFight]
+                EX_VirtualFunction GetBossActor
+                RValue = [CallFunc_GetBossActor_ReturnValue]
+358:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [CallFunc_GetBossActor_ReturnValue]
+                EX_StructMemberContext [BossActor]
+                    EX_InstanceVariable [BossFightInfo]
+405:    EX_JumpIfNot 725
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+419:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+457:    EX_JumpIfNot 559
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+471:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+526:    EX_JumpIfNot 559
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+540:    EX_LocalVirtualFunction OnDisengaged
+554:    EX_Jump 725
+559:    EX_LocalVirtualFunction OnDeath
+573:    EX_Jump 725
+578:    EX_BindDelegate OnCanTakeDamageChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+601:    EX_AddMulticastDelegate
+            EX_Context
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+                EX_InstanceVariable [OnCanTakeDamageChanged]
+                RValue = [OnCanTakeDamageChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+651:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetCanTakeDamage_ReturnValue]
+            EX_Context
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+                EX_FinalFunction import /Script/FSD->HealthComponentBase->GetCanTakeDamage
+                RValue = [CallFunc_GetCanTakeDamage_ReturnValue]
+702:    EX_LocalVirtualFunction OnCanTakeDamageChanged
+            EX_LocalVariable [CallFunc_GetCanTakeDamage_ReturnValue]
+725:    EX_Return
+            EX_Nothing
+727:    EX_EndOfScript
+FunctionExport Setup Invulnerability
+0:      EX_LocalFinalFunction export HUD_BossFight_BaseEntry_C->ExecuteUbergraph_HUD_BossFight_BaseEntry
+            EX_IntConst 578
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFightRemoved
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_BossFight]
+            EX_LocalOutVariable
+                [BossFight]
+18:     EX_LocalFinalFunction export HUD_BossFight_BaseEntry_C->ExecuteUbergraph_HUD_BossFight_BaseEntry
+            EX_IntConst 311
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_BossFight_BaseEntry_C->ExecuteUbergraph_HUD_BossFight_BaseEntry
+            EX_IntConst 246
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnHealthChanged
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnDisengaged
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnDeath
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnCanTakeDamageChanged
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport GetBossFight
+0:      EX_Let
+            EX_LocalOutVariable
+                [BossFight]
+            EX_StructConst import /Script/FSD->BossFight
+                EX_NoObject
+                EX_NoObject
+                EX_NoObject
+35:     EX_Return
+            EX_Nothing
+37:     EX_EndOfScript

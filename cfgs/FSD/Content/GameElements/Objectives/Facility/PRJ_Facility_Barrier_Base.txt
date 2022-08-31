@@ -1,0 +1,231 @@
+FunctionExport ExecuteUbergraph_PRJ_Facility_Barrier_Base
+0:      EX_PushExecutionFlow 1310
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction CrumbleShield
+29:     EX_PopExecutionFlow
+30:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_InstanceVariable [ShieldScale]
+                EX_InstanceVariable [Timeline_1_NewTrack_0_75981F9D4B9BA002AD172C81D5266F91]
+76:     EX_Context
+            EX_InstanceVariable [BounceBox]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_2]
+            RValue = []
+117:    EX_PopExecutionFlow
+118:    EX_Context
+            EX_InstanceVariable [Timeline_1]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->ReverseFromEnd
+            RValue = []
+150:    EX_PopExecutionFlow
+151:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+171:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+181:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+217:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+246:    EX_JumpIfNot 779
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+260:    EX_LetBool
+            EX_LocalVariable [CallFunc_CheckCanImpact_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerImpactCooldown]
+                EX_FinalFunction import /Script/FSD->PlayerImpactCooldownComponent->CheckCanImpact
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                RValue = [CallFunc_CheckCanImpact_ReturnValue]
+311:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_CheckCanImpact_ReturnValue]
+321:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorGroundLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetActorGroundLocation
+                RValue = [CallFunc_GetActorGroundLocation_ReturnValue]
+371:    EX_Context
+            EX_InstanceVariable [Damage]
+            EX_FinalFunction import /Script/FSD->DamageComponent->DamageTarget
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_LocalVariable [CallFunc_GetActorGroundLocation_ReturnValue]
+                EX_NoObject
+                EX_NoObject
+                EX_IntConst -1
+            RValue = []
+428:    EX_Let
+            EX_LocalVariable [CallFunc_GetVelocity_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_VirtualFunction GetVelocity
+                RValue = [CallFunc_GetVelocity_ReturnValue]
+482:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+510:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+556:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+                EX_FloatConst 0.5
+607:    EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_FloatConst 0.0001
+649:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_FloatConst 400
+691:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_GetVelocity_ReturnValue]
+737:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_FinalFunction import /Script/FSD->PlayerCharacter->AddImpulseFromVector
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            RValue = []
+778:    EX_PopExecutionFlow
+779:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsShield_Generator_Actor]
+            EX_DynamicCast import /Script/FSD->ShieldGeneratorActor
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+815:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsShield_Generator_Actor]
+844:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+854:    EX_VirtualFunction DisableAndDestroy
+868:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 0.2
+887:    EX_PopExecutionFlow
+888:    EX_Let
+            EX_InstanceVariable [ShieldScale]
+            EX_Context
+                EX_InstanceVariable [BounceBox]
+                EX_InstanceVariable [RelativeScale3D]
+                RValue = [RelativeScale3D]
+937:    EX_VirtualFunction SetLifeSpan
+            EX_InstanceVariable [Life]
+960:    EX_PushExecutionFlow 998
+965:    EX_Context
+            EX_InstanceVariable [Growth]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+997:    EX_PopExecutionFlow
+998:    EX_Let
+            EX_LocalVariable [CallFunc_GetTimelineLength_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Timeline_1]
+                EX_FinalFunction import /Script/Engine->TimelineComponent->GetTimelineLength
+                RValue = [CallFunc_GetTimelineLength_ReturnValue]
+1048:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [Life]
+                EX_LocalVariable [CallFunc_GetTimelineLength_ReturnValue]
+1094:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 1397894527
+                EX_NameConst ExecuteUbergraph_PRJ_Facility_Barrier_Base
+                EX_Self
+1152:   EX_PopExecutionFlow
+1153:   EX_Jump 151
+1158:   EX_Context
+            EX_InstanceVariable [BounceBox]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_InstanceVariable [ShieldScale]
+            RValue = []
+1199:   EX_PopExecutionFlow
+1200:   EX_PopExecutionFlow
+1201:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_InstanceVariable [ShieldScale]
+                EX_InstanceVariable [Growth_NewTrack_0_7C9AAAD449A1B186F3E610A47128664F]
+1247:   EX_Context
+            EX_InstanceVariable [BounceBox]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            RValue = []
+1288:   EX_PopExecutionFlow
+1289:   EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+1300:   EX_Jump 118
+1305:   EX_Jump 1289
+1310:   EX_Return
+            EX_Nothing
+1312:   EX_EndOfScript
+FunctionExport CrumbleShield
+0:      EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 1305
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 1153
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 888
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_1__UpdateFunc
+0:      EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 30
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_1__FinishedFunc
+0:      EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 1200
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Growth__UpdateFunc
+0:      EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 1201
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Growth__FinishedFunc
+0:      EX_LocalFinalFunction export PRJ_Facility_Barrier_Base_C->ExecuteUbergraph_PRJ_Facility_Barrier_Base
+            EX_IntConst 1158
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

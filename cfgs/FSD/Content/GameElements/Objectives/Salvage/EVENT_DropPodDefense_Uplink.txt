@@ -1,0 +1,77 @@
+FunctionExport ExecuteUbergraph_EVENT_DropPodDefense_Uplink
+0:      EX_PushExecutionFlow 365
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/FSD->CommunicationComponent->MissionShout
+            EX_Self
+            EX_ObjectConst import /Game/Character/Shouts/MissionControl/MissionObjective/SalvageMission/Shout_Mission_Salvage_22_UplinkCompleted_SendingFuelsCells->Shout_Mission_Salvage_22_UplinkCompleted_SendingFuelsCells
+            EX_False
+36:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetWorldSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetWorldSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->MusicManager
+66:     EX_Context
+            EX_LocalVariable [CallFunc_GetWorldSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->MusicManager->StopCategory
+                EX_ObjectConst import /Game/Audio/Music/Categories/MSC_Wave->MSC_Wave
+            RValue = []
+107:    EX_PopExecutionFlow
+108:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+128:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+138:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -1683952155
+                EX_NameConst ExecuteUbergraph_EVENT_DropPodDefense_Uplink
+                EX_Self
+192:    EX_PopExecutionFlow
+193:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+213:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+223:    EX_CallMath import /Script/FSD->CommunicationComponent->MissionShout
+            EX_Self
+            EX_ObjectConst import /Game/Character/Shouts/MissionControl/MissionObjective/SalvageMission/Shout_Mission_Salvage_24_UplinkFailed->Shout_Mission_Salvage_24_UplinkFailed
+            EX_False
+244:    EX_PopExecutionFlow
+245:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SphereInner1]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+295:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/LevelElements/DropPod/DropPodGettingReady/DropPodMechImpact_Cue->DropPodMechImpact_Cue
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 0.2
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+355:    EX_Jump 108
+360:    EX_Jump 193
+365:    EX_Return
+            EX_Nothing
+367:    EX_EndOfScript
+FunctionExport EventFailed
+0:      EX_LocalFinalFunction export EVENT_DropPodDefense_Uplink_C->ExecuteUbergraph_EVENT_DropPodDefense_Uplink
+            EX_IntConst 360
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport EventSucceded
+0:      EX_LocalFinalFunction export EVENT_DropPodDefense_Uplink_C->ExecuteUbergraph_EVENT_DropPodDefense_Uplink
+            EX_IntConst 245
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

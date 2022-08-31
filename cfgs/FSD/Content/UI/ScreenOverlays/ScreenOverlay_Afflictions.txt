@@ -1,0 +1,233 @@
+FunctionExport ExecuteUbergraph_ScreenOverlay_Afflictions
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+30:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+66:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+95:     EX_JumpIfNot 492
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+109:    EX_LetObj
+            EX_InstanceVariable [Player]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+128:    EX_BindDelegate OnShowOverlay_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+151:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Player]
+                    EX_InstanceVariable [PawnAfflictionComponent]
+                    RValue = [PawnAfflictionComponent]
+                EX_InstanceVariable [OnShowOverlay]
+                RValue = [OnShowOverlay]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+214:    EX_BindDelegate OnHideOverlay_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+237:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Player]
+                    EX_InstanceVariable [PawnAfflictionComponent]
+                    RValue = [PawnAfflictionComponent]
+                EX_InstanceVariable [OnHideOverlay]
+                RValue = [OnHideOverlay]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+300:    EX_Jump 492
+305:    EX_LocalVirtualFunction FindOverlayWidget
+            EX_LocalVariable [K2Node_CustomEvent_Overlay_1]
+            EX_True
+            EX_LocalVariable [CallFunc_FindOverlayWidget_OutWidget]
+338:    EX_Context
+            EX_LocalVariable [CallFunc_FindOverlayWidget_OutWidget]
+            EX_FinalFunction import /Script/FSD->PlayerAfflictionOverlayWidget->BeginOverlay
+                EX_LocalVariable [K2Node_CustomEvent_Overlay_1]
+            RValue = []
+379:    EX_Jump 492
+384:    EX_LocalVirtualFunction FindOverlayWidget
+            EX_LocalVariable [K2Node_CustomEvent_Overlay]
+            EX_False
+            EX_LocalVariable [CallFunc_FindOverlayWidget_OutWidget_1]
+417:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_FindOverlayWidget_OutWidget_1]
+446:    EX_JumpIfNot 492
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+460:    EX_Context
+            EX_LocalVariable [CallFunc_FindOverlayWidget_OutWidget_1]
+            EX_FinalFunction import /Script/FSD->PlayerAfflictionOverlayWidget->EndOverlay
+            RValue = []
+492:    EX_Return
+            EX_Nothing
+494:    EX_EndOfScript
+FunctionExport OnHideOverlay_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Overlay]
+            EX_LocalVariable [Overlay]
+18:     EX_LocalFinalFunction export ScreenOverlay_Afflictions_C->ExecuteUbergraph_ScreenOverlay_Afflictions
+            EX_IntConst 384
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnShowOverlay_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Overlay_1]
+            EX_LocalVariable [Overlay]
+18:     EX_LocalFinalFunction export ScreenOverlay_Afflictions_C->ExecuteUbergraph_ScreenOverlay_Afflictions
+            EX_IntConst 305
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ScreenOverlay_Afflictions_C->ExecuteUbergraph_ScreenOverlay_Afflictions
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FindOverlayWidget
+0:      EX_PushExecutionFlow 949
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [ActiveOverlays]
+                    EX_LocalVariable [OverlayData]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+74:     EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Map_Find_Value]
+93:     EX_PushExecutionFlow 930
+98:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Widget]
+127:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+156:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CreateIfNew]
+194:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+204:    EX_LetObj
+            EX_LocalVariable [Temp_class_Variable]
+            EX_ObjectConst import /Game/UI/ScreenOverlays/ScreenOverlay_GenericAffliction->ScreenOverlay_GenericAffliction_C
+223:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+247:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_Context
+                    EX_LocalVariable [OverlayData]
+                    EX_InstanceVariable [WidgetOverride]
+                    RValue = [WidgetOverride]
+298:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+317:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable]
+                        OffsetToSwitchEnd = 434
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 389
+                            EX_LocalVariable [Temp_class_Variable]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 425
+                            EX_Context
+                                EX_LocalVariable [OverlayData]
+                                EX_InstanceVariable [WidgetOverride]
+                                RValue = [WidgetOverride]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default]
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+444:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Affliction_Overlay_Widget]
+            EX_DynamicCast import /Script/FSD->PlayerAfflictionOverlayWidget
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+480:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Affliction_Overlay_Widget]
+509:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Affliction_Overlay_Widget]
+528:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToCanvas_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [RootCanvas]
+                EX_FinalFunction import /Script/UMG->CanvasPanel->AddChildToCanvas
+                    EX_LocalVariable [Widget]
+                RValue = [CallFunc_AddChildToCanvas_ReturnValue]
+579:    EX_LetObj
+            EX_LocalVariable [CanvasWidget]
+            EX_LocalVariable [CallFunc_AddChildToCanvas_ReturnValue]
+598:    EX_Let
+            EX_StructMemberContext [Minimum]
+                EX_LocalVariable [K2Node_MakeStruct_Anchors]
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 0
+                EX_FloatConst 0
+649:    EX_Let
+            EX_StructMemberContext [Maximum]
+                EX_LocalVariable [K2Node_MakeStruct_Anchors]
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 1
+                EX_FloatConst 1
+700:    EX_Context
+            EX_LocalVariable [CanvasWidget]
+            EX_FinalFunction import /Script/UMG->CanvasPanelSlot->SetAnchors
+                EX_LocalVariable [K2Node_MakeStruct_Anchors]
+            RValue = []
+741:    EX_Context
+            EX_LocalVariable [CanvasWidget]
+            EX_FinalFunction import /Script/UMG->CanvasPanelSlot->SetOffsets
+                EX_StructConst import /Script/SlateCore->Margin
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+            RValue = []
+807:    EX_Context
+            EX_LocalVariable [CanvasWidget]
+            EX_FinalFunction import /Script/UMG->CanvasPanelSlot->SetZOrder
+                EX_Context
+                    EX_LocalVariable [OverlayData]
+                    EX_InstanceVariable [ZOrder]
+                    RValue = [ZOrder]
+            RValue = []
+870:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_InstanceVariable [ActiveOverlays]
+                EX_LocalVariable [OverlayData]
+                EX_LocalVariable [Widget]
+            RValue = []
+929:    EX_PopExecutionFlow
+930:    EX_LetObj
+            EX_LocalOutVariable
+                [OutWidget]
+            EX_LocalVariable [Widget]
+949:    EX_Return
+            EX_Nothing
+951:    EX_EndOfScript

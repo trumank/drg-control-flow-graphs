@@ -1,0 +1,287 @@
+FunctionExport ExecuteUbergraph_HUD_PlayerName_Label
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetupSpeakIcon
+24:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+48:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+            EX_DynamicCast import /Script/FSD->FSDPlayerState
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+106:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+135:    EX_JumpIfNot 900
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+149:    EX_BindDelegate OnPlayerNameChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+172:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+                EX_InstanceVariable [OnPlayerNameChanged]
+                RValue = [OnPlayerNameChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+213:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+237:    EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue]
+309:    EX_LocalVirtualFunction OnPlayerNameChanged
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+332:    EX_Jump 900
+337:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [K2Node_CustomEvent_NewName]
+374:    EX_Context
+            EX_InstanceVariable [DATA_PlayerName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+419:    EX_Jump 900
+424:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+472:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+508:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+537:    EX_Context
+            EX_InstanceVariable [DATA_PlayerName]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+578:    EX_Jump 900
+583:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetOwningFSDPlayerState
+                EX_Self
+604:    EX_Context
+            EX_InstanceVariable [PlayerSpeakingIcon]
+            EX_LocalVirtualFunction SetPlayerState
+                EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue]
+            RValue = []
+649:    EX_LocalVirtualFunction RefreshIconVisibility
+663:    EX_BindDelegate RefreshIconVisibility
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+686:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+706:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_InstanceVariable [OnGameUserSettingsUINeedsUpdate]
+                RValue = [OnGameUserSettingsUINeedsUpdate]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+747:    EX_Jump 900
+752:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+772:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsVoiceChatEnabled_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->IsVoiceChatEnabled
+                RValue = [CallFunc_IsVoiceChatEnabled_ReturnValue]
+814:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [PlayerSpeakingIcon]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsVoiceChatEnabled_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+900:    EX_Return
+            EX_Nothing
+902:    EX_EndOfScript
+FunctionExport RefreshIconVisibility
+0:      EX_LocalFinalFunction export HUD_PlayerName_Label_C->ExecuteUbergraph_HUD_PlayerName_Label
+            EX_IntConst 752
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetupSpeakIcon
+0:      EX_LocalFinalFunction export HUD_PlayerName_Label_C->ExecuteUbergraph_HUD_PlayerName_Label
+            EX_IntConst 583
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_PlayerName_Label_C->ExecuteUbergraph_HUD_PlayerName_Label
+            EX_IntConst 424
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnPlayerNameChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_NewName]
+            EX_LocalVariable [NewName]
+18:     EX_LocalFinalFunction export HUD_PlayerName_Label_C->ExecuteUbergraph_HUD_PlayerName_Label
+            EX_IntConst 337
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_PlayerName_Label_C->ExecuteUbergraph_HUD_PlayerName_Label
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UpdateCharacterName
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_JumpIfNot 989
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+99:     EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 1
+122:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+146:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+            EX_DynamicCast import /Script/FSD->FSDPlayerState
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+204:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+233:    EX_Let
+            EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetHeroName
+                RValue = [CallFunc_GetHeroName_ReturnValue]
+283:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+302:    EX_Let
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextToUpper
+                EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+339:    EX_Let
+            EX_LocalVariable [CallFunc_GetSelectedCharacterLevel_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSelectedCharacterLevel
+                RValue = [CallFunc_GetSelectedCharacterLevel_ReturnValue]
+389:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst name
+422:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+451:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+487:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+519:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+551:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+580:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst level
+614:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+643:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_TextConst
+672:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 752
+                case 0:
+                    EX_False
+                    NextCaseOffset = 729
+                    EX_LocalVariable [Temp_int_Variable]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 743
+                    EX_LocalVariable [CallFunc_GetSelectedCharacterLevel_ReturnValue]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+752:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+784:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+813:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+842:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {level}  {name}
+                    LocalizedKey = 8CC46B4F435E4C10EAD64BB5AD2D8BD2
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+934:    EX_Context
+            EX_InstanceVariable [DATA_PlayerName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+979:    EX_FinalFunction import /Script/UMG->Widget->InvalidateLayoutAndVolatility
+989:    EX_Return
+            EX_Nothing
+991:    EX_EndOfScript

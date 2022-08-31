@@ -1,0 +1,632 @@
+FunctionExport OnDealBought__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_WND_Trading_DailyDeal
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/MenusButtonsEtc/UI_MineralDealConfirm_Cue->UI_MineralDealConfirm_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+70:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+90:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+126:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+155:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_ObjectConst import /Game/Character/Shouts/New/Shout_Minerals_GoodDeal->Shout_Minerals_GoodDeal
+            RValue = []
+218:    EX_Context
+            EX_InstanceVariable [Overlay_SoldOut]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+256:    EX_CallMulticastDelegate export WND_Trading_DailyDeal_C->OnDealBought__DelegateSignature
+            EX_InstanceVariable [OnDealBought]
+275:    EX_Jump 3654
+280:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_Trading/ITM_Trading_DailyDeal->ITM_Trading_DailyDeal_C
+                    EX_NoObject
+                RValue = [CallFunc_Create_ReturnValue]
+333:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Overlay_DealHolder]
+                EX_FinalFunction import /Script/UMG->Overlay->AddChildToOverlay
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToOverlay_ReturnValue]
+384:    EX_Context
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetHorizontalAlignment
+                EX_ByteConst 0
+            RValue = []
+418:    EX_Context
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetVerticalAlignment
+                EX_ByteConst 0
+            RValue = []
+452:    EX_Context
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_LocalVirtualFunction UpdateDealText
+            RValue = []
+488:    EX_Jump 3654
+493:    EX_Jump 3654
+498:    EX_LetBool
+            EX_LocalVariable [CallFunc_BuyDailyDeal_ReturnValue]
+            EX_CallMath import /Script/FSD->DailyDealSettings->BuyDailyDeal
+                EX_Self
+519:    EX_JumpIfNot 3654
+            EX_LocalVariable [CallFunc_BuyDailyDeal_ReturnValue]
+533:    EX_Jump 10
+538:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+586:    EX_Context
+            EX_InstanceVariable [I_PosterOutline]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+627:    EX_Context
+            EX_InstanceVariable [MineralTraderHeadline_Outline]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+668:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 7
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+716:    EX_Context
+            EX_InstanceVariable [DailyDealHeadline_BG]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+757:    EX_Jump 3654
+762:    EX_LetBool
+            EX_LocalVariable [CallFunc_K2_IsTimerActiveHandle_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_IsTimerActiveHandle
+                EX_Self
+                EX_InstanceVariable [Timer]
+792:    EX_JumpIfNot 954
+            EX_LocalVariable [CallFunc_K2_IsTimerActiveHandle_ReturnValue]
+806:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsDailyDealBought_ReturnValue]
+            EX_CallMath import /Script/FSD->DailyDealSettings->IsDailyDealBought
+                EX_Self
+827:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Overlay_SoldOut]
+                EX_ByteConst 1
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_IsDailyDealBought_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+913:    EX_Context
+            EX_InstanceVariable [Overlay_DealHolder]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+949:    EX_Jump 280
+954:    EX_BindDelegate UpdateTime
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+977:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+                EX_FloatConst 1
+                EX_True
+                EX_FloatConst 0
+                EX_FloatConst 0
+1030:   EX_Let
+            EX_InstanceVariable [Timer]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+1057:   EX_LocalVirtualFunction UpdateTime
+1071:   EX_Jump 806
+1076:   EX_Let
+            EX_LocalVariable [CallFunc_UtcNow_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->UtcNow
+1104:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakDateTime
+            EX_LocalVariable [CallFunc_UtcNow_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakDateTime_Year]
+            EX_LocalVariable [CallFunc_BreakDateTime_Month]
+            EX_LocalVariable [CallFunc_BreakDateTime_Day]
+            EX_LocalVariable [CallFunc_BreakDateTime_Hour]
+            EX_LocalVariable [CallFunc_BreakDateTime_Minute]
+            EX_LocalVariable [CallFunc_BreakDateTime_Second]
+            EX_LocalVariable [CallFunc_BreakDateTime_Millisecond]
+1186:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_IntConst 59
+                EX_LocalVariable [CallFunc_BreakDateTime_Second]
+1228:   EX_Let
+            EX_LocalVariable [CallFunc_Max_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Max
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+                EX_IntConst 0
+1270:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_IntConst 59
+                EX_LocalVariable [CallFunc_BreakDateTime_Minute]
+1312:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Max_ReturnValue]
+                EX_False
+                EX_True
+                EX_IntConst 2
+                EX_IntConst 324
+1361:   EX_Let
+            EX_LocalVariable [CallFunc_Max_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Max
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue_1]
+                EX_IntConst 0
+1403:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst ss
+1434:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+1463:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+1499:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+1531:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+1563:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+1592:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Max_ReturnValue_1]
+                EX_False
+                EX_True
+                EX_IntConst 2
+                EX_IntConst 324
+1641:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_IntConst 23
+                EX_LocalVariable [CallFunc_BreakDateTime_Hour]
+1683:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst mm
+1714:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 4
+1743:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue_1]
+1779:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_IntConst 0
+1811:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+1843:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+1872:   EX_Let
+            EX_LocalVariable [CallFunc_Max_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Max
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue_2]
+                EX_IntConst 0
+1914:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Max_ReturnValue_2]
+                EX_False
+                EX_True
+                EX_IntConst 2
+                EX_IntConst 324
+1963:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_StringConst hh
+1994:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_ByteConst 4
+2023:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue_2]
+2059:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_IntConst 0
+2091:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_FloatConst 0
+2123:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_ByteConst 0
+2152:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+2190:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {hh}:{mm}:{ss}
+                EX_LocalVariable [K2Node_MakeArray_Array]
+2245:   EX_Context
+            EX_InstanceVariable [Text_TimeToNext]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+2290:   EX_Jump 3654
+2295:   EX_LocalVirtualFunction FormatDailyDealResources
+            EX_LocalVariable [CallFunc_FormatDailyDealResources_Resources]
+2318:   EX_LetObj
+            EX_StructMemberContext [WidgetClass]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Popup_YesNoPrompt->Basic_Popup_YesNoPrompt_C
+2346:   EX_Let
+            EX_StructMemberContext [ZOrder]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_IntConst 250
+2378:   EX_Let
+            EX_StructMemberContext [Title]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_TextConst
+                SourceString = Make the Deal!
+                LocalizedKey = 8B9D647940706FFEB3CBC28329A9A22D
+                LocalizedNamespace = 
+2459:   EX_Let
+            EX_StructMemberContext [Message]
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+            EX_TextConst
+                SourceString = The deal cannot be reversed
+                LocalizedKey = 476DCAA248F4426124BEFFBDEBDEF961
+                LocalizedNamespace = 
+2553:   EX_LetObj
+            EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+            EX_CallMath import /Script/FSD->YesNoPromptAction->PromptPurchase
+                EX_Self
+                EX_LocalVariable [K2Node_MakeStruct_YesNoPromptSettings]
+                EX_LocalVariable [CallFunc_FormatDailyDealResources_Resources]
+2592:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+2621:   EX_JumpIfNot 3654
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+2635:   EX_BindDelegate Yes_D21FAC5A44FF696C3525F18876AC316A
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+2658:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+                EX_InstanceVariable [Yes]
+                RValue = [Yes]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+2699:   EX_BindDelegate No_D21FAC5A44FF696C3525F18876AC316A
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+2722:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+                EX_InstanceVariable [No]
+                RValue = [No]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+2763:   EX_Context
+            EX_LocalVariable [CallFunc_PromptPurchase_ReturnValue]
+            EX_VirtualFunction Activate
+            RValue = []
+2799:   EX_Jump 3654
+2804:   EX_CallMath import /Script/FSD->DailyDealSettings->GetDailyDeal
+            EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+2823:   EX_Let
+            EX_InstanceVariable [CurrDeal]
+            EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+2850:   EX_BindDelegate OnCreditsChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+2873:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+2894:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnCreditsChanged]
+                RValue = [OnCreditsChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+2935:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+2956:   EX_Let
+            EX_LocalVariable [CallFunc_GetCredits_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetCredits
+                RValue = [CallFunc_GetCredits_ReturnValue]
+3006:   EX_LocalVirtualFunction OnCreditsChanged
+            EX_LocalVariable [CallFunc_GetCredits_ReturnValue]
+3029:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+3050:   EX_BindDelegate OnResourceAmountChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+3073:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_InstanceVariable [OnResourceAmountChanged]
+                RValue = [OnResourceAmountChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+3114:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+3135:   EX_Let
+            EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetResourceAmount
+                    EX_StructMemberContext [Resource]
+                        EX_InstanceVariable [CurrDeal]
+                RValue = [CallFunc_GetResourceAmount_ReturnValue]
+3203:   EX_LocalVirtualFunction OnResourceAmountChanged
+            EX_StructMemberContext [Resource]
+                EX_InstanceVariable [CurrDeal]
+            EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+3244:   EX_Jump 3654
+3249:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [K2Node_CustomEvent_resource]
+                EX_StructMemberContext [Resource]
+                    EX_InstanceVariable [CurrDeal]
+3296:   EX_JumpIfNot 3654
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+3310:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [DealType]
+                    EX_InstanceVariable [CurrDeal]
+                EX_ByteConst 1
+3350:   EX_JumpIfNot 3369
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+3364:   EX_Jump 3654
+3369:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_StructMemberContext [ResourceAmount]
+                    EX_InstanceVariable [CurrDeal]
+3415:   EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_currentAmount]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+3453:   EX_Context
+            EX_InstanceVariable [B_Trade]
+            EX_VirtualFunction SetIsEnabled
+                EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            RValue = []
+3498:   EX_Jump 3654
+3503:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [DealType]
+                    EX_InstanceVariable [CurrDeal]
+                EX_ByteConst 0
+3543:   EX_JumpIfNot 3562
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+3557:   EX_Jump 3654
+3562:   EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [K2Node_CustomEvent_Credits]
+                EX_StructMemberContext [Credits]
+                    EX_InstanceVariable [CurrDeal]
+3609:   EX_Context
+            EX_InstanceVariable [B_Trade]
+            EX_VirtualFunction SetIsEnabled
+                EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            RValue = []
+3654:   EX_Return
+            EX_Nothing
+3656:   EX_EndOfScript
+FunctionExport OnCreditsChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Credits]
+            EX_LocalVariable [Credits]
+18:     EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 3503
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnResourceAmountChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_resource]
+            EX_LocalVariable [resource]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_currentAmount]
+            EX_LocalVariable [currentAmount]
+36:     EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 3249
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 2804
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__B_Trade_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Button]
+            EX_LocalVariable [Button]
+18:     EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 2295
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateTime
+0:      EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 1076
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Refresh
+0:      EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 762
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 538
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Yes_D21FAC5A44FF696C3525F18876AC316A
+0:      EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 498
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport No_D21FAC5A44FF696C3525F18876AC316A
+0:      EX_LocalFinalFunction export WND_Trading_DailyDeal_C->ExecuteUbergraph_WND_Trading_DailyDeal
+            EX_IntConst 493
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FormatDailyDealResources
+0:      EX_CallMath import /Script/FSD->DailyDealSettings->GetDailyDeal
+            EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+19:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [DealType]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+                EX_ByteConst 0
+59:     EX_JumpIfNot 132
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+73:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [DealType]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+                EX_ByteConst 1
+113:    EX_JumpIfNot 370
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+127:    EX_Jump 581
+132:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_LocalVariable [Result]
+                EX_StructMemberContext [Resource]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+                EX_StructMemberContext [ResourceAmount]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+            RValue = []
+209:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/GameElements/Resources/RES_Credits->RES_Credits
+228:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntInt
+                EX_StructMemberContext [Credits]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+                EX_IntConst -1
+279:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_LocalVariable [Result]
+                EX_LocalVariable [Temp_object_Variable]
+                EX_LocalVariable [CallFunc_Multiply_IntInt_ReturnValue]
+            RValue = []
+338:    EX_Let
+            EX_LocalOutVariable
+                [Resources]
+            EX_LocalVariable [Result]
+365:    EX_Jump 581
+370:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/GameElements/Resources/RES_Credits->RES_Credits
+389:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_LocalVariable [Result]
+                EX_LocalVariable [Temp_object_Variable_1]
+                EX_StructMemberContext [Credits]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+            RValue = []
+457:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntInt
+                EX_StructMemberContext [ResourceAmount]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+                EX_IntConst -1
+508:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_LocalVariable [Result]
+                EX_StructMemberContext [Resource]
+                    EX_LocalVariable [CallFunc_GetDailyDeal_outDeal]
+                EX_LocalVariable [CallFunc_Multiply_IntInt_ReturnValue_1]
+            RValue = []
+576:    EX_Jump 338
+581:    EX_Return
+            EX_Nothing
+583:    EX_EndOfScript

@@ -1,0 +1,86 @@
+FunctionExport ExecuteUbergraph_TSK_FindPointAboveTarget
+0:      EX_PushExecutionFlow 506
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_False
+26:     EX_PopExecutionFlow
+27:     EX_JumpIfNot 15
+            EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_success]
+41:     EX_Let
+            EX_LocalVariable [CallFunc_FindPathfinderPointAbove_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->FindPathfinderPointAbove
+                    EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_outPos]
+                    EX_InstanceVariable [Height]
+                RValue = [CallFunc_FindPathfinderPointAbove_ReturnValue]
+109:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsVector
+            EX_Self
+            EX_InstanceVariable [LocationKey]
+            EX_LocalVariable [CallFunc_FindPathfinderPointAbove_ReturnValue]
+138:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_True
+149:    EX_PopExecutionFlow
+150:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_False
+161:    EX_PopExecutionFlow
+162:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+192:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+221:    EX_JumpIfNot 150
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+235:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [K2Node_Event_ControlledPawn]
+                EX_ObjectConst import /Script/FSD->DeepPathfinderMovement
+273:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+303:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+353:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_InstanceVariable [ManualOffset]
+399:    EX_Context
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->GetRandomReachablePointAtApproximateDistance_Async
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_InstanceVariable [Distance]
+                EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_success]
+                EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_outPos]
+                EX_StructConst import /Script/Engine->LatentActionInfo
+                    EX_SkipOffsetConst 27
+                    EX_IntConst 1995927992
+                    EX_NameConst ExecuteUbergraph_TSK_FindPointAboveTarget
+                    EX_Self
+            RValue = []
+505:    EX_PopExecutionFlow
+506:    EX_Return
+            EX_Nothing
+508:    EX_EndOfScript
+FunctionExport ReceiveExecuteAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_FindPointAboveTarget_C->ExecuteUbergraph_TSK_FindPointAboveTarget
+            EX_IntConst 162
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

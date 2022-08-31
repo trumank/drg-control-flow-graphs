@@ -1,0 +1,245 @@
+FunctionExport ExecuteUbergraph_HUD_Milestone_Manager
+0:      EX_PushExecutionFlow 1592
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_False
+26:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+37:     EX_PopExecutionFlow
+38:     EX_Let
+            EX_LocalVariable [CallFunc_CalculateClaimablePerkPoints_ReturnValue]
+            EX_CallMath import /Script/FSD->PerkFunctionLibrary->CalculateClaimablePerkPoints
+                EX_Self
+67:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_CalculateClaimablePerkPoints_ReturnValue]
+                EX_IntConst 0
+101:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+111:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->NotificationSubSystem
+141:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+189:    EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+            EX_TextConst
+                SourceString = You have claimable Perk Points at the KPI Terminal
+                LocalizedKey = 1FE4891041739A78C8853EA8CEBA103D
+                LocalizedNamespace = 
+306:    EX_LetObj
+            EX_StructMemberContext [Icon]
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+            EX_ObjectConst import /Game/UI/Art/Icons/Icons_KPI/Icon_Milestone_Point_Simplified->Icon_Milestone_Point_Simplified
+334:    EX_Let
+            EX_StructMemberContext [IconColor]
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+370:    EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->NotificationSubSystem->AddSpaceRigNotification
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+                EX_StringConst NEW PERK POINTS
+                EX_True
+            RValue = []
+429:    EX_PopExecutionFlow
+430:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+453:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+473:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_StructMemberContext [Milestones]
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                            EX_InstanceVariable [Milestones]
+                            RValue = [Milestones]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+563:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+601:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+611:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+638:    EX_PushExecutionFlow 1223
+643:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+663:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_StructMemberContext [Milestones]
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                        EX_InstanceVariable [Milestones]
+                        RValue = [Milestones]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+753:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsCompleted_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_FinalFunction import /Script/FSD->MilestoneAsset->IsCompleted
+                    EX_Self
+                RValue = [CallFunc_IsCompleted_ReturnValue]
+796:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsCompleted_ReturnValue]
+825:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+835:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+859:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/MainOnscreenHUD/HUD_Milestone_Notification->HUD_Milestone_Notification_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+920:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+940:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_StructMemberContext [Milestones]
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                        EX_InstanceVariable [Milestones]
+                        RValue = [Milestones]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1030:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Milestone
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+1071:   EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToVerticalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [MilestoneRoot]
+                EX_FinalFunction import /Script/UMG->VerticalBox->AddChildToVerticalBox
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToVerticalBox_ReturnValue]
+1122:   EX_Context
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_LocalVirtualFunction Init Widget
+            RValue = []
+1158:   EX_BindDelegate OnMilestoneReached
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1181:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [OnMilestoneReached]
+                RValue = [OnMilestoneReached]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1222:   EX_PopExecutionFlow
+1223:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1265:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1292:   EX_Jump 453
+1297:   EX_JumpIfNot 1312
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+1311:   EX_PopExecutionFlow
+1312:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+1323:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/UI/HUD/UpgradeAwarded_Cue->UpgradeAwarded_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+1383:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -159940960
+                EX_NameConst ExecuteUbergraph_HUD_Milestone_Manager
+                EX_Self
+1437:   EX_PopExecutionFlow
+1438:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+1449:   EX_PopExecutionFlowIfNot
+            EX_False
+1451:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+1462:   EX_PopExecutionFlow
+1463:   EX_JumpIfNot 1438
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+1477:   EX_PopExecutionFlow
+1478:   EX_PushExecutionFlow 1297
+1483:   EX_Jump 1463
+1488:   EX_Context
+            EX_InstanceVariable [MilestoneRoot]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+1524:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+1547:   EX_Jump 430
+1552:   EX_PushExecutionFlow 38
+1557:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_FinalFunction import /Script/UMG->Widget->IsVisible
+1577:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+1587:   EX_Jump 1478
+1592:   EX_Return
+            EX_Nothing
+1594:   EX_EndOfScript
+FunctionExport OnMilestoneReached
+0:      EX_LocalFinalFunction export HUD_Milestone_Manager_C->ExecuteUbergraph_HUD_Milestone_Manager
+            EX_IntConst 1552
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Milestone_Manager_C->ExecuteUbergraph_HUD_Milestone_Manager
+            EX_IntConst 1488
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

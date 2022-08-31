@@ -1,0 +1,193 @@
+FunctionExport PerformConditionCheckAI
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [ControlledPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->EnemyLineOfSightComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+51:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+80:     EX_JumpIfNot 211
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+94:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [ControlledPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->EnemyLineOfSightComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+145:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasLineOfSight_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->EnemyLineOfSightComponent->HasLineOfSight
+                RValue = [CallFunc_HasLineOfSight_ReturnValue]
+187:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_HasLineOfSight_ReturnValue]
+206:    EX_Jump 905
+211:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+            EX_ObjToInterfaceCast import /Script/FSD->Targetable
+                EX_LocalVariable [ControlledPawn]
+247:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+276:    EX_JumpIfNot 869
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+290:    EX_Let
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+                EX_VirtualFunction GetTargetCenterMass
+                RValue = [CallFunc_GetTargetCenterMass_ReturnValue]
+345:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+372:    EX_LocalVirtualFunction ActorOrVector
+386:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+416:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [ControlledPawn]
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+445:    EX_LetBool
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->DoesImplementInterface
+                EX_LocalVariable [ControlledPawn]
+                EX_ObjectConst import /Script/FSD->Targetable
+483:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [ControlledPawn]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+533:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_InstanceVariable [TraceToLocation]
+                EX_InstanceVariable [EndOffsetVector]
+579:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_InstanceVariable [StartOffsetVector]
+625:    EX_Let
+            EX_LocalVariable [CallFunc_SelectVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SelectVector
+                EX_LocalVariable [Temp_struct_Variable]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+                EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue]
+680:    EX_LetBool
+            EX_LocalVariable [CallFunc_LineTraceSingle_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->LineTraceSingle
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_ByteConst 0
+                EX_False
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_LineTraceSingle_OutHit]
+                EX_True
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_FloatConst 1
+816:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_LineTraceSingle_ReturnValue]
+845:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+864:    EX_Jump 905
+869:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_VectorConst 0,0,0
+900:    EX_Jump 372
+905:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+915:    EX_EndOfScript
+FunctionExport ActorOrVector
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+30:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+59:     EX_JumpIfNot 254
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+73:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+103:    EX_LetBool
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->DoesImplementInterface
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                EX_ObjectConst import /Script/FSD->Targetable
+141:    EX_JumpIfNot 324
+            EX_LocalVariable [CallFunc_DoesImplementInterface_ReturnValue]
+155:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+185:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorTargetCenter_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetActorTargetCenter
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+222:    EX_Let
+            EX_InstanceVariable [TraceToLocation]
+            EX_LocalVariable [CallFunc_GetActorTargetCenter_ReturnValue]
+249:    EX_Jump 436
+254:    EX_Let
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsVector
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+292:    EX_Let
+            EX_InstanceVariable [TraceToLocation]
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue]
+319:    EX_Jump 249
+324:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+354:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+404:    EX_Let
+            EX_InstanceVariable [TraceToLocation]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+431:    EX_Jump 249
+436:    EX_Return
+            EX_Nothing
+438:    EX_EndOfScript

@@ -1,0 +1,179 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Grunt_RockpoxPlague
+0:      EX_PushExecutionFlow 1024
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+            EX_VirtualFunction GetTargetCenterMass
+47:     EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+110:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_InstanceVariable [AcidCloudClass]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_NoObject
+152:    EX_Let
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+            EX_VirtualFunction GetTargetCenterMass
+184:    EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+247:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+285:    EX_PopExecutionFlow
+286:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_PF_SpiderBase->ENE_PF_SpiderBase_C->ReceiveBeginPlay
+296:    EX_BindDelegate PopAllWeakPoints
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+319:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+360:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_ByteToInt
+                EX_Context
+                    EX_InstanceVariable [InfectionMaster]
+                    EX_InstanceVariable [InfectionPoints]
+                    RValue = [InfectionPoints]
+419:    EX_Let
+            EX_InstanceVariable [InfectionPoints]
+            EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+446:    EX_LetBool
+            EX_LocalVariable [CallFunc_PushActiveStatusEffect_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StatusEffects]
+                EX_FinalFunction import /Script/FSD->StatusEffectsComponent->PushActiveStatusEffect
+                    EX_InstanceVariable [InfectionSTE]
+                    EX_Self
+                RValue = [CallFunc_PushActiveStatusEffect_ReturnValue]
+498:    EX_PopExecutionFlow
+499:    EX_Jump 286
+504:    EX_Context
+            EX_InstanceVariable [ArmorHealthDamage]
+            EX_FinalFunction import /Script/FSD->ArmorHealthDamageComponent->PopAllWeakPoints
+            RValue = []
+536:    EX_PopExecutionFlow
+537:    EX_PopExecutionFlowIfNot
+            EX_Context
+                EX_InstanceVariable [InfectionMaster]
+                EX_InstanceVariable [KillWhenAllPointsDestroyed]
+                RValue = [KillWhenAllPointsDestroyed]
+569:    EX_PopExecutionFlow
+570:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+590:    EX_JumpIfNot 645
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+604:    EX_Context
+            EX_InstanceVariable [InfectionMaster]
+            EX_FinalFunction import /Script/FSD->InfectionMasterComponent->DealWeakpointDamage
+                EX_LocalVariable [K2Node_ComponentBoundEvent_name]
+            RValue = []
+645:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [InfectionPointsDestroyed]
+                EX_IntConst 1
+687:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+714:    EX_Let
+            EX_InstanceVariable [InfectionPointsDestroyed]
+            EX_LocalVariable [Temp_int_Variable]
+741:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_InstanceVariable [InfectionPoints]
+779:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+789:    EX_Jump 537
+794:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_LocalVariable [K2Node_ComponentBoundEvent_name]
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+857:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/Enemies/Plague/PlagueBladderBurst_Cue->PlagueBladderBurst_Cue
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+927:    EX_Jump 570
+932:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_SpiderBase_Large->ENE_SpiderBase_Large_C->DeathDetailedBase
+            EX_LocalVariable [K2Node_Event_Amount]
+            EX_LocalVariable [K2Node_Event_DamageData]
+            EX_LocalVariable [K2Node_Event_Tags]
+969:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -355601471
+                EX_NameConst ExecuteUbergraph_ENE_Spider_Grunt_RockpoxPlague
+                EX_Self
+1023:   EX_PopExecutionFlow
+1024:   EX_Return
+            EX_Nothing
+1026:   EX_EndOfScript
+FunctionExport DeathDetailedBase
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Amount]
+            EX_LocalVariable [Amount]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_DamageData]
+            EX_LocalOutVariable
+                [DamageData]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_Tags]
+            EX_LocalOutVariable
+                [Tags]
+54:     EX_LocalFinalFunction export ENE_Spider_Grunt_RockpoxPlague_C->ExecuteUbergraph_ENE_Spider_Grunt_RockpoxPlague
+            EX_IntConst 932
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport BndEvt__ENE_Spider_Grunt_TentacleInfection_ArmorHealthDamage_K2Node_ComponentBoundEvent_0_AmorPartDestroyedDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_name]
+            EX_LocalVariable [name]
+18:     EX_LocalFinalFunction export ENE_Spider_Grunt_RockpoxPlague_C->ExecuteUbergraph_ENE_Spider_Grunt_RockpoxPlague
+            EX_IntConst 794
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PopAllWeakPoints
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export ENE_Spider_Grunt_RockpoxPlague_C->ExecuteUbergraph_ENE_Spider_Grunt_RockpoxPlague
+            EX_IntConst 504
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Spider_Grunt_RockpoxPlague_C->ExecuteUbergraph_ENE_Spider_Grunt_RockpoxPlague
+            EX_IntConst 499
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

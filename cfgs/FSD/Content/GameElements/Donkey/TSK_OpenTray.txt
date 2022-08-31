@@ -1,0 +1,68 @@
+FunctionExport ExecuteUbergraph_TSK_OpenTray
+0:      EX_PushExecutionFlow 382
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+            EX_DynamicCast import /Game/GameElements/Donkey/BP_Donkey->BP_Donkey_C
+                EX_LocalVariable [K2Node_Event_ControlledPawn]
+51:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+80:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+90:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_BoolBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_BoolBool
+                EX_InstanceVariable [Open]
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+                    EX_InstanceVariable [IsTrayOpen]
+                    RValue = [IsTrayOpen]
+150:    EX_JumpIfNot 176
+            EX_LocalVariable [CallFunc_EqualEqual_BoolBool_ReturnValue]
+164:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_True
+175:    EX_PopExecutionFlow
+176:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+            EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+            RValue = []
+208:    EX_LetBool
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+                EX_InstanceVariable [IsTrayOpen]
+                RValue = [IsTrayOpen]
+            EX_InstanceVariable [Open]
+249:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+            EX_IntConst 16
+            EX_NameConst IsTrayOpen
+286:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+            EX_LocalVirtualFunction OnRep_IsTrayOpen
+            RValue = []
+322:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 377
+                EX_IntConst -728762997
+                EX_NameConst ExecuteUbergraph_TSK_OpenTray
+                EX_Self
+376:    EX_PopExecutionFlow
+377:    EX_Jump 164
+382:    EX_Return
+            EX_Nothing
+384:    EX_EndOfScript
+FunctionExport ReceiveExecuteAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_OpenTray_C->ExecuteUbergraph_TSK_OpenTray
+            EX_IntConst 15
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

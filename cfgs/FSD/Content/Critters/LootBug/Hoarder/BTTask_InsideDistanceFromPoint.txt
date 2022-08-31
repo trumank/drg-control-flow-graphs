@@ -1,0 +1,90 @@
+FunctionExport ExecuteUbergraph_BTTask_InsideDistanceFromPoint
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsController]
+            EX_DynamicCast import /Script/Engine->Controller
+                EX_LocalVariable [K2Node_Event_OwnerActor]
+46:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsController]
+75:     EX_JumpIfNot 592
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+89:     EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsController]
+                EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+                RValue = [CallFunc_K2_GetPawn_ReturnValue]
+131:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+                EX_ObjectConst import /Script/FSD->DeepPathfinderMovement
+169:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+198:    EX_JumpIfNot 592
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+212:    EX_Let
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsVector
+                EX_Self
+                EX_InstanceVariable [PointKey]
+250:    EX_Let
+            EX_LocalVariable [CallFunc_Square_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Square
+                EX_InstanceVariable [Distance]
+287:    EX_Let
+            EX_LocalVariable [CallFunc_GetCurrentMovePos_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->GetCurrentMovePos
+                RValue = [CallFunc_GetCurrentMovePos_ReturnValue]
+337:    EX_Let
+            EX_LocalVariable [CallFunc_Vector_DistanceSquared_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Vector_DistanceSquared
+                EX_LocalVariable [CallFunc_GetCurrentMovePos_ReturnValue]
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue]
+383:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [CallFunc_Vector_DistanceSquared_ReturnValue]
+                EX_LocalVariable [CallFunc_Square_ReturnValue]
+421:    EX_Let
+            EX_LocalVariable [CallFunc_Vector_Zero_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Vector_Zero
+449:    EX_Let
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue_1]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsVector
+                EX_Self
+                EX_InstanceVariable [PointKey]
+487:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_VectorVector
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Vector_Zero_ReturnValue]
+                EX_FloatConst 0.0001
+530:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_EqualEqual_VectorVector_ReturnValue]
+                EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+568:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+587:    EX_Jump 603
+592:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_False
+603:    EX_Return
+            EX_Nothing
+605:    EX_EndOfScript
+FunctionExport ReceiveExecute
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerActor]
+            EX_LocalVariable [OwnerActor]
+18:     EX_LocalFinalFunction export BTTask_InsideDistanceFromPoint_C->ExecuteUbergraph_BTTask_InsideDistanceFromPoint
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

@@ -1,0 +1,286 @@
+FunctionExport ExecuteUbergraph_BP_DropPod_Escape_Escort
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/FSD->GameModeFunctionLibrary->AddSeamlessTravelEventKey
+            EX_Self
+            EX_ObjectConst import /Game/GameElements/Objectives/Escort/SEK_DorettaHeadRescued->SEK_DorettaHeadRescued
+30:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_DorettaHead]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+80:     EX_CallMath import /Script/FSD->CommunicationComponent->ShoutCustomClosestDwarf
+            EX_Self
+            EX_ObjectConst import /Game/Character/Shouts/NewJan2021/Shout_DorettaHeadSaved->Shout_DorettaHeadSaved
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+109:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_DorettaHead]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/Engine->StaticMeshComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+160:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentToWorld
+                RValue = [CallFunc_K2_GetComponentToWorld_ReturnValue_1]
+210:    EX_VirtualFunction Transfer Doretta
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue_1]
+233:    EX_Context
+            EX_LocalVariable [K2Node_CustomEvent_DorettaHead]
+            EX_VirtualFunction K2_DestroyActor
+            RValue = []
+269:    EX_Jump 1649
+274:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+284:    EX_LetBool
+            EX_InstanceVariable [IsDorettaHeadInside]
+            EX_True
+295:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 18
+            EX_NameConst IsDorettaHeadInside
+324:    EX_Jump 10
+329:    EX_Let
+            EX_LocalVariable [CallFunc_TLerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->TLerp
+                EX_InstanceVariable [DorettaStart]
+                EX_InstanceVariable [DorettaEnd]
+                EX_InstanceVariable [DorettaHeadMove_Alpha_C2033C6740443751B5AF4294D2EFCD51]
+                EX_ByteConst 0
+386:    EX_Context
+            EX_InstanceVariable [SM_Doretta_Broken]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetWorldTransform
+                EX_LocalVariable [CallFunc_TLerp_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetWorldTransform_SweepHitResult]
+                EX_False
+            RValue = []
+438:    EX_Jump 1649
+443:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+463:    EX_JumpIfNot 1649
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+477:    EX_VirtualFunction ServerHandleDorettaHead
+            EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head]
+500:    EX_Jump 1649
+505:    EX_LocalFinalFunction import /Game/LevelElements/Droppod/BP_DropPod_Escape_Base->BP_DropPod_Escape_Base_C->OnPrepForTakeOff
+515:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+536:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameState->GetPrimaryObjective
+                RValue = [CallFunc_GetPrimaryObjective_ReturnValue]
+578:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+            EX_DynamicCast import /Script/FSD->EscortObjective
+                EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+614:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+643:    EX_JumpIfNot 1649
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+657:    EX_LetBool
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+                EX_InstanceVariable [DidRescueDorettaHead]
+                RValue = [DidRescueDorettaHead]
+            EX_InstanceVariable [IsDorettaHeadInside]
+698:    EX_Jump 1649
+703:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [IsDorettaHeadInside]
+732:    EX_JumpIfNot 1649
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+746:    EX_Jump 274
+751:    EX_Context
+            EX_InstanceVariable [SM_Doretta_Broken]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetWorldTransform
+                EX_InstanceVariable [DorettaEnd]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetWorldTransform_SweepHitResult_1]
+                EX_False
+            RValue = []
+803:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_InstanceVariable [DorettaEnd]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+849:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/GameElements/Objectives/Escort/DorettaHeadInDroppod_Cue->DorettaHeadInDroppod_Cue
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+909:    EX_Jump 1649
+914:    EX_Let
+            EX_InstanceVariable [DorettaStart]
+            EX_LocalVariable [K2Node_CustomEvent_DorettaHeadTransform]
+941:    EX_Context
+            EX_InstanceVariable [SM_Doretta_Broken]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_False
+                EX_False
+            RValue = []
+975:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SM_Doretta_Broken]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentToWorld
+                RValue = [CallFunc_K2_GetComponentToWorld_ReturnValue]
+1025:   EX_Let
+            EX_InstanceVariable [DorettaEnd]
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue]
+1052:   EX_Context
+            EX_InstanceVariable [DorettaHeadMove]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+1084:   EX_Jump 1649
+1089:   EX_Jump 703
+1094:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head]
+            EX_DynamicCast import /Script/FSD->DorrettaHead
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+1130:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head]
+1159:   EX_JumpIfNot 1178
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+1173:   EX_Jump 443
+1178:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+1214:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1243:   EX_JumpIfNot 1649
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+1257:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+1308:   EX_JumpIfNot 1649
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1322:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCarriedItem_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_FinalFunction import /Script/FSD->InventoryComponent->GetCarriedItem
+                RValue = [CallFunc_GetCarriedItem_ReturnValue]
+1386:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetCarriedItem_ReturnValue]
+1415:   EX_JumpIfNot 1649
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+1429:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCarriedItem_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_FinalFunction import /Script/FSD->InventoryComponent->GetCarriedItem
+                RValue = [CallFunc_GetCarriedItem_ReturnValue]
+1493:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head_1]
+            EX_DynamicCast import /Script/FSD->DorrettaHead
+                EX_LocalVariable [CallFunc_GetCarriedItem_ReturnValue]
+1529:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_3]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head_1]
+1558:   EX_JumpIfNot 1649
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_3]
+1572:   EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head_1]
+                EX_InstanceVariable [CarriableComponent]
+                RValue = [CarriableComponent]
+            EX_FinalFunction import /Script/FSD->CarriableComponent->DropItem
+            RValue = []
+1626:   EX_VirtualFunction ServerHandleDorettaHead
+            EX_LocalVariable [K2Node_DynamicCast_AsDorretta_Head_1]
+1649:   EX_Return
+            EX_Nothing
+1651:   EX_EndOfScript
+FunctionExport BndEvt__DorettaHeadChecker_K2Node_ComponentBoundEvent_1_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export BP_DropPod_Escape_Escort_C->ExecuteUbergraph_BP_DropPod_Escape_Escort
+            EX_IntConst 1094
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport ServerHandleDorettaHead
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DorettaHead]
+            EX_LocalVariable [DorettaHead]
+18:     EX_LocalFinalFunction export BP_DropPod_Escape_Escort_C->ExecuteUbergraph_BP_DropPod_Escape_Escort
+            EX_IntConst 1089
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Transfer Doretta
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DorettaHeadTransform]
+            EX_LocalVariable [DorettaHeadTransform]
+18:     EX_LocalFinalFunction export BP_DropPod_Escape_Escort_C->ExecuteUbergraph_BP_DropPod_Escape_Escort
+            EX_IntConst 914
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnPrepForTakeOff
+0:      EX_LocalFinalFunction export BP_DropPod_Escape_Escort_C->ExecuteUbergraph_BP_DropPod_Escape_Escort
+            EX_IntConst 505
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DorettaHeadMove__UpdateFunc
+0:      EX_LocalFinalFunction export BP_DropPod_Escape_Escort_C->ExecuteUbergraph_BP_DropPod_Escape_Escort
+            EX_IntConst 329
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DorettaHeadMove__FinishedFunc
+0:      EX_LocalFinalFunction export BP_DropPod_Escape_Escort_C->ExecuteUbergraph_BP_DropPod_Escape_Escort
+            EX_IntConst 751
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_IsDorettaHeadInside
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript

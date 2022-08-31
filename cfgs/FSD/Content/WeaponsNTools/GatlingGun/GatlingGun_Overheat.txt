@@ -1,0 +1,130 @@
+FunctionExport ExecuteUbergraph_GatlingGun_Overheat
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetPercent
+            EX_InstanceVariable [Percent]
+33:     EX_Jump 152
+38:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_HeatPercentage]
+                EX_FloatConst 100
+80:     EX_LocalVirtualFunction SetPercent
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+103:    EX_Jump 152
+108:    EX_LocalVirtualFunction SetHeatValue
+            EX_FloatConst 0
+            EX_False
+128:    EX_Jump 152
+133:    EX_JumpIfNot 152
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+147:    EX_Jump 10
+152:    EX_Return
+            EX_Nothing
+154:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export GatlingGun_Overheat_C->ExecuteUbergraph_GatlingGun_Overheat
+            EX_IntConst 133
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export GatlingGun_Overheat_C->ExecuteUbergraph_GatlingGun_Overheat
+            EX_IntConst 108
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetHeatValue
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HeatPercentage]
+            EX_LocalVariable [HeatPercentage]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Overheated]
+            EX_LocalVariable [Overheated]
+36:     EX_LocalFinalFunction export GatlingGun_Overheat_C->ExecuteUbergraph_GatlingGun_Overheat
+            EX_IntConst 38
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SetPercent
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CircularProgressBar]
+                EX_FinalFunction import /Script/UMG->Image->GetDynamicMaterial
+                RValue = [CallFunc_GetDynamicMaterial_ReturnValue]
+42:     EX_Context
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst Progress
+                EX_LocalVariable [InPercent]
+            RValue = []
+96:     EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 1
+148:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable_1]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0.010323
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 1
+200:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable_2]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0.685823
+                EX_FloatConst 0
+                EX_FloatConst 1
+252:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [InPercent]
+                EX_FloatConst 0.6
+286:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [InPercent]
+                EX_FloatConst 0.3
+320:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+339:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+358:    EX_Context
+            EX_InstanceVariable [CircularProgressBar]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 486
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 463
+                        EX_SwitchValue
+                            EX_LocalVariable [Temp_bool_Variable_1]
+                            OffsetToSwitchEnd = 463
+                            case 0:
+                                EX_False
+                                NextCaseOffset = 440
+                                EX_LocalVariable [Temp_struct_Variable_2]
+                            case 1:
+                                EX_True
+                                NextCaseOffset = 454
+                                EX_LocalVariable [Temp_struct_Variable_1]
+                            default:
+                                EX_LocalVariable [K2Node_Select_Default]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 477
+                        EX_LocalVariable [Temp_struct_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+487:    EX_Return
+            EX_Nothing
+489:    EX_EndOfScript

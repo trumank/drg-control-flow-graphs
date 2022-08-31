@@ -1,0 +1,126 @@
+FunctionExport ExecuteUbergraph_BP_ItemMarker_Base
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0.045439
+                EX_FloatConst 0
+                EX_FloatConst 0.5
+62:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [K2Node_Event_Valid]
+81:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetVectorParameterValue
+                EX_InstanceVariable [ColorName]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 174
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 151
+                        EX_LocalVariable [Temp_struct_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 165
+                        EX_InstanceVariable [ValidColor]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+175:    EX_Return
+            EX_Nothing
+177:    EX_EndOfScript
+FunctionExport OnMarkerValidChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Valid]
+            EX_LocalVariable [Valid]
+18:     EX_LocalFinalFunction export BP_ItemMarker_Base_C->ExecuteUbergraph_BP_ItemMarker_Base
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_LocalVirtualFunction SetMaterials
+            EX_InstanceVariable [SkeletalMesh]
+            EX_ObjectConst import /Game/WeaponsNTools/SupplyPod/Assets/M_BlueprintMaterial->M_BlueprintMaterial
+            EX_LocalVariable [CallFunc_SetMaterials_DynamicMaterial]
+41:     EX_LetObj
+            EX_InstanceVariable [Material]
+            EX_LocalVariable [CallFunc_SetMaterials_DynamicMaterial]
+60:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Material]
+                EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->K2_GetVectorParameterValue
+                    EX_InstanceVariable [ColorName]
+                RValue = [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+119:    EX_Let
+            EX_InstanceVariable [ValidColor]
+            EX_LocalVariable [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+146:    EX_Return
+            EX_Nothing
+148:    EX_EndOfScript
+FunctionExport SetMaterials
+0:      EX_PushExecutionFlow 446
+5:      EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMaterialLibrary->CreateDynamicMaterialInstance
+                EX_Self
+                EX_LocalVariable [ParentMaterial]
+                EX_NameConst None
+                EX_ByteConst 0
+50:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+73:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+96:     EX_Let
+            EX_LocalVariable [CallFunc_GetMaterials_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Mesh]
+                EX_VirtualFunction GetMaterials
+                RValue = [CallFunc_GetMaterials_ReturnValue]
+150:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetMaterials_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+209:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+247:    EX_JumpIfNot 348
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+261:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+288:    EX_PushExecutionFlow 372
+293:    EX_Context
+            EX_LocalVariable [Mesh]
+            EX_VirtualFunction SetMaterial
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            RValue = []
+347:    EX_PopExecutionFlow
+348:    EX_LetObj
+            EX_LocalOutVariable
+                [DynamicMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+367:    EX_Jump 446
+372:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+414:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+441:    EX_Jump 96
+446:    EX_Return
+            EX_Nothing
+448:    EX_EndOfScript

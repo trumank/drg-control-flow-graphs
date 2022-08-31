@@ -1,0 +1,771 @@
+FunctionExport ExecuteUbergraph_BP_SentryGun_Redeployable
+0:      EX_PushExecutionFlow 2483
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [BuildProgress]
+                EX_FloatConst 0
+49:     EX_JumpIfNot 299
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+63:     EX_Let
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetWorldDeltaSeconds
+                EX_Self
+92:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+                EX_InstanceVariable [DismantleDuration]
+138:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [BuildProgress]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+184:    EX_Let
+            EX_InstanceVariable [BuildProgress]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+211:    EX_Let
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetWorldDeltaSeconds
+                EX_Self
+240:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue_1]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -1607171507
+                EX_NameConst ExecuteUbergraph_BP_SentryGun_Redeployable
+                EX_Self
+298:    EX_PopExecutionFlow
+299:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+319:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+329:    EX_FinalFunction import /Script/FSD->RedeployableSentryGun->DismantleFinished
+339:    EX_PopExecutionFlow
+340:    EX_Context
+            EX_InstanceVariable [SpecialAttackCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 1
+            RValue = []
+378:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [ActorTrackingIcon]
+407:    EX_JumpIfNot 477
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+421:    EX_Context
+            EX_InstanceVariable [ActorTrackingIcon]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeLocation
+                EX_VectorConst 0,0,160
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeLocation_SweepHitResult_2]
+                EX_False
+            RValue = []
+477:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+497:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+507:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+527:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+563:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+592:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+602:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_ObjectConst import /Game/Character/Shouts/HandlingWeaponsNTools/Shout_Sentry_Build->Shout_Sentry_Build
+            RValue = []
+665:    EX_PopExecutionFlow
+666:    EX_LocalVirtualFunction Reset Special Attack
+680:    EX_PopExecutionFlow
+681:    EX_Context
+            EX_InstanceVariable [SpecialAttackParticleSystem]
+            EX_VirtualFunction SetActive
+                EX_False
+                EX_False
+            RValue = []
+719:    EX_PopExecutionFlow
+720:    EX_LocalVirtualFunction UpdateIndicatorLight
+            EX_False
+735:    EX_PopExecutionFlow
+736:    EX_CallMulticastDelegate import /Script/FSD->RedeployableSentryGun->OnDeployProgress__DelegateSignature
+            EX_InstanceVariable [OnDeployProgressEvent]
+            EX_InstanceVariable [BuildProgress]
+764:    EX_PopExecutionFlow
+765:    EX_PushExecutionFlow 785
+770:    EX_JumpIfNot 1055
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+784:    EX_PopExecutionFlow
+785:    EX_JumpIfNot 800
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+799:    EX_PopExecutionFlow
+800:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+811:    EX_FinalFunction import /Script/FSD->SentryGun->UseAmmo
+            EX_InstanceVariable [SpecialAttackAmmoCost]
+830:    EX_Let
+            EX_LocalVariable [CallFunc_GetMuzzleLocation_ReturnValue]
+            EX_VirtualFunction GetMuzzleLocation
+862:    EX_Let
+            EX_LocalVariable [CallFunc_GetMuzzleQuat_ReturnValue]
+            EX_VirtualFunction GetMuzzleQuat
+894:    EX_Let
+            EX_LocalVariable [CallFunc_QuadToNetQuantizeNormal_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->QuadToNetQuantizeNormal
+                EX_LocalVariable [CallFunc_GetMuzzleQuat_ReturnValue]
+931:    EX_Context
+            EX_InstanceVariable [ProjectileLauncher]
+            EX_VirtualFunction Fire
+                EX_LocalVariable [CallFunc_GetMuzzleLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_QuadToNetQuantizeNormal_ReturnValue]
+                EX_True
+            RValue = []
+986:    EX_VirtualFunction Multicast Special Attack GFX
+1000:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 3
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 666
+                EX_IntConst -1967212476
+                EX_NameConst ExecuteUbergraph_BP_SentryGun_Redeployable
+                EX_Self
+1054:   EX_PopExecutionFlow
+1055:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+1066:   EX_PopExecutionFlowIfNot
+            EX_False
+1068:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+1079:   EX_PopExecutionFlow
+1080:   EX_BindDelegate UpdateShadows
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1103:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetWorldSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetWorldSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->FlareController
+1133:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWorldSubsystem_ReturnValue]
+                EX_InstanceVariable [OnShadowQualityChanged]
+                RValue = [OnShadowQualityChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1174:   EX_LocalVirtualFunction UpdateShadows
+1188:   EX_PopExecutionFlow
+1189:   EX_LocalVirtualFunction ToggleBuildMode
+            EX_True
+1204:   EX_PopExecutionFlow
+1205:   EX_LocalVirtualFunction ToggleBuildMode
+            EX_False
+1220:   EX_Context
+            EX_InstanceVariable [SpotLightBase]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+1254:   EX_Jump 15
+1259:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [ActorTrackingIcon]
+1288:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1298:   EX_Context
+            EX_InstanceVariable [ActorTrackingIcon]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeLocation
+                EX_VectorConst 0,0,90
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeLocation_SweepHitResult]
+                EX_False
+            RValue = []
+1354:   EX_Context
+            EX_InstanceVariable [DeployUsable]
+            EX_FinalFunction import /Script/FSD->SingleUsableComponent->SetCanUse
+                EX_False
+            RValue = []
+1387:   EX_Context
+            EX_InstanceVariable [ReloadSentryUsable]
+            EX_FinalFunction import /Script/FSD->ReloadSentryUsableComponent->SetCanUse
+                EX_False
+            RValue = []
+1420:   EX_PopExecutionFlow
+1421:   EX_LocalVirtualFunction ToggleBuildMode
+            EX_False
+1436:   EX_Context
+            EX_InstanceVariable [SpotLightBase]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_True
+                EX_True
+            RValue = []
+1470:   EX_Jump 340
+1475:   EX_FinalFunction import /Script/FSD->RedeployableSentryGun->DeployFinished
+1485:   EX_PopExecutionFlow
+1486:   EX_Let
+            EX_InstanceVariable [BuildProgress]
+            EX_LocalVariable [K2Node_ComponentBoundEvent_progress]
+1513:   EX_Jump 736
+1518:   EX_LocalVirtualFunction UpdateIndicatorLight
+            EX_False
+1533:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AmmoCountWidget]
+                EX_FinalFunction import /Script/UMG->WidgetComponent->GetUserWidgetObject
+                RValue = [CallFunc_GetUserWidgetObject_ReturnValue]
+1575:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsWeapon_Display_Sentry_Gun_Ammo_Count]
+            EX_DynamicCast import /Game/WeaponsNTools/SentryGun/SentryGun_Engineer/WeaponDisplay_SentryGun_AmmoCount->WeaponDisplay_SentryGun_AmmoCount_C
+                EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+1611:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsWeapon_Display_Sentry_Gun_Ammo_Count]
+1640:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1650:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsWeapon_Display_Sentry_Gun_Ammo_Count]
+            EX_LocalVirtualFunction SetSentry
+                EX_Self
+            RValue = []
+1687:   EX_Jump 1080
+1692:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+1703:   EX_PopExecutionFlow
+1704:   EX_LocalVirtualFunction ToggleBuildMode
+            EX_InstanceVariable [Building]
+1727:   EX_PopExecutionFlow
+1728:   EX_Context
+            EX_InstanceVariable [Timeline_0]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+1760:   EX_PopExecutionFlow
+1761:   EX_Let
+            EX_LocalVariable [CallFunc_GetAmmoLeft_ReturnValue]
+            EX_FinalFunction import /Script/FSD->SentryGun->GetAmmoLeft
+1789:   EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_GetAmmoLeft_ReturnValue]
+                EX_InstanceVariable [SpecialAttackAmmoCost]
+1827:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+                EX_InstanceVariable [Enabled]
+1865:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+1875:   EX_Jump 765
+1880:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SpecialAttackParticleSystem]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+1930:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Environment/ElectricPlant/ElectricPlant_Zap_Cue->ElectricPlant_Zap_Cue
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+1990:   EX_PushExecutionFlow 1728
+1995:   EX_Context
+            EX_InstanceVariable [SpecialAttackParticleSystem]
+            EX_VirtualFunction SetActive
+                EX_True
+                EX_True
+            RValue = []
+2033:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 2.8
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 681
+                EX_IntConst 1028161534
+                EX_NameConst ExecuteUbergraph_BP_SentryGun_Redeployable
+                EX_Self
+2087:   EX_PopExecutionFlow
+2088:   EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_False
+2099:   EX_Jump 1692
+2104:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_InstanceVariable [Timeline_0_Translate_BarrelOverchargeShot_4853B22243389D0916A3E09304615D5D]
+                EX_FloatConst 0
+                EX_FloatConst 0
+2151:   EX_Context
+            EX_InstanceVariable [BarrelsMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeLocation
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeLocation_SweepHitResult_1]
+                EX_False
+            RValue = []
+2203:   EX_PopExecutionFlow
+2204:   EX_LocalVirtualFunction ConditionallyEnableShadows
+2218:   EX_PopExecutionFlow
+2219:   EX_Jump 2204
+2224:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAttached
+                EX_ObjectConst import /Game/WeaponsNTools/SentryGun/SentryGun_Engineer/Assets/P_SentryGun_Engineer_Casing2->P_SentryGun_Engineer_Casing2
+                EX_InstanceVariable [SentryGunMesh]
+                EX_NameConst BN_EjectorSocket
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_ByteConst 0
+                EX_True
+                EX_ByteConst 1
+                EX_True
+2320:   EX_PopExecutionFlow
+2321:   EX_Jump 2104
+2326:   EX_PopExecutionFlow
+2327:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [K2Node_Event_Delta]
+                EX_IntConst 0
+2361:   EX_LocalVirtualFunction UpdateIndicatorLight
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+2384:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [K2Node_Event_Delta]
+                EX_IntConst 0
+2418:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+2428:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 720
+                EX_IntConst -532361907
+                EX_NameConst ExecuteUbergraph_BP_SentryGun_Redeployable
+                EX_Self
+2482:   EX_PopExecutionFlow
+2483:   EX_Return
+            EX_Nothing
+2485:   EX_EndOfScript
+FunctionExport ReceiveAmmoChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Delta]
+            EX_LocalVariable [Delta]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_CurrentAmount]
+            EX_LocalVariable [CurrentAmount]
+36:     EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 2327
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__Hitscan_K2Node_ComponentBoundEvent_2_WeaponFiredDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_location]
+            EX_LocalOutVariable
+                [location]
+18:     EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 2224
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateShadows
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 2219
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Reset Special Attack
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 2088
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Multicast Special Attack GFX
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1880
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ActivateSpecialAttack
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1761
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveOnSentryGunOwnerChanged
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1704
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1518
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__SingleUsable_K2Node_ComponentBoundEvent_1_ProgressSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_progress]
+            EX_LocalVariable [progress]
+18:     EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1486
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__SingleUsable_K2Node_ComponentBoundEvent_0_UsedBySignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_user]
+            EX_LocalVariable [user]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_key]
+            EX_LocalVariable [key]
+36:     EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1475
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveOnDeployed
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1421
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveOnDismantled
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1259
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveOnDismantle
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1205
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveOnDeploy
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 1189
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_0__UpdateFunc
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 2321
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_0__FinishedFunc
+0:      EX_LocalFinalFunction export BP_SentryGun_Redeployable_C->ExecuteUbergraph_BP_SentryGun_Redeployable
+            EX_IntConst 2326
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_Context
+            EX_InstanceVariable [SpecialAttackCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+38:     EX_Return
+            EX_Nothing
+40:     EX_EndOfScript
+FunctionExport ToggleBuildMode
+0:      EX_PushExecutionFlow 445
+5:      EX_LetBool
+            EX_InstanceVariable [Building]
+            EX_LocalVariable [InBuilding]
+24:     EX_PushExecutionFlow 224
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SentryGunOwner]
+58:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+68:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SentryGunOwner]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+114:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+143:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [Building]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+181:    EX_Context
+            EX_InstanceVariable [BuildWidget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_True
+            RValue = []
+223:    EX_PopExecutionFlow
+224:    EX_Context
+            EX_InstanceVariable [DeployUsable]
+            EX_FinalFunction import /Script/FSD->SingleUsableComponent->SetCanUse
+                EX_InstanceVariable [Building]
+            RValue = []
+265:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [Building]
+294:    EX_Context
+            EX_InstanceVariable [ReloadSentryUsable]
+            EX_FinalFunction import /Script/FSD->ReloadSentryUsableComponent->SetCanUse
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+            RValue = []
+335:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [Building]
+364:    EX_Context
+            EX_InstanceVariable [AmmoCountWidget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+                EX_True
+            RValue = []
+406:    EX_Context
+            EX_InstanceVariable [SpecialAttackCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+444:    EX_PopExecutionFlow
+445:    EX_Return
+            EX_Nothing
+447:    EX_EndOfScript
+FunctionExport GetDeployProgress
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_InstanceVariable [State]
+                EX_ByteConst 1
+31:     EX_JumpIfNot 73
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+45:     EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_FloatConst 1
+68:     EX_Jump 244
+73:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_InstanceVariable [State]
+                EX_ByteConst 3
+104:    EX_JumpIfNot 146
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+118:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_FloatConst 0
+141:    EX_Jump 244
+146:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [DeployUsable]
+175:    EX_JumpIfNot 221
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+189:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [BuildProgress]
+216:    EX_Jump 244
+221:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_FloatConst 0
+244:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+254:    EX_EndOfScript
+FunctionExport ConditionallyEnableShadows
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+21:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+50:     EX_JumpIfNot 188
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+64:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+85:     EX_Let
+            EX_LocalVariable [CallFunc_GetShadowQuality_ReturnValue]
+            EX_CallMath import /Script/FSD->DeepCSGWorld->GetShadowQuality
+113:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_GetShadowQuality_ReturnValue]
+                EX_IntConst 2
+147:    EX_Context
+            EX_InstanceVariable [SpotLight]
+            EX_FinalFunction import /Script/Engine->LightComponentBase->SetCastShadows
+                EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            RValue = []
+188:    EX_Return
+            EX_Nothing
+190:    EX_EndOfScript
+FunctionExport UpdateIndicatorLight
+0:      EX_PushExecutionFlow 821
+5:      EX_PushExecutionFlow 54
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [IndicatorMaterial]
+39:     EX_JumpIfNot 728
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+53:     EX_PopExecutionFlow
+54:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [IndicatorMaterial]
+83:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+93:     EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0.468729
+                EX_FloatConst 0
+                EX_FloatConst 1
+145:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable_1]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 1
+197:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable_2]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 1
+249:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [FiredShot]
+268:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_InstanceVariable [AmmoCount]
+                EX_IntConst 0
+302:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue_1]
+321:    EX_Context
+            EX_InstanceVariable [IndicatorMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetVectorParameterValue
+                EX_NameConst Tint
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 462
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 439
+                        EX_SwitchValue
+                            EX_LocalVariable [Temp_bool_Variable]
+                            OffsetToSwitchEnd = 439
+                            case 0:
+                                EX_False
+                                NextCaseOffset = 416
+                                EX_LocalVariable [Temp_struct_Variable_1]
+                            case 1:
+                                EX_True
+                                NextCaseOffset = 430
+                                EX_LocalVariable [Temp_struct_Variable]
+                            default:
+                                EX_LocalVariable [K2Node_Select_Default]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 453
+                        EX_LocalVariable [Temp_struct_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+463:    EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 1
+486:    EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 3
+509:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [FiredShot]
+538:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_InstanceVariable [AmmoCount]
+                EX_IntConst 0
+572:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+610:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+629:    EX_Context
+            EX_InstanceVariable [IndicatorMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst TimePeriod
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_2]
+                    OffsetToSwitchEnd = 726
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 703
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 717
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_2]
+            RValue = []
+727:    EX_PopExecutionFlow
+728:    EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SentryGunMesh]
+                EX_VirtualFunction CreateDynamicMaterialInstance
+                    EX_IntConst 1
+                    EX_ObjectConst import /Game/WeaponsNTools/SentryGun/SentryGun_Engineer/Assets/M_SentryGun_IndicatorLight->M_SentryGun_IndicatorLight
+                    EX_NameConst None
+                RValue = [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+801:    EX_LetObj
+            EX_InstanceVariable [IndicatorMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+820:    EX_PopExecutionFlow
+821:    EX_Return
+            EX_Nothing
+823:    EX_EndOfScript

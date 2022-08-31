@@ -1,0 +1,150 @@
+FunctionExport ExecuteUbergraph_DefencePointActor_Base
+0:      EX_PushExecutionFlow 690
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_InstanceVariable [ActiveDefenceEvent]
+            EX_VirtualFunction K2_DestroyActor
+            RValue = []
+51:     EX_PopExecutionFlow
+52:     EX_Context
+            EX_InstanceVariable [DistressSphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_True
+                EX_False
+            RValue = []
+86:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsEVENT_Defense_Base]
+            EX_DynamicCast import /Game/GameElements/Objectives/DeepDive/Defense/EVENT_Defense_Base->EVENT_Defense_Base_C
+                EX_InstanceVariable [ActiveDefenceEvent]
+122:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsEVENT_Defense_Base]
+151:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+161:    EX_BindDelegate OnDefenseSucceed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+184:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsEVENT_Defense_Base]
+                EX_InstanceVariable [DefendSucceded]
+                RValue = [DefendSucceded]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+225:    EX_BindDelegate OnDefenceFailed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+248:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsEVENT_Defense_Base]
+                EX_InstanceVariable [DefendFailed]
+                RValue = [DefendFailed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+289:    EX_PopExecutionFlow
+290:    EX_FinalFunction import /Script/FSD->DefensePointActor->SetState
+            EX_ByteConst 2
+302:    EX_PopExecutionFlow
+303:    EX_FinalFunction import /Script/FSD->DefensePointActor->SetState
+            EX_ByteConst 3
+315:    EX_PopExecutionFlow
+316:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+337:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue_1]
+366:    EX_JumpIfNot 442
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+380:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+401:    EX_Context
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->DeepCSGWorld->UnRegisterScannerComponent
+                EX_InstanceVariable [Terrain scanner mesh]
+            RValue = []
+442:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+462:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+472:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -914170908
+                EX_NameConst ExecuteUbergraph_DefencePointActor_Base
+                EX_Self
+526:    EX_PopExecutionFlow
+527:    EX_Context
+            EX_InstanceVariable [DistressSphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_False
+                EX_False
+            RValue = []
+561:    EX_Jump 442
+566:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+587:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+616:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+626:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+647:    EX_Context
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_FinalFunction import /Script/FSD->DeepCSGWorld->RegisterScannerComponent
+                EX_InstanceVariable [Terrain scanner mesh]
+                EX_False
+            RValue = []
+689:    EX_PopExecutionFlow
+690:    EX_Return
+            EX_Nothing
+692:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export DefencePointActor_Base_C->ExecuteUbergraph_DefencePointActor_Base
+            EX_IntConst 566
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DefenseFail
+0:      EX_LocalFinalFunction export DefencePointActor_Base_C->ExecuteUbergraph_DefencePointActor_Base
+            EX_IntConst 527
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DefenseComplete
+0:      EX_LocalFinalFunction export DefencePointActor_Base_C->ExecuteUbergraph_DefencePointActor_Base
+            EX_IntConst 316
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenceFailed
+0:      EX_LocalFinalFunction export DefencePointActor_Base_C->ExecuteUbergraph_DefencePointActor_Base
+            EX_IntConst 303
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenseSucceed
+0:      EX_LocalFinalFunction export DefencePointActor_Base_C->ExecuteUbergraph_DefencePointActor_Base
+            EX_IntConst 290
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DefenseStart
+0:      EX_LocalFinalFunction export DefencePointActor_Base_C->ExecuteUbergraph_DefencePointActor_Base
+            EX_IntConst 52
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

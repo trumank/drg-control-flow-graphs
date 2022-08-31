@@ -1,0 +1,497 @@
+FunctionExport GetCharacterID
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_JumpIfNot 145
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+99:     EX_LetObj
+            EX_LocalOutVariable
+                [CharacterID]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [CharacterID]
+                RValue = [CharacterID]
+140:    EX_Jump 164
+145:    EX_LetObj
+            EX_LocalOutVariable
+                [CharacterID]
+            EX_ObjectConst import /Game/Character/DrillerID->DrillerID
+164:    EX_Return
+            EX_Nothing
+166:    EX_EndOfScript
+FunctionExport ReceiveEntryEquipClick
+0:      EX_PushExecutionFlow 844
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [InEquipped]
+34:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+44:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part]
+            EX_DynamicCast import /Script/FSD->PickaxePart
+                EX_LocalVariable [InData]
+80:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part]
+109:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+119:    EX_LocalVirtualFunction GetPickaxeID
+            EX_LocalVariable [CallFunc_GetPickaxeID_ItemID]
+142:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [PickaxeParts]
+                EX_Context
+                    EX_LocalVariable [InEntryWidget]
+                    EX_InstanceVariable [Index]
+                    RValue = [Index]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+223:    EX_CallMath import /Script/FSD->PickaxeFunctionLibrary->EquipPickaxePart
+            EX_Self
+            EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_GetPickaxeID_ItemID]
+261:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+284:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+307:    EX_LocalVirtualFunction GetEntries
+            EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+330:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+389:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+427:    EX_JumpIfNot 750
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+441:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+468:    EX_PushExecutionFlow 770
+473:    EX_LocalVirtualFunction GetEntries
+            EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+496:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetEntries_OutEntries]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+555:    EX_LetObj
+            EX_LocalVariable [OtherEntry]
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+574:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_Context
+                    EX_LocalVariable [OtherEntry]
+                    EX_InstanceVariable [Index]
+                    RValue = [Index]
+                EX_Context
+                    EX_LocalVariable [InEntryWidget]
+                    EX_InstanceVariable [Index]
+                    RValue = [Index]
+656:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+666:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [OtherEntry]
+                EX_LocalVariable [InEntryWidget]
+704:    EX_Context
+            EX_LocalVariable [OtherEntry]
+            EX_LocalVirtualFunction SetEquipped
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            RValue = []
+749:    EX_PopExecutionFlow
+750:    EX_CallMulticastDelegate import /Game/UI/Menu_Cheats/VanityCheatWidgets/Cheat_EquipList->Cheat_EquipList_C->OnEntryChanged__DelegateSignature
+            EX_InstanceVariable [OnEntryChanged]
+769:    EX_PopExecutionFlow
+770:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+812:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+839:    EX_Jump 307
+844:    EX_Return
+            EX_Nothing
+846:    EX_EndOfScript
+FunctionExport ReceiveEntryOwnedClick
+0:      EX_JumpIfNot 179
+            EX_LocalVariable [InOwned]
+14:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part_1]
+            EX_DynamicCast import /Script/FSD->PickaxePart
+                EX_LocalVariable [InData]
+50:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part_1]
+79:     EX_JumpIfNot 315
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+93:     EX_LetBool
+            EX_LocalVariable [CallFunc_RemovePickaxePartFromOwned_ReturnValue]
+            EX_CallMath import /Script/FSD->PickaxeFunctionLibrary->RemovePickaxePartFromOwned
+                EX_Self
+                EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part_1]
+123:    EX_JumpIfNot 315
+            EX_LocalVariable [CallFunc_RemovePickaxePartFromOwned_ReturnValue]
+137:    EX_Context
+            EX_LocalVariable [InEntryWidget]
+            EX_LocalVirtualFunction SetOwned
+                EX_False
+            RValue = []
+174:    EX_Jump 315
+179:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part]
+            EX_DynamicCast import /Script/FSD->PickaxePart
+                EX_LocalVariable [InData]
+215:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part]
+244:    EX_JumpIfNot 315
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+258:    EX_CallMath import /Script/FSD->PickaxeFunctionLibrary->GivePickaxePart
+            EX_Self
+            EX_LocalVariable [K2Node_DynamicCast_AsPickaxe_Part]
+278:    EX_Context
+            EX_LocalVariable [InEntryWidget]
+            EX_LocalVirtualFunction SetOwned
+                EX_True
+            RValue = []
+315:    EX_Return
+            EX_Nothing
+317:    EX_EndOfScript
+FunctionExport GetCharacter
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_JumpIfNot 118
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+99:     EX_LetObj
+            EX_LocalOutVariable
+                [OutCharacter]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+118:    EX_Return
+            EX_Nothing
+120:    EX_EndOfScript
+FunctionExport Refresh
+0:      EX_PushExecutionFlow 1624
+5:      EX_LetBool
+            EX_LocalVariable [Equipped]
+            EX_False
+16:     EX_LetBool
+            EX_LocalVariable [Owned]
+            EX_False
+27:     EX_LocalFinalFunction import /Game/UI/Menu_Cheats/VanityCheatWidgets/Cheat_EquipList->Cheat_EquipList_C->Refresh
+37:     EX_LocalVirtualFunction Clear
+51:     EX_LocalVirtualFunction GetPickaxeID
+            EX_LocalVariable [CallFunc_GetPickaxeID_ItemID]
+74:     EX_LetObj
+            EX_LocalVariable [PickaxeID]
+            EX_LocalVariable [CallFunc_GetPickaxeID_ItemID]
+93:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [PickaxeID]
+122:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+132:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+155:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+178:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [PickaxeParts]
+                RValue = [CallFunc_Array_Length_ReturnValue_2]
+237:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_2]
+275:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+285:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+312:    EX_PushExecutionFlow 1476
+317:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [PickaxeParts]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+376:    EX_Let
+            EX_LocalVariable [Location]
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+403:    EX_Let
+            EX_LocalVariable [Index]
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+430:    EX_Let
+            EX_LocalVariable [Temp_text_Variable]
+            EX_TextConst
+450:    EX_Let
+            EX_LocalVariable [CallFunc_GetEnumeratorUserFriendlyName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetNodeHelperLibrary->GetEnumeratorUserFriendlyName
+                EX_ObjectConst import /Script/FSD->EPickaxePartLocation
+                EX_LocalVariable [Location]
+496:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [PickaxeParts]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+555:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_GetEnumeratorUserFriendlyName_ReturnValue]
+592:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 1
+626:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+645:    EX_Let
+            EX_LocalVariable [Category]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 716
+                case 0:
+                    EX_False
+                    NextCaseOffset = 693
+                    EX_LocalVariable [Temp_text_Variable]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 707
+                    EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+716:    EX_Let
+            EX_LocalVariable [CallFunc_GetPickaxeParts_ReturnValue]
+            EX_CallMath import /Script/FSD->PickaxeFunctionLibrary->GetPickaxeParts
+                EX_Self
+                EX_LocalVariable [Location]
+754:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+777:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+800:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetPickaxeParts_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+859:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+897:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+907:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+934:    EX_PushExecutionFlow 1550
+939:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetPickaxeParts_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+998:    EX_LetObj
+            EX_LocalVariable [PickaxePart]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+1017:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsPickaxePartEquipped_ReturnValue]
+            EX_CallMath import /Script/FSD->PickaxeFunctionLibrary->IsPickaxePartEquipped
+                EX_Self
+                EX_LocalVariable [Location]
+                EX_LocalVariable [PickaxePart]
+                EX_LocalVariable [PickaxeID]
+1065:   EX_LetBool
+            EX_LocalVariable [Equipped]
+            EX_LocalVariable [CallFunc_IsPickaxePartEquipped_ReturnValue]
+1084:   EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsPickAxePartAcquired_ReturnValue]
+            EX_CallMath import /Script/FSD->PickaxeFunctionLibrary->GetIsPickAxePartAcquired
+                EX_Self
+                EX_LocalVariable [PickaxePart]
+1114:   EX_LetBool
+            EX_LocalVariable [Owned]
+            EX_LocalVariable [CallFunc_GetIsPickAxePartAcquired_ReturnValue]
+1133:   EX_LetBool
+            EX_LocalVariable [CallFunc_GetUnlockedFromStart_ReturnValue]
+            EX_Context
+                EX_LocalVariable [PickaxePart]
+                EX_FinalFunction import /Script/FSD->PickaxePart->GetUnlockedFromStart
+                RValue = [CallFunc_GetUnlockedFromStart_ReturnValue]
+1175:   EX_LocalVirtualFunction AddEntry
+            EX_Context
+                EX_LocalVariable [PickaxePart]
+                EX_InstanceVariable [Title]
+                RValue = [Title]
+            EX_TextConst
+            EX_LocalVariable [Owned]
+            EX_LocalVariable [Equipped]
+            EX_LocalVariable [PickaxePart]
+            EX_LocalVariable [Category]
+            EX_LocalVariable [CallFunc_GetUnlockedFromStart_ReturnValue]
+            EX_False
+            EX_False
+            EX_NoObject
+            EX_LocalVariable [CallFunc_AddEntry_OutEntryWidget]
+1279:   EX_LetObj
+            EX_LocalVariable [Entry]
+            EX_LocalVariable [CallFunc_AddEntry_OutEntryWidget]
+1298:   EX_Let
+            EX_Context
+                EX_LocalVariable [Entry]
+                EX_InstanceVariable [Index]
+                RValue = [Index]
+            EX_LocalVariable [Index]
+1347:   EX_BindDelegate ReceiveEntryEquipClick
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+1370:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [Entry]
+                EX_InstanceVariable [OnEquipClicked]
+                RValue = [OnEquipClicked]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+1411:   EX_BindDelegate ReceiveEntryOwnedClick
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1434:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [Entry]
+                EX_InstanceVariable [OnOwnedClicked]
+                RValue = [OnOwnedClicked]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1475:   EX_PopExecutionFlow
+1476:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1518:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1545:   EX_Jump 178
+1550:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+1592:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+1619:   EX_Jump 800
+1624:   EX_Return
+            EX_Nothing
+1626:   EX_EndOfScript
+FunctionExport GetPickaxeID
+0:      EX_PushExecutionFlow 366
+5:      EX_PushExecutionFlow 339
+10:     EX_LocalVirtualFunction GetCharacter
+            EX_LocalVariable [CallFunc_GetCharacter_OutCharacter]
+33:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetCharacter_OutCharacter]
+62:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+72:     EX_LocalVirtualFunction GetCharacter
+            EX_LocalVariable [CallFunc_GetCharacter_OutCharacter]
+95:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetItem_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetCharacter_OutCharacter]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_FinalFunction import /Script/FSD->InventoryComponent->GetItem
+                    EX_ByteConst 6
+                RValue = [CallFunc_GetItem_ReturnValue]
+161:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetItem_ReturnValue]
+190:    EX_JumpIfNot 355
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+204:    EX_LocalVirtualFunction GetCharacter
+            EX_LocalVariable [CallFunc_GetCharacter_OutCharacter]
+227:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItem_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetCharacter_OutCharacter]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_FinalFunction import /Script/FSD->InventoryComponent->GetItem
+                    EX_ByteConst 6
+                RValue = [CallFunc_GetItem_ReturnValue]
+293:    EX_LetObj
+            EX_LocalOutVariable
+                [ItemID]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetItem_ReturnValue]
+                EX_InstanceVariable [ItemID]
+                RValue = [ItemID]
+334:    EX_Jump 366
+339:    EX_LetObj
+            EX_LocalOutVariable
+                [ItemID]
+            EX_NoObject
+350:    EX_Jump 366
+355:    EX_LetObj
+            EX_LocalOutVariable
+                [ItemID]
+            EX_NoObject
+366:    EX_Return
+            EX_Nothing
+368:    EX_EndOfScript

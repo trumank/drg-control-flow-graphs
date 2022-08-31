@@ -1,0 +1,497 @@
+FunctionExport ExecuteUbergraph_HUD_CharacterTrackingIcon
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdateClassIcon
+24:     EX_BindDelegate OnCharacterStateChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+47:     EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [TargetCharacter]
+                EX_InstanceVariable [OnCharacterStateChanged]
+                RValue = [OnCharacterStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+88:     EX_Let
+            EX_LocalVariable [CallFunc_GetCurrentState_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [TargetCharacter]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetCurrentState
+                RValue = [CallFunc_GetCurrentState_ReturnValue]
+138:    EX_LocalVirtualFunction OnCharacterStateChanged
+            EX_LocalVariable [CallFunc_GetCurrentState_ReturnValue]
+161:    EX_Jump 3113
+166:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [TargetCharacter]
+195:    EX_JumpIfNot 3113
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+209:    EX_Jump 10
+214:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Arrow]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+256:    EX_JumpIfNot 3113
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+270:    EX_Let
+            EX_LocalVariable [CallFunc_DegSin_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->DegSin
+                EX_LocalVariable [K2Node_CustomEvent_Angle]
+307:    EX_Let
+            EX_LocalVariable [CallFunc_DegCos_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->DegCos
+                EX_LocalVariable [K2Node_CustomEvent_Angle]
+344:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_LocalVariable [CallFunc_DegCos_ReturnValue]
+                EX_LocalVariable [CallFunc_DegSin_ReturnValue]
+390:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_Vector2DFloat
+                EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+                EX_InstanceVariable [ArrowRadius]
+436:    EX_Context
+            EX_InstanceVariable [Arrow]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderTranslation
+                EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+            RValue = []
+477:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [ArrowRotation]
+                EX_LocalVariable [K2Node_CustomEvent_Angle]
+523:    EX_Context
+            EX_InstanceVariable [Arrow]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderTransformAngle
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            RValue = []
+564:    EX_Jump 3113
+569:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [K2Node_Event_IsDesignTime]
+598:    EX_LocalVirtualFunction UpdateArrow
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_InstanceVariable [ArrowAngle]
+630:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [PlayerName]
+                EX_ByteConst 4
+                EX_Self
+            RValue = []
+678:    EX_Jump 3113
+683:    EX_JumpIfNot 737
+            EX_InstanceVariable [IconInView]
+697:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimationForward_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimationForward
+                EX_InstanceVariable [AnimInView]
+                EX_FloatConst 4
+                EX_False
+732:    EX_Jump 3113
+737:    EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [AnimInView]
+756:    EX_Context
+            EX_InstanceVariable [BoxSizer]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_FloatConst 0
+            RValue = []
+793:    EX_Jump 3113
+798:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 3
+818:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+838:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [K2Node_CustomEvent_InView]
+857:    EX_Context
+            EX_InstanceVariable [Arrow]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 945
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 922
+                        EX_LocalVariable [Temp_byte_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 936
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+946:    EX_Jump 214
+951:    EX_CallMath import /Script/FSD->FSDWidgetEffectsComponent->FadeInWidget
+            EX_Self
+            EX_Self
+            EX_FloatConst 0.25
+            EX_FloatConst 0
+973:    EX_Jump 3113
+978:    EX_LocalVirtualFunction UpdateArrow
+            EX_LocalVariable [K2Node_Event_inView]
+            EX_LocalVariable [K2Node_Event_Angle]
+1010:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_BoolBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_BoolBool
+                EX_InstanceVariable [IconInView]
+                EX_LocalVariable [K2Node_Event_inView]
+1048:   EX_JumpIfNot 3113
+            EX_LocalVariable [CallFunc_NotEqual_BoolBool_ReturnValue]
+1062:   EX_LetBool
+            EX_InstanceVariable [IconInView]
+            EX_LocalVariable [K2Node_Event_inView]
+1081:   EX_Jump 683
+1086:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_Event_NewTarget]
+1122:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1151:   EX_LetObj
+            EX_InstanceVariable [TargetCharacter]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1170:   EX_BindDelegate OnUpdateName
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1193:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [TargetCharacter]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue]
+1235:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+                EX_InstanceVariable [OnPlayerNameChanged]
+                RValue = [OnPlayerNameChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1276:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [TargetCharacter]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue_1]
+1318:   EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue_1]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue]
+1368:   EX_LocalVirtualFunction OnUpdateName
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+1391:   EX_BindDelegate OnCharacterChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+1414:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [TargetCharacter]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue_2]
+1456:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue_2]
+                EX_InstanceVariable [OnPlayerCharacterSpawned]
+                RValue = [OnPlayerCharacterSpawned]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+1497:   EX_LocalVirtualFunction OnCharacterChanged
+            EX_InstanceVariable [TargetCharacter]
+1520:   EX_Jump 3113
+1525:   EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    TableId = /Game/Game/Text/Units.Units
+                    TableKey = Meters_Unit
+1605:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst unit
+1638:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+1667:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+1703:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+1735:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+1767:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+1796:   EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [K2Node_Event_Distance]
+                EX_FloatConst 100
+1838:   EX_Let
+            EX_LocalVariable [CallFunc_Round_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Round
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+1875:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Round_ReturnValue]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+1924:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst distance
+1961:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 4
+1990:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+2026:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_IntConst 0
+2058:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+2090:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+2119:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+2148:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {distance} {unit}
+                    LocalizedKey = 3C16EE1B4DD2F68101AC8EBFCAE02EB7
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+2242:   EX_Context
+            EX_InstanceVariable [Distance]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+2287:   EX_Jump 3113
+2292:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [K2Node_CustomEvent_NewName]
+2329:   EX_Context
+            EX_InstanceVariable [PlayerName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+2374:   EX_Jump 3113
+2379:   EX_LetObj
+            EX_InstanceVariable [TargetCharacter]
+            EX_LocalVariable [K2Node_CustomEvent_PlayerCharacter]
+2398:   EX_Jump 166
+2403:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_newState]
+                EX_ByteConst 1
+2434:   EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction UpdateBool
+                EX_InstanceVariable [PlayerDown]
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+            RValue = []
+2507:   EX_JumpIfNot 3113
+            EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+2521:   EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [IconDown]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+2607:   EX_JumpIfNot 2802
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+2621:   EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+2650:   EX_Let
+            EX_LocalVariable [CallFunc_GetEndTime_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AnimPlayerDown]
+                EX_FinalFunction import /Script/UMG->WidgetAnimation->GetEndTime
+                RValue = [CallFunc_GetEndTime_ReturnValue]
+2700:   EX_Let
+            EX_LocalVariable [CallFunc_Percent_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_FloatFloat
+                EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+                EX_LocalVariable [CallFunc_GetEndTime_ReturnValue]
+2746:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimPlayerDown]
+                EX_LocalVariable [CallFunc_Percent_FloatFloat_ReturnValue]
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_True
+2797:   EX_Jump 3113
+2802:   EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [AnimPlayerDown]
+2821:   EX_LocalVirtualFunction UpdateClassIcon
+2835:   EX_Jump 3113
+2840:   EX_Context
+            EX_InstanceVariable [BoxSizer]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_FloatConst 0
+            RValue = []
+2877:   EX_Jump 3113
+2882:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterData_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [TargetCharacter]
+                    EX_InstanceVariable [CharacterID]
+                    RValue = [CharacterID]
+                EX_FinalFunction import /Script/FSD->PlayerCharacterID->GetCharacterData
+                RValue = [CallFunc_GetCharacterData_ReturnValue]
+2946:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetSmallIcon_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacterData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacterData->GetSmallIcon
+                RValue = [CallFunc_GetSmallIcon_ReturnValue]
+2988:   EX_Let
+            EX_LocalVariable [CallFunc_GetColor_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacterData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacterData->GetColor
+                RValue = [CallFunc_GetColor_ReturnValue]
+3038:   EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SetTextureAndColor
+                EX_InstanceVariable [IconClass]
+                EX_LocalVariable [CallFunc_GetSmallIcon_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_GetColor_ReturnValue]
+                EX_Self
+            RValue = []
+3103:   EX_Jump 3113
+3108:   EX_Jump 2882
+3113:   EX_Return
+            EX_Nothing
+3115:   EX_EndOfScript
+FunctionExport UpdateClassIcon
+0:      EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 3108
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 2840
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnCharacterStateChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_newState]
+            EX_LocalVariable [newState]
+18:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 2403
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnCharacterChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PlayerCharacter]
+            EX_LocalVariable [PlayerCharacter]
+18:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 2379
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnUpdateName
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_NewName]
+            EX_LocalVariable [NewName]
+18:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 2292
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnTargetDistanceChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Distance]
+            EX_LocalVariable [Distance]
+18:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 1525
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnTargetSet
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_NewTarget]
+            EX_LocalVariable [NewTarget]
+18:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 1086
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnInViewChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_inView]
+            EX_LocalVariable [inView]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_Angle]
+            EX_LocalVariable [Angle]
+36:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 978
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnShow
+0:      EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 951
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UpdateArrow
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InView]
+            EX_LocalVariable [InView]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Angle]
+            EX_LocalVariable [Angle]
+36:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 798
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_CharacterTrackingIcon_C->ExecuteUbergraph_HUD_CharacterTrackingIcon
+            EX_IntConst 569
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

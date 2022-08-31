@@ -1,0 +1,624 @@
+FunctionExport ExecuteUbergraph_DE_MaltRockBearer
+0:      EX_PushExecutionFlow 3688
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction OnRep_Current Scale
+29:     EX_Let
+            EX_LocalVariable [CallFunc_GetActorScale3D_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->GetActorScale3D
+                RValue = [CallFunc_GetActorScale3D_ReturnValue_2]
+79:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorScale3D_ReturnValue_2]
+            EX_LocalVariable [CallFunc_BreakVector_X_2]
+            EX_LocalVariable [CallFunc_BreakVector_Y_2]
+            EX_LocalVariable [CallFunc_BreakVector_Z_2]
+125:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [Current Scale]
+                EX_LocalVariable [CallFunc_BreakVector_X_2]
+163:    EX_JumpIfNot 276
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+177:    EX_LocalVirtualFunction TraceForScaledCollision
+            EX_LocalVariable [CallFunc_TraceForScaledCollision_IsNextScaleColliding]
+200:    EX_JumpIfNot 276
+            EX_LocalVariable [CallFunc_TraceForScaledCollision_IsNextScaleColliding]
+214:    EX_Let
+            EX_InstanceVariable [Progress]
+            EX_InstanceVariable [Previous Progress]
+241:    EX_Let
+            EX_InstanceVariable [ScaleCheckCooldown]
+            EX_FloatConst 1
+264:    EX_LetBool
+            EX_InstanceVariable [IsScalingActive]
+            EX_False
+275:    EX_PopExecutionFlow
+276:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_InstanceVariable [Current Scale]
+                EX_InstanceVariable [Current Scale]
+                EX_InstanceVariable [Current Scale]
+331:    EX_Context
+            EX_InstanceVariable [Character]
+            EX_FinalFunction import /Script/Engine->Actor->SetActorScale3D
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            RValue = []
+372:    EX_Let
+            EX_InstanceVariable [Previous Progress]
+            EX_InstanceVariable [Progress]
+399:    EX_PopExecutionFlow
+400:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 2
+            EX_NameConst Current Scale
+429:    EX_Jump 15
+434:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAttached_ReturnValue_2]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAttached
+                EX_ObjectConst import /Game/Audio/SFX/BeerEffects/BeerEffectGrow_Cue->BeerEffectGrow_Cue
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CapsuleComponent]
+                    RValue = [CapsuleComponent]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_ByteConst 0
+                EX_False
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+554:    EX_LetBool
+            EX_InstanceVariable [EffectEnabled]
+            EX_True
+565:    EX_Let
+            EX_InstanceVariable [OriginalPitchValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CommunicationComponent]
+                    RValue = [CommunicationComponent]
+                EX_InstanceVariable [PitchMultiplier]
+                RValue = [PitchMultiplier]
+636:    EX_Let
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CommunicationComponent]
+                    RValue = [CommunicationComponent]
+                EX_InstanceVariable [PitchMultiplier]
+                RValue = [PitchMultiplier]
+            EX_FloatConst 0.7
+703:    EX_PopExecutionFlow
+704:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_InstanceVariable [Progress]
+                EX_FloatConst 1
+738:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+748:    EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_InstanceVariable [StartScale]
+                EX_InstanceVariable [TargetScale]
+                EX_InstanceVariable [Progress]
+803:    EX_Let
+            EX_InstanceVariable [Current Scale]
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+830:    EX_Jump 400
+835:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_InstanceVariable [ScaleCheckCooldown]
+                EX_FloatConst 0
+869:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue_1]
+879:    EX_LetBool
+            EX_InstanceVariable [IsScalingActive]
+            EX_True
+890:    EX_PopExecutionFlow
+891:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+914:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst import /Game/GameElements/Bar/DrinkEffects/DE_UnderhillDeluxe->DE_UnderhillDeluxe_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue]
+973:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+1032:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+1070:   EX_JumpIfNot 1422
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+1084:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+1111:   EX_PushExecutionFlow 2204
+1116:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst import /Game/GameElements/Bar/DrinkEffects/DE_UnderhillDeluxe->DE_UnderhillDeluxe_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue]
+1175:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1234:   EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVirtualFunction Reset Voice
+            RValue = []
+1270:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst import /Game/GameElements/Bar/DrinkEffects/DE_UnderhillDeluxe->DE_UnderhillDeluxe_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue]
+1329:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1388:   EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+1421:   EX_PopExecutionFlow
+1422:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+1445:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+1468:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst export DE_MaltRockBearer_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+1527:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+1586:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+1624:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+1634:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+1661:   EX_PushExecutionFlow 2130
+1666:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst export DE_MaltRockBearer_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+1725:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+1784:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                EX_Self
+1814:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+1824:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst export DE_MaltRockBearer_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+1883:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+1942:   EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            EX_LocalVirtualFunction Reset Voice
+            RValue = []
+1978:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetComponentsByClass
+                    EX_ObjectConst export DE_MaltRockBearer_C
+                RValue = [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+2037:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_K2_GetComponentsByClass_ReturnValue_1]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+2096:   EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+2129:   EX_PopExecutionFlow
+2130:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+2172:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+2199:   EX_Jump 1468
+2204:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+2246:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+2273:   EX_Jump 914
+2278:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [Current Scale]
+                EX_FloatConst 1.01
+2312:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_InstanceVariable [EffectIsActive]
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+2350:   EX_JumpIfNot 2440
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+2364:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+                RValue = [CallFunc_HasAuthority_ReturnValue]
+2406:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+2416:   EX_LocalVirtualFunction Handle Scaling
+            EX_LocalVariable [K2Node_Event_DeltaSeconds]
+2439:   EX_PopExecutionFlow
+2440:   EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+            EX_Self
+2451:   EX_PopExecutionFlow
+2452:   EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_LocalVariable [K2Node_Event_character]
+2471:   EX_PushExecutionFlow 2765
+2476:   EX_PushExecutionFlow 2820
+2481:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAttached
+                EX_ObjectConst import /Game/Audio/SFX/BeerEffects/BeerEffect_Stomach_BuildUp_Cue->BeerEffect_Stomach_BuildUp_Cue
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CapsuleComponent]
+                    RValue = [CapsuleComponent]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_ByteConst 0
+                EX_False
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+2601:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+2647:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+2657:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerController
+                RValue = [CallFunc_GetPlayerController_ReturnValue]
+2699:   EX_Context
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_VirtualFunction ClientStartCameraShake
+                EX_ObjectConst import /Game/Character/Camera/CameraShakes/CameraShake_BuffBeerGeneric->CameraShake_BuffBeerGeneric_C
+                EX_FloatConst 1
+                EX_ByteConst 0
+                EX_RotationConst 0,0,0
+            RValue = []
+2764:   EX_PopExecutionFlow
+2765:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 434
+                EX_IntConst -2050692831
+                EX_NameConst ExecuteUbergraph_DE_MaltRockBearer
+                EX_Self
+2819:   EX_PopExecutionFlow
+2820:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorScale3D_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->GetActorScale3D
+                RValue = [CallFunc_GetActorScale3D_ReturnValue_1]
+2870:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorScale3D_ReturnValue_1]
+            EX_LocalVariable [CallFunc_BreakVector_X_1]
+            EX_LocalVariable [CallFunc_BreakVector_Y_1]
+            EX_LocalVariable [CallFunc_BreakVector_Z_1]
+2916:   EX_Let
+            EX_InstanceVariable [StartScale]
+            EX_LocalVariable [CallFunc_BreakVector_X_1]
+2943:   EX_LetBool
+            EX_InstanceVariable [IsScalingActive]
+            EX_True
+2954:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+2977:   EX_Jump 891
+2982:   EX_Let
+            EX_InstanceVariable [TargetScale]
+            EX_FloatConst 1
+3005:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorScale3D_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->GetActorScale3D
+                RValue = [CallFunc_GetActorScale3D_ReturnValue]
+3055:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorScale3D_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+3101:   EX_Let
+            EX_InstanceVariable [StartScale]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+3128:   EX_Let
+            EX_InstanceVariable [Progress]
+            EX_FloatConst 0
+3151:   EX_Let
+            EX_InstanceVariable [Previous Progress]
+            EX_FloatConst 0
+3174:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAttached_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAttached
+                EX_ObjectConst import /Game/Audio/SFX/BeerEffects/BeerEffectShrink_Cue->BeerEffectShrink_Cue
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CapsuleComponent]
+                    RValue = [CapsuleComponent]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_ByteConst 0
+                EX_False
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+3294:   EX_Let
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CommunicationComponent]
+                    RValue = [CommunicationComponent]
+                EX_InstanceVariable [PitchMultiplier]
+                RValue = [PitchMultiplier]
+            EX_InstanceVariable [OriginalPitchValue]
+3365:   EX_PopExecutionFlow
+3366:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [IsScalingActive]
+                EX_InstanceVariable [EffectEnabled]
+3404:   EX_JumpIfNot 3538
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+3418:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_DeltaTime]
+                EX_FloatConst 0.3
+3460:   EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [Progress]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+3506:   EX_Let
+            EX_InstanceVariable [Progress]
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+3533:   EX_Jump 704
+3538:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [ScaleCheckCooldown]
+                EX_LocalVariable [K2Node_CustomEvent_DeltaTime]
+3584:   EX_Let
+            EX_InstanceVariable [ScaleCheckCooldown]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+3611:   EX_Jump 835
+3616:   EX_Let
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CommunicationComponent]
+                    RValue = [CommunicationComponent]
+                EX_InstanceVariable [PitchMultiplier]
+                RValue = [PitchMultiplier]
+            EX_InstanceVariable [OriginalPitchValue]
+3687:   EX_PopExecutionFlow
+3688:   EX_Return
+            EX_Nothing
+3690:   EX_EndOfScript
+FunctionExport Reset Voice
+0:      EX_LocalFinalFunction export DE_MaltRockBearer_C->ExecuteUbergraph_DE_MaltRockBearer
+            EX_IntConst 3616
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Handle Scaling
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DeltaTime]
+            EX_LocalVariable [DeltaTime]
+18:     EX_LocalFinalFunction export DE_MaltRockBearer_C->ExecuteUbergraph_DE_MaltRockBearer
+            EX_IntConst 3366
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnStopEffect
+0:      EX_LocalFinalFunction export DE_MaltRockBearer_C->ExecuteUbergraph_DE_MaltRockBearer
+            EX_IntConst 2982
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnStartEffect
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_character]
+            EX_LocalVariable [character]
+18:     EX_LocalFinalFunction export DE_MaltRockBearer_C->ExecuteUbergraph_DE_MaltRockBearer
+            EX_IntConst 2452
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveTick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+18:     EX_LocalFinalFunction export DE_MaltRockBearer_C->ExecuteUbergraph_DE_MaltRockBearer
+            EX_IntConst 2278
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport TraceForScaledCollision
+0:      EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_InstanceVariable [Character]
+20:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+70:     EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_VectorConst 0,0,0.3
+120:    EX_Let
+            EX_LocalVariable [CallFunc_GetUnscaledCapsuleRadius_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CapsuleComponent]
+                    RValue = [CapsuleComponent]
+                EX_FinalFunction import /Script/Engine->CapsuleComponent->GetUnscaledCapsuleRadius
+                RValue = [CallFunc_GetUnscaledCapsuleRadius_ReturnValue]
+192:    EX_Let
+            EX_LocalVariable [CallFunc_GetUnscaledCapsuleHalfHeight_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CapsuleComponent]
+                    RValue = [CapsuleComponent]
+                EX_FinalFunction import /Script/Engine->CapsuleComponent->GetUnscaledCapsuleHalfHeight
+                RValue = [CallFunc_GetUnscaledCapsuleHalfHeight_ReturnValue]
+264:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_GetUnscaledCapsuleRadius_ReturnValue]
+                EX_InstanceVariable [Current Scale]
+310:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Current Scale]
+                EX_LocalVariable [CallFunc_GetUnscaledCapsuleHalfHeight_ReturnValue]
+356:    EX_LetBool
+            EX_LocalVariable [CallFunc_CapsuleTraceSingle_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->CapsuleTraceSingle
+                EX_Self
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+                EX_ByteConst 0
+                EX_False
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_CapsuleTraceSingle_OutHit]
+                EX_True
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_FloatConst 5
+510:    EX_LetBool
+            EX_LocalOutVariable
+                [IsNextScaleColliding]
+            EX_LocalVariable [CallFunc_CapsuleTraceSingle_ReturnValue]
+529:    EX_Return
+            EX_Nothing
+531:    EX_EndOfScript
+FunctionExport OnRep_Current Scale
+0:      EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_InstanceVariable [Current Scale]
+                EX_InstanceVariable [Current Scale]
+                EX_InstanceVariable [Current Scale]
+55:     EX_Context
+            EX_InstanceVariable [Character]
+            EX_FinalFunction import /Script/Engine->Actor->SetActorScale3D
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            RValue = []
+96:     EX_Return
+            EX_Nothing
+98:     EX_EndOfScript

@@ -1,0 +1,208 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Spawn
+0:      EX_PushExecutionFlow 1002
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PopExecutionFlow
+16:     EX_LocalVirtualFunction OnRep_TargetLocation
+30:     EX_PopExecutionFlow
+31:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 16
+            EX_NameConst TargetLocation
+60:     EX_Jump 16
+65:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+75:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+103:    EX_Let
+            EX_LocalVariable [CallFunc_FindRandomNearbyPositionOnNavmesh_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__PathfinderFunctionLibrary
+                EX_FinalFunction import /Script/FSD->PathfinderFunctionLibrary->FindRandomNearbyPositionOnNavmesh
+                    EX_Self
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                    EX_FloatConst 400
+                RValue = [CallFunc_FindRandomNearbyPositionOnNavmesh_ReturnValue]
+168:    EX_Let
+            EX_InstanceVariable [TargetLocation]
+            EX_LocalVariable [CallFunc_FindRandomNearbyPositionOnNavmesh_ReturnValue]
+195:    EX_Jump 31
+200:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_PF_SpiderBase->ENE_PF_SpiderBase_C->ReceiveBeginPlay
+210:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+238:    EX_Let
+            EX_InstanceVariable [SpawnLocation]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+265:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+285:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+295:    EX_PopExecutionFlow
+296:    EX_Jump 200
+301:    EX_Jump 65
+306:    EX_PopExecutionFlow
+307:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Spawn_Z_B1CBC18A4B11AF202D22269E86350761]
+                EX_FloatConst 300
+349:    EX_Let
+            EX_LocalVariable [CallFunc_VLerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VLerp
+                EX_InstanceVariable [SpawnLocation]
+                EX_InstanceVariable [TargetLocation]
+                EX_InstanceVariable [Spawn_Time_B1CBC18A4B11AF202D22269E86350761]
+404:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_VLerp_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+450:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_InstanceVariable [ZSpawnOffset]
+496:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorRotation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorRotation
+524:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+570:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_1]
+625:    EX_Context
+            EX_InstanceVariable [PathfinderMovement]
+            EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->TeleportTo
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_LocalVariable [CallFunc_K2_GetActorRotation_ReturnValue]
+            RValue = []
+675:    EX_PopExecutionFlow
+676:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_InstanceVariable [BP_EnemySpawnerOwner]
+                    EX_InstanceVariable [Spawner]
+                    RValue = [Spawner]
+727:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+737:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+            EX_DynamicCast import /Script/FSD->FSDPlayerController
+                EX_StructMemberContext [Instigator]
+                    EX_LocalVariable [K2Node_ComponentBoundEvent_damageData]
+782:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+811:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+821:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_Controller]
+                EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+                RValue = [CallFunc_K2_GetPawn_ReturnValue]
+863:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+899:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+928:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+938:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_ObjectConst import /Game/Character/Shouts/DwarfSpeakSep2022/Implemented/Shout_GlyphidSpawn_KillCry->Shout_GlyphidSpawn_KillCry
+            RValue = []
+1001:   EX_PopExecutionFlow
+1002:   EX_Return
+            EX_Nothing
+1004:   EX_EndOfScript
+FunctionExport BndEvt__ENE_Spider_Spawn_HealthComponent_K2Node_ComponentBoundEvent_0_DeathSigDetailed__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_healthComponent]
+            EX_LocalVariable [healthComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageAmount]
+            EX_LocalVariable [damageAmount]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_tags]
+            EX_LocalOutVariable
+                [tags]
+72:     EX_LocalFinalFunction export ENE_Spider_Spawn_C->ExecuteUbergraph_ENE_Spider_Spawn
+            EX_IntConst 676
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport Play Spawn
+0:      EX_LocalFinalFunction export ENE_Spider_Spawn_C->ExecuteUbergraph_ENE_Spider_Spawn
+            EX_IntConst 306
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Spawn Behavior
+0:      EX_LocalFinalFunction export ENE_Spider_Spawn_C->ExecuteUbergraph_ENE_Spider_Spawn
+            EX_IntConst 301
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Spider_Spawn_C->ExecuteUbergraph_ENE_Spider_Spawn
+            EX_IntConst 296
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Spawn__UpdateFunc
+0:      EX_LocalFinalFunction export ENE_Spider_Spawn_C->ExecuteUbergraph_ENE_Spider_Spawn
+            EX_IntConst 307
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Spawn__FinishedFunc
+0:      EX_LocalFinalFunction export ENE_Spider_Spawn_C->ExecuteUbergraph_ENE_Spider_Spawn
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_TargetLocation
+0:      EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_InstanceVariable [TargetLocation]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+46:     EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+92:     EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+129:    EX_Let
+            EX_LocalVariable [CallFunc_Percent_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_FloatFloat
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+                EX_FloatConst 100
+171:    EX_Let
+            EX_InstanceVariable [ZSpawnOffset]
+            EX_LocalVariable [CallFunc_Percent_FloatFloat_ReturnValue]
+198:    EX_LocalVirtualFunction Play Spawn
+212:    EX_Return
+            EX_Nothing
+214:    EX_EndOfScript

@@ -1,0 +1,65 @@
+FunctionExport ExecuteUbergraph_HUD_Subtitles
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+30:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->CommunicationComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+81:     EX_LetObj
+            EX_InstanceVariable [Communication]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+100:    EX_BindDelegate OnSubtitleShoutStart
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+123:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Communication]
+                EX_InstanceVariable [OnSubtitleShout]
+                RValue = [OnSubtitleShout]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+164:    EX_BindDelegate OnPlayerShoutStart
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+187:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Communication]
+                EX_InstanceVariable [OnPlayerShout]
+                RValue = [OnPlayerShout]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+228:    EX_Return
+            EX_Nothing
+230:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Subtitles_C->ExecuteUbergraph_HUD_Subtitles
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnSubtitleShoutStart
+0:      EX_Context
+            EX_InstanceVariable [SubtitleShout]
+            EX_LocalVirtualFunction ShoutStart
+                EX_LocalVariable [InSender]
+                EX_LocalVariable [InText]
+                EX_LocalVariable [InDuration]
+            RValue = []
+63:     EX_Return
+            EX_Nothing
+65:     EX_EndOfScript
+FunctionExport OnPlayerShoutStart
+0:      EX_Context
+            EX_InstanceVariable [PlayerShout]
+            EX_LocalVirtualFunction ShoutStart
+                EX_LocalVariable [InSender]
+                EX_LocalVariable [InText]
+                EX_LocalVariable [InDuration]
+            RValue = []
+63:     EX_Return
+            EX_Nothing
+65:     EX_EndOfScript

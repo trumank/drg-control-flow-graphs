@@ -1,0 +1,92 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_ShieldTank
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Health]
+                EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+                RValue = [CallFunc_GetOwner_ReturnValue]
+52:     EX_VirtualFunction All_PlayImpactSound
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+75:     EX_Jump 335
+80:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+100:    EX_JumpIfNot 335
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+114:    EX_BindDelegate TargetDamaged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+137:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [GroundSlam]
+                    EX_InstanceVariable [Damage]
+                    RValue = [Damage]
+                EX_InstanceVariable [OnTargetDamagedEvent]
+                RValue = [OnTargetDamagedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+200:    EX_Jump 335
+205:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Actor]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+255:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/GlyphidDreadnaught/SpiderShieldTank_HornImpact_Cue->SpiderShieldTank_HornImpact_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+315:    EX_Jump 335
+320:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_PF_SpiderBase->ENE_PF_SpiderBase_C->ReceiveBeginPlay
+330:    EX_Jump 80
+335:    EX_Return
+            EX_Nothing
+337:    EX_EndOfScript
+FunctionExport TargetDamaged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Health]
+            EX_LocalVariable [Health]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Amount]
+            EX_LocalVariable [Amount]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Component]
+            EX_LocalVariable [Component]
+54:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PhysicalMaterial]
+            EX_LocalVariable [PhysicalMaterial]
+72:     EX_LocalFinalFunction export ENE_Spider_ShieldTank_C->ExecuteUbergraph_ENE_Spider_ShieldTank
+            EX_IntConst 10
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Spider_ShieldTank_C->ExecuteUbergraph_ENE_Spider_ShieldTank
+            EX_IntConst 320
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport All_PlayImpactSound
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Actor]
+            EX_LocalVariable [Actor]
+18:     EX_LocalFinalFunction export ENE_Spider_ShieldTank_C->ExecuteUbergraph_ENE_Spider_ShieldTank
+            EX_IntConst 205
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_SpiderBase_Large->ENE_SpiderBase_Large_C->UserConstructionScript
+10:     EX_Context
+            EX_InstanceVariable [TremorAttack]
+            EX_FinalFunction import /Script/FSD->TremorAttackComponent->InitTremorAttack
+                EX_InstanceVariable [Box]
+                EX_InstanceVariable [TremorParticles]
+            RValue = []
+60:     EX_Return
+            EX_Nothing
+62:     EX_EndOfScript

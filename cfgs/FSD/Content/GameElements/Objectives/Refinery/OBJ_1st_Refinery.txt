@@ -1,0 +1,121 @@
+FunctionExport ExecuteUbergraph_OBJ_1st_Refinery
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_FSDUpdateSessionInfo_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDUpdateSessionInfo
+                EX_Self
+31:     EX_Jump 227
+36:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_InRefinery]
+                EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+                RValue = [CallFunc_HasAuthority_ReturnValue]
+78:     EX_JumpIfNot 227
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+92:     EX_BindDelegate OnRefineryStateChangedBP
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+115:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_Event_InRefinery]
+                EX_InstanceVariable [OnRefineryStateChanged]
+                RValue = [OnRefineryStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+156:    EX_Jump 227
+161:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_InRefineryState]
+                EX_ByteConst 3
+192:    EX_JumpIfNot 211
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+206:    EX_Jump 227
+211:    EX_LetBool
+            EX_InstanceVariable [bIsFinalBattle]
+            EX_True
+222:    EX_Jump 10
+227:    EX_Return
+            EX_Nothing
+229:    EX_EndOfScript
+FunctionExport OnRefineryStateChangedBP
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InRefineryState]
+            EX_LocalVariable [InRefineryState]
+18:     EX_LocalFinalFunction export OBJ_1st_Refinery_C->ExecuteUbergraph_OBJ_1st_Refinery
+            EX_IntConst 161
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveRefinerySpawned
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InRefinery]
+            EX_LocalVariable [InRefinery]
+18:     EX_LocalFinalFunction export OBJ_1st_Refinery_C->ExecuteUbergraph_OBJ_1st_Refinery
+            EX_IntConst 36
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport GetObjectiveIcon
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_ObjectConst import /Game/UI/Art/Icons/Icons_Resources/New_Resource_Icons/Icon_PumpingJack_Core_Simplified_Workfile->Icon_PumpingJack_Core_Simplified_Workfile
+19:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+29:     EX_EndOfScript
+FunctionExport GetInMissionText
+0:      EX_PushExecutionFlow 272
+5:      EX_PushExecutionFlow 101
+10:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [RefineryState]
+                EX_ByteConst 0
+41:     EX_JumpIfNot 190
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+55:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [RefineryState]
+                EX_ByteConst 1
+86:     EX_JumpIfNot 190
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+100:    EX_PopExecutionFlow
+101:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_TextConst
+                TableId = /Game/Game/Text/Refinery.Refinery
+                TableKey = RefineLiquidMorkite
+185:    EX_Jump 272
+190:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_TextConst
+                TableId = /Game/Game/Text/Refinery.Refinery
+                TableKey = Connect3Pipelines
+272:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+282:    EX_EndOfScript
+FunctionExport GetObjectiveDescription
+0:      EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_TextConst
+                TableId = /Game/Game/Text/Refinery.Refinery
+                TableKey = RefineLiquidMorkite
+84:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+94:     EX_EndOfScript
+FunctionExport GetObjectiveAmount
+0:      EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_IntConst 3
+23:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+33:     EX_EndOfScript

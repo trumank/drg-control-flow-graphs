@@ -1,0 +1,141 @@
+FunctionExport Deactivate
+0:      EX_LetBool
+            EX_InstanceVariable [MarkedForDestruction]
+            EX_True
+11:     EX_Return
+            EX_Nothing
+13:     EX_EndOfScript
+FunctionExport UpdatePoint
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Player]
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+58:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_InstanceVariable [MarkedForDestruction]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+96:     EX_JumpIfNot 126
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+110:    EX_LetBool
+            EX_LocalOutVariable
+                [destroy]
+            EX_True
+121:    EX_Jump 389
+126:    EX_Let
+            EX_LocalVariable [CallFunc_GetArmorPct_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Player]
+                    EX_InstanceVariable [HealthComponent]
+                    RValue = [HealthComponent]
+                EX_VirtualFunction GetArmorPct
+                RValue = [CallFunc_GetArmorPct_ReturnValue]
+202:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_GetArmorPct_ReturnValue]
+                EX_FloatConst 0
+236:    EX_JumpIfNot 330
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+250:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_FloatFloat
+                EX_LocalVariable [alpha]
+                EX_FloatConst 0
+284:    EX_JumpIfNot 362
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+298:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+314:    EX_LetBool
+            EX_LocalOutVariable
+                [destroy]
+            EX_False
+325:    EX_Jump 389
+330:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 0
+346:    EX_LetBool
+            EX_LocalOutVariable
+                [destroy]
+            EX_False
+357:    EX_Jump 389
+362:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 0
+378:    EX_LetBool
+            EX_LocalOutVariable
+                [destroy]
+            EX_False
+389:    EX_Return
+            EX_Nothing
+391:    EX_EndOfScript
+FunctionExport Get3dPosition
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Player]
+29:     EX_JumpIfNot 125
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Player]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+93:     EX_Let
+            EX_LocalOutVariable
+                [pos]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+120:    EX_Jump 156
+125:    EX_Let
+            EX_LocalOutVariable
+                [pos]
+            EX_VectorConst 0,0,0
+156:    EX_Return
+            EX_Nothing
+158:    EX_EndOfScript
+FunctionExport InitPoint
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_Context
+                EX_LocalVariable [RadarComponent]
+                EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+                RValue = [CallFunc_GetOwner_ReturnValue]
+42:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+78:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+107:    EX_JumpIfNot 239
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+121:    EX_LetObj
+            EX_InstanceVariable [Player]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+140:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Player]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+186:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+215:    EX_LetBool
+            EX_LocalOutVariable
+                [success]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+234:    EX_Jump 250
+239:    EX_LetBool
+            EX_LocalOutVariable
+                [success]
+            EX_False
+250:    EX_Return
+            EX_Nothing
+252:    EX_EndOfScript

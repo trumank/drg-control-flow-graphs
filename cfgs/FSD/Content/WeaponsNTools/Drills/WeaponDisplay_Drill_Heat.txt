@@ -1,0 +1,139 @@
+FunctionExport ExecuteUbergraph_WeaponDisplay_Drill_Heat
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_FloatToText
+                EX_LocalVariable [K2Node_CustomEvent_HeatPercentage]
+                EX_ByteConst 0
+                EX_False
+                EX_True
+                EX_IntConst 1
+                EX_IntConst 324
+                EX_IntConst 0
+                EX_IntConst 0
+71:     EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst HeatValue
+109:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+138:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+174:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+206:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+238:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+267:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    TableId = /Game/Game/Text/Units.Units
+                    TableKey = Percent_Unit
+348:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst unit
+381:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 4
+410:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+446:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_IntConst 0
+478:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+510:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+539:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+568:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {HeatValue}{unit}
+                EX_LocalVariable [K2Node_MakeArray_Array]
+626:    EX_Context
+            EX_InstanceVariable [TextBlock_HeatValue]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+671:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [TextBlock_440]
+                EX_ByteConst 1
+                EX_ByteConst 0
+                EX_LocalVariable [K2Node_CustomEvent_Overheated]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+757:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_HeatPercentage]
+                EX_FloatConst 85
+791:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+                EX_LocalVariable [K2Node_CustomEvent_Overheated]
+829:    EX_JumpIfNot 883
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+843:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimationForward_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimationForward
+                EX_InstanceVariable [Flash]
+                EX_FloatConst 1
+                EX_False
+878:    EX_Jump 927
+883:    EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [Flash]
+902:    EX_Jump 927
+907:    EX_LocalVirtualFunction SetHeatValue
+            EX_FloatConst 0
+            EX_False
+927:    EX_Return
+            EX_Nothing
+929:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export WeaponDisplay_Drill_Heat_C->ExecuteUbergraph_WeaponDisplay_Drill_Heat
+            EX_IntConst 907
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetHeatValue
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HeatPercentage]
+            EX_LocalVariable [HeatPercentage]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Overheated]
+            EX_LocalVariable [Overheated]
+36:     EX_LocalFinalFunction export WeaponDisplay_Drill_Heat_C->ExecuteUbergraph_WeaponDisplay_Drill_Heat
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

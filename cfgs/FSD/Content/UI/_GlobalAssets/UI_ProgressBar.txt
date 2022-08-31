@@ -1,0 +1,171 @@
+FunctionExport ExecuteUbergraph_UI_ProgressBar
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetFillColorAndOpacity
+            EX_InstanceVariable [FillColorAndOpacity]
+33:     EX_Jump 107
+38:     EX_Context
+            EX_InstanceVariable [InternalProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_InstanceVariable [Percent]
+            RValue = []
+79:     EX_LocalVirtualFunction SetStyle
+            EX_InstanceVariable [Style]
+102:    EX_Jump 10
+107:    EX_Return
+            EX_Nothing
+109:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_ProgressBar_C->ExecuteUbergraph_UI_ProgressBar
+            EX_IntConst 38
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetAnimationProgress
+0:      EX_Let
+            EX_InstanceVariable [AnimationProgress]
+            EX_LocalVariable [AnimationProgress]
+27:     EX_Let
+            EX_LocalVariable [CallFunc_Ease_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Ease
+                EX_InstanceVariable [AnimationStart]
+                EX_InstanceVariable [Percent]
+                EX_InstanceVariable [AnimationProgress]
+                EX_InstanceVariable [EaseMethod]
+                EX_InstanceVariable [BlendExp]
+                EX_InstanceVariable [Steps]
+109:    EX_Context
+            EX_InstanceVariable [InternalProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CallFunc_Ease_ReturnValue]
+            RValue = []
+150:    EX_Return
+            EX_Nothing
+152:    EX_EndOfScript
+FunctionExport SetPercent
+0:      EX_Let
+            EX_LocalVariable [Diff]
+            EX_FloatConst 0
+23:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [InPercent]
+                EX_Context
+                    EX_InstanceVariable [InternalProgressBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+91:     EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+128:    EX_Let
+            EX_LocalVariable [Diff]
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+155:    EX_Let
+            EX_InstanceVariable [Percent]
+            EX_LocalVariable [InPercent]
+182:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [Diff]
+                EX_FloatConst 0.0001
+216:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [InEaseDuration]
+                EX_FloatConst 0
+250:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+288:    EX_JumpIfNot 529
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+302:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->IsAnimationPlaying
+                EX_InstanceVariable [AnimEase]
+331:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+350:    EX_Let
+            EX_InstanceVariable [AnimationStart]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 443
+                case 0:
+                    EX_False
+                    NextCaseOffset = 420
+                    EX_Context
+                        EX_InstanceVariable [InternalProgressBar]
+                        EX_InstanceVariable [Percent]
+                        RValue = [Percent]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 434
+                    EX_InstanceVariable [AnimationStart]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+443:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [InEaseDuration]
+485:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimationForward_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimationForward
+                EX_InstanceVariable [AnimEase]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+                EX_False
+524:    EX_Jump 638
+529:    EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [AnimEase]
+548:    EX_Context
+            EX_InstanceVariable [InternalProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_InstanceVariable [Percent]
+            RValue = []
+589:    EX_Let
+            EX_InstanceVariable [AnimationStart]
+            EX_Context
+                EX_InstanceVariable [InternalProgressBar]
+                EX_InstanceVariable [Percent]
+                RValue = [Percent]
+638:    EX_Return
+            EX_Nothing
+640:    EX_EndOfScript
+FunctionExport GetPercent
+0:      EX_Let
+            EX_LocalOutVariable
+                [OutPercent]
+            EX_InstanceVariable [Percent]
+27:     EX_Return
+            EX_Nothing
+29:     EX_EndOfScript
+FunctionExport SetStyle
+0:      EX_Let
+            EX_Context
+                EX_InstanceVariable [InternalProgressBar]
+                EX_InstanceVariable [WidgetStyle]
+                RValue = [WidgetStyle]
+            EX_LocalVariable [InStyle]
+49:     EX_Let
+            EX_InstanceVariable [Style]
+            EX_Context
+                EX_InstanceVariable [InternalProgressBar]
+                EX_InstanceVariable [WidgetStyle]
+                RValue = [WidgetStyle]
+98:     EX_Return
+            EX_Nothing
+100:    EX_EndOfScript
+FunctionExport SetFillColorAndOpacity
+0:      EX_Context
+            EX_InstanceVariable [InternalProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_LocalVariable [InColor]
+            RValue = []
+41:     EX_Return
+            EX_Nothing
+43:     EX_EndOfScript

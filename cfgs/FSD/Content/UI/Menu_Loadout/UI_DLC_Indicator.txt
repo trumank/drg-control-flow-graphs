@@ -1,0 +1,118 @@
+FunctionExport ExecuteUbergraph_UI_DLC_Indicator
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_InstanceVariable [Size]
+47:     EX_Context
+            EX_InstanceVariable [DLC_SizeBox]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetHeightOverride
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            RValue = []
+88:     EX_Jump 116
+93:     EX_LocalVirtualFunction SetFromDLC
+            EX_InstanceVariable [DLC]
+116:    EX_Return
+            EX_Nothing
+118:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_DLC_Indicator_C->ExecuteUbergraph_UI_DLC_Indicator
+            EX_IntConst 93
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_DLC_Indicator_C->ExecuteUbergraph_UI_DLC_Indicator
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetFromSkin
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InItem]
+29:     EX_JumpIfNot 194
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsDLC]
+            EX_DynamicCast import /Script/FSD->DLCAquisition
+                EX_Context
+                    EX_LocalVariable [InItem]
+                    EX_InstanceVariable [Aquisition]
+                    RValue = [Aquisition]
+101:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsDLC]
+130:    EX_JumpIfNot 194
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+144:    EX_LocalVirtualFunction SetFromDLC
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsDLC]
+                EX_InstanceVariable [RequiredDLC]
+                RValue = [RequiredDLC]
+189:    EX_Jump 209
+194:    EX_LocalVirtualFunction SetFromDLC
+            EX_NoObject
+209:    EX_Return
+            EX_Nothing
+211:    EX_EndOfScript
+FunctionExport SetFromDLC
+0:      EX_PushExecutionFlow 294
+5:      EX_LetObj
+            EX_InstanceVariable [DLC]
+            EX_LocalVariable [InFromDLC]
+24:     EX_LetBool
+            EX_LocalVariable [IsUnlocked]
+            EX_False
+35:     EX_PushExecutionFlow 145
+40:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InFromDLC]
+69:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+79:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsUnLocked_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InFromDLC]
+                EX_VirtualFunction IsUnLocked
+                RValue = [CallFunc_IsUnLocked_ReturnValue]
+125:    EX_LetBool
+            EX_LocalVariable [IsUnlocked]
+            EX_LocalVariable [CallFunc_IsUnLocked_ReturnValue]
+144:    EX_PopExecutionFlow
+145:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 4
+165:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+185:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [IsUnlocked]
+204:    EX_Context
+            EX_InstanceVariable [Root_Canvas]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 292
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 269
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 283
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+293:    EX_PopExecutionFlow
+294:    EX_Return
+            EX_Nothing
+296:    EX_EndOfScript

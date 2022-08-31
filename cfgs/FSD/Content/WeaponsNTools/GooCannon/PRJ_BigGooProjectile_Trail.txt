@@ -1,0 +1,224 @@
+FunctionExport ExecuteUbergraph_PRJ_BigGooProjectile_Trail
+0:      EX_PushExecutionFlow 1129
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [SpawnTimer]
+35:     EX_PopExecutionFlow
+36:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 14
+            EX_NameConst SpawnedFragments
+65:     EX_LocalVirtualFunction OnRep_SpawnedFragments
+79:     EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+107:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+153:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakRotator
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakRotator_Roll]
+            EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+            EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+199:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_VectorConst 0,0,10
+249:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+296:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_LocalVariable [CallFunc_BreakRotator_Roll]
+                EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+                EX_FloatConst 0
+347:    EX_Let
+            EX_LocalVariable [CallFunc_ComposeRotators_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->ComposeRotators
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue_1]
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+393:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnProjectileFromSelf_ReturnValue]
+            EX_FinalFunction import /Script/FSD->Projectile->SpawnProjectileFromSelf
+                EX_Self
+                EX_InstanceVariable [FragmentSize]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_LocalVariable [CallFunc_ComposeRotators_ReturnValue]
+441:    EX_PopExecutionFlow
+442:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+452:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [SpawnedFragments]
+                EX_IntConst 1
+494:    EX_Let
+            EX_InstanceVariable [SpawnedFragments]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+521:    EX_Jump 36
+526:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+546:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+556:    EX_PushExecutionFlow 442
+561:    EX_BindDelegate SpawnFragments
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+584:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_Context
+                    EX_InstanceVariable [MovementComponent]
+                    EX_InstanceVariable [MaxSpeed]
+                    RValue = [MaxSpeed]
+                EX_FloatConst 2E-05
+648:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_FloatConst 0.03
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+690:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                EX_True
+                EX_FloatConst 0
+                EX_FloatConst 0
+747:    EX_Let
+            EX_InstanceVariable [SpawnTimer]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+774:    EX_PopExecutionFlow
+775:    EX_Jump 526
+780:    EX_Jump 442
+785:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_InstanceVariable [FragmentCount]
+822:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_InstanceVariable [SpawnedFragments]
+                EX_IntConst 2
+864:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_Context
+                    EX_InstanceVariable [Damage]
+                    EX_InstanceVariable [RadialDamage]
+                    RValue = [RadialDamage]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+932:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntFloat
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+978:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_Context
+                    EX_InstanceVariable [Damage]
+                    EX_InstanceVariable [RadialDamage]
+                    RValue = [RadialDamage]
+                EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+1046:   EX_Let
+            EX_Context
+                EX_InstanceVariable [Damage]
+                EX_InstanceVariable [RadialDamage]
+                RValue = [RadialDamage]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+1095:   EX_LocalFinalFunction import /Game/WeaponsNTools/GooCannon/PRJ_BaseGooProjectile->PRJ_BaseGooProjectile_C->OnImpacted
+            EX_LocalVariable [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [K2Node_Event_HitResult]
+1123:   EX_Jump 15
+1128:   EX_PopExecutionFlow
+1129:   EX_Return
+            EX_Nothing
+1131:   EX_EndOfScript
+FunctionExport OnUpgradeElementAdded
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_element]
+            EX_LocalVariable [element]
+18:     EX_LocalFinalFunction export PRJ_BigGooProjectile_Trail_C->ExecuteUbergraph_PRJ_BigGooProjectile_Trail
+            EX_IntConst 1128
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_BigGooProjectile_Trail_C->ExecuteUbergraph_PRJ_BigGooProjectile_Trail
+            EX_IntConst 785
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SpawnFragments
+0:      EX_LocalFinalFunction export PRJ_BigGooProjectile_Trail_C->ExecuteUbergraph_PRJ_BigGooProjectile_Trail
+            EX_IntConst 780
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnInitialized
+0:      EX_LocalFinalFunction export PRJ_BigGooProjectile_Trail_C->ExecuteUbergraph_PRJ_BigGooProjectile_Trail
+            EX_IntConst 775
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_SpawnedFragments
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_InstanceVariable [FragmentCount]
+37:     EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+                EX_FloatConst 1
+79:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_FloatConst 2
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+121:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+163:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_Context
+                    EX_InstanceVariable [StaticMesh]
+                    EX_InstanceVariable [RelativeScale3D]
+                    RValue = [RelativeScale3D]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+231:    EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            RValue = []
+272:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_InstanceVariable [SpawnedFragments]
+                EX_InstanceVariable [FragmentCount]
+310:    EX_JumpIfNot 358
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+324:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [SpawnTimer]
+344:    EX_LocalVirtualFunction DestroyProjectile
+358:    EX_Return
+            EX_Nothing
+360:    EX_EndOfScript

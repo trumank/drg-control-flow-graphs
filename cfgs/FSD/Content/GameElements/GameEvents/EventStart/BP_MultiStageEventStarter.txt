@@ -1,0 +1,247 @@
+FunctionExport ExecuteUbergraph_BP_MultiStageEventStarter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction SetMaterial
+                EX_IntConst 3
+                EX_ObjectConst import /Game/GameElements/GameEvents/RewardDispenser/EventButtons/M_Event_StartButton01_Lights01_Notblinking->M_Event_StartButton01_Lights01_Notblinking
+            RValue = []
+60:     EX_Jump 438
+65:     EX_Context
+            EX_InstanceVariable [DynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst EmissiveMultiplier
+                EX_FloatConst 200
+            RValue = []
+115:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+135:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPhotosensitiveMode
+                RValue = [CallFunc_GetPhotosensitiveMode_ReturnValue]
+177:    EX_JumpIfNot 438
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+191:    EX_Context
+            EX_InstanceVariable [DynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst TimePeriod
+                EX_FloatConst 0
+            RValue = []
+241:    EX_Jump 438
+246:    EX_LocalVirtualFunction ShowUsedEffects
+260:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+288:    EX_CallMath import /Script/Engine->GameplayStatics->PlayWorldCameraShake
+            EX_Self
+            EX_ObjectConst import /Game/Character/Camera/CameraShakes/CameraShake_PickUp->CameraShake_PickUp_C
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FloatConst 0
+            EX_FloatConst 1500
+            EX_FloatConst 2
+            EX_False
+333:    EX_Jump 438
+338:    EX_JumpIfNot 246
+            EX_LocalVariable [K2Node_Event_wasOpened]
+352:    EX_Jump 65
+357:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+377:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPhotosensitiveMode
+                RValue = [CallFunc_GetPhotosensitiveMode_ReturnValue]
+419:    EX_JumpIfNot 438
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+433:    EX_Jump 10
+438:    EX_Return
+            EX_Nothing
+440:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_MultiStageEventStarter_C->ExecuteUbergraph_BP_MultiStageEventStarter
+            EX_IntConst 357
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnOpenedForUse
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_wasOpened]
+            EX_LocalVariable [wasOpened]
+18:     EX_LocalFinalFunction export BP_MultiStageEventStarter_C->ExecuteUbergraph_BP_MultiStageEventStarter
+            EX_IntConst 338
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction CreateDynamicMaterialInstance
+                    EX_IntConst 4
+                    EX_NoObject
+                    EX_NameConst None
+                RValue = [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+65:     EX_LetObj
+            EX_InstanceVariable [DynamicMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+84:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetScalarParameterValue_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DynamicMaterial]
+                EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->K2_GetScalarParameterValue
+                    EX_NameConst EmissiveMultiplier
+                RValue = [CallFunc_K2_GetScalarParameterValue_ReturnValue]
+147:    EX_Let
+            EX_InstanceVariable [OriginalEmissive]
+            EX_LocalVariable [CallFunc_K2_GetScalarParameterValue_ReturnValue]
+174:    EX_Context
+            EX_InstanceVariable [DynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst EmissiveMultiplier
+                EX_FloatConst 0
+            RValue = []
+224:    EX_Return
+            EX_Nothing
+226:    EX_EndOfScript
+FunctionExport CheckTerrain
+0:      EX_Let
+            EX_LocalVariable [TraceLength]
+            EX_FloatConst 120
+23:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+73:     EX_Let
+            EX_LocalVariable [StartLocation]
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+100:    EX_Let
+            EX_LocalVariable [CallFunc_GetUpVector_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetUpVector
+                RValue = [CallFunc_GetUpVector_ReturnValue]
+150:    EX_Let
+            EX_LocalVariable [Direction]
+            EX_LocalVariable [CallFunc_GetUpVector_ReturnValue]
+177:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [Direction]
+                EX_LocalVariable [TraceLength]
+223:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [StartLocation]
+269:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+290:    EX_LetBool
+            EX_LocalVariable [CallFunc_Linecast_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepCSGWorld->Linecast
+                    EX_LocalVariable [StartLocation]
+                    EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                    EX_LocalVariable [CallFunc_Linecast_hitInfo]
+                    EX_ByteConst 2
+                RValue = [CallFunc_Linecast_ReturnValue]
+361:    EX_LetBool
+            EX_LocalOutVariable
+                [ShouldCarve]
+            EX_LocalVariable [CallFunc_Linecast_ReturnValue]
+380:    EX_Return
+            EX_Nothing
+382:    EX_EndOfScript
+FunctionExport OnRep_EffectsShown
+0:      EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentToWorld
+                RValue = [CallFunc_K2_GetComponentToWorld_ReturnValue]
+50:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+96:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [EjectParticles]
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+161:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentToWorld
+                RValue = [CallFunc_K2_GetComponentToWorld_ReturnValue]
+211:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_K2_GetComponentToWorld_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+257:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_InstanceVariable [CrumbleSpire]
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+327:    EX_Return
+            EX_Nothing
+329:    EX_EndOfScript
+FunctionExport ShowUsedEffects
+0:      EX_Let
+            EX_LocalVariable [Color]
+            EX_StructConst import /Script/CoreUObject->Color
+                EX_ByteConst 0
+                EX_ByteConst 255
+                EX_ByteConst 0
+                EX_ByteConst 0
+40:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_ColorToLinearColor_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_ColorToLinearColor
+                EX_LocalVariable [Color]
+77:     EX_Context
+            EX_InstanceVariable [DynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetVectorParameterValue
+                EX_NameConst Tint
+                EX_LocalVariable [CallFunc_Conv_ColorToLinearColor_ReturnValue]
+            RValue = []
+131:    EX_Context
+            EX_InstanceVariable [DynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst EmissiveMultiplier
+                EX_FloatConst 1
+            RValue = []
+181:    EX_Context
+            EX_InstanceVariable [DynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst TintAmountOnDark
+                EX_FloatConst 200
+            RValue = []
+231:    EX_Return
+            EX_Nothing
+233:    EX_EndOfScript

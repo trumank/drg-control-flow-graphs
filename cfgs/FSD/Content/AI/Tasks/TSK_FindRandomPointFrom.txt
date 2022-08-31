@@ -1,0 +1,145 @@
+FunctionExport ExecuteUbergraph_TSK_FindRandomPointFrom
+0:      EX_PushExecutionFlow 509
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction Snap
+            EX_InstanceVariable [SnapToCeiling]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsDeep_Pathfinder_Character]
+                EX_InstanceVariable [PathfinderMovement]
+                RValue = [PathfinderMovement]
+            EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_outPos]
+78:     EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_True
+89:     EX_PopExecutionFlow
+90:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsDeep_Pathfinder_Character]
+            EX_DynamicCast import /Script/FSD->DeepPathfinderCharacter
+                EX_LocalVariable [K2Node_Event_ControlledPawn]
+126:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsDeep_Pathfinder_Character]
+155:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+165:    EX_JumpIfNot 348
+            EX_InstanceVariable [FindAtDistance]
+179:    EX_Let
+            EX_LocalVariable [CallFunc_GetLocation_ReturnValue]
+            EX_LocalVirtualFunction GetLocation
+211:    EX_Let
+            EX_LocalVariable [CallFunc_FindRandomPositionOnNavmeshAtDistance_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__PathfinderFunctionLibrary
+                EX_FinalFunction import /Script/FSD->PathfinderFunctionLibrary->FindRandomPositionOnNavmeshAtDistance
+                    EX_Self
+                    EX_LocalVariable [CallFunc_GetLocation_ReturnValue]
+                    EX_InstanceVariable [Distance]
+                RValue = [CallFunc_FindRandomPositionOnNavmeshAtDistance_ReturnValue]
+280:    EX_LocalVirtualFunction Snap
+            EX_InstanceVariable [SnapToCeiling]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsDeep_Pathfinder_Character]
+                EX_InstanceVariable [PathfinderMovement]
+                RValue = [PathfinderMovement]
+            EX_LocalVariable [CallFunc_FindRandomPositionOnNavmeshAtDistance_ReturnValue]
+343:    EX_Jump 78
+348:    EX_Let
+            EX_LocalVariable [CallFunc_GetLocation_ReturnValue]
+            EX_LocalVirtualFunction GetLocation
+380:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsDeep_Pathfinder_Character]
+                EX_InstanceVariable [PathfinderMovement]
+                RValue = [PathfinderMovement]
+            EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->GetRandomReachablePointAtApproximateDistance_Async
+                EX_LocalVariable [CallFunc_GetLocation_ReturnValue]
+                EX_InstanceVariable [Distance]
+                EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_success]
+                EX_LocalVariable [CallFunc_GetRandomReachablePointAtApproximateDistance_Async_outPos]
+                EX_StructConst import /Script/Engine->LatentActionInfo
+                    EX_SkipOffsetConst 15
+                    EX_IntConst -843459277
+                    EX_NameConst ExecuteUbergraph_TSK_FindRandomPointFrom
+                    EX_Self
+            RValue = []
+508:    EX_PopExecutionFlow
+509:    EX_Return
+            EX_Nothing
+511:    EX_EndOfScript
+FunctionExport ReceiveExecuteAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_FindRandomPointFrom_C->ExecuteUbergraph_TSK_FindRandomPointFrom
+            EX_IntConst 90
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Snap
+0:      EX_JumpIfNot 112
+            EX_LocalVariable [SnapToCeiling]
+14:     EX_Let
+            EX_LocalVariable [CallFunc_FindPathfinderPointAbove_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Pathfinder]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->FindPathfinderPointAbove
+                    EX_LocalOutVariable
+                        [Location]
+                    EX_FloatConst 150
+                RValue = [CallFunc_FindPathfinderPointAbove_ReturnValue]
+78:     EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsVector
+            EX_Self
+            EX_InstanceVariable [NewLocationKey]
+            EX_LocalVariable [CallFunc_FindPathfinderPointAbove_ReturnValue]
+107:    EX_Jump 141
+112:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsVector
+            EX_Self
+            EX_InstanceVariable [NewLocationKey]
+            EX_LocalOutVariable
+                [Location]
+141:    EX_Return
+            EX_Nothing
+143:    EX_EndOfScript
+FunctionExport GetLocation
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [FromLocationKey]
+30:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+59:     EX_JumpIfNot 185
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+73:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [FromLocationKey]
+103:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+153:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+180:    EX_Jump 250
+185:    EX_Let
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsVector
+                EX_Self
+                EX_InstanceVariable [FromLocationKey]
+223:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsVector_ReturnValue]
+250:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+260:    EX_EndOfScript

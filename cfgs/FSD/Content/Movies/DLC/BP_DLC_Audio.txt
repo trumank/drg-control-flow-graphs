@@ -1,0 +1,103 @@
+FunctionExport ExecuteUbergraph_BP_DLC_Audio
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [MediaSound]
+            EX_FinalFunction import /Script/AudioMixer->SynthComponent->SetVolumeMultiplier
+                EX_InstanceVariable [FadeIn_AudioScale_D73C76464EAD5A69C208C4917A2DBA68]
+            RValue = []
+51:     EX_Jump 498
+56:     EX_Context
+            EX_InstanceVariable [FadeIn]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->SetPlayRate
+                EX_FloatConst 1
+            RValue = []
+93:     EX_Context
+            EX_InstanceVariable [FadeIn]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+125:    EX_Jump 498
+130:    EX_Context
+            EX_InstanceVariable [FadeIn]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Reverse
+            RValue = []
+162:    EX_Jump 498
+167:    EX_LetBool
+            EX_InstanceVariable [Playing]
+            EX_True
+178:    EX_Context
+            EX_InstanceVariable [MediaSound]
+            EX_FinalFunction import /Script/AudioMixer->SynthComponent->Start
+            RValue = []
+210:    EX_Jump 56
+215:    EX_LetBool
+            EX_InstanceVariable [Playing]
+            EX_False
+226:    EX_Context
+            EX_InstanceVariable [FadeIn]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->SetPlayRate
+                EX_FloatConst 3
+            RValue = []
+263:    EX_Jump 130
+268:    EX_Context
+            EX_InstanceVariable [MediaSound]
+            EX_FinalFunction import /Script/AudioMixer->SynthComponent->Stop
+            RValue = []
+300:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetMediaPlayer_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [MediaSound]
+                EX_FinalFunction import /Script/MediaAssets->MediaSoundComponent->GetMediaPlayer
+                RValue = [CallFunc_GetMediaPlayer_ReturnValue]
+342:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetMediaPlayer_ReturnValue]
+371:    EX_JumpIfNot 498
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+385:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetMediaPlayer_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [MediaSound]
+                EX_FinalFunction import /Script/MediaAssets->MediaSoundComponent->GetMediaPlayer
+                RValue = [CallFunc_GetMediaPlayer_ReturnValue]
+427:    EX_LetBool
+            EX_LocalVariable [CallFunc_Pause_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetMediaPlayer_ReturnValue]
+                EX_FinalFunction import /Script/MediaAssets->MediaPlayer->Pause
+                RValue = [CallFunc_Pause_ReturnValue]
+469:    EX_Jump 498
+474:    EX_JumpIfNot 268
+            EX_InstanceVariable [Playing]
+488:    EX_Jump 498
+493:    EX_Jump 474
+498:    EX_Return
+            EX_Nothing
+500:    EX_EndOfScript
+FunctionExport EndAudio
+0:      EX_LocalFinalFunction export BP_DLC_Audio_C->ExecuteUbergraph_BP_DLC_Audio
+            EX_IntConst 215
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BeginAudio
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InMediaPlayer]
+            EX_LocalVariable [InMediaPlayer]
+18:     EX_LocalFinalFunction export BP_DLC_Audio_C->ExecuteUbergraph_BP_DLC_Audio
+            EX_IntConst 167
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport FadeIn__UpdateFunc
+0:      EX_LocalFinalFunction export BP_DLC_Audio_C->ExecuteUbergraph_BP_DLC_Audio
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeIn__FinishedFunc
+0:      EX_LocalFinalFunction export BP_DLC_Audio_C->ExecuteUbergraph_BP_DLC_Audio
+            EX_IntConst 493
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

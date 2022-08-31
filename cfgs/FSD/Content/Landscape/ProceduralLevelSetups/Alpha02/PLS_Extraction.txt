@@ -1,0 +1,205 @@
+FunctionExport ExecuteUbergraph_PLS_Extraction
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Jump 1423
+15:     EX_Let
+            EX_LocalVariable [CallFunc_GetDisplayName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->GetDisplayName
+                EX_InstanceVariable [StartingRoom]
+52:     EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst Room :
+                EX_LocalVariable [CallFunc_GetDisplayName_ReturnValue]
+97:     EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_True
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.66
+                EX_FloatConst 1
+                EX_FloatConst 1
+            EX_FloatConst 60
+158:    EX_Let
+            EX_LocalVariable [CallFunc_AddRoom_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->AddRoom
+                EX_VectorConst 0,0,0
+                EX_False
+                EX_InstanceVariable [StartingRoom]
+                EX_False
+                EX_LocalVariable [CallFunc_AddRoom_outCenter]
+                EX_LocalVariable [CallFunc_AddRoom_outRoom]
+                EX_FloatConst 0.25
+233:    EX_Let
+            EX_StructMemberContext [Min]
+                EX_LocalVariable [K2Node_MakeStruct_RandRange_1]
+            EX_Context
+                EX_InstanceVariable [StartingRoom]
+                EX_InstanceVariable [Bounds]
+                RValue = [Bounds]
+291:    EX_Let
+            EX_StructMemberContext [Max]
+                EX_LocalVariable [K2Node_MakeStruct_RandRange_1]
+            EX_Context
+                EX_InstanceVariable [StartingRoom]
+                EX_InstanceVariable [Bounds]
+                RValue = [Bounds]
+349:    EX_Let
+            EX_LocalVariable [CallFunc_FindLocationInDirection_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->FindLocationInDirection
+                EX_LocalVariable [CallFunc_AddRoom_outCenter]
+                EX_VectorConst 1,0,-0.5
+                EX_FloatConst 5
+                EX_FloatConst 5
+                EX_LocalVariable [K2Node_MakeStruct_RandRange_1]
+                EX_FloatConst 1500
+423:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetMissionDNA_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->GetMissionDNA
+443:    EX_Context
+            EX_ObjectConst import /Game/Landscape/ProceduralLevelSetups/BPL_ProceduralLevelSetup->Default__BPL_ProceduralLevelSetup_C
+            EX_LocalVirtualFunction CreateLinearPathFromDNA
+                EX_Self
+                EX_LocalVariable [CallFunc_FindLocationInDirection_ReturnValue]
+                EX_VectorConst 1,0,-0.4
+                EX_FloatConst 15
+                EX_FloatConst 15
+                EX_StructConst import /Script/FSD->RandRange
+                    EX_FloatConst 500
+                    EX_FloatConst 500
+                EX_False
+                EX_True
+                EX_LocalVariable [CallFunc_GetMissionDNA_ReturnValue]
+                EX_InstanceVariable [GroupInstance]
+                EX_Self
+                EX_LocalVariable [CallFunc_CreateLinearPathFromDNA_LastOrigin]
+                EX_LocalVariable [CallFunc_CreateLinearPathFromDNA_LastRoomID]
+                EX_LocalVariable [CallFunc_CreateLinearPathFromDNA_LastRoomGenerator]
+            RValue = []
+584:    EX_Let
+            EX_LocalVariable [CallFunc_MakeGameplayTagQuery_ReturnValue]
+            EX_CallMath import /Script/GameplayTags->BlueprintGameplayTagLibrary->MakeGameplayTagQuery
+                EX_StructConst import /Script/GameplayTags->GameplayTagQuery
+                    EX_IntConst 0
+                    EX_ArrayConst 
+                        [TagDictionary,TagDictionary]
+                        EX_StructConst import /Script/GameplayTags->GameplayTag
+                            EX_NameConst Rooms.Linear.End
+                    EX_ArrayConst 
+                        [QueryTokenStream,QueryTokenStream]
+                        EX_ByteConst 0
+                        EX_ByteConst 1
+                        EX_ByteConst 2
+                        EX_ByteConst 1
+                        EX_ByteConst 0
+                    EX_StringConst 
+                    EX_StringConst  ALL( Rooms.Linear.End )
+724:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetRandomRoomWithTags_ReturnValue]
+            EX_CallMath import /Script/FSD->RoomGeneratorGroup->GetRandomRoomWithTags
+                EX_InstanceVariable [GroupInstance]
+                EX_LocalVariable [CallFunc_MakeGameplayTagQuery_ReturnValue]
+                EX_InstanceVariable [RandomStreamServer]
+771:    EX_LetObj
+            EX_InstanceVariable [EndRoom_Linear]
+            EX_LocalVariable [CallFunc_GetRandomRoomWithTags_ReturnValue]
+790:    EX_Let
+            EX_StructMemberContext [Min]
+                EX_LocalVariable [K2Node_MakeStruct_RandRange]
+            EX_FloatConst 1500
+822:    EX_Let
+            EX_StructMemberContext [Max]
+                EX_LocalVariable [K2Node_MakeStruct_RandRange]
+            EX_FloatConst 2000
+854:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_Context
+                    EX_InstanceVariable [EndRoom_Linear]
+                    EX_InstanceVariable [Bounds]
+                    RValue = [Bounds]
+                EX_Context
+                    EX_LocalVariable [CallFunc_CreateLinearPathFromDNA_LastRoomGenerator]
+                    EX_InstanceVariable [Bounds]
+                    RValue = [Bounds]
+944:    EX_Let
+            EX_LocalVariable [CallFunc_FindLocationInDirection_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->FindLocationInDirection
+                EX_LocalVariable [CallFunc_CreateLinearPathFromDNA_LastOrigin]
+                EX_VectorConst 1,0,-0.5
+                EX_FloatConst 5
+                EX_FloatConst 5
+                EX_LocalVariable [K2Node_MakeStruct_RandRange]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+1022:   EX_Let
+            EX_LocalVariable [CallFunc_GetDisplayName_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->GetDisplayName
+                EX_InstanceVariable [EndRoom_Linear]
+1059:   EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst Room :
+                EX_LocalVariable [CallFunc_GetDisplayName_ReturnValue_1]
+1104:   EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_True
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.66
+                EX_FloatConst 1
+                EX_FloatConst 1
+            EX_FloatConst 2
+1165:   EX_Let
+            EX_LocalVariable [CallFunc_AddRoom_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->AddRoom
+                EX_LocalVariable [CallFunc_FindLocationInDirection_ReturnValue_1]
+                EX_True
+                EX_InstanceVariable [EndRoom_Linear]
+                EX_True
+                EX_LocalVariable [CallFunc_AddRoom_outCenter_1]
+                EX_LocalVariable [CallFunc_AddRoom_outRoom_1]
+                EX_FloatConst 3
+1236:   EX_Let
+            EX_LocalVariable [CallFunc_ConnectRoomIds_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->ConnectRoomIds
+                EX_LocalVariable [CallFunc_CreateLinearPathFromDNA_LastRoomID]
+                EX_LocalVariable [CallFunc_AddRoom_ReturnValue_1]
+                EX_True
+                EX_NoObject
+1284:   EX_Jump 1423
+1289:   EX_Let
+            EX_LocalVariable [CallFunc_CreateGroupInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Room_Group]
+                EX_FinalFunction import /Script/FSD->RoomGeneratorGroup->CreateGroupInstance
+                RValue = [CallFunc_CreateGroupInstance_ReturnValue]
+1339:   EX_Let
+            EX_InstanceVariable [GroupInstance]
+            EX_LocalVariable [CallFunc_CreateGroupInstance_ReturnValue]
+1366:   EX_LocalVirtualFunction GetRandomRoom
+            EX_InstanceVariable [Starting Rooms]
+            EX_False
+            EX_LocalVariable [CallFunc_GetRandomRoom_Room]
+1399:   EX_LetObj
+            EX_InstanceVariable [StartingRoom]
+            EX_LocalVariable [CallFunc_GetRandomRoom_Room]
+1418:   EX_Jump 15
+1423:   EX_Return
+            EX_Nothing
+1425:   EX_EndOfScript
+FunctionExport CreateGraphFirstPass_1
+0:      EX_LocalFinalFunction export PLS_Extraction_C->ExecuteUbergraph_PLS_Extraction
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CreateCaveGraph
+0:      EX_LocalFinalFunction export PLS_Extraction_C->ExecuteUbergraph_PLS_Extraction
+            EX_IntConst 1289
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

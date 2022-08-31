@@ -1,0 +1,201 @@
+FunctionExport ExecuteUbergraph_ITM_DragRotateCharacterShowroom
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_BindDelegate OnShowCharacterSelectorRotate
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+33:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+54:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [OnShowCharacterSelectorRotate]
+                RValue = [OnShowCharacterSelectorRotate]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+95:     EX_Jump 277
+100:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+121:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [ShowroomManager]
+                    RValue = [ShowroomManager]
+                EX_FinalFunction import /Script/FSD->ShowroomManager->GetController
+                RValue = [CallFunc_GetController_ReturnValue]
+185:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_pitch]
+                EX_FloatConst 0.3
+227:    EX_Context
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ShowroomController->RotateShowroom
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_LocalVariable [K2Node_CustomEvent_yaw]
+            RValue = []
+277:    EX_Return
+            EX_Nothing
+279:    EX_EndOfScript
+FunctionExport OnShowCharacterSelectorRotate
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_pitch]
+            EX_LocalVariable [pitch]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_yaw]
+            EX_LocalVariable [yaw]
+36:     EX_LocalFinalFunction export ITM_DragRotateCharacterShowroom_C->ExecuteUbergraph_ITM_DragRotateCharacterShowroom
+            EX_IntConst 100
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ITM_DragRotateCharacterShowroom_C->ExecuteUbergraph_ITM_DragRotateCharacterShowroom
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnMouseMove
+0:      EX_JumpIfNot 325
+            EX_InstanceVariable [GrabMouse]
+14:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+35:     EX_Let
+            EX_LocalVariable [CallFunc_PointerEvent_GetCursorDelta_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->PointerEvent_GetCursorDelta
+                EX_LocalOutVariable
+                    [MouseEvent]
+72:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector2D
+            EX_LocalVariable [CallFunc_PointerEvent_GetCursorDelta_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector2D_X]
+            EX_LocalVariable [CallFunc_BreakVector2D_Y]
+109:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [ShowroomManager]
+                    RValue = [ShowroomManager]
+                EX_FinalFunction import /Script/FSD->ShowroomManager->GetController
+                RValue = [CallFunc_GetController_ReturnValue]
+173:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector2D_Y]
+                EX_FloatConst -1
+215:    EX_Context
+            EX_LocalVariable [CallFunc_GetController_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ShowroomController->RotateShowroom
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_BreakVector2D_X]
+            RValue = []
+265:    EX_Let
+            EX_LocalVariable [CallFunc_Handled_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->Handled
+293:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Handled_ReturnValue]
+320:    EX_Jump 380
+325:    EX_Let
+            EX_LocalVariable [CallFunc_Unhandled_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->Unhandled
+353:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Unhandled_ReturnValue]
+380:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+390:    EX_EndOfScript
+FunctionExport OnMouseButtonDown
+0:      EX_Let
+            EX_LocalVariable [CallFunc_PointerEvent_GetEffectingButton_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->PointerEvent_GetEffectingButton
+                EX_LocalOutVariable
+                    [MouseEvent]
+37:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_KeyKey_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->EqualEqual_KeyKey
+                EX_LocalVariable [CallFunc_PointerEvent_GetEffectingButton_ReturnValue]
+                EX_StructConst import /Script/InputCore->Key
+                    EX_NameConst LeftMouseButton
+93:     EX_JumpIfNot 216
+            EX_LocalVariable [CallFunc_EqualEqual_KeyKey_ReturnValue]
+107:    EX_LetBool
+            EX_InstanceVariable [GrabMouse]
+            EX_True
+118:    EX_Let
+            EX_LocalVariable [CallFunc_Handled_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->Handled
+146:    EX_Let
+            EX_LocalVariable [CallFunc_CaptureMouse_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->CaptureMouse
+                EX_LocalVariable [CallFunc_Handled_ReturnValue]
+                EX_Self
+184:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_CaptureMouse_ReturnValue]
+211:    EX_Jump 271
+216:    EX_Let
+            EX_LocalVariable [CallFunc_Unhandled_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->Unhandled
+244:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Unhandled_ReturnValue]
+271:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+281:    EX_EndOfScript
+FunctionExport OnMouseButtonUp
+0:      EX_Let
+            EX_LocalVariable [CallFunc_PointerEvent_GetEffectingButton_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->PointerEvent_GetEffectingButton
+                EX_LocalOutVariable
+                    [MouseEvent]
+37:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_KeyKey_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->EqualEqual_KeyKey
+                EX_LocalVariable [CallFunc_PointerEvent_GetEffectingButton_ReturnValue]
+                EX_StructConst import /Script/InputCore->Key
+                    EX_NameConst LeftMouseButton
+93:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_KeyKey_ReturnValue]
+                EX_InstanceVariable [GrabMouse]
+131:    EX_JumpIfNot 253
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+145:    EX_LetBool
+            EX_InstanceVariable [GrabMouse]
+            EX_False
+156:    EX_Let
+            EX_LocalVariable [CallFunc_Handled_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->Handled
+184:    EX_Let
+            EX_LocalVariable [CallFunc_ReleaseMouseCapture_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->ReleaseMouseCapture
+                EX_LocalVariable [CallFunc_Handled_ReturnValue]
+221:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_ReleaseMouseCapture_ReturnValue]
+248:    EX_Jump 308
+253:    EX_Let
+            EX_LocalVariable [CallFunc_Unhandled_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetBlueprintLibrary->Unhandled
+281:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Unhandled_ReturnValue]
+308:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+318:    EX_EndOfScript

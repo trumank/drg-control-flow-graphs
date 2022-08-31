@@ -1,0 +1,113 @@
+FunctionExport UserConstructionScript
+0:      EX_LocalVirtualFunction SetValid
+            EX_True
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport GetAttachementLocation
+0:      EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 0
+20:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+40:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [WorldCoordinates]
+59:     EX_Let
+            EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketTransform
+                    EX_NameConst Socket_Muzzle
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable]
+                        OffsetToSwitchEnd = 178
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 155
+                            EX_LocalVariable [Temp_byte_Variable_1]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 169
+                            EX_LocalVariable [Temp_byte_Variable]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default]
+                RValue = [CallFunc_GetSocketTransform_ReturnValue]
+179:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+225:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+252:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+262:    EX_EndOfScript
+FunctionExport SetValid
+0:      EX_PushExecutionFlow 407
+5:      EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [CallFunc_GetNumMaterials_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetNumMaterials
+                RValue = [CallFunc_GetNumMaterials_ReturnValue]
+82:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_GetNumMaterials_ReturnValue]
+                EX_IntConst 1
+124:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+162:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+172:    EX_PushExecutionFlow 333
+177:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Pipeline/Materials/M_Pipeline_Valid->M_Pipeline_Valid
+196:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Pipeline/Materials/MI_Pipeline_Invalid->MI_Pipeline_Invalid
+215:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [IsValid]
+234:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction SetMaterial
+                EX_LocalVariable [Temp_int_Variable]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 331
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 308
+                        EX_LocalVariable [Temp_object_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 322
+                        EX_LocalVariable [Temp_object_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+332:    EX_PopExecutionFlow
+333:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+375:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+402:    EX_Jump 28
+407:    EX_Return
+            EX_Nothing
+409:    EX_EndOfScript

@@ -1,0 +1,128 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Shooter_Queen
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [GlyphidPraetorianIdle_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+58:     EX_Context
+            EX_ObjectConst import /Game/Audio/Functions/MixFunctions->Default__MixFunctions_C
+            EX_LocalVirtualFunction PushMixAtDistance
+                EX_ObjectConst import /Game/Audio/SoundControl/SoundMixes/PSM_DuckOn3rdEnemiesDeath0-1->PSM_DuckOn3rdEnemiesDeath0-1
+                EX_NoObject
+                EX_FloatConst 0
+                EX_FloatConst 1500
+                EX_Self
+            RValue = []
+115:    EX_Jump 746
+120:    EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+158:    EX_Jump 746
+163:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+191:    EX_Context
+            EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+            EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->SpawnEnemiesAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Enemies/Spider/Shooter/ED_Spider_Shooter->ED_Spider_Shooter
+                EX_IntConst 9
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_False
+                EX_True
+                EX_ByteConst 2
+            RValue = []
+251:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [NumSpawns]
+                EX_IntConst 1
+293:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+320:    EX_Let
+            EX_InstanceVariable [NumSpawns]
+            EX_LocalVariable [Temp_int_Variable]
+347:    EX_Jump 746
+352:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+372:    EX_JumpIfNot 746
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+386:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_FinalFunction import /Script/FSD->HealthComponentBase->GetHealthPct
+                RValue = [CallFunc_GetHealthPct_ReturnValue_1]
+436:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue_1]
+                EX_FloatConst 0.25
+470:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_InstanceVariable [NumSpawns]
+                EX_IntConst 2
+504:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue_1]
+542:    EX_JumpIfNot 561
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+556:    EX_Jump 163
+561:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_FinalFunction import /Script/FSD->HealthComponentBase->GetHealthPct
+                RValue = [CallFunc_GetHealthPct_ReturnValue]
+611:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue]
+                EX_FloatConst 0.5
+645:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_InstanceVariable [NumSpawns]
+                EX_IntConst 1
+679:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+717:    EX_JumpIfNot 746
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+731:    EX_Jump 163
+736:    EX_Jump 352
+741:    EX_Jump 10
+746:    EX_Return
+            EX_Nothing
+748:    EX_EndOfScript
+FunctionExport OnDeathBase
+0:      EX_LocalFinalFunction export ENE_Spider_Shooter_Queen_C->ExecuteUbergraph_ENE_Spider_Shooter_Queen
+            EX_IntConst 741
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__BP_BurrowComponent_K2Node_ComponentBoundEvent_0_OnUnBurrow__DelegateSignature
+0:      EX_LocalFinalFunction export ENE_Spider_Shooter_Queen_C->ExecuteUbergraph_ENE_Spider_Shooter_Queen
+            EX_IntConst 736
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRagdoll
+0:      EX_LocalFinalFunction export ENE_Spider_Shooter_Queen_C->ExecuteUbergraph_ENE_Spider_Shooter_Queen
+            EX_IntConst 120
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

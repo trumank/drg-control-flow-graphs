@@ -1,0 +1,168 @@
+FunctionExport ExecuteUbergraph_ENE_Jelly_Swarmer
+0:      EX_PushExecutionFlow 1005
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+26:     EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 0
+                EX_FloatConst 360
+64:     EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+111:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst CenterMass
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+178:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [Deathpaticles]
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+                EX_VectorConst 3,3,3
+                EX_True
+                EX_ByteConst 1
+                EX_True
+243:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst CenterMass
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+310:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/JellySwarmer/JellySwarmerDeath_Cue->JellySwarmerDeath_Cue
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+370:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst CenterMass
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+437:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_NoObject
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+489:    EX_Context
+            EX_InstanceVariable [Trail]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+522:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+542:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+552:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 3
+571:    EX_PopExecutionFlow
+572:    EX_PushExecutionFlow 616
+577:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+611:    EX_Jump 15
+616:    EX_Context
+            EX_InstanceVariable [JellySwarmerIdle]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.5
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+664:    EX_PopExecutionFlow
+665:    EX_Jump 572
+670:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+690:    EX_JumpIfNot 869
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+704:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_source]
+                EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+                RValue = [CallFunc_GetInstigator_ReturnValue]
+746:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+782:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+811:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+832:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->AddEnemyKill
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_InstanceVariable [Enemy]
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+869:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Mesh]
+            EX_ObjectConst import /Game/Audio/SFX/BiomePackages/Ice/GeneralFrozenShatter_Cue->GeneralFrozenShatter_Cue
+            EX_ObjectConst import /Game/Enemies/FlyingBug/Afflictions/P_FrozenDeath_FlyingBug->P_FrozenDeath_FlyingBug
+            EX_FloatConst 1
+            EX_NoObject
+913:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetAIController
+                EX_Self
+934:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+                EX_InstanceVariable [BrainComponent]
+                RValue = [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+999:    EX_PopExecutionFlow
+1000:   EX_Jump 670
+1005:   EX_Return
+            EX_Nothing
+1007:   EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_source]
+            EX_LocalVariable [source]
+18:     EX_LocalFinalFunction export ENE_Jelly_Swarmer_C->ExecuteUbergraph_ENE_Jelly_Swarmer
+            EX_IntConst 1000
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__HealthComponent_K2Node_ComponentBoundEvent_0_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export ENE_Jelly_Swarmer_C->ExecuteUbergraph_ENE_Jelly_Swarmer
+            EX_IntConst 665
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

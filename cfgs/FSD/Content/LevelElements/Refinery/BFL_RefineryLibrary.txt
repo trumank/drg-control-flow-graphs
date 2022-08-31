@@ -1,0 +1,95 @@
+FunctionExport GetMaterialFromPipelineStatus
+0:      EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_PipelineStatus_Broken_NotBlinking->M_PipelineStatus_Broken_NotBlinking
+19:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_PipelineStatus_Broken->M_PipelineStatus_Broken
+38:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_LocalVariable [InPipelineState]
+65:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_2]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_PipelineStatus_Completed->M_PipelineStatus_Completed
+84:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_3]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_PipelineStatus_BeingBuilt->M_PipelineStatus_BeingBuilt
+103:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_4]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_PipelineStatus_Inactive->M_PipelineStatus_Inactive
+122:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+142:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPhotosensitiveMode
+                RValue = [CallFunc_GetPhotosensitiveMode_ReturnValue]
+184:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+203:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_byte_Variable]
+                OffsetToSwitchEnd = 342
+                case 0:
+                    EX_ByteConst 0
+                    NextCaseOffset = 244
+                    EX_LocalVariable [Temp_object_Variable_4]
+                case 1:
+                    EX_ByteConst 1
+                    NextCaseOffset = 259
+                    EX_LocalVariable [Temp_object_Variable_3]
+                case 2:
+                    EX_ByteConst 2
+                    NextCaseOffset = 274
+                    EX_LocalVariable [Temp_object_Variable_2]
+                case 3:
+                    EX_ByteConst 3
+                    NextCaseOffset = 333
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable]
+                        OffsetToSwitchEnd = 333
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 310
+                            EX_LocalVariable [Temp_object_Variable_1]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 324
+                            EX_LocalVariable [Temp_object_Variable]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+342:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+352:    EX_EndOfScript
+FunctionExport CreateLiquidMorkiteDecal
+0:      EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 0.5
+                EX_FloatConst 1
+38:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [Scale]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+84:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnDecal_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameplayStatics->SpawnDecal
+                EX_LocalVariable [__WorldContext]
+                EX_ObjectConst import /Game/Art/Decals/M_Decal_Liquid_Morkite->M_Decal_Liquid_Morkite
+                EX_LocalVariable [Location]
+                EX_LocalVariable [Normal]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst 2
+                EX_FloatConst 1
+159:    EX_Return
+            EX_Nothing
+161:    EX_EndOfScript

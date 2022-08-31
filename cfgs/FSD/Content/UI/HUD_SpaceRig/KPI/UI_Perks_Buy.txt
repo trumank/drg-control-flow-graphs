@@ -1,0 +1,481 @@
+FunctionExport OnPerkClaimed__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_UI_Perks_Buy
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [TitleText]
+                EX_ByteConst 0
+                EX_Self
+            RValue = []
+58:     EX_LocalVirtualFunction SetPerk
+            EX_InstanceVariable [Perk]
+            EX_InstanceVariable [Tier]
+90:     EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [ButtonPulse]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+137:    EX_Jump 720
+142:    EX_Jump 10
+147:    EX_LocalVirtualFunction Buy Selected Perk
+161:    EX_Jump 720
+166:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/UI/HUD/PerkAwarded_Cue->PerkAwarded_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+226:    EX_CallMulticastDelegate export UI_Perks_Buy_C->OnPerkClaimed__DelegateSignature
+            EX_InstanceVariable [OnPerkClaimed]
+245:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue_1]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimBuy]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 0.5
+                EX_False
+292:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+312:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+348:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+377:    EX_JumpIfNot 720
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+391:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayPitched_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [CommunicationComponent]
+                    RValue = [CommunicationComponent]
+                EX_FinalFunction import /Script/FSD->CommunicationComponent->PlayPitched
+                    EX_NoObject
+                    EX_ObjectConst import /Game/Character/Shouts/New/Shout_UnlockPerk->Shout_UnlockPerk
+                    EX_ByteConst 0
+                    EX_False
+                    EX_NoObject
+                    EX_Self
+                RValue = [CallFunc_PlayPitched_ReturnValue]
+470:    EX_Jump 720
+475:    EX_LetBool
+            EX_LocalVariable [CallFunc_BuyPerkAtTier_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_FinalFunction import /Script/FSD->PerkAsset->BuyPerkAtTier
+                    EX_Self
+                    EX_InstanceVariable [Tier]
+                RValue = [CallFunc_BuyPerkAtTier_ReturnValue]
+527:    EX_JumpIfNot 720
+            EX_LocalVariable [CallFunc_BuyPerkAtTier_ReturnValue]
+541:    EX_Jump 166
+546:    EX_BindDelegate OnPerkPointsChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+569:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+590:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnPerkPointsChanged]
+                RValue = [OnPerkPointsChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+631:    EX_Jump 720
+636:    EX_LocalVirtualFunction SetPerk
+            EX_InstanceVariable [Perk]
+            EX_InstanceVariable [Tier]
+668:    EX_Jump 720
+673:    EX_Jump 636
+678:    EX_LocalVirtualFunction CanBuyPerk
+            EX_LocalVariable [CallFunc_CanBuyPerk_Can_Buy]
+701:    EX_JumpIfNot 720
+            EX_LocalVariable [CallFunc_CanBuyPerk_Can_Buy]
+715:    EX_Jump 475
+720:    EX_Return
+            EX_Nothing
+722:    EX_EndOfScript
+FunctionExport Buy Selected Perk
+0:      EX_LocalFinalFunction export UI_Perks_Buy_C->ExecuteUbergraph_UI_Perks_Buy
+            EX_IntConst 678
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnPerkPointsChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PerkPoints]
+            EX_LocalVariable [PerkPoints]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Change]
+            EX_LocalVariable [Change]
+36:     EX_LocalFinalFunction export UI_Perks_Buy_C->ExecuteUbergraph_UI_Perks_Buy
+            EX_IntConst 673
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_Perks_Buy_C->ExecuteUbergraph_UI_Perks_Buy
+            EX_IntConst 546
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__ButtonBuy_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Button]
+            EX_LocalVariable [Button]
+18:     EX_LocalFinalFunction export UI_Perks_Buy_C->ExecuteUbergraph_UI_Perks_Buy
+            EX_IntConst 147
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_Perks_Buy_C->ExecuteUbergraph_UI_Perks_Buy
+            EX_IntConst 142
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetPerk
+0:      EX_Let
+            EX_LocalVariable [Cost]
+            EX_IntConst 0
+23:     EX_LetObj
+            EX_InstanceVariable [Perk]
+            EX_LocalVariable [InPerk]
+42:     EX_Let
+            EX_InstanceVariable [Tier]
+            EX_LocalVariable [InTier]
+69:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Perk]
+98:     EX_JumpIfNot 1847
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+112:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 4
+128:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetRankAtTier_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_VirtualFunction GetRankAtTier
+                    EX_InstanceVariable [Tier]
+                    EX_LocalVariable [CallFunc_GetRankAtTier_Rank]
+                RValue = [CallFunc_GetRankAtTier_ReturnValue]
+192:    EX_Let
+            EX_InstanceVariable [Rank]
+            EX_LocalVariable [CallFunc_GetRankAtTier_Rank]
+219:    EX_Let
+            EX_LocalVariable [CallFunc_GetRankCost_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_VirtualFunction GetRankCost
+                    EX_InstanceVariable [Rank]
+                RValue = [CallFunc_GetRankCost_ReturnValue]
+282:    EX_Let
+            EX_LocalVariable [Cost]
+            EX_LocalVariable [CallFunc_GetRankCost_ReturnValue]
+309:    EX_Let
+            EX_LocalVariable [CallFunc_GetUsageType_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_VirtualFunction GetUsageType
+                RValue = [CallFunc_GetUsageType_ReturnValue]
+363:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_PerkColors->Default__LIB_PerkColors_C
+            EX_LocalVirtualFunction PerkColorFromType
+                EX_LocalVariable [CallFunc_GetUsageType_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_PerkColorFromType_OutColor]
+            RValue = []
+418:    EX_Context
+            EX_InstanceVariable [UI_PerkIcon]
+            EX_LocalVirtualFunction ShowPerkAs
+                EX_InstanceVariable [Perk]
+                EX_LocalVariable [CallFunc_PerkColorFromType_OutColor]
+                EX_InstanceVariable [Rank]
+            RValue = []
+481:    EX_Let
+            EX_LocalVariable [CallFunc_GetRankDescription_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_VirtualFunction GetRankDescription
+                    EX_InstanceVariable [Rank]
+                RValue = [CallFunc_GetRankDescription_ReturnValue]
+544:    EX_Context
+            EX_InstanceVariable [DescriptionRichText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_GetRankDescription_ReturnValue]
+            RValue = []
+589:    EX_Let
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextToUpper
+                EX_Context
+                    EX_InstanceVariable [Perk]
+                    EX_InstanceVariable [Title]
+                    RValue = [Title]
+648:    EX_Context
+            EX_InstanceVariable [TitleText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            RValue = []
+693:    EX_LocalVirtualFunction CanBuyPerk
+            EX_LocalVariable [CallFunc_CanBuyPerk_Can_Buy]
+716:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_3]
+            EX_LocalVariable [CallFunc_CanBuyPerk_Can_Buy]
+735:    EX_Let
+            EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_FinalFunction import /Script/FSD->PerkAsset->GetStateAtTier
+                    EX_Self
+                    EX_InstanceVariable [Tier]
+                RValue = [CallFunc_GetStateAtTier_ReturnValue]
+795:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+                EX_ByteConst 2
+826:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+                EX_ByteConst 1
+857:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+876:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_4]
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+895:    EX_Context
+            EX_InstanceVariable [ButtonSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 1071
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1048
+                        EX_SwitchValue
+                            EX_LocalVariable [Temp_bool_Variable_3]
+                            OffsetToSwitchEnd = 1048
+                            case 0:
+                                EX_False
+                                NextCaseOffset = 1025
+                                EX_SwitchValue
+                                    EX_LocalVariable [Temp_bool_Variable_4]
+                                    OffsetToSwitchEnd = 1025
+                                    case 0:
+                                        EX_False
+                                        NextCaseOffset = 1002
+                                        EX_InstanceVariable [BTN_CantAfford]
+                                    case 1:
+                                        EX_True
+                                        NextCaseOffset = 1016
+                                        EX_InstanceVariable [BTN_Locked]
+                                    default:
+                                        EX_LocalVariable [K2Node_Select_Default_2]
+                            case 1:
+                                EX_True
+                                NextCaseOffset = 1039
+                                EX_InstanceVariable [BTN_Buy]
+                            default:
+                                EX_LocalVariable [K2Node_Select_Default_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1062
+                        EX_InstanceVariable [BTN_Unlocked]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_4]
+            RValue = []
+1072:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 1
+1092:   EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 4
+1112:   EX_Let
+            EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_FinalFunction import /Script/FSD->PerkAsset->GetStateAtTier
+                    EX_Self
+                    EX_InstanceVariable [Tier]
+                RValue = [CallFunc_GetStateAtTier_ReturnValue]
+1172:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+                EX_ByteConst 1
+1203:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue_1]
+1222:   EX_Context
+            EX_InstanceVariable [CostBox]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_2]
+                    OffsetToSwitchEnd = 1310
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1287
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1301
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+1311:   EX_Let
+            EX_LocalVariable [CallFunc_GetRankCost_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_VirtualFunction GetRankCost
+                    EX_InstanceVariable [Rank]
+                RValue = [CallFunc_GetRankCost_ReturnValue_1]
+1374:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_GetRankCost_ReturnValue_1]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+1423:   EX_Context
+            EX_InstanceVariable [CostText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+1468:   EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0.275
+                EX_FloatConst 0.005199
+                EX_FloatConst 0
+                EX_FloatConst 1
+1520:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1568:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1589:   EX_Let
+            EX_LocalVariable [CallFunc_GetPerkPoints_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetPerkPoints
+                RValue = [CallFunc_GetPerkPoints_ReturnValue]
+1639:   EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_GetPerkPoints_ReturnValue]
+1673:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+1692:   EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 1772
+                case 0:
+                    EX_False
+                    NextCaseOffset = 1749
+                    EX_LocalVariable [Temp_struct_Variable]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 1763
+                    EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+1772:   EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+1801:   EX_Context
+            EX_InstanceVariable [CostText]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+1842:   EX_Jump 1863
+1847:   EX_VirtualFunction SetVisibility
+            EX_ByteConst 2
+1863:   EX_Return
+            EX_Nothing
+1865:   EX_EndOfScript
+FunctionExport CanBuyPerk
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+21:     EX_Let
+            EX_LocalVariable [CallFunc_GetRankCost_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_VirtualFunction GetRankCost
+                    EX_InstanceVariable [Rank]
+                RValue = [CallFunc_GetRankCost_ReturnValue]
+84:     EX_Let
+            EX_LocalVariable [CallFunc_GetPerkPoints_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetPerkPoints
+                RValue = [CallFunc_GetPerkPoints_ReturnValue]
+134:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_GetPerkPoints_ReturnValue]
+                EX_LocalVariable [CallFunc_GetRankCost_ReturnValue]
+172:    EX_Let
+            EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Perk]
+                EX_FinalFunction import /Script/FSD->PerkAsset->GetStateAtTier
+                    EX_Self
+                    EX_InstanceVariable [Tier]
+                RValue = [CallFunc_GetStateAtTier_ReturnValue]
+232:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetStateAtTier_ReturnValue]
+                EX_ByteConst 0
+263:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+301:    EX_LetBool
+            EX_LocalOutVariable
+                [Can Buy]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+320:    EX_Return
+            EX_Nothing
+322:    EX_EndOfScript

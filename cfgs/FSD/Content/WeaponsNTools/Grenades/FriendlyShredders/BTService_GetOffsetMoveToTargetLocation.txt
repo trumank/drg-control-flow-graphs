@@ -1,0 +1,106 @@
+FunctionExport ExecuteUbergraph_BTService_GetOffsetMoveToTargetLocation
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_VectorConst 0,0,0
+41:     EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst TargetLocation
+82:     EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst TargetOffsetLocation
+123:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetAIController
+                EX_LocalVariable [K2Node_Event_OwnerController]
+152:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+181:    EX_Let
+            EX_LocalVariable [CallFunc_GetValueAsVector_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+                EX_FinalFunction import /Script/AIModule->BlackboardComponent->GetValueAsVector
+                    EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+                RValue = [CallFunc_GetValueAsVector_ReturnValue]
+240:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [Temp_struct_Variable]
+                EX_LocalVariable [CallFunc_GetValueAsVector_ReturnValue]
+286:    EX_Context
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsVector
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            RValue = []
+336:    EX_Jump 736
+341:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetAIController
+                EX_LocalVariable [K2Node_Event_OwnerController]
+370:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Target
+411:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+440:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+                EX_FinalFunction import /Script/AIModule->BlackboardComponent->GetValueAsObject
+                    EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_2]
+                RValue = [CallFunc_GetValueAsObject_ReturnValue]
+491:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+527:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+556:    EX_JumpIfNot 736
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+570:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+            EX_ObjToInterfaceCast import /Script/FSD->Targetable
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+606:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+635:    EX_JumpIfNot 10
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+649:    EX_Let
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+                EX_VirtualFunction GetTargetCenterMass
+                RValue = [CallFunc_GetTargetCenterMass_ReturnValue]
+704:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+731:    EX_Jump 41
+736:    EX_Return
+            EX_Nothing
+738:    EX_EndOfScript
+FunctionExport ReceiveTickAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+54:     EX_LocalFinalFunction export BTService_GetOffsetMoveToTargetLocation_C->ExecuteUbergraph_BTService_GetOffsetMoveToTargetLocation
+            EX_IntConst 341
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript

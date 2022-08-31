@@ -1,0 +1,328 @@
+FunctionExport ExecuteUbergraph_BP_ShieldRegenerator_Mover
+0:      EX_PushExecutionFlow 1149
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PopExecutionFlow
+16:     EX_Context
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_VirtualFunction ToggleActive
+            RValue = []
+52:     EX_PopExecutionFlow
+53:     EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetRootComponent_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetRootComponent
+73:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAttached
+                EX_ObjectConst import /Game/Audio/SFX/InfectedMule/InfectedMuleGrenadeExplosion_Cue->InfectedMuleGrenadeExplosion_Cue
+                EX_LocalVariable [CallFunc_K2_GetRootComponent_ReturnValue]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_ByteConst 0
+                EX_False
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_ObjectConst import /Game/Audio/SoundControl/AttenuationGroups/GenericMediumAttenuation->GenericMediumAttenuation
+                EX_NoObject
+                EX_True
+179:    EX_Context
+            EX_LocalVariable [CallFunc_SpawnSoundAttached_ReturnValue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.5
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+227:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [ListoffBlastParticles]
+                EX_InstanceVariable [StartPoint]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+296:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 16
+                EX_IntConst -881643935
+                EX_NameConst ExecuteUbergraph_BP_ShieldRegenerator_Mover
+                EX_Self
+350:    EX_PopExecutionFlow
+351:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Item]
+380:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+390:    EX_Context
+            EX_InstanceVariable [Item]
+            EX_FinalFunction import /Script/FSD->ShieldGeneratorItem->GeneratorReturned
+            RValue = []
+422:    EX_PopExecutionFlow
+423:    EX_Context
+            EX_InstanceVariable [PathfinderMovement]
+            EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->SetControlledExternally
+                EX_True
+            RValue = []
+456:    EX_PopExecutionFlow
+457:    EX_Let
+            EX_InstanceVariable [HoverPoint]
+            EX_LocalVariable [K2Node_CustomEvent_InHoverPoint]
+484:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+512:    EX_Let
+            EX_InstanceVariable [StartPoint]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+539:    EX_LocalVirtualFunction Begin Lift Off Effects
+553:    EX_Context
+            EX_InstanceVariable [LiftOff]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->SetPlayRate
+                EX_FloatConst 1
+            RValue = []
+590:    EX_Context
+            EX_InstanceVariable [LiftOff]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+622:    EX_PopExecutionFlow
+623:    EX_LetBool
+            EX_LocalVariable [CallFunc_StartMoveToActor_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PathfinderMovement]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->StartMoveToActor
+                    EX_InstanceVariable [TargetActor]
+                    EX_FloatConst 25
+                    EX_False
+                RValue = [CallFunc_StartMoveToActor_ReturnValue]
+680:    EX_JumpIfNot 695
+            EX_LocalVariable [CallFunc_StartMoveToActor_ReturnValue]
+694:    EX_PopExecutionFlow
+695:    EX_LocalVirtualFunction OnReturned
+709:    EX_PopExecutionFlow
+710:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+730:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+740:    EX_Jump 351
+745:    EX_Context
+            EX_InstanceVariable [PathfinderMovement]
+            EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->SetControlledExternally
+                EX_False
+            RValue = []
+778:    EX_Jump 623
+783:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_ComponentBoundEvent_state]
+                EX_ByteConst 1
+814:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [LiftOff]
+                EX_FinalFunction import /Script/Engine->TimelineComponent->IsPlaying
+                RValue = [CallFunc_IsPlaying_ReturnValue]
+856:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+                EX_LocalVariable [CallFunc_IsPlaying_ReturnValue]
+894:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+904:    EX_Context
+            EX_InstanceVariable [LiftOff]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Stop
+            RValue = []
+936:    EX_PopExecutionFlow
+937:    EX_Jump 53
+942:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 0.5
+961:    EX_Jump 710
+966:    EX_Let
+            EX_LocalVariable [CallFunc_VEase_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VEase
+                EX_InstanceVariable [StartPoint]
+                EX_InstanceVariable [HoverPoint]
+                EX_InstanceVariable [LiftOff_Progress_9B203DE44FAEAFAF13D1B3902168B574]
+                EX_ByteConst 0
+                EX_FloatConst 2
+                EX_IntConst 2
+1033:   EX_LetBool
+            EX_LocalVariable [CallFunc_K2_SetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_SetActorLocation
+                EX_LocalVariable [CallFunc_VEase_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetActorLocation_SweepHitResult]
+                EX_False
+1073:   EX_PopExecutionFlow
+1074:   EX_LetObj
+            EX_InstanceVariable [TargetActor]
+            EX_LocalVariable [K2Node_CustomEvent_InTargetActor]
+1093:   EX_Jump 745
+1098:   EX_VirtualFunction SetActorHiddenInGame
+            EX_True
+1113:   EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+1124:   EX_Jump 942
+1129:   EX_LocalVirtualFunction OnReturned
+1143:   EX_PopExecutionFlow
+1144:   EX_Jump 1129
+1149:   EX_Return
+            EX_Nothing
+1151:   EX_EndOfScript
+FunctionExport BndEvt__PathfinderMovement_K2Node_ComponentBoundEvent_2_PathFinished__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_success]
+            EX_LocalVariable [success]
+18:     EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 1144
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnReturned
+0:      EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 1098
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Begin Move To Actor
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InTargetActor]
+            EX_LocalVariable [InTargetActor]
+18:     EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 1074
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Begin Lift Off Effects
+0:      EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 937
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__PathfinderMovement_K2Node_ComponentBoundEvent_0_PathStateChangedDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_state]
+            EX_LocalVariable [state]
+18:     EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 783
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport All_LiftOff
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InHoverPoint]
+            EX_LocalVariable [InHoverPoint]
+18:     EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 457
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 423
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport LiftOff__UpdateFunc
+0:      EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 966
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport LiftOff__FinishedFunc
+0:      EX_LocalFinalFunction export BP_ShieldRegenerator_Mover_C->ExecuteUbergraph_BP_ShieldRegenerator_Mover
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport MoveToInstigator
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+20:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+49:     EX_JumpIfNot 122
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+63:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+83:     EX_LocalVirtualFunction Begin Move To Actor
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+106:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_True
+117:    EX_Jump 133
+122:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_False
+133:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+143:    EX_EndOfScript
+FunctionExport FindTakeOffPoint
+0:      EX_Let
+            EX_LocalVariable [Above]
+            EX_VectorConst 0,0,0
+31:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+59:     EX_Let
+            EX_LocalVariable [CallFunc_FindPathfinderPointAbove_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PathfinderMovement]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->FindPathfinderPointAbove
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+                    EX_FloatConst 150
+                RValue = [CallFunc_FindPathfinderPointAbove_ReturnValue]
+123:    EX_Let
+            EX_LocalVariable [Above]
+            EX_LocalVariable [CallFunc_FindPathfinderPointAbove_ReturnValue]
+150:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+178:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [Above]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+224:    EX_Let
+            EX_LocalVariable [CallFunc_VSize_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VSize
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+261:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_VSize_ReturnValue]
+                EX_FloatConst 25
+295:    EX_JumpIfNot 433
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+309:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+337:    EX_Let
+            EX_LocalVariable [CallFunc_FindNearestPathfinderPoint_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PathfinderMovement]
+                EX_FinalFunction import /Script/FSD->DeepPathfinderMovement->FindNearestPathfinderPoint
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                    EX_FloatConst 500
+                RValue = [CallFunc_FindNearestPathfinderPoint_ReturnValue]
+401:    EX_Let
+            EX_LocalOutVariable
+                [TakeOffPoint]
+            EX_LocalVariable [CallFunc_FindNearestPathfinderPoint_ReturnValue]
+428:    EX_Jump 460
+433:    EX_Let
+            EX_LocalOutVariable
+                [TakeOffPoint]
+            EX_LocalVariable [Above]
+460:    EX_Return
+            EX_Nothing
+462:    EX_EndOfScript

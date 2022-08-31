@@ -1,0 +1,222 @@
+FunctionExport ExecuteUbergraph_EWC_EndMission_MotherLode
+0:      EX_PushExecutionFlow 1182
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction GetRandomPlayer
+            EX_LocalVariable [CallFunc_GetRandomPlayer_Output_Get]
+            EX_LocalVariable [CallFunc_GetRandomPlayer_PlayerFound]
+47:     EX_JumpIfNot 553
+            EX_LocalVariable [CallFunc_GetRandomPlayer_PlayerFound]
+61:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+82:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [EscapePod]
+                    RValue = [EscapePod]
+133:    EX_JumpIfNot 553
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+147:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+168:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [EscapePod]
+                    RValue = [EscapePod]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+240:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetRandomPlayer_Output_Get]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue_1]
+290:    EX_Let
+            EX_LocalVariable [CallFunc_FindPointAlongPathTo_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__PathfinderFunctionLibrary
+                EX_FinalFunction import /Script/FSD->PathfinderFunctionLibrary->FindPointAlongPathTo
+                    EX_Self
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                    EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                    EX_FloatConst 1000
+                RValue = [CallFunc_FindPointAlongPathTo_ReturnValue]
+364:    EX_Let
+            EX_LocalVariable [CallFunc_FindRandomNearbyPositionOnNavmesh_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__PathfinderFunctionLibrary
+                EX_FinalFunction import /Script/FSD->PathfinderFunctionLibrary->FindRandomNearbyPositionOnNavmesh
+                    EX_Self
+                    EX_LocalVariable [CallFunc_FindPointAlongPathTo_ReturnValue]
+                    EX_FloatConst 300
+                RValue = [CallFunc_FindRandomNearbyPositionOnNavmesh_ReturnValue]
+429:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [CallFunc_FindRandomNearbyPositionOnNavmesh_ReturnValue]
+449:    EX_Context
+            EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+            EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->SpawnEnemiesFromPool
+                EX_Self
+                EX_FloatConst 120
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_True
+                EX_False
+            RValue = []
+498:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 20
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 681976093
+                EX_NameConst ExecuteUbergraph_EWC_EndMission_MotherLode
+                EX_Self
+552:    EX_PopExecutionFlow
+553:    EX_Let
+            EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+                EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->GetSpawnPointsInRange
+                    EX_Self
+                    EX_FloatConst 2000
+                    EX_IntConst 3
+                    EX_ByteConst 2
+                RValue = [CallFunc_GetSpawnPointsInRange_ReturnValue]
+616:    EX_Context
+            EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+            EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->SpawnEnemiesFromPool
+                EX_Self
+                EX_FloatConst 120
+                EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue]
+                EX_True
+                EX_False
+            RValue = []
+665:    EX_Jump 498
+670:    EX_Let
+            EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+                EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->GetSpawnPointsInRange
+                    EX_Self
+                    EX_FloatConst 1500
+                    EX_IntConst 3
+                    EX_ByteConst 2
+                RValue = [CallFunc_GetSpawnPointsInRange_ReturnValue_1]
+733:    EX_Context
+            EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+            EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->SpawnEnemiesFromPool
+                EX_Self
+                EX_FloatConst 250
+                EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue_1]
+                EX_True
+                EX_False
+            RValue = []
+782:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 10
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 837
+                EX_IntConst 1350726797
+                EX_NameConst ExecuteUbergraph_EWC_EndMission_MotherLode
+                EX_Self
+836:    EX_PopExecutionFlow
+837:    EX_Let
+            EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+                EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->GetSpawnPointsInRange
+                    EX_Self
+                    EX_FloatConst 1500
+                    EX_IntConst 3
+                    EX_ByteConst 2
+                RValue = [CallFunc_GetSpawnPointsInRange_ReturnValue_2]
+900:    EX_Context
+            EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+            EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->SpawnEnemiesFromPool
+                EX_Self
+                EX_FloatConst 200
+                EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue_2]
+                EX_True
+                EX_False
+            RValue = []
+949:    EX_PushExecutionFlow 959
+954:    EX_Jump 498
+959:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 105
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 1014
+                EX_IntConst 944060359
+                EX_NameConst ExecuteUbergraph_EWC_EndMission_MotherLode
+                EX_Self
+1013:   EX_PopExecutionFlow
+1014:   EX_Let
+            EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue_3]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+                EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->GetSpawnPointsInRange
+                    EX_Self
+                    EX_FloatConst 1500
+                    EX_IntConst 3
+                    EX_ByteConst 2
+                RValue = [CallFunc_GetSpawnPointsInRange_ReturnValue_3]
+1077:   EX_Context
+            EX_ObjectConst import /Script/FSD->Default__SpawningBlueprintLibrary
+            EX_FinalFunction import /Script/FSD->SpawningBlueprintLibrary->SpawnEnemiesFromPool
+                EX_Self
+                EX_FloatConst 250
+                EX_LocalVariable [CallFunc_GetSpawnPointsInRange_ReturnValue_3]
+                EX_True
+                EX_False
+            RValue = []
+1126:   EX_PopExecutionFlow
+1127:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 20
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 670
+                EX_IntConst -820937721
+                EX_NameConst ExecuteUbergraph_EWC_EndMission_MotherLode
+                EX_Self
+1181:   EX_PopExecutionFlow
+1182:   EX_Return
+            EX_Nothing
+1184:   EX_EndOfScript
+FunctionExport StartWave
+0:      EX_LocalFinalFunction export EWC_EndMission_MotherLode_C->ExecuteUbergraph_EWC_EndMission_MotherLode
+            EX_IntConst 1127
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport GetRandomPlayer
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetRandomPlayer_ReturnValue]
+            EX_CallMath import /Script/FSD->PlayerCharacterFunctionLibrary->GetRandomPlayer
+                EX_Self
+                EX_True
+                EX_True
+23:     EX_LetObj
+            EX_LocalVariable [Player]
+            EX_LocalVariable [CallFunc_GetRandomPlayer_ReturnValue]
+42:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Player]
+71:     EX_LetObj
+            EX_LocalOutVariable
+                [Output_Get]
+            EX_LocalVariable [Player]
+90:     EX_LetBool
+            EX_LocalOutVariable
+                [PlayerFound]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+109:    EX_Return
+            EX_Nothing
+111:    EX_EndOfScript

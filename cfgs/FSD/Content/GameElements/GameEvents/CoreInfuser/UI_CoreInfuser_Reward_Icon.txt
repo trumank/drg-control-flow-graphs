@@ -1,0 +1,583 @@
+FunctionExport OnHovered__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnUnhovered__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnRewardSelected__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction ToggleActivateAudio
+            EX_False
+25:     EX_Jump 880
+30:     EX_LocalVirtualFunction SetHover
+            EX_False
+45:     EX_CallMulticastDelegate export UI_CoreInfuser_Reward_Icon_C->OnUnhovered__DelegateSignature
+            EX_InstanceVariable [OnUnhovered]
+            EX_Self
+65:     EX_LocalVirtualFunction ToggleActivateAudio
+            EX_False
+80:     EX_Jump 880
+85:     EX_BindDelegate OnProgressTick
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+108:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 0.01
+                EX_True
+                EX_FloatConst 0
+                EX_FloatConst 0
+161:    EX_Let
+            EX_InstanceVariable [ProgressTimer]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+188:    EX_Jump 880
+193:    EX_CallMulticastDelegate export UI_CoreInfuser_Reward_Icon_C->OnHovered__DelegateSignature
+            EX_InstanceVariable [OnHovered]
+            EX_Self
+213:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [RewardDispenser]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+263:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/GameEvents/RewardDispenser/RewardDispenserHover_Cue->RewardDispenserHover_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+323:    EX_Jump 880
+328:    EX_LocalVirtualFunction SetUseProgress
+            EX_FloatConst 0
+            EX_LocalVariable [CallFunc_SetUseProgress_Finished]
+356:    EX_Jump 880
+361:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [IsRewardSelected]
+390:    EX_JumpIfNot 880
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+404:    EX_LocalVirtualFunction ToggleActivateAudio
+            EX_True
+419:    EX_Jump 85
+424:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [ProgressTimer]
+444:    EX_LocalVirtualFunction SetUseProgress
+            EX_FloatConst 0
+            EX_LocalVariable [CallFunc_SetUseProgress_Finished_1]
+472:    EX_Jump 10
+477:    EX_LocalVirtualFunction GetUseProgress
+            EX_LocalVariable [CallFunc_GetUseProgress_Progress]
+500:    EX_Let
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetWorldDeltaSeconds
+                EX_Self
+529:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+                EX_FloatConst 1
+571:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_GetUseProgress_Progress]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+617:    EX_LocalVirtualFunction SetUseProgress
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_LocalVariable [CallFunc_SetUseProgress_Finished_2]
+649:    EX_JumpIfNot 880
+            EX_LocalVariable [CallFunc_SetUseProgress_Finished_2]
+663:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [ProgressTimer]
+683:    EX_LocalVirtualFunction TrySelectReward
+            EX_LocalVariable [CallFunc_TrySelectReward_Reward_Given]
+706:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [RewardDispenser]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue_1]
+756:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/GameEvents/RewardDispenser/RewardDispenserComplete_Cue->RewardDispenserComplete_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+816:    EX_LocalVirtualFunction ToggleActivateAudio
+            EX_False
+831:    EX_Jump 880
+836:    EX_Jump 328
+841:    EX_LocalVirtualFunction SetHover
+            EX_True
+856:    EX_Jump 193
+861:    EX_LetObj
+            EX_InstanceVariable [RewardDispenser]
+            EX_LocalVariable [K2Node_CustomEvent_InDispenser]
+880:    EX_Return
+            EX_Nothing
+882:    EX_EndOfScript
+FunctionExport SetDispenser
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InDispenser]
+            EX_LocalVariable [InDispenser]
+18:     EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 861
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__IconButton_K2Node_ComponentBoundEvent_3_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 841
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 836
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnProgressTick
+0:      EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 477
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__IconButton_K2Node_ComponentBoundEvent_2_OnButtonReleasedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 424
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__IconButton_K2Node_ComponentBoundEvent_1_OnButtonPressedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 361
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__IconButton_K2Node_ComponentBoundEvent_4_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export UI_CoreInfuser_Reward_Icon_C->ExecuteUbergraph_UI_CoreInfuser_Reward_Icon
+            EX_IntConst 30
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetHover
+0:      EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction UpdateBool
+                EX_InstanceVariable [IsIconHovered]
+                EX_LocalVariable [InHovering]
+                EX_Self
+                EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+            RValue = []
+73:     EX_JumpIfNot 484
+            EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+87:     EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+110:    EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_IntConst 1
+133:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 2
+153:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+173:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [IsIconHovered]
+192:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [IsIconHovered]
+211:    EX_Let
+            EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetAnimationCurrentTime
+                EX_InstanceVariable [AnimHover]
+248:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimHover]
+                EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 338
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 315
+                        EX_LocalVariable [Temp_int_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 329
+                        EX_LocalVariable [Temp_int_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 391
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 368
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 382
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FloatConst 2
+                EX_False
+398:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [UseInstructionsLabel]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [IsIconHovered]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+484:    EX_Return
+            EX_Nothing
+486:    EX_EndOfScript
+FunctionExport SetFaded
+0:      EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction UpdateBool
+                EX_InstanceVariable [IsIconFaded]
+                EX_LocalVariable [InFade]
+                EX_Self
+                EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+            RValue = []
+73:     EX_JumpIfNot 285
+            EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+87:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 0
+107:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+127:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [IsIconFaded]
+146:    EX_Let
+            EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetAnimationCurrentTime
+                EX_InstanceVariable [AnimFade]
+183:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimFade]
+                EX_LocalVariable [CallFunc_GetAnimationCurrentTime_ReturnValue]
+                EX_IntConst 1
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 278
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 255
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 269
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FloatConst 1
+                EX_False
+285:    EX_Return
+            EX_Nothing
+287:    EX_EndOfScript
+FunctionExport IsInteractable
+0:      EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_True
+11:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+21:     EX_EndOfScript
+FunctionExport SetUseProgress
+0:      EX_Context
+            EX_InstanceVariable [SelectProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [InProgress]
+            RValue = []
+41:     EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [InProgress]
+                EX_FloatConst 1
+75:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [InProgress]
+                EX_FloatConst 0
+109:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+147:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [SelectProgressBar]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+233:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_LocalVariable [InProgress]
+                EX_FloatConst 1
+267:    EX_LetBool
+            EX_LocalOutVariable
+                [Finished]
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+286:    EX_Return
+            EX_Nothing
+288:    EX_EndOfScript
+FunctionExport GetUseProgress
+0:      EX_Let
+            EX_LocalOutVariable
+                [Progress]
+            EX_Context
+                EX_InstanceVariable [SelectProgressBar]
+                EX_InstanceVariable [Percent]
+                RValue = [Percent]
+49:     EX_Return
+            EX_Nothing
+51:     EX_EndOfScript
+FunctionExport TrySelectReward
+0:      EX_PushExecutionFlow 184
+5:      EX_PushExecutionFlow 173
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [IsRewardSelected]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+49:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SchematicReward]
+78:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+88:     EX_LetBool
+            EX_InstanceVariable [IsRewardSelected]
+            EX_True
+99:     EX_Context
+            EX_InstanceVariable [UseBox]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+137:    EX_CallMulticastDelegate export UI_CoreInfuser_Reward_Icon_C->OnRewardSelected__DelegateSignature
+            EX_InstanceVariable [OnRewardSelected]
+            EX_Self
+157:    EX_LetBool
+            EX_LocalOutVariable
+                [Reward Given]
+            EX_True
+168:    EX_Jump 184
+173:    EX_LetBool
+            EX_LocalOutVariable
+                [Reward Given]
+            EX_False
+184:    EX_Return
+            EX_Nothing
+186:    EX_EndOfScript
+FunctionExport GetIsRewardSelected
+0:      EX_LetBool
+            EX_LocalOutVariable
+                [IsSelected]
+            EX_InstanceVariable [IsRewardSelected]
+19:     EX_Return
+            EX_Nothing
+21:     EX_EndOfScript
+FunctionExport SetSchematicReward
+0:      EX_LetObj
+            EX_InstanceVariable [SchematicReward]
+            EX_LocalVariable [InSchematic]
+19:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SchematicReward]
+48:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_Self
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+126:    EX_JumpIfNot 625
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+140:    EX_Context
+            EX_InstanceVariable [ITM_CharacterIcon]
+            EX_LocalVirtualFunction SetFromCharacterID
+                EX_Context
+                    EX_InstanceVariable [SchematicReward]
+                    EX_InstanceVariable [UsedByCharacter]
+                    RValue = [UsedByCharacter]
+            RValue = []
+207:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_InstanceVariable [SchematicReward]
+                    EX_InstanceVariable [UsedByCharacter]
+                    RValue = [UsedByCharacter]
+258:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [ITM_CharacterIcon]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+344:    EX_LetObj
+            EX_LocalVariable [RewardType]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [SchematicReward]
+                    EX_InstanceVariable [Category]
+                    RValue = [Category]
+                EX_InstanceVariable [RewardType]
+                RValue = [RewardType]
+407:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SetSoftTextureAndTint
+                EX_InstanceVariable [RewardIcon_Front]
+                EX_Context
+                    EX_LocalVariable [RewardType]
+                    EX_InstanceVariable [IconFront]
+                    RValue = [IconFront]
+                EX_False
+                EX_Context
+                    EX_LocalVariable [RewardType]
+                    EX_InstanceVariable [IconFrontTint]
+                    RValue = [IconFrontTint]
+                EX_Self
+            RValue = []
+516:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SetSoftTextureAndTint
+                EX_InstanceVariable [RewardIcon_Back]
+                EX_Context
+                    EX_LocalVariable [RewardType]
+                    EX_InstanceVariable [IconBack]
+                    RValue = [IconBack]
+                EX_False
+                EX_Context
+                    EX_LocalVariable [RewardType]
+                    EX_InstanceVariable [IconBackTint]
+                    RValue = [IconBackTint]
+                EX_Self
+            RValue = []
+625:    EX_Return
+            EX_Nothing
+627:    EX_EndOfScript
+FunctionExport GetReward
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [SchematicReward]
+            EX_InstanceVariable [SchematicReward]
+19:     EX_Return
+            EX_Nothing
+21:     EX_EndOfScript
+FunctionExport ToggleActivateAudio
+0:      EX_JumpIfNot 62
+            EX_LocalVariable [AudioActive]
+14:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [ActivateAudio]
+43:     EX_JumpIfNot 169
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+57:     EX_Jump 361
+62:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [ActivateAudio]
+91:     EX_JumpIfNot 361
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+105:    EX_Context
+            EX_InstanceVariable [ActivateAudio]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.2
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+153:    EX_LetObj
+            EX_InstanceVariable [ActivateAudio]
+            EX_NoObject
+164:    EX_Jump 361
+169:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [RewardDispenser]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+219:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/MenusButtonsEtc/Activation_Wait_Cue->Activation_Wait_Cue
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+289:    EX_LetObj
+            EX_InstanceVariable [ActivateAudio]
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+308:    EX_Context
+            EX_InstanceVariable [ActivateAudio]
+            EX_VirtualFunction FadeIn
+                EX_FloatConst 0.3
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+361:    EX_Return
+            EX_Nothing
+363:    EX_EndOfScript

@@ -1,0 +1,233 @@
+FunctionExport ExecuteUbergraph_BP_WaterBalloon
+0:      EX_PushExecutionFlow 1279
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_DoesSocketExist_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Component_1]
+                EX_VirtualFunction DoesSocketExist
+                    EX_InstanceVariable [ImpulseSocketName]
+                RValue = [CallFunc_DoesSocketExist_ReturnValue]
+70:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_DoesSocketExist_ReturnValue]
+80:     EX_Let
+            EX_LocalVariable [CallFunc_GetMass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Component_1]
+                EX_VirtualFunction GetMass
+                RValue = [CallFunc_GetMass_ReturnValue]
+134:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketBoneName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Component_1]
+                EX_FinalFunction import /Script/Engine->SkinnedMeshComponent->GetSocketBoneName
+                    EX_InstanceVariable [ImpulseSocketName]
+                RValue = [CallFunc_GetSocketBoneName_ReturnValue]
+193:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+221:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [K2Node_CustomEvent_Position_1]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+267:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+295:    EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue_1]
+                EX_FloatConst 0.0001
+337:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [ImpulseStrength]
+                EX_LocalVariable [CallFunc_GetMass_ReturnValue]
+383:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+429:    EX_Context
+            EX_LocalVariable [K2Node_CustomEvent_Component_1]
+            EX_VirtualFunction AddImpulseAtLocation
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                EX_LocalVariable [CallFunc_GetSocketBoneName_ReturnValue]
+            RValue = []
+492:    EX_PopExecutionFlow
+493:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [BalloonMesh]
+            EX_InstanceVariable [Death Sound]
+            EX_ObjectConst import /Game/Art/Environments/Holiday_BeachParty/Particles/NS_WaterBalloon_Splash->NS_WaterBalloon_Splash
+            EX_FloatConst 1
+            EX_NoObject
+537:    EX_PopExecutionFlow
+538:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+558:    EX_JumpIfNot 573
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+572:    EX_PopExecutionFlow
+573:    EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_FinalFunction import /Script/Engine->PrimitiveComponent->SetGenerateOverlapEvents
+                EX_False
+            RValue = []
+606:    EX_PopExecutionFlow
+607:    EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_FinalFunction import /Script/Engine->PrimitiveComponent->IgnoreActorWhenMoving
+                EX_LocalVariable [K2Node_Event_character]
+                EX_True
+            RValue = []
+649:    EX_PopExecutionFlow
+650:    EX_VirtualFunction Impact
+            EX_LocalVariable [K2Node_Event_Other]
+            EX_LocalVariable [K2Node_Event_HitLocation]
+682:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_Event_Other]
+718:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+747:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+757:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_ObjectConst import /Game/Character/Shouts/Shout_SnowBall_BeingHit->Shout_SnowBall_BeingHit
+            RValue = []
+820:    EX_PopExecutionFlow
+821:    EX_Let
+            EX_LocalVariable [CallFunc_GetMass_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Component]
+                EX_VirtualFunction GetMass
+                RValue = [CallFunc_GetMass_ReturnValue_1]
+875:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Component]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+925:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [ImpulseStrength]
+                EX_LocalVariable [CallFunc_GetMass_ReturnValue_1]
+971:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [K2Node_CustomEvent_Position]
+1017:   EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+                EX_FloatConst 0.0001
+1059:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+1105:   EX_Context
+            EX_LocalVariable [K2Node_CustomEvent_Component]
+            EX_VirtualFunction AddImpulseAtLocation
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [K2Node_CustomEvent_Position]
+                EX_NameConst Center
+            RValue = []
+1172:   EX_PopExecutionFlow
+1173:   EX_PushExecutionFlow 1183
+1178:   EX_Jump 538
+1183:   EX_Context
+            EX_InstanceVariable [Movement]
+            EX_VirtualFunction SetUpdatedComponent
+                EX_InstanceVariable [Sphere]
+            RValue = []
+1228:   EX_Context
+            EX_InstanceVariable [Movement]
+            EX_VirtualFunction SetUpdatedComponent
+                EX_InstanceVariable [Sphere]
+            RValue = []
+1273:   EX_PopExecutionFlow
+1274:   EX_Jump 1173
+1279:   EX_Return
+            EX_Nothing
+1281:   EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_WaterBalloon_C->ExecuteUbergraph_BP_WaterBalloon
+            EX_IntConst 1274
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ApplyForceSM
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Component]
+            EX_LocalVariable [Component]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Position]
+            EX_LocalVariable [Position]
+36:     EX_LocalFinalFunction export BP_WaterBalloon_C->ExecuteUbergraph_BP_WaterBalloon
+            EX_IntConst 821
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ApplyForceSK
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Component_1]
+            EX_LocalVariable [Component]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Position_1]
+            EX_LocalVariable [Position]
+36:     EX_LocalFinalFunction export BP_WaterBalloon_C->ExecuteUbergraph_BP_WaterBalloon
+            EX_IntConst 15
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Impact
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Other]
+            EX_LocalVariable [Other]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HitPosition]
+            EX_LocalVariable [HitPosition]
+36:     EX_LocalFinalFunction export BP_WaterBalloon_C->ExecuteUbergraph_BP_WaterBalloon
+            EX_IntConst 493
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveIgnoreCharacter
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_character]
+            EX_LocalVariable [character]
+18:     EX_LocalFinalFunction export BP_WaterBalloon_C->ExecuteUbergraph_BP_WaterBalloon
+            EX_IntConst 607
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveHit
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_MyComp]
+            EX_LocalVariable [MyComp]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_Other]
+            EX_LocalVariable [Other]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_Event_bSelfMoved]
+            EX_LocalVariable [bSelfMoved]
+72:     EX_LetValueOnPersistentFrame [K2Node_Event_HitLocation]
+            EX_LocalVariable [HitLocation]
+90:     EX_LetValueOnPersistentFrame [K2Node_Event_HitNormal]
+            EX_LocalVariable [HitNormal]
+108:    EX_LetValueOnPersistentFrame [K2Node_Event_NormalImpulse]
+            EX_LocalVariable [NormalImpulse]
+126:    EX_LetValueOnPersistentFrame [K2Node_Event_Hit]
+            EX_LocalOutVariable
+                [Hit]
+144:    EX_LocalFinalFunction export BP_WaterBalloon_C->ExecuteUbergraph_BP_WaterBalloon
+            EX_IntConst 650
+159:    EX_Return
+            EX_Nothing
+161:    EX_EndOfScript

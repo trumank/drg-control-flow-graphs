@@ -1,0 +1,256 @@
+FunctionExport ExecuteUbergraph_HUD_IronWill_Activation
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+26:     EX_BindDelegate OnTeamDown_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+49:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+70:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnTeamDown]
+                RValue = [OnTeamDown]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+111:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+131:    EX_BindDelegate OnCharacterStateChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+154:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_1]
+                EX_InstanceVariable [OnCharacterStateChanged]
+                RValue = [OnCharacterStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+195:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+215:    EX_Let
+            EX_LocalVariable [CallFunc_GetCurrentState_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetCurrentState
+                RValue = [CallFunc_GetCurrentState_ReturnValue]
+265:    EX_LocalVirtualFunction OnCharacterStateChanged
+            EX_LocalVariable [CallFunc_GetCurrentState_ReturnValue]
+288:    EX_Jump 1393
+293:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction SetHolding
+                EX_False
+            RValue = []
+330:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_newState]
+                EX_ByteConst 1
+361:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_3]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+381:    EX_LetBool
+            EX_LocalVariable [CallFunc_CanActivateIronWill_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_3]
+                    EX_InstanceVariable [HealthComponent]
+                    RValue = [HealthComponent]
+                EX_FinalFunction import /Script/FSD->PlayerHealthComponent->CanActivateIronWill
+                RValue = [CallFunc_CanActivateIronWill_ReturnValue]
+445:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+                EX_LocalVariable [CallFunc_CanActivateIronWill_ReturnValue]
+483:    EX_LetBool
+            EX_InstanceVariable [PlayerDown]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+502:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_Self
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [PlayerDown]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+580:    EX_JumpIfNot 767
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+594:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_4]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+614:    EX_BindDelegate StartHolding
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+637:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_4]
+                EX_InstanceVariable [OnJumpPressed]
+                RValue = [OnJumpPressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+678:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_4]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+698:    EX_BindDelegate EndHolding
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+721:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_4]
+                EX_InstanceVariable [OnJumpReleased]
+                RValue = [OnJumpReleased]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+762:    EX_Jump 1393
+767:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction CancelCountDown
+                EX_False
+            RValue = []
+804:    EX_LocalVirtualFunction UnbindEvents
+818:    EX_Jump 1393
+823:    EX_Jump 293
+828:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction SetHolding
+                EX_False
+            RValue = []
+865:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+881:    EX_LocalVirtualFunction UnbindEvents
+895:    EX_Jump 1393
+900:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_2]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+920:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_2]
+                EX_InstanceVariable [HealthComponent]
+                RValue = [HealthComponent]
+            EX_VirtualFunction Server_TryActivateIronWill
+            RValue = []
+978:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+994:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction CancelCountDown
+                EX_False
+            RValue = []
+1031:   EX_LocalVirtualFunction UnbindEvents
+1045:   EX_Jump 1393
+1050:   EX_BindDelegate StartHolding
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+1073:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_5]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+1093:   EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_5]
+                EX_InstanceVariable [OnJumpPressed]
+                RValue = [OnJumpPressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+1134:   EX_BindDelegate EndHolding
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+1157:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_5]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+1177:   EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_5]
+                EX_InstanceVariable [OnJumpReleased]
+                RValue = [OnJumpReleased]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+1218:   EX_Jump 1393
+1223:   EX_Jump 10
+1228:   EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction CancelCountDown
+                EX_True
+            RValue = []
+1265:   EX_Jump 1393
+1270:   EX_JumpIfNot 1228
+            EX_LocalVariable [K2Node_CustomEvent_boolValue]
+1284:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_6]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+1304:   EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction BeginCountDown
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_6]
+                        EX_InstanceVariable [HealthComponent]
+                        RValue = [HealthComponent]
+                    EX_InstanceVariable [IronWillTimeToActivate]
+                    RValue = [IronWillTimeToActivate]
+            RValue = []
+1393:   EX_Return
+            EX_Nothing
+1395:   EX_EndOfScript
+FunctionExport OnTeamDown_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_boolValue]
+            EX_LocalVariable [boolValue]
+18:     EX_LocalFinalFunction export HUD_IronWill_Activation_C->ExecuteUbergraph_HUD_IronWill_Activation
+            EX_IntConst 1270
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_IronWill_Activation_C->ExecuteUbergraph_HUD_IronWill_Activation
+            EX_IntConst 1223
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UnbindEvents
+0:      EX_LocalFinalFunction export HUD_IronWill_Activation_C->ExecuteUbergraph_HUD_IronWill_Activation
+            EX_IntConst 1050
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__HUD_Hold_Activation_K2Node_ComponentBoundEvent_1_OnHoldingFinished__DelegateSignature
+0:      EX_LocalFinalFunction export HUD_IronWill_Activation_C->ExecuteUbergraph_HUD_IronWill_Activation
+            EX_IntConst 900
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__HUD_Hold_Activation_K2Node_ComponentBoundEvent_0_OnCountDownFinished__DelegateSignature
+0:      EX_LocalFinalFunction export HUD_IronWill_Activation_C->ExecuteUbergraph_HUD_IronWill_Activation
+            EX_IntConst 828
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnCharacterStateChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_newState]
+            EX_LocalVariable [newState]
+18:     EX_LocalFinalFunction export HUD_IronWill_Activation_C->ExecuteUbergraph_HUD_IronWill_Activation
+            EX_IntConst 823
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport StartHolding
+0:      EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction SetHolding
+                EX_True
+            RValue = []
+37:     EX_Return
+            EX_Nothing
+39:     EX_EndOfScript
+FunctionExport EndHolding
+0:      EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction SetHolding
+                EX_False
+            RValue = []
+37:     EX_Return
+            EX_Nothing
+39:     EX_EndOfScript

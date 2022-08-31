@@ -1,0 +1,66 @@
+FunctionExport ExecuteUbergraph_AIC_Maggot
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+30:     EX_JumpIfNot 284
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+44:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->SimpleHealthComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+95:     EX_BindDelegate OnDeath
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+118:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+159:    EX_Jump 284
+164:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+184:    EX_JumpIfNot 284
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+198:    EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_InstanceVariable [BehaviorTree]
+231:    EX_Jump 284
+236:    EX_Jump 164
+241:    EX_Context
+            EX_InstanceVariable [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+284:    EX_Return
+            EX_Nothing
+286:    EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_Maggot_C->ExecuteUbergraph_AIC_Maggot
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDeath
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export AIC_Maggot_C->ExecuteUbergraph_AIC_Maggot
+            EX_IntConst 241
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Maggot_C->ExecuteUbergraph_AIC_Maggot
+            EX_IntConst 236
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

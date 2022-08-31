@@ -1,0 +1,132 @@
+FunctionExport ExecuteUbergraph_BP_CompleteMissionScreen_DorettaHead
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [SM_Doretta_Broken]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_True
+                EX_False
+            RValue = []
+44:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Niagara]
+73:     EX_JumpIfNot 727
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+87:     EX_Context
+            EX_InstanceVariable [NiagaraNoBlinking]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+120:    EX_Context
+            EX_InstanceVariable [Niagara]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+153:    EX_Jump 727
+158:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+179:    EX_BindDelegate StartPlay
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+202:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [OnCharacterSelectionStart]
+                RValue = [OnCharacterSelectionStart]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+243:    EX_Jump 727
+248:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_selectionLocation]
+                EX_ByteConst 4
+279:    EX_JumpIfNot 10
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+293:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+314:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameState->GetPrimaryObjective
+                RValue = [CallFunc_GetPrimaryObjective_ReturnValue]
+356:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+            EX_DynamicCast import /Script/FSD->EscortObjective
+                EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+392:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+421:    EX_JumpIfNot 10
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+435:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+                    EX_InstanceVariable [DidRescueDorettaHead]
+                    RValue = [DidRescueDorettaHead]
+486:    EX_Context
+            EX_InstanceVariable [SM_Doretta_Broken]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_False
+            RValue = []
+528:    EX_JumpIfNot 44
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+                EX_InstanceVariable [DidRescueDorettaHead]
+                RValue = [DidRescueDorettaHead]
+564:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+584:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPhotosensitiveMode
+                RValue = [CallFunc_GetPhotosensitiveMode_ReturnValue]
+626:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+645:    EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 699
+                case 0:
+                    EX_False
+                    NextCaseOffset = 676
+                    EX_InstanceVariable [Niagara]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 690
+                    EX_InstanceVariable [NiagaraNoBlinking]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_VirtualFunction SetActive
+                EX_True
+                EX_False
+            RValue = []
+727:    EX_Return
+            EX_Nothing
+729:    EX_EndOfScript
+FunctionExport StartPlay
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_selectionLocation]
+            EX_LocalVariable [selectionLocation]
+18:     EX_LocalFinalFunction export BP_CompleteMissionScreen_DorettaHead_C->ExecuteUbergraph_BP_CompleteMissionScreen_DorettaHead
+            EX_IntConst 248
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_CompleteMissionScreen_DorettaHead_C->ExecuteUbergraph_BP_CompleteMissionScreen_DorettaHead
+            EX_IntConst 158
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

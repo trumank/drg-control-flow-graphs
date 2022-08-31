@@ -1,0 +1,141 @@
+FunctionExport ExecuteUbergraph_BP_SpawnerEyeComponent
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_FinalFunction import /Script/Engine->ActorComponent->SetIsReplicated
+            EX_True
+21:     EX_Jump 31
+26:     EX_Jump 10
+31:     EX_Return
+            EX_Nothing
+33:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_SpawnerEyeComponent_C->ExecuteUbergraph_BP_SpawnerEyeComponent
+            EX_IntConst 26
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetMeshAndCollider
+0:      EX_LetObj
+            EX_InstanceVariable [EyeCollider]
+            EX_LocalVariable [Collider]
+19:     EX_LetObj
+            EX_InstanceVariable [EyeMesh]
+            EX_LocalVariable [Mesh]
+38:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [PartOfTotalHealth]
+75:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [SpawnerHealth]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+121:    EX_Let
+            EX_InstanceVariable [Health]
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+148:    EX_Return
+            EX_Nothing
+150:    EX_EndOfScript
+FunctionExport TakeDamage
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_InstanceVariable [Health]
+                EX_FloatConst 0
+34:     EX_JumpIfNot 239
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+48:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [Health]
+                EX_LocalVariable [Damage]
+94:     EX_Let
+            EX_InstanceVariable [Health]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+121:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_InstanceVariable [Health]
+                EX_FloatConst 0
+155:    EX_JumpIfNot 255
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+169:    EX_LetBool
+            EX_InstanceVariable [IsAlive]
+            EX_False
+180:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 2
+            EX_NameConst IsAlive
+209:    EX_LocalVirtualFunction OnRep_IsAlive
+223:    EX_LetBool
+            EX_LocalOutVariable
+                [Died]
+            EX_True
+234:    EX_Jump 266
+239:    EX_LetBool
+            EX_LocalOutVariable
+                [Died]
+            EX_False
+250:    EX_Jump 266
+255:    EX_LetBool
+            EX_LocalOutVariable
+                [Died]
+            EX_False
+266:    EX_Return
+            EX_Nothing
+268:    EX_EndOfScript
+FunctionExport IsEyeThatWasHit
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [EyeCollider]
+                EX_InstanceVariable [EyeCollider]
+38:     EX_LetBool
+            EX_LocalOutVariable
+                [WasHit]
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+57:     EX_Return
+            EX_Nothing
+59:     EX_EndOfScript
+FunctionExport OnRep_IsAlive
+0:      EX_JumpIfNot 19
+            EX_InstanceVariable [IsAlive]
+14:     EX_Jump 251
+19:     EX_Context
+            EX_InstanceVariable [EyeMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+53:     EX_Context
+            EX_InstanceVariable [EyeCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+91:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAttached
+                EX_ObjectConst import /Game/Enemies/EnemySpawner/P_Spawner_Blood_Squirt_A1->P_Spawner_Blood_Squirt_A1
+                EX_InstanceVariable [EyeCollider]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_ByteConst 2
+                EX_True
+                EX_ByteConst 0
+                EX_True
+187:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/WetExplode/Spider_Explode_Cue->Spider_Explode_Cue
+            EX_VectorConst 0,0,0
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+251:    EX_Return
+            EX_Nothing
+253:    EX_EndOfScript

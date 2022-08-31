@@ -1,0 +1,161 @@
+FunctionExport ExecuteUbergraph_CSC_IceCaveLogic
+0:      EX_PushExecutionFlow 567
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction SpawnParticles
+            EX_LocalVariable [K2Node_CustomEvent_PlayerCharacter]
+38:     EX_PopExecutionFlow
+39:     EX_PushExecutionFlow 170
+44:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+65:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [ActivePlayerCharacters]
+                    RValue = [ActivePlayerCharacters]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+146:    EX_LocalVirtualFunction SpawnParticles
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+169:    EX_PopExecutionFlow
+170:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+212:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+239:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+260:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                        EX_InstanceVariable [ActivePlayerCharacters]
+                        RValue = [ActivePlayerCharacters]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+341:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+379:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+389:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+416:    EX_Jump 39
+421:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+444:    EX_Jump 239
+449:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+472:    EX_Jump 421
+477:    EX_BindDelegate OnPlayerCharacterRegistered
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+500:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+521:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnPlayerCharacterRegistered]
+                RValue = [OnPlayerCharacterRegistered]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+562:    EX_Jump 449
+567:    EX_Return
+            EX_Nothing
+569:    EX_EndOfScript
+FunctionExport OnPlayerCharacterRegistered
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PlayerCharacter]
+            EX_LocalVariable [PlayerCharacter]
+18:     EX_LocalFinalFunction export CSC_IceCaveLogic_C->ExecuteUbergraph_CSC_IceCaveLogic
+            EX_IntConst 15
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export CSC_IceCaveLogic_C->ExecuteUbergraph_CSC_IceCaveLogic
+            EX_IntConst 477
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SpawnParticles
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAttached
+                EX_ObjectConst import /Game/CharacterStructure/Particles/P_TP_BreathingCold_A->P_TP_BreathingCold_A
+                EX_Context
+                    EX_LocalVariable [Character]
+                    EX_InstanceVariable [Mesh]
+                    RValue = [Mesh]
+                EX_NameConst Breathing_Socket
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_ByteConst 2
+                EX_True
+                EX_ByteConst 0
+                EX_True
+118:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsFirstPerson_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->IsFirstPerson
+                RValue = [CallFunc_IsFirstPerson_ReturnValue]
+160:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsFirstPerson_ReturnValue]
+189:    EX_Context
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_False
+            RValue = []
+231:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAttached
+                EX_ObjectConst import /Game/CharacterStructure/Particles/P_FP_BreathingCold_A->P_FP_BreathingCold_A
+                EX_Context
+                    EX_LocalVariable [Character]
+                    EX_InstanceVariable [FPMesh]
+                    RValue = [FPMesh]
+                EX_NameConst Breathing_Socket
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_ByteConst 2
+                EX_False
+                EX_ByteConst 0
+                EX_True
+349:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsFirstPerson_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->IsFirstPerson
+                RValue = [CallFunc_IsFirstPerson_ReturnValue]
+391:    EX_Context
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [CallFunc_IsFirstPerson_ReturnValue]
+                EX_False
+            RValue = []
+433:    EX_Return
+            EX_Nothing
+435:    EX_EndOfScript

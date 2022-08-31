@@ -1,0 +1,346 @@
+FunctionExport ExecuteUbergraph_ITM_Grenade_Base
+0:      EX_PushExecutionFlow 1894
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [DelayedDestructionParticles]
+44:     EX_JumpIfNot 155
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+58:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+86:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [DelayedDestructionParticles]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+155:    EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+189:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+209:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+219:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 10
+238:    EX_PopExecutionFlow
+239:    EX_PushExecutionFlow 383
+244:    EX_Context
+            EX_InstanceVariable [Widget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+278:    EX_Context
+            EX_InstanceVariable [P_GrenadeTrail]
+            EX_VirtualFunction Deactivate
+            RValue = []
+314:    EX_PushExecutionFlow 856
+319:    EX_PushExecutionFlow 554
+324:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_InstanceVariable [GrenadeLifetimeAfterExplosion]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 641007408
+                EX_NameConst ExecuteUbergraph_ITM_Grenade_Base
+                EX_Self
+382:    EX_PopExecutionFlow
+383:    EX_Context
+            EX_ObjectConst import /Game/Audio/Functions/MixFunctions->Default__MixFunctions_C
+            EX_LocalVirtualFunction PushMixAtDistance
+                EX_InstanceVariable [ExplosionMixModifier]
+                EX_Self
+                EX_InstanceVariable [ExplosionDuckMinDistance]
+                EX_InstanceVariable [ExplosionDuckMaxDistance]
+                EX_Self
+            RValue = []
+448:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_InstanceVariable [ExplosionDuckingTime]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 507
+                EX_IntConst 1730254642
+                EX_NameConst ExecuteUbergraph_ITM_Grenade_Base
+                EX_Self
+506:    EX_PopExecutionFlow
+507:    EX_Context
+            EX_ObjectConst import /Game/Audio/Functions/MixFunctions->Default__MixFunctions_C
+            EX_LocalVirtualFunction PopMix
+                EX_InstanceVariable [ExplosionMixModifier]
+                EX_Self
+            RValue = []
+553:    EX_PopExecutionFlow
+554:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+600:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+610:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/Character/Shouts/HandlingWeaponsNTools/Shout_Grenade_Explode->Shout_Grenade_Explode
+629:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_Context
+                    EX_Context
+                        EX_Context
+                            EX_InstanceVariable [Character]
+                            EX_InstanceVariable [InventoryComponent]
+                            RValue = [InventoryComponent]
+                        EX_InstanceVariable [GrenadeItem]
+                        RValue = [GrenadeItem]
+                    EX_InstanceVariable [Grenades]
+                    RValue = [Grenades]
+                EX_IntConst 0
+729:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+748:    EX_Context
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 854
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 831
+                        EX_LocalVariable [Temp_object_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 845
+                        EX_InstanceVariable [OutOfGrenadesShout]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+855:    EX_PopExecutionFlow
+856:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [DebugRadius]
+                EX_FloatConst 0
+890:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+900:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+928:    EX_CallMath import /Script/Engine->KismetSystemLibrary->DrawDebugSphere
+            EX_Self
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_InstanceVariable [DebugRadius]
+            EX_IntConst 12
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0.047706
+                EX_FloatConst 1
+            EX_FloatConst 5
+            EX_FloatConst 1
+1006:   EX_PopExecutionFlow
+1007:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1027:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+1037:   EX_Context
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [CommunicationComponent]
+                RValue = [CommunicationComponent]
+            EX_FinalFunction import /Script/FSD->CommunicationComponent->ShoutCustom
+                EX_InstanceVariable [Grenade warning]
+            RValue = []
+1100:   EX_PopExecutionFlow
+1101:   EX_LocalVirtualFunction OnBeginPlay
+1115:   EX_PopExecutionFlow
+1116:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_InstanceVariable [ExplosionDelay]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 239
+                EX_IntConst 1673163956
+                EX_NameConst ExecuteUbergraph_ITM_Grenade_Base
+                EX_Self
+1174:   EX_PopExecutionFlow
+1175:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+1203:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/Characters/Dwarf_Throw_Cue->Dwarf_Throw_Cue
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+1273:   EX_Let
+            EX_LocalVariable [CallFunc_RandomUnitVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomUnitVector
+1301:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_RandomUnitVector_ReturnValue]
+                EX_FloatConst 3
+1343:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorRightVector
+1371:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+                EX_FloatConst 20
+1413:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+1459:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_InstanceVariable [InitialAngularVelocityScale]
+1505:   EX_Context
+            EX_InstanceVariable [Box]
+            EX_VirtualFunction AddAngularImpulseInRadians
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_2]
+                EX_NameConst None
+                EX_True
+            RValue = []
+1564:   EX_Jump 1007
+1569:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetOwner
+1589:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+1625:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1654:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1664:   EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1683:   EX_Jump 1175
+1688:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsHUDVisible_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->IsHUDVisible
+                EX_Self
+1709:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+1729:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue_1]
+1775:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_1]
+1804:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsHUDVisible_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+1842:   EX_Context
+            EX_InstanceVariable [Widget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_False
+            RValue = []
+1884:   EX_Jump 1569
+1889:   EX_Jump 1688
+1894:   EX_Return
+            EX_Nothing
+1896:   EX_EndOfScript
+FunctionExport OnBeginPlay
+0:      EX_LocalFinalFunction export ITM_Grenade_Base_C->ExecuteUbergraph_ITM_Grenade_Base
+            EX_IntConst 1889
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnExploded
+0:      EX_LocalFinalFunction export ITM_Grenade_Base_C->ExecuteUbergraph_ITM_Grenade_Base
+            EX_IntConst 1116
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ITM_Grenade_Base_C->ExecuteUbergraph_ITM_Grenade_Base
+            EX_IntConst 1101
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport AddGearStateEntries
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport GetCooldownTime
+0:      EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [Cooldown]
+27:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+37:     EX_EndOfScript
+FunctionExport GetGearStatEntry
+0:      EX_PushExecutionFlow 198
+5:      EX_PushExecutionFlow 166
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+31:     EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Grenades
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Grenades_GearStatEntry]
+            RValue = []
+97:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Grenades_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+165:    EX_PopExecutionFlow
+166:    EX_LocalVirtualFunction AddGearStateEntries
+            EX_LocalVariable [playerState]
+            EX_LocalOutVariable
+                [stats]
+198:    EX_Return
+            EX_Nothing
+200:    EX_EndOfScript

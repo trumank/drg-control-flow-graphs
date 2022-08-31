@@ -1,0 +1,139 @@
+FunctionExport ExecuteUbergraph_PRJ_PatrolBotRocket
+0:      EX_PushExecutionFlow 288
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_Context
+                EX_InstanceVariable [MovementComponent]
+                EX_InstanceVariable [bIsHomingProjectile]
+                RValue = [bIsHomingProjectile]
+            EX_True
+48:     EX_PopExecutionFlow
+49:     EX_LocalVirtualFunction OnRep_Explode
+63:     EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageOnlyFromHit
+                EX_LocalVariable [K2Node_Event_HitResult]
+                EX_InstanceVariable [Damage]
+            RValue = []
+113:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 1
+132:    EX_PopExecutionFlow
+133:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 15
+            EX_NameConst Explode
+162:    EX_Jump 49
+167:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+177:    EX_LetBool
+            EX_InstanceVariable [Explode]
+            EX_True
+188:    EX_Jump 133
+193:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -308574747
+                EX_NameConst ExecuteUbergraph_PRJ_PatrolBotRocket
+                EX_Self
+247:    EX_PopExecutionFlow
+248:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+268:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+278:    EX_Jump 167
+283:    EX_Jump 248
+288:    EX_Return
+            EX_Nothing
+290:    EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_PatrolBotRocket_C->ExecuteUbergraph_PRJ_PatrolBotRocket
+            EX_IntConst 248
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export PRJ_PatrolBotRocket_C->ExecuteUbergraph_PRJ_PatrolBotRocket
+            EX_IntConst 193
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Health_K2Node_ComponentBoundEvent_0_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export PRJ_PatrolBotRocket_C->ExecuteUbergraph_PRJ_PatrolBotRocket
+            EX_IntConst 283
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnRep_Explode
+0:      EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+28:     EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ProjectileExplosion->SpawnEffects
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_VectorConst 0,0,1
+            RValue = []
+82:     EX_Context
+            EX_InstanceVariable [Visuals]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_True
+                EX_True
+            RValue = []
+116:    EX_Context
+            EX_InstanceVariable [CollisionComponent]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+154:    EX_Return
+            EX_Nothing
+156:    EX_EndOfScript
+FunctionExport ShowDamageEffects
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport GetTargetHealthComponent
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_NoObject
+11:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+21:     EX_EndOfScript
+FunctionExport GetTargetCenterMass
+0:      EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+28:     EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+55:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+65:     EX_EndOfScript
+FunctionExport GetIsTargetable
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Health]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+46:     EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+65:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+75:     EX_EndOfScript

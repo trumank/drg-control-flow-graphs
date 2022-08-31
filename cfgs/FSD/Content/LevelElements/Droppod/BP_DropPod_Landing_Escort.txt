@@ -1,0 +1,64 @@
+FunctionExport ExecuteUbergraph_BP_DropPod_Landing_Escort
+0:      EX_PushExecutionFlow 306
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+36:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameState->GetPrimaryObjective
+                RValue = [CallFunc_GetPrimaryObjective_ReturnValue]
+78:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+            EX_DynamicCast import /Script/FSD->EscortObjective
+                EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+114:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+143:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsEscort_Objective]
+            EX_LocalVirtualFunction SpawnGarage
+            RValue = []
+179:    EX_PopExecutionFlow
+180:    EX_LocalFinalFunction import /Game/LevelElements/Droppod/BP_DropPod_Landing->BP_DropPod_Landing_C->OnFirstPlayerLeftPod
+190:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+210:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+220:    EX_JumpIfNot 15
+            EX_InstanceVariable [ShouldDelaySpawnGarage]
+234:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 7
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -295767550
+                EX_NameConst ExecuteUbergraph_BP_DropPod_Landing_Escort
+                EX_Self
+288:    EX_PopExecutionFlow
+289:    EX_LetBool
+            EX_InstanceVariable [ShouldDelaySpawnGarage]
+            EX_False
+300:    EX_PopExecutionFlow
+301:    EX_Jump 180
+306:    EX_Return
+            EX_Nothing
+308:    EX_EndOfScript
+FunctionExport BypassGarageSpawnDelay
+0:      EX_LocalFinalFunction export BP_DropPod_Landing_Escort_C->ExecuteUbergraph_BP_DropPod_Landing_Escort
+            EX_IntConst 289
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFirstPlayerLeftPod
+0:      EX_LocalFinalFunction export BP_DropPod_Landing_Escort_C->ExecuteUbergraph_BP_DropPod_Landing_Escort
+            EX_IntConst 301
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

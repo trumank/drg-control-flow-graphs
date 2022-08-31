@@ -1,0 +1,186 @@
+FunctionExport ExecuteUbergraph_HUD_Altimeter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/FSD->HUDVisibilityGroup->RegisterWidgetWithVisibilityGroup
+            EX_Self
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_RadarAndDepth->HG_RadarAndDepth
+            EX_ByteConst 4
+            EX_ByteConst 1
+34:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+58:     EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+                RValue = [CallFunc_K2_GetPawn_ReturnValue]
+100:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+136:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+165:    EX_JumpIfNot 524
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+179:    EX_BindDelegate DepthChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+202:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [OnDepthChanged]
+                RValue = [OnDepthChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+243:    EX_Jump 524
+248:    EX_Jump 10
+253:    EX_LocalVirtualFunction SetDepth
+            EX_LocalVariable [K2Node_CustomEvent_Depth]
+276:    EX_Jump 524
+281:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+329:    EX_Context
+            EX_InstanceVariable [Border]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+370:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+418:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+454:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+483:    EX_Context
+            EX_InstanceVariable [DepthLabel]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+524:    EX_Return
+            EX_Nothing
+526:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Altimeter_C->ExecuteUbergraph_HUD_Altimeter
+            EX_IntConst 281
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport DepthChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Depth]
+            EX_LocalVariable [Depth]
+18:     EX_LocalFinalFunction export HUD_Altimeter_C->ExecuteUbergraph_HUD_Altimeter
+            EX_IntConst 253
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Altimeter_C->ExecuteUbergraph_HUD_Altimeter
+            EX_IntConst 248
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetDepth
+0:      EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    TableId = /Game/Game/Text/Units.Units
+                    TableKey = Meters_Unit
+80:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntInt
+                EX_LocalVariable [NewDepth]
+                EX_IntConst -1
+122:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst unit
+155:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+184:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+220:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+252:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+284:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+313:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Multiply_IntInt_ReturnValue]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+362:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst depth
+396:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 4
+425:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+461:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_IntConst 0
+493:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+525:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+554:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+583:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {depth} {unit}
+                    LocalizedKey = 751D296440E8A344D8DB5D82D14AA8B9
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+674:    EX_Context
+            EX_InstanceVariable [DepthLabel]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+719:    EX_Return
+            EX_Nothing
+721:    EX_EndOfScript

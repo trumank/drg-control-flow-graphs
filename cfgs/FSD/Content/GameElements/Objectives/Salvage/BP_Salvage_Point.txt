@@ -1,0 +1,82 @@
+FunctionExport ExecuteUbergraph_BP_Salvage_Point
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Jump 25
+15:     EX_Jump 25
+20:     EX_Jump 25
+25:     EX_Return
+            EX_Nothing
+27:     EX_EndOfScript
+FunctionExport OnDefenseFail
+0:      EX_LocalFinalFunction export BP_Salvage_Point_C->ExecuteUbergraph_BP_Salvage_Point
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport EnableRepair
+0:      EX_LocalFinalFunction export BP_Salvage_Point_C->ExecuteUbergraph_BP_Salvage_Point
+            EX_IntConst 25
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenseStart
+0:      EX_LocalFinalFunction export BP_Salvage_Point_C->ExecuteUbergraph_BP_Salvage_Point
+            EX_IntConst 20
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDefenseComplete
+0:      EX_LocalFinalFunction export BP_Salvage_Point_C->ExecuteUbergraph_BP_Salvage_Point
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_State
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_ByteToInt
+                EX_InstanceVariable [SalvageState]
+37:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchInteger_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_IntInt
+                EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+                EX_IntConst 1
+71:     EX_JumpIfNot 186
+            EX_LocalVariable [K2Node_SwitchInteger_CmpSuccess]
+85:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchInteger_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_IntInt
+                EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+                EX_IntConst 2
+119:    EX_JumpIfNot 205
+            EX_LocalVariable [K2Node_SwitchInteger_CmpSuccess]
+133:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchInteger_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_IntInt
+                EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+                EX_IntConst 3
+167:    EX_JumpIfNot 224
+            EX_LocalVariable [K2Node_SwitchInteger_CmpSuccess]
+181:    EX_Jump 238
+186:    EX_LocalVirtualFunction OnDefenseStart
+200:    EX_Jump 238
+205:    EX_LocalVirtualFunction OnDefenseComplete
+219:    EX_Jump 238
+224:    EX_LocalVirtualFunction OnDefenseFail
+238:    EX_Return
+            EX_Nothing
+240:    EX_EndOfScript
+FunctionExport SetSalvagePointState
+0:      EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+10:     EX_Let
+            EX_InstanceVariable [SalvageState]
+            EX_LocalVariable [State]
+37:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst SalvageState
+66:     EX_LocalVirtualFunction OnRep_State
+80:     EX_VirtualFunction ForceNetUpdate
+94:     EX_Return
+            EX_Nothing
+96:     EX_EndOfScript

@@ -1,0 +1,88 @@
+FunctionExport ExecuteUbergraph_W_TutorialCombat
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetText
+            EX_TextConst
+                SourceString = Combat
+                LocalizedKey = 428D1CAE4CC64C4A632217AF2202B95D
+                LocalizedNamespace = 
+            EX_TextConst
+                SourceString = Waves of Glyphids are incoming, survive until they are all dead.
+                LocalizedKey = F0C637DC4F59A1C6F307C797052536B0
+                LocalizedNamespace = 
+            EX_TextConst
+                SourceString = Clear the wave
+                LocalizedKey = 51685AE842DCE759809BB5B78231250B
+                LocalizedNamespace = 
+228:    EX_Jump 596
+233:    EX_LocalFinalFunction import /Game/UI/Tutorial/W_TutorialContent_Base->W_TutorialContent_Base_C->OnShown
+243:    EX_Let
+            EX_InstanceVariable [Gold Mined]
+            EX_FloatConst 0
+266:    EX_LocalVirtualFunction UpdateText
+280:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasCharacter_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDUserWidget->HasCharacter
+300:    EX_JumpIfNot 596
+            EX_LocalVariable [CallFunc_HasCharacter_ReturnValue]
+314:    EX_SetArray
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+325:    EX_CallMath import /Script/Engine->GameplayStatics->GetAllActorsOfClass
+            EX_Self
+            EX_ObjectConst import /Game/LevelElements/Tutorial/BP_TutorialTriggerManager->BP_TutorialTriggerManager_C
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+354:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+409:    EX_LetObj
+            EX_InstanceVariable [Manager]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+428:    EX_BindDelegate MessageReceived
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+451:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Manager]
+                EX_InstanceVariable [MessageReceived]
+                RValue = [MessageReceived]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+492:    EX_Jump 596
+497:    EX_Jump 10
+502:    EX_LocalVirtualFunction UpdateText
+516:    EX_LocalVirtualFunction CompleteWithAnim
+530:    EX_Jump 596
+535:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_NameName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_NameName
+                EX_LocalVariable [K2Node_CustomEvent_TriggerName]
+                EX_NameConst WaveCleared
+577:    EX_JumpIfNot 596
+            EX_LocalVariable [CallFunc_EqualEqual_NameName_ReturnValue]
+591:    EX_Jump 502
+596:    EX_Return
+            EX_Nothing
+598:    EX_EndOfScript
+FunctionExport MessageReceived
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_TriggerName]
+            EX_LocalVariable [TriggerName]
+18:     EX_LocalFinalFunction export W_TutorialCombat_C->ExecuteUbergraph_W_TutorialCombat
+            EX_IntConst 535
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateText
+0:      EX_LocalFinalFunction export W_TutorialCombat_C->ExecuteUbergraph_W_TutorialCombat
+            EX_IntConst 497
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnShown
+0:      EX_LocalFinalFunction export W_TutorialCombat_C->ExecuteUbergraph_W_TutorialCombat
+            EX_IntConst 233
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

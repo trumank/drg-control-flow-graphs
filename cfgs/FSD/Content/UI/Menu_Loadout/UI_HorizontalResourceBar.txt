@@ -1,0 +1,460 @@
+FunctionExport ExecuteUbergraph_UI_HorizontalResourceBar
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [NoResourcesLabel]
+            EX_VirtualFunction SetText
+                EX_InstanceVariable [No Resources Text]
+            RValue = []
+55:     EX_Context
+            EX_InstanceVariable [NoResourcesLabel]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetFont
+                EX_InstanceVariable [NoResourcesFont]
+            RValue = []
+96:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_InstanceVariable [NoResourcesColor]
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+151:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+187:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+216:    EX_Context
+            EX_InstanceVariable [NoResourcesLabel]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+257:    EX_JumpIfNot 447
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+271:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Clear
+                EX_InstanceVariable [ResourceWidgets]
+            RValue = []
+312:    EX_Context
+            EX_InstanceVariable [ResourcesBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+348:    EX_LocalVirtualFunction AddResource
+            EX_ObjectConst import /Game/GameElements/Resources/Carved/Bismor/RES_CARVED_Bismor->RES_CARVED_Bismor
+            EX_FloatConst 10
+            EX_FloatConst 5
+381:    EX_LocalVirtualFunction AddResource
+            EX_ObjectConst import /Game/GameElements/Resources/Carved/Hollomite/RES_CARVED_Hollomite->RES_CARVED_Hollomite
+            EX_FloatConst 10
+            EX_FloatConst 10
+414:    EX_LocalVirtualFunction AddResource
+            EX_ObjectConst import /Game/GameElements/Resources/Carved/Magnite/RES_CARVED_Magnite->RES_CARVED_Magnite
+            EX_FloatConst 10
+            EX_FloatConst 0
+447:    EX_Return
+            EX_Nothing
+449:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_HorizontalResourceBar_C->ExecuteUbergraph_UI_HorizontalResourceBar
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport AddResourceCustom
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [ResourceWidgets]
+                    EX_LocalVariable [InResource]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+69:     EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Map_Find_Value]
+88:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Widget]
+117:    EX_JumpIfNot 284
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+131:    EX_Context
+            EX_LocalVariable [Widget]
+            EX_LocalVirtualFunction SetResourceData
+                EX_LocalVariable [InResource]
+                EX_LocalVariable [InAmount]
+                EX_LocalVariable [InRequiredAmount]
+                EX_InstanceVariable [ShowRequiredAmount]
+            RValue = []
+203:    EX_Context
+            EX_LocalVariable [Widget]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+241:    EX_Context
+            EX_InstanceVariable [NoResourcesLabel]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+279:    EX_Jump 753
+284:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+308:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_Loadout/ITM_UpgGear_ResourceCounter->ITM_UpgGear_ResourceCounter_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+369:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Resource
+            EX_LocalVariable [InResource]
+410:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetFloatPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Amount
+            EX_LocalVariable [InAmount]
+451:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetFloatPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst RequiredAmount
+            EX_LocalVariable [InRequiredAmount]
+492:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetBoolPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst IconOnRight
+            EX_InstanceVariable [IconsOnRight]
+533:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetBoolPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst ShowRequiredAmount
+            EX_InstanceVariable [ShowRequiredAmount]
+574:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+593:    EX_Context
+            EX_LocalVariable [Widget]
+            EX_LocalVirtualFunction SetIconSize
+                EX_InstanceVariable [IconSize]
+            RValue = []
+638:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ResourcesBox]
+                EX_FinalFunction import /Script/UMG->HorizontalBox->AddChildToHorizontalBox
+                    EX_LocalVariable [Widget]
+                RValue = [CallFunc_AddChildToHorizontalBox_ReturnValue]
+689:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_InstanceVariable [ResourceWidgets]
+                EX_LocalVariable [InResource]
+                EX_LocalVariable [Widget]
+            RValue = []
+748:    EX_Jump 241
+753:    EX_Return
+            EX_Nothing
+755:    EX_EndOfScript
+FunctionExport Clear
+0:      EX_PushExecutionFlow 375
+5:      EX_Context
+            EX_InstanceVariable [NoResourcesLabel]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+43:     EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+66:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ResourcesBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+116:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+                EX_IntConst 1
+158:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+196:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+206:    EX_PushExecutionFlow 301
+211:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetChildAt_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ResourcesBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildAt
+                    EX_LocalVariable [Temp_int_Variable]
+                RValue = [CallFunc_GetChildAt_ReturnValue]
+262:    EX_Context
+            EX_LocalVariable [CallFunc_GetChildAt_ReturnValue]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+300:    EX_PopExecutionFlow
+301:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+343:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+370:    EX_Jump 66
+375:    EX_Return
+            EX_Nothing
+377:    EX_EndOfScript
+FunctionExport AddResource
+0:      EX_LocalVirtualFunction AddResourceCustom
+            EX_LocalVariable [InResource]
+            EX_LocalVariable [InAmount]
+            EX_LocalVariable [InRequiredAmount]
+            EX_InstanceVariable [IconsOnRight]
+            EX_InstanceVariable [ShowRequiredAmount]
+59:     EX_Return
+            EX_Nothing
+61:     EX_EndOfScript
+FunctionExport SetCraftingCost
+0:      EX_PushExecutionFlow 759
+5:      EX_LetBool
+            EX_LocalVariable [Affordable]
+            EX_True
+16:     EX_LocalVirtualFunction Clear
+30:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+53:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+76:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [Cost]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+135:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+173:    EX_JumpIfNot 661
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+187:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+214:    EX_PushExecutionFlow 685
+219:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+240:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [Cost]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+299:    EX_Let
+            EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetResourceAmount
+                    EX_StructMemberContext [Resource]
+                        EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_GetResourceAmount_ReturnValue]
+367:    EX_LocalVirtualFunction AddResourceCustom
+            EX_StructMemberContext [Resource]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+            EX_StructMemberContext [Amount]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_InstanceVariable [IconsOnRight]
+            EX_InstanceVariable [ShowRequiredAmount]
+444:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+465:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [Cost]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+524:    EX_Let
+            EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetResourceAmount
+                    EX_StructMemberContext [Resource]
+                        EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_GetResourceAmount_ReturnValue]
+592:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+                EX_StructMemberContext [Amount]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+639:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+649:    EX_LetBool
+            EX_LocalVariable [Affordable]
+            EX_False
+660:    EX_PopExecutionFlow
+661:    EX_LetBool
+            EX_LocalOutVariable
+                [OutCanAfford]
+            EX_LocalVariable [Affordable]
+680:    EX_Jump 759
+685:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+727:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+754:    EX_Jump 76
+759:    EX_Return
+            EX_Nothing
+761:    EX_EndOfScript
+FunctionExport SetFromDict
+0:      EX_PushExecutionFlow 844
+5:      EX_Let
+            EX_LocalVariable [DictAmount]
+            EX_FloatConst 0
+28:     EX_LocalVirtualFunction Clear
+42:     EX_SetArray
+            EX_LocalVariable [CallFunc_Map_Keys_Keys]
+53:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Keys
+                EX_LocalVariable [InResources]
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+            RValue = []
+103:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+126:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+149:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+208:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+246:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+256:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+283:    EX_PushExecutionFlow 770
+288:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+347:    EX_LetObj
+            EX_LocalVariable [Resource]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+366:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_LocalVariable [InResources]
+                    EX_LocalVariable [Resource]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+435:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [CallFunc_Map_Find_Value]
+472:    EX_Let
+            EX_LocalVariable [DictAmount]
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+499:    EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 0
+522:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [ShowRequiredAmount]
+541:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [ShowRequiredAmount]
+560:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+581:    EX_Let
+            EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetResourceAmount
+                    EX_LocalVariable [Resource]
+                RValue = [CallFunc_GetResourceAmount_ReturnValue]
+640:    EX_LocalVirtualFunction AddResource
+            EX_LocalVariable [Resource]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 715
+                case 0:
+                    EX_False
+                    NextCaseOffset = 692
+                    EX_LocalVariable [DictAmount]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 706
+                    EX_LocalVariable [CallFunc_GetResourceAmount_ReturnValue]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 768
+                case 0:
+                    EX_False
+                    NextCaseOffset = 745
+                    EX_LocalVariable [Temp_float_Variable]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 759
+                    EX_LocalVariable [DictAmount]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+769:    EX_PopExecutionFlow
+770:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+812:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+839:    EX_Jump 149
+844:    EX_Return
+            EX_Nothing
+846:    EX_EndOfScript

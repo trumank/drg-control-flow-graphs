@@ -1,0 +1,83 @@
+FunctionExport ExecuteUbergraph_AIC_Spider_Shooter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Jump 432
+15:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_Event_keyName]
+                EX_NameConst Target
+57:     EX_JumpIfNot 76
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+71:     EX_Jump 432
+76:     EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+96:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+            EX_DynamicCast import /Script/FSD->SpiderEnemy
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+132:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+161:    EX_JumpIfNot 432
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+175:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Target
+216:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_Self
+237:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+                EX_FinalFunction import /Script/AIModule->BlackboardComponent->GetValueAsObject
+                    EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                RValue = [CallFunc_GetValueAsObject_ReturnValue]
+288:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsActor]
+            EX_DynamicCast import /Script/Engine->Actor
+                EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+324:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsActor]
+353:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+            EX_FinalFunction import /Script/FSD->SpiderEnemy->SetLookAtTarget
+                EX_LocalVariable [K2Node_DynamicCast_AsActor]
+            RValue = []
+394:    EX_Jump 432
+399:    EX_LocalVirtualFunction Start Behaviour Tree
+413:    EX_LocalFinalFunction import /Game/Enemies/Spider/AIC_Spider->AIC_Spider_C->ReceivePossess
+            EX_LocalVariable [K2Node_Event_PossessedPawn]
+432:    EX_Return
+            EX_Nothing
+434:    EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_Spider_Shooter_C->ExecuteUbergraph_AIC_Spider_Shooter
+            EX_IntConst 399
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Recieve_BlackboardValueChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_keyName]
+            EX_LocalOutVariable
+                [keyName]
+18:     EX_LocalFinalFunction export AIC_Spider_Shooter_C->ExecuteUbergraph_AIC_Spider_Shooter
+            EX_IntConst 15
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Spider_Shooter_C->ExecuteUbergraph_AIC_Spider_Shooter
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

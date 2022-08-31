@@ -1,0 +1,353 @@
+FunctionExport ExecuteUbergraph_HUD_BossFight_NeutralEvent
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_StructMemberContext [BossActor]
+                    EX_InstanceVariable [BossFightInfo]
+                EX_ObjectConst import /Script/FSD->EnemyTemperatureReplicatorComponent
+57:     EX_LetObj
+            EX_InstanceVariable [TemperatureReplicator]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+76:     EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_ObjectConst import /Game/GameElements/PawnAffliction/PAF_Frozen->PAF_Frozen
+            EX_ObjectConst import /Game/GameElements/PawnAffliction/PAF_Fire->PAF_Fire
+105:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [TemperatureReplicator]
+134:    EX_Context
+            EX_InstanceVariable [HUD_EnemyTargeting_AfflictionBox]
+            EX_LocalVirtualFunction ToggleIgnoreAfflictions
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            RValue = []
+188:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [TemperatureReplicator]
+217:    EX_JumpIfNot 950
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+231:    EX_BindDelegate OnTemperatureEffectChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+254:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [TemperatureReplicator]
+                EX_InstanceVariable [OnTemperatureEffectChanged]
+                RValue = [OnTemperatureEffectChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+295:    EX_Let
+            EX_LocalVariable [CallFunc_GetTemperatureEffect_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [TemperatureReplicator]
+                EX_FinalFunction import /Script/FSD->EnemyTemperatureReplicatorComponent->GetTemperatureEffect
+                RValue = [CallFunc_GetTemperatureEffect_ReturnValue]
+345:    EX_LocalVirtualFunction SetTemperatureEffect
+            EX_LocalVariable [CallFunc_GetTemperatureEffect_ReturnValue]
+368:    EX_Jump 950
+373:    EX_FinalFunction import /Game/UI/MainOnscreenHUD/BossFight/HUD_BossFight_BaseEntry->HUD_BossFight_BaseEntry_C->Construct
+383:    EX_Context
+            EX_InstanceVariable [ITM_BossFightContainer]
+            EX_LocalVirtualFunction PlayIntro
+            RValue = []
+419:    EX_Context
+            EX_InstanceVariable [HUD_EnemyTargeting_AfflictionBox]
+            EX_LocalVirtualFunction SetTarget
+                EX_StructMemberContext [BossActor]
+                    EX_InstanceVariable [BossFightInfo]
+            RValue = []
+473:    EX_Let
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextToUpper
+                EX_Context
+                    EX_StructMemberContext [EnemyComponent]
+                        EX_InstanceVariable [BossFightInfo]
+                    EX_InstanceVariable [InGameName]
+                    RValue = [InGameName]
+541:    EX_Context
+            EX_InstanceVariable [ITM_BossFightContainer]
+            EX_LocalVirtualFunction SetHeader
+                EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+                EX_NoObject
+            RValue = []
+587:    EX_Context
+            EX_InstanceVariable [ITM_SegmentedArmorBar]
+            EX_LocalVirtualFunction SetData
+                EX_StructMemberContext [BossActor]
+                    EX_InstanceVariable [BossFightInfo]
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+            RValue = []
+659:    EX_Context
+            EX_InstanceVariable [ITM_SegmentedHealthBar]
+            EX_LocalVirtualFunction SetData
+                EX_StructMemberContext [HealthComponent]
+                    EX_InstanceVariable [BossFightInfo]
+            RValue = []
+713:    EX_BindDelegate OnRemoveBossFight
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+736:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [ITM_BossFightContainer]
+                EX_InstanceVariable [OnDeathAnimFinished]
+                RValue = [OnDeathAnimFinished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+777:    EX_BindDelegate OnRemoveBossFight
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+800:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [ITM_BossFightContainer]
+                EX_InstanceVariable [OnDisengagedAnimFinished]
+                RValue = [OnDisengagedAnimFinished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+841:    EX_LocalVirtualFunction SetupTemperature
+855:    EX_Jump 950
+860:    EX_VirtualFunction RemoveFromParent
+874:    EX_Jump 950
+879:    EX_Jump 860
+884:    EX_Context
+            EX_InstanceVariable [HUD_EnemyTargeting_Temperature]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+922:    EX_Jump 10
+927:    EX_LocalVirtualFunction SetTemperatureEffect
+            EX_LocalVariable [K2Node_CustomEvent_floatValue]
+950:    EX_Return
+            EX_Nothing
+952:    EX_EndOfScript
+FunctionExport OnTemperatureEffectChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_floatValue]
+            EX_LocalVariable [floatValue]
+18:     EX_LocalFinalFunction export HUD_BossFight_NeutralEvent_C->ExecuteUbergraph_HUD_BossFight_NeutralEvent
+            EX_IntConst 927
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetupTemperature
+0:      EX_LocalFinalFunction export HUD_BossFight_NeutralEvent_C->ExecuteUbergraph_HUD_BossFight_NeutralEvent
+            EX_IntConst 884
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRemoveBossFight
+0:      EX_LocalFinalFunction export HUD_BossFight_NeutralEvent_C->ExecuteUbergraph_HUD_BossFight_NeutralEvent
+            EX_IntConst 879
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_BossFight_NeutralEvent_C->ExecuteUbergraph_HUD_BossFight_NeutralEvent
+            EX_IntConst 373
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport InternalSetPct
+0:      EX_PushExecutionFlow 446
+5:      EX_Let
+            EX_LocalVariable [OldPct]
+            EX_FloatConst 0
+28:     EX_Let
+            EX_LocalVariable [OldPct]
+            EX_Context
+                EX_LocalVariable [InHealthBar]
+                EX_InstanceVariable [Percent]
+                RValue = [Percent]
+77:     EX_JumpIfNot 174
+            EX_LocalVariable [Reset]
+91:     EX_Context
+            EX_LocalVariable [InTrailingHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [InPct]
+            RValue = []
+132:    EX_Context
+            EX_LocalVariable [InHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [InPct]
+            RValue = []
+173:    EX_PopExecutionFlow
+174:    EX_PushExecutionFlow 293
+179:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_Context
+                    EX_LocalVariable [InHealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+                EX_LocalVariable [InPct]
+239:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+249:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->IsAnimationPlaying
+                EX_LocalVariable [InHitAnimation]
+278:    EX_JumpIfNot 335
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+292:    EX_PopExecutionFlow
+293:    EX_Context
+            EX_LocalVariable [InHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [InPct]
+            RValue = []
+334:    EX_PopExecutionFlow
+335:    EX_Context
+            EX_LocalVariable [InTrailingHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_Context
+                    EX_LocalVariable [InHealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+            RValue = []
+398:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_LocalVariable [InHitAnimation]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 2
+                EX_False
+445:    EX_PopExecutionFlow
+446:    EX_Return
+            EX_Nothing
+448:    EX_EndOfScript
+FunctionExport SetTemperatureEffect
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [InTempEffect]
+37:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+                EX_FloatConst 0
+71:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [HUD_EnemyTargeting_Temperature]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+157:    EX_Context
+            EX_InstanceVariable [HUD_EnemyTargeting_Temperature]
+            EX_LocalVirtualFunction SetTemperatureEffect
+                EX_LocalVariable [InTempEffect]
+                EX_False
+            RValue = []
+203:    EX_Return
+            EX_Nothing
+205:    EX_EndOfScript
+FunctionExport OnHealthChanged
+0:      EX_LocalFinalFunction import /Game/UI/MainOnscreenHUD/BossFight/HUD_BossFight_BaseEntry->HUD_BossFight_BaseEntry_C->OnHealthChanged
+            EX_LocalVariable [health]
+19:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_FloatFloat
+                EX_LocalVariable [health]
+                EX_FloatConst 0
+53:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->IsAnimationPlaying
+                EX_Context
+                    EX_InstanceVariable [ITM_BossFightContainer]
+                    EX_InstanceVariable [DeathAnim]
+                    RValue = [DeathAnim]
+104:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+133:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+171:    EX_JumpIfNot 199
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+185:    EX_LocalVirtualFunction OnDeath
+199:    EX_Return
+            EX_Nothing
+201:    EX_EndOfScript
+FunctionExport OnDeath
+0:      EX_LocalFinalFunction import /Game/UI/MainOnscreenHUD/BossFight/HUD_BossFight_BaseEntry->HUD_BossFight_BaseEntry_C->OnDeath
+10:     EX_Context
+            EX_InstanceVariable [ITM_BossFightContainer]
+            EX_LocalVirtualFunction PlayDeath
+            RValue = []
+46:     EX_Return
+            EX_Nothing
+48:     EX_EndOfScript
+FunctionExport OnDisengaged
+0:      EX_LocalFinalFunction import /Game/UI/MainOnscreenHUD/BossFight/HUD_BossFight_BaseEntry->HUD_BossFight_BaseEntry_C->OnDisengaged
+10:     EX_Context
+            EX_InstanceVariable [ITM_BossFightContainer]
+            EX_LocalVirtualFunction PlayDisengaged
+            RValue = []
+46:     EX_Return
+            EX_Nothing
+48:     EX_EndOfScript
+FunctionExport OnCanTakeDamageChanged
+0:      EX_LocalFinalFunction import /Game/UI/MainOnscreenHUD/BossFight/HUD_BossFight_BaseEntry->HUD_BossFight_BaseEntry_C->OnCanTakeDamageChanged
+            EX_LocalVariable [OutCanTakeDamage]
+19:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [OutCanTakeDamage]
+48:     EX_Context
+            EX_InstanceVariable [ITM_SegmentedHealthBar]
+            EX_LocalVirtualFunction SetInvulnerability
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            RValue = []
+93:     EX_Return
+            EX_Nothing
+95:     EX_EndOfScript
+FunctionExport GetBossFight
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetBossActor_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_InstanceVariable [BossFight]
+                EX_VirtualFunction GetBossActor
+                RValue = [CallFunc_GetBossActor_ReturnValue]
+47:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBossActor_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->EnemyComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+98:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBossActor_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->EnemyHealthComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue_1]
+149:    EX_LetWeakObjPtr
+            EX_StructMemberContext [BossActor]
+                EX_LocalVariable [K2Node_MakeStruct_BossFight]
+            EX_LocalVariable [CallFunc_GetBossActor_ReturnValue]
+177:    EX_LetWeakObjPtr
+            EX_StructMemberContext [EnemyComponent]
+                EX_LocalVariable [K2Node_MakeStruct_BossFight]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+205:    EX_LetWeakObjPtr
+            EX_StructMemberContext [HealthComponent]
+                EX_LocalVariable [K2Node_MakeStruct_BossFight]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue_1]
+233:    EX_Let
+            EX_LocalOutVariable
+                [BossFight]
+            EX_LocalVariable [K2Node_MakeStruct_BossFight]
+260:    EX_Return
+            EX_Nothing
+262:    EX_EndOfScript

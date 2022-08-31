@@ -1,0 +1,223 @@
+FunctionExport ExecuteUbergraph_Grenade_WallSaw
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 0.1
+29:     EX_Jump 640
+34:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+54:     EX_JumpIfNot 640
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+68:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+96:     EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+159:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_ObjectConst import /Game/WeaponsNTools/Grenades/WallSaw/BP_WallSaw->BP_WallSaw_C
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+                EX_ByteConst 0
+                EX_NoObject
+201:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+221:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_NameConst Instigator
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+262:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+290:    EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+353:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+391:    EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+425:    EX_Context
+            EX_InstanceVariable [P_GrenadeTrail]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+459:    EX_Context
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_FinalFunction import /Script/FSD->WallSaw->Initialize
+                EX_InstanceVariable [InitialDirection]
+            RValue = []
+500:    EX_Jump 10
+505:    EX_LocalFinalFunction import /Game/WeaponsNTools/Grenades/ITM_Grenade_Base->ITM_Grenade_Base_C->ReceiveBeginPlay
+515:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_InstanceVariable [Instigator]
+                EX_ObjectConst import /Script/Engine->CameraComponent
+553:    EX_Let
+            EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetForwardVector
+                RValue = [CallFunc_GetForwardVector_ReturnValue]
+603:    EX_Let
+            EX_InstanceVariable [InitialDirection]
+            EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+630:    EX_Jump 640
+635:    EX_Jump 34
+640:    EX_Return
+            EX_Nothing
+642:    EX_EndOfScript
+FunctionExport OnExploded
+0:      EX_LocalFinalFunction export Grenade_WallSaw_C->ExecuteUbergraph_Grenade_WallSaw
+            EX_IntConst 635
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export Grenade_WallSaw_C->ExecuteUbergraph_Grenade_WallSaw
+            EX_IntConst 505
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport AddGearStateEntries
+0:      EX_PushExecutionFlow 821
+5:      EX_LocalFinalFunction import /Game/WeaponsNTools/Grenades/ITM_Grenade_Base->ITM_Grenade_Base_C->AddGearStateEntries
+            EX_LocalVariable [playerState]
+            EX_LocalOutVariable
+                [Stats]
+33:     EX_PushExecutionFlow 821
+38:     EX_PushExecutionFlow 464
+43:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentFromClass
+                EX_InstanceVariable [WallSawSpawnable]
+                EX_ObjectConst import /Script/FSD->DamageComponent
+81:     EX_Let
+            EX_LocalVariable [CallFunc_GetDamage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DamageComponent->GetDamage
+                RValue = [CallFunc_GetDamage_ReturnValue]
+131:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_FloatToText
+                EX_LocalVariable [CallFunc_GetDamage_ReturnValue]
+                EX_ByteConst 0
+                EX_False
+                EX_True
+                EX_IntConst 1
+                EX_IntConst 324
+                EX_IntConst 0
+                EX_IntConst 3
+192:    EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry_1]
+            EX_TextConst
+                SourceString = Impact Damage
+                LocalizedKey = F925086E477FFB0677435982710511EA
+                LocalizedNamespace = 
+272:    EX_Let
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry_1]
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue_1]
+308:    EX_Let
+            EX_StructMemberContext [BaseValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry_1]
+            EX_TextConst
+337:    EX_Let
+            EX_StructMemberContext [UpgradeValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry_1]
+            EX_TextConst
+366:    EX_Let
+            EX_StructMemberContext [PreviewStatus]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry_1]
+            EX_ByteConst 0
+395:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [Stats]
+                    EX_LocalVariable [K2Node_MakeStruct_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+463:    EX_PopExecutionFlow
+464:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_FloatToText
+                EX_ClassContext
+                    EX_InstanceVariable [WallSawSpawnable]
+                    EX_DefaultVariable [DurationBeforeExpiration]
+                    RValue = [DurationBeforeExpiration]
+                EX_ByteConst 0
+                EX_False
+                EX_True
+                EX_IntConst 1
+                EX_IntConst 324
+                EX_IntConst 0
+                EX_IntConst 3
+547:    EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+                SourceString = Duration
+                LocalizedKey = 27BC36074A8A77D1684242B292AC5CA0
+                LocalizedNamespace = 
+622:    EX_Let
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+658:    EX_Let
+            EX_StructMemberContext [BaseValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+694:    EX_Let
+            EX_StructMemberContext [UpgradeValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+723:    EX_Let
+            EX_StructMemberContext [PreviewStatus]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_ByteConst 0
+752:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [Stats]
+                    EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_1]
+820:    EX_PopExecutionFlow
+821:    EX_Return
+            EX_Nothing
+823:    EX_EndOfScript
+FunctionExport GetDurationBeforeExpiration
+0:      EX_Let
+            EX_LocalOutVariable
+                [Duration]
+            EX_ClassContext
+                EX_InstanceVariable [WallSawSpawnable]
+                EX_DefaultVariable [DurationBeforeExpiration]
+                RValue = [DurationBeforeExpiration]
+49:     EX_Return
+            EX_Nothing
+51:     EX_EndOfScript

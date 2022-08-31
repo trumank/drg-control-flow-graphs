@@ -1,0 +1,377 @@
+FunctionExport ExecuteUbergraph_Options_NVIDIA_DLSS_Quality
+0:      EX_PushExecutionFlow 1103
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 259
+20:     EX_Let
+            EX_LocalVariable [CallFunc_GetSupportedDLSSModes_ReturnValue]
+            EX_CallMath import /Script/DLSSBlueprint->DLSSLibrary->GetSupportedDLSSModes
+48:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetSupportedDLSSModes_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+107:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_ByteConst 0
+138:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+148:    EX_Let
+            EX_LocalVariable [CallFunc_GetSupportedDLSSModes_ReturnValue]
+            EX_CallMath import /Script/DLSSBlueprint->DLSSLibrary->GetSupportedDLSSModes
+176:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetSupportedDLSSModes_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+235:    EX_LocalVirtualFunction Add Index
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+258:    EX_PopExecutionFlow
+259:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+301:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+328:    EX_Let
+            EX_LocalVariable [CallFunc_GetSupportedDLSSModes_ReturnValue]
+            EX_CallMath import /Script/DLSSBlueprint->DLSSLibrary->GetSupportedDLSSModes
+356:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetSupportedDLSSModes_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+415:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+453:    EX_JumpIfNot 499
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+467:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+494:    EX_Jump 15
+499:    EX_LocalVirtualFunction ShowOptions
+513:    EX_PopExecutionFlow
+514:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+537:    EX_Jump 328
+542:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+565:    EX_Jump 514
+570:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [IndexMap]
+            RValue = []
+611:    EX_Context
+            EX_InstanceVariable [Basic_OptionSwitcher]
+            EX_LocalVirtualFunction ClearOptions
+            RValue = []
+647:    EX_BindDelegate UINeedsUpdate
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+670:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+691:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [OnGameSettingsChanged]
+                RValue = [OnGameSettingsChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+732:    EX_Jump 542
+737:    EX_LocalVirtualFunction ShowOptions
+751:    EX_PopExecutionFlow
+752:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+772:    EX_Let
+            EX_LocalVariable [CallFunc_GetNvidiaDlssMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetNvidiaDlssMode
+                RValue = [CallFunc_GetNvidiaDlssMode_ReturnValue]
+822:    EX_LocalVirtualFunction ModeToIndex
+            EX_LocalVariable [CallFunc_GetNvidiaDlssMode_ReturnValue]
+            EX_LocalVariable [CallFunc_ModeToIndex_Index]
+854:    EX_Context
+            EX_InstanceVariable [Basic_OptionSwitcher]
+            EX_LocalVirtualFunction SetSelectedIndex
+                EX_LocalVariable [CallFunc_ModeToIndex_Index]
+            RValue = []
+899:    EX_PopExecutionFlow
+900:    EX_LocalVirtualFunction IndexToMode
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Index]
+            EX_LocalVariable [CallFunc_IndexToMode_Mode]
+932:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_2]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+952:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_2]
+            EX_FinalFunction import /Script/FSD->FSDGameUserSettings->SetNvidiaDlssMode
+                EX_LocalVariable [CallFunc_IndexToMode_Mode]
+            RValue = []
+993:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+1014:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->FSDGameInstance->GameUserSettingsChanged
+            RValue = []
+1046:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+1066:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue_1]
+            EX_VirtualFunction SaveSettings
+            RValue = []
+1102:   EX_PopExecutionFlow
+1103:   EX_Return
+            EX_Nothing
+1105:   EX_EndOfScript
+FunctionExport BndEvt__Options_NVIDIA_DLSS_Quality_Basic_OptionSwitcher_K2Node_ComponentBoundEvent_0_OnSelectionChanged__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Value]
+            EX_LocalVariable [Value]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Index]
+            EX_LocalVariable [Index]
+36:     EX_LocalFinalFunction export Options_NVIDIA_DLSS_Quality_C->ExecuteUbergraph_Options_NVIDIA_DLSS_Quality
+            EX_IntConst 900
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ShowOptions
+0:      EX_LocalFinalFunction export Options_NVIDIA_DLSS_Quality_C->ExecuteUbergraph_Options_NVIDIA_DLSS_Quality
+            EX_IntConst 752
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UINeedsUpdate
+0:      EX_LocalFinalFunction export Options_NVIDIA_DLSS_Quality_C->ExecuteUbergraph_Options_NVIDIA_DLSS_Quality
+            EX_IntConst 737
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export Options_NVIDIA_DLSS_Quality_C->ExecuteUbergraph_Options_NVIDIA_DLSS_Quality
+            EX_IntConst 570
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport GetDLSSModeName
+0:      EX_Let
+            EX_LocalVariable [Temp_text_Variable]
+            EX_TextConst
+                SourceString = Ultra Performance
+                LocalizedKey = 47D8F9A241AEBB368E6602B817E9A506
+                LocalizedNamespace = 
+75:     EX_Let
+            EX_LocalVariable [Temp_text_Variable_1]
+            EX_TextConst
+                SourceString = Performance
+                LocalizedKey = 58241E994677A1309C006DB98F016D1E
+                LocalizedNamespace = 
+144:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_2]
+            EX_TextConst
+                SourceString = Balanced
+                LocalizedKey = 04C42AC442B4C19942ECB2AF3D81BF70
+                LocalizedNamespace = 
+210:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_3]
+            EX_TextConst
+                SourceString = Quality
+                LocalizedKey = DF43B3AE4EC762A0C2B49A96DB342C5B
+                LocalizedNamespace = 
+275:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_4]
+            EX_TextConst
+                SourceString = Ultra Quality
+                LocalizedKey = 33AA1B7F47652F2762E2F597DDC67698
+                LocalizedNamespace = 
+346:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_5]
+            EX_TextConst
+                SourceString = Auto
+                LocalizedKey = DC512BBF42F4F222814B258D293E8678
+                LocalizedNamespace = 
+408:    EX_Let
+            EX_LocalVariable [Temp_text_Variable_6]
+            EX_TextConst
+                SourceString = Off
+                LocalizedKey = D54DDE5547879965A75DA2B347EBC8AC
+                LocalizedNamespace = 
+469:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_LocalVariable [Mode]
+496:    EX_Let
+            EX_LocalOutVariable
+                [Name]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_byte_Variable]
+                OffsetToSwitchEnd = 644
+                case 0:
+                    EX_ByteConst 0
+                    NextCaseOffset = 545
+                    EX_LocalVariable [Temp_text_Variable_6]
+                case 1:
+                    EX_ByteConst 1
+                    NextCaseOffset = 560
+                    EX_LocalVariable [Temp_text_Variable_5]
+                case 2:
+                    EX_ByteConst 2
+                    NextCaseOffset = 575
+                    EX_LocalVariable [Temp_text_Variable_4]
+                case 3:
+                    EX_ByteConst 3
+                    NextCaseOffset = 590
+                    EX_LocalVariable [Temp_text_Variable_3]
+                case 4:
+                    EX_ByteConst 4
+                    NextCaseOffset = 605
+                    EX_LocalVariable [Temp_text_Variable_2]
+                case 5:
+                    EX_ByteConst 5
+                    NextCaseOffset = 620
+                    EX_LocalVariable [Temp_text_Variable_1]
+                case 6:
+                    EX_ByteConst 6
+                    NextCaseOffset = 635
+                    EX_LocalVariable [Temp_text_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+644:    EX_Return
+            EX_Nothing
+646:    EX_EndOfScript
+FunctionExport IndexToMode
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [IndexMap]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+59:     EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Index]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+97:     EX_JumpIfNot 202
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+111:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [IndexMap]
+                EX_LocalVariable [Index]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+170:    EX_Let
+            EX_LocalOutVariable
+                [Mode]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+197:    EX_Jump 222
+202:    EX_Let
+            EX_LocalOutVariable
+                [Mode]
+            EX_ByteConst 0
+222:    EX_Return
+            EX_Nothing
+224:    EX_EndOfScript
+FunctionExport ModeToIndex
+0:      EX_PushExecutionFlow 435
+5:      EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+51:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [IndexMap]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+110:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+148:    EX_JumpIfNot 333
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+162:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+189:    EX_PushExecutionFlow 361
+194:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [IndexMap]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+253:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_LocalVariable [Mode]
+291:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+301:    EX_Let
+            EX_LocalOutVariable
+                [Index]
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+328:    EX_Jump 435
+333:    EX_Let
+            EX_LocalOutVariable
+                [Index]
+            EX_IntConst 0
+356:    EX_Jump 435
+361:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+403:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+430:    EX_Jump 51
+435:    EX_Return
+            EX_Nothing
+437:    EX_EndOfScript
+FunctionExport Add Index
+0:      EX_LocalVirtualFunction GetDLSSModeName
+            EX_LocalVariable [Mode]
+            EX_LocalVariable [CallFunc_GetDLSSModeName_Name]
+32:     EX_Context
+            EX_InstanceVariable [Basic_OptionSwitcher]
+            EX_LocalVirtualFunction Add Option
+                EX_LocalVariable [CallFunc_GetDLSSModeName_Name]
+                EX_LocalVariable [CallFunc_Add_Option_Index]
+            RValue = []
+86:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Set
+                EX_InstanceVariable [IndexMap]
+                EX_LocalVariable [CallFunc_Add_Option_Index]
+                EX_LocalVariable [Mode]
+                EX_True
+            RValue = []
+146:    EX_Return
+            EX_Nothing
+148:    EX_EndOfScript

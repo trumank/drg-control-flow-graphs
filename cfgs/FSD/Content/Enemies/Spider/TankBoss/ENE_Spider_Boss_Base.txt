@@ -1,0 +1,558 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Boss_Base
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+30:     EX_JumpIfNot 689
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+44:     EX_LocalVirtualFunction Check Without A Paddle Achievement
+58:     EX_BindDelegate OnAllDwarvesDown
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+81:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+102:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnAllDwarvesDown]
+                RValue = [OnAllDwarvesDown]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+143:    EX_Jump 689
+148:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_PF_SpiderBase->ENE_PF_SpiderBase_C->ReceiveBeginPlay
+158:    EX_Jump 10
+163:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [Player to Damage Map]
+                    EX_LocalVariable [K2Node_Event_Player]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+232:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [K2Node_Event_Amount]
+                EX_LocalVariable [CallFunc_Map_Find_Value]
+278:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_InstanceVariable [Player to Damage Map]
+                EX_LocalVariable [K2Node_Event_Player]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            RValue = []
+337:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsDead_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_Event_Player]
+                    EX_InstanceVariable [HealthComponent]
+                    RValue = [HealthComponent]
+                EX_VirtualFunction IsDead
+                RValue = [CallFunc_IsDead_ReturnValue]
+405:    EX_JumpIfNot 689
+            EX_LocalVariable [CallFunc_IsDead_ReturnValue]
+419:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [PlayerKills]
+                EX_IntConst 1
+461:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+488:    EX_Let
+            EX_InstanceVariable [PlayerKills]
+            EX_LocalVariable [Temp_int_Variable]
+515:    EX_Jump 689
+520:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+566:    EX_JumpIfNot 689
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+580:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetGoogleAnalyticsWrapper
+                EX_Self
+601:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_NameToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Conv_NameToString
+                EX_InstanceVariable [AnalyticsName]
+638:    EX_Context
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_FinalFunction import /Script/FSD->GoogleAnalyticsWrapper->RecordBossFightEnd
+                EX_LocalVariable [CallFunc_Conv_NameToString_ReturnValue]
+                EX_False
+                EX_InstanceVariable [PlayerKills]
+            RValue = []
+689:    EX_Return
+            EX_Nothing
+691:    EX_EndOfScript
+FunctionExport OnAllDwarvesDown
+0:      EX_LocalFinalFunction export ENE_Spider_Boss_Base_C->ExecuteUbergraph_ENE_Spider_Boss_Base
+            EX_IntConst 520
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDamagedPlayer
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Player]
+            EX_LocalVariable [Player]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_Amount]
+            EX_LocalVariable [Amount]
+36:     EX_LocalFinalFunction export ENE_Spider_Boss_Base_C->ExecuteUbergraph_ENE_Spider_Boss_Base
+            EX_IntConst 163
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Spider_Boss_Base_C->ExecuteUbergraph_ENE_Spider_Boss_Base
+            EX_IntConst 148
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FindMostDamagedPlayer
+0:      EX_PushExecutionFlow 763
+5:      EX_SetArray
+            EX_LocalVariable [CallFunc_Map_Keys_Keys]
+16:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Keys
+                EX_InstanceVariable [Player to Damage Map]
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+            RValue = []
+66:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+89:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+112:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+171:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+209:    EX_JumpIfNot 665
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+223:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+250:    EX_PushExecutionFlow 689
+255:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+314:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [Player to Damage Map]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+383:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_Map_Find_Value]
+                EX_LocalVariable [MaxDamageTakenByPlayer]
+421:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+431:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+490:    EX_LetObj
+            EX_LocalVariable [CurrentTopDamagedPlayer]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+509:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+568:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [Player to Damage Map]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+637:    EX_Let
+            EX_LocalVariable [MaxDamageTakenByPlayer]
+            EX_LocalVariable [CallFunc_Map_Find_Value]
+664:    EX_PopExecutionFlow
+665:    EX_LetObj
+            EX_LocalOutVariable
+                [Designated Decoy]
+            EX_LocalVariable [CurrentTopDamagedPlayer]
+684:    EX_Jump 763
+689:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+731:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+758:    EX_Jump 112
+763:    EX_Return
+            EX_Nothing
+765:    EX_EndOfScript
+FunctionExport OnBossFightCompleted
+0:      EX_PushExecutionFlow 1121
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+25:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+35:     EX_Context
+            EX_InstanceVariable [BigGameHunter]
+            EX_FinalFunction import /Script/FSD->FSDAchievement->SetAchievementProgressForEntireServer
+                EX_FloatConst 1
+                EX_Self
+            RValue = []
+73:     EX_PushExecutionFlow 1011
+78:     EX_PushExecutionFlow 749
+83:     EX_LocalVirtualFunction DifficultyAsInt
+            EX_LocalVariable [CallFunc_DifficultyAsInt_Difficulty]
+106:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_DifficultyAsInt_Difficulty]
+                EX_IntConst 3
+140:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue_1]
+150:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+171:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+                    EX_InstanceVariable [LastDreadnaughtKillTime]
+                    RValue = [LastDreadnaughtKillTime]
+                EX_FloatConst 0
+227:    EX_JumpIfNot 649
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+241:    EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+270:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+291:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+                    EX_InstanceVariable [LastDreadnaughtKillTime]
+                    RValue = [LastDreadnaughtKillTime]
+359:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_FloatConst 300
+393:    EX_JumpIfNot 649
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue_1]
+407:    EX_Context
+            EX_InstanceVariable [PestControl]
+            EX_FinalFunction import /Script/FSD->FSDAchievement->SetAchievementProgressForEntireServer
+                EX_FloatConst 1
+                EX_Self
+            RValue = []
+445:    EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+474:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+495:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+                    EX_InstanceVariable [LastDreadnaughtKillTime]
+                    RValue = [LastDreadnaughtKillTime]
+563:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_FloatConst 30
+597:    EX_JumpIfNot 649
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+611:    EX_Context
+            EX_InstanceVariable [JustAnotherBugHunt]
+            EX_FinalFunction import /Script/FSD->FSDAchievement->SetAchievementProgressForEntireServer
+                EX_FloatConst 1
+                EX_Self
+            RValue = []
+649:    EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+678:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+699:    EX_Let
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [LastDreadnaughtKillTime]
+                RValue = [LastDreadnaughtKillTime]
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+748:    EX_PopExecutionFlow
+749:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+770:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                        EX_InstanceVariable [PlayerArray]
+                        RValue = [PlayerArray]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+851:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 2
+885:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+895:    EX_LocalVirtualFunction FindMostDamagedPlayer
+            EX_LocalVariable [CallFunc_FindMostDamagedPlayer_Designated_Decoy]
+918:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_FindMostDamagedPlayer_Designated_Decoy]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerController
+                RValue = [CallFunc_GetPlayerController_ReturnValue]
+960:    EX_Context
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_VirtualFunction SetAchievementProgressFromServer
+                EX_InstanceVariable [DesignatedDecoy]
+                EX_FloatConst 1
+            RValue = []
+1010:   EX_PopExecutionFlow
+1011:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetGoogleAnalyticsWrapper
+                EX_Self
+1032:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_NameToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Conv_NameToString
+                EX_InstanceVariable [AnalyticsName]
+1069:   EX_Context
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_FinalFunction import /Script/FSD->GoogleAnalyticsWrapper->RecordBossFightEnd
+                EX_LocalVariable [CallFunc_Conv_NameToString_ReturnValue]
+                EX_True
+                EX_InstanceVariable [PlayerKills]
+            RValue = []
+1120:   EX_PopExecutionFlow
+1121:   EX_Return
+            EX_Nothing
+1123:   EX_EndOfScript
+FunctionExport DifficultyAsInt
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+21:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                        EX_InstanceVariable [CurrentDifficultySetting]
+                        RValue = [CurrentDifficultySetting]
+                    EX_InstanceVariable [ShortDifficultyName]
+                    RValue = [ShortDifficultyName]
+102:    EX_Let
+            EX_LocalVariable [CallFunc_Right_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Right
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+                EX_IntConst 1
+144:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Conv_StringToInt
+                EX_LocalVariable [CallFunc_Right_ReturnValue]
+181:    EX_Let
+            EX_LocalOutVariable
+                [Difficulty]
+            EX_LocalVariable [CallFunc_Conv_StringToInt_ReturnValue]
+208:    EX_Return
+            EX_Nothing
+210:    EX_EndOfScript
+FunctionExport Check Without A Paddle Achievement
+0:      EX_PushExecutionFlow 964
+5:      EX_Let
+            EX_LocalVariable [AlivePlayers]
+            EX_IntConst 0
+28:     EX_LetBool
+            EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+            EX_False
+39:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+62:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+85:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+114:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+135:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                        EX_InstanceVariable [ActivePlayerCharacters]
+                        RValue = [ActivePlayerCharacters]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+216:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+254:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+292:    EX_JumpIfNot 758
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+306:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+333:    EX_PushExecutionFlow 878
+338:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+359:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [ActivePlayerCharacters]
+                    RValue = [ActivePlayerCharacters]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+440:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+482:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+492:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [AlivePlayers]
+                EX_IntConst 1
+534:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+561:    EX_Let
+            EX_LocalVariable [AlivePlayers]
+            EX_LocalVariable [Temp_int_Variable]
+588:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [AlivePlayers]
+                EX_IntConst 1
+622:    EX_JumpIfNot 952
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue_1]
+636:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+657:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [ActivePlayerCharacters]
+                    RValue = [ActivePlayerCharacters]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+738:    EX_LetObj
+            EX_LocalVariable [OnlyPlayerAlive]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+757:    EX_PopExecutionFlow
+758:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [AlivePlayers]
+                EX_IntConst 1
+792:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+802:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [OnlyPlayerAlive]
+831:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+841:    EX_Context
+            EX_LocalVariable [OnlyPlayerAlive]
+            EX_VirtualFunction CheckWithoutAPaddleAchievement
+            RValue = []
+877:    EX_PopExecutionFlow
+878:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+920:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+947:    EX_Jump 85
+952:    EX_LetBool
+            EX_LocalVariable [Temp_bool_True_if_break_was_hit_Variable]
+            EX_True
+963:    EX_PopExecutionFlow
+964:    EX_Return
+            EX_Nothing
+966:    EX_EndOfScript

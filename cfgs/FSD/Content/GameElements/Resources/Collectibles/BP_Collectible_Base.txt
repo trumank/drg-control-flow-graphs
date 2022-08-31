@@ -1,0 +1,100 @@
+FunctionExport ExecuteUbergraph_BP_Collectible_Base
+0:      EX_PushExecutionFlow 532
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_InstanceVariable [InstantUsable]
+            EX_VirtualFunction SetCanUse
+                EX_False
+            RValue = []
+52:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+            EX_DynamicCast import /Script/FSD->FSDPlayerState
+                EX_Context
+                    EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+110:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+139:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+149:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+                    EX_InstanceVariable [PlayerResources]
+                    RValue = [PlayerResources]
+                EX_FinalFunction import /Script/FSD->ResourcesComponent->GetResource
+                    EX_InstanceVariable [Resource]
+                    EX_True
+                RValue = [CallFunc_GetResource_ReturnValue]
+223:    EX_Let
+            EX_LocalVariable [CallFunc_Add_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+                EX_FinalFunction import /Script/FSD->CappedResource->Add
+                    EX_InstanceVariable [ResourcesToAdd]
+                RValue = [CallFunc_Add_ReturnValue]
+282:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+292:    EX_LetBool
+            EX_InstanceVariable [IsActive]
+            EX_False
+303:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst IsActive
+332:    EX_LocalVirtualFunction OnRep_IsActive
+346:    EX_Let
+            EX_InstanceVariable [MinNetUpdateFrequency]
+            EX_FloatConst 20
+369:    EX_VirtualFunction ForceNetUpdate
+383:    EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [DestroyAfterPickedUp]
+393:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 3
+412:    EX_PopExecutionFlow
+413:    EX_PopExecutionFlow
+414:    EX_PushExecutionFlow 424
+419:    EX_Jump 15
+424:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerController
+                RValue = [CallFunc_GetPlayerController_ReturnValue]
+466:    EX_Context
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_VirtualFunction ClientStartCameraShake
+                EX_ObjectConst import /Game/Character/Camera/CameraShakes/CameraShake_PickUp->CameraShake_PickUp_C
+                EX_FloatConst 1
+                EX_ByteConst 0
+                EX_RotationConst 0,0,0
+            RValue = []
+531:    EX_PopExecutionFlow
+532:    EX_Return
+            EX_Nothing
+534:    EX_EndOfScript
+FunctionExport BndEvt__InstantUsable_K2Node_ComponentBoundEvent_2_UsedBySignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_user]
+            EX_LocalVariable [user]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_key]
+            EX_LocalVariable [key]
+36:     EX_LocalFinalFunction export BP_Collectible_Base_C->ExecuteUbergraph_BP_Collectible_Base
+            EX_IntConst 414
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport PickedUp
+0:      EX_LocalFinalFunction export BP_Collectible_Base_C->ExecuteUbergraph_BP_Collectible_Base
+            EX_IntConst 413
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_IsActive
+0:      EX_LocalVirtualFunction PickedUp
+14:     EX_Return
+            EX_Nothing
+16:     EX_EndOfScript

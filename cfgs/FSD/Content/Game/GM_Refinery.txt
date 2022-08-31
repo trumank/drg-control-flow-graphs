@@ -1,0 +1,411 @@
+FunctionExport ExecuteUbergraph_GM_Refinery
+0:      EX_PushExecutionFlow 1694
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_LocalVariable [CallFunc_DropToMission_ReturnValue]
+            EX_FinalFunction import /Script/FSD->DropPod->StartDrilling
+            RValue = []
+47:     EX_PopExecutionFlow
+48:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetDropPodEscapeClass_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameMode->GetDropPodEscapeClass
+68:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [ObjectivesManager]
+                EX_FinalFunction import /Script/FSD->ObjectivesManager->GetPrimaryObjective
+                RValue = [CallFunc_GetPrimaryObjective_ReturnValue_1]
+110:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective_1]
+            EX_DynamicCast import /Script/FSD->RefineryObjective
+                EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue_1]
+146:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective_1]
+175:    EX_Let
+            EX_LocalVariable [CallFunc_FindEscapePodLocationAtDistance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameModeFunctionLibrary->FindEscapePodLocationAtDistance
+                EX_Self
+                EX_FloatConst 10000
+                EX_FloatConst 1
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective_1]
+                    EX_InstanceVariable [Refinery]
+                    RValue = [Refinery]
+245:    EX_CallMath import /Script/FSD->MiningPod->DropToTarget
+            EX_Self
+            EX_LocalVariable [CallFunc_GetDropPodEscapeClass_ReturnValue]
+            EX_LocalVariable [CallFunc_FindEscapePodLocationAtDistance_ReturnValue]
+            EX_IntConst -1
+279:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+300:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = Cargo has returned. Drop Pod Inbound!
+                    LocalizedKey = 3A9463D5431091076882A283A18226AE
+                    LocalizedNamespace = 
+405:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+416:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameState->PostLocalizedGameMessage
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+                EX_LocalVariable [K2Node_MakeArray_Array]
+            RValue = []
+466:    EX_PopExecutionFlow
+467:    EX_LocalVirtualFunction Rocket Launched
+481:    EX_PopExecutionFlow
+482:    EX_LocalFinalFunction import /Game/Game/BP_GameMode->BP_GameMode_C->ReceiveBeginPlay
+492:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->AsyncManager
+522:    EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->AsyncManager->AsyncLoadAsset
+                EX_InstanceVariable [RefineryClass]
+                EX_ByteConst 1
+                EX_LocalVariable [Temp_delegate_Variable]
+                EX_ByteConst 0
+            RValue = []
+576:    EX_BindDelegate OnMatchStarted_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+599:    EX_AddMulticastDelegate
+            EX_InstanceVariable [OnMatchStarted]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+618:    EX_PopExecutionFlow
+619:    EX_LetObj
+            EX_LocalVariable [CallFunc_LoadClass_ReturnValue_1]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->LoadClass
+                EX_SoftObjectConst UAssetAPI.Kismet.Bytecode.Expressions.EX_StringConst
+                    EX_StringConst /Game/LevelElements/Refinery/BP_Refinery.BP_Refinery_C
+696:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsFSDRefinery_1]
+            EX_MetaCast import /Script/FSD->FSDRefinery
+                EX_LocalVariable [CallFunc_LoadClass_ReturnValue_1]
+732:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsFSDRefinery_1]
+761:    EX_LetObj
+            EX_LocalVariable [CallFunc_DropToMission_ReturnValue]
+            EX_CallMath import /Script/FSD->DropPod->DropToMission
+                EX_Self
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsFSDRefinery_1]
+                EX_InstanceVariable [LandingZone]
+800:    EX_LocalVirtualFunction DropPodSpawned
+            EX_LocalVariable [CallFunc_DropToMission_ReturnValue]
+823:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 21
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 640927227
+                EX_NameConst ExecuteUbergraph_GM_Refinery
+                EX_Self
+877:    EX_PopExecutionFlow
+878:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [K2Node_Event_pass]
+                EX_ByteConst 0
+909:    EX_JumpIfNot 924
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+923:    EX_PopExecutionFlow
+924:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ObjectivesManager]
+                EX_FinalFunction import /Script/FSD->ObjectivesManager->GetPrimaryObjective
+                RValue = [CallFunc_GetPrimaryObjective_ReturnValue]
+966:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+            EX_DynamicCast import /Script/FSD->RefineryObjective
+                EX_LocalVariable [CallFunc_GetPrimaryObjective_ReturnValue]
+1002:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+1031:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1041:   EX_LetObj
+            EX_LocalVariable [CallFunc_LoadClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->LoadClass
+                EX_SoftObjectConst UAssetAPI.Kismet.Bytecode.Expressions.EX_StringConst
+                    EX_StringConst /Game/LevelElements/Refinery/BP_Refinery.BP_Refinery_C
+1118:   EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsFSDRefinery]
+            EX_MetaCast import /Script/FSD->FSDRefinery
+                EX_LocalVariable [CallFunc_LoadClass_ReturnValue]
+1154:   EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsFSDRefinery]
+1183:   EX_Let
+            EX_LocalVariable [CallFunc_GetRefinerySpawnLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+                EX_FinalFunction import /Script/FSD->RefineryObjective->GetRefinerySpawnLocation
+                    EX_LocalVariable [K2Node_ClassDynamicCast_AsFSDRefinery]
+                RValue = [CallFunc_GetRefinerySpawnLocation_ReturnValue]
+1242:   EX_Let
+            EX_LocalVariable [CallFunc_AdjustLandingLocationToGround_ReturnValue]
+            EX_CallMath import /Script/FSD->MiningPod->AdjustLandingLocationToGround
+                EX_Self
+                EX_LocalVariable [CallFunc_GetRefinerySpawnLocation_ReturnValue]
+                EX_FloatConst 1000
+1285:   EX_Let
+            EX_InstanceVariable [LandingZone]
+            EX_LocalVariable [CallFunc_AdjustLandingLocationToGround_ReturnValue]
+1312:   EX_LocalVirtualFunction Spawn Refinery And Wells
+            EX_LocalVariable [K2Node_DynamicCast_AsRefinery_Objective]
+1335:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetProceduralSetup
+                EX_Self
+1356:   EX_Context
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_FinalFunction import /Script/FSD->ProceduralSetup->AddImportantLocation
+                EX_InstanceVariable [LandingZone]
+                EX_FloatConst 1200
+            RValue = []
+1402:   EX_PopExecutionFlow
+1403:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+            EX_DynamicCast import /Script/FSD->FSDRefinery
+                EX_LocalVariable [K2Node_CustomEvent_InDropPod]
+1439:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+1468:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+1478:   EX_BindDelegate RefineryStateChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1501:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+                EX_InstanceVariable [OnRefineryStateChanged]
+                RValue = [OnRefineryStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+1542:   EX_PopExecutionFlow
+1543:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 33
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 48
+                EX_IntConst 498776216
+                EX_NameConst ExecuteUbergraph_GM_Refinery
+                EX_Self
+1597:   EX_PopExecutionFlow
+1598:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_InRefineryState]
+                EX_ByteConst 6
+1629:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+1639:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 467
+                EX_IntConst -1515453537
+                EX_NameConst ExecuteUbergraph_GM_Refinery
+                EX_Self
+1693:   EX_PopExecutionFlow
+1694:   EX_Return
+            EX_Nothing
+1696:   EX_EndOfScript
+FunctionExport RefineryStateChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InRefineryState]
+            EX_LocalVariable [InRefineryState]
+18:     EX_LocalFinalFunction export GM_Refinery_C->ExecuteUbergraph_GM_Refinery
+            EX_IntConst 1598
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Rocket Launched
+0:      EX_LocalFinalFunction export GM_Refinery_C->ExecuteUbergraph_GM_Refinery
+            EX_IntConst 1543
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DropPodSpawned
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InDropPod]
+            EX_LocalVariable [InDropPod]
+18:     EX_LocalFinalFunction export GM_Refinery_C->ExecuteUbergraph_GM_Refinery
+            EX_IntConst 1403
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SpawnMissionCriticalItems
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_pass]
+            EX_LocalOutVariable
+                [pass]
+18:     EX_LocalFinalFunction export GM_Refinery_C->ExecuteUbergraph_GM_Refinery
+            EX_IntConst 878
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnMatchStarted_Event_0
+0:      EX_LocalFinalFunction export GM_Refinery_C->ExecuteUbergraph_GM_Refinery
+            EX_IntConst 619
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export GM_Refinery_C->ExecuteUbergraph_GM_Refinery
+            EX_IntConst 482
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Spawn Refinery And Wells
+0:      EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 4500
+23:     EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 3500
+46:     EX_LocalVirtualFunction IsComplexMission
+            EX_LocalVariable [CallFunc_IsComplexMission_IsComplex]
+69:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsComplexMission_IsComplex]
+88:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_IsComplexMission_IsComplex]
+107:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 3500
+                EX_FloatConst 4500
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 4000
+                EX_FloatConst 5000
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 5000
+                EX_FloatConst 6000
+190:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array_1]
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 4000
+                EX_FloatConst 5000
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 5000
+                EX_FloatConst 6000
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 6000
+                EX_FloatConst 7000
+273:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetProceduralSetup
+                EX_Self
+294:    EX_Context
+            EX_LocalVariable [Refinery]
+            EX_FinalFunction import /Script/FSD->RefineryObjective->SpawnWells
+                EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+                EX_InstanceVariable [LandingZone]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 396
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 373
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 387
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 449
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 426
+                        EX_LocalVariable [K2Node_MakeArray_Array_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 440
+                        EX_LocalVariable [K2Node_MakeArray_Array]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+450:    EX_LetObj
+            EX_LocalVariable [CallFunc_LoadClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->LoadClass
+                EX_SoftObjectConst UAssetAPI.Kismet.Bytecode.Expressions.EX_StringConst
+                    EX_StringConst /Game/GameElements/Objectives/Refinery/BP_RefineryLanding.BP_RefineryLanding_C
+551:    EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_InstanceVariable [LandingZone]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+614:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+            EX_MetaCast import /Script/Engine->Actor
+                EX_LocalVariable [CallFunc_LoadClass_ReturnValue]
+650:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+679:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsActor]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_NoObject
+721:    EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_InstanceVariable [LandingZone]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+784:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+822:    EX_Return
+            EX_Nothing
+824:    EX_EndOfScript
+FunctionExport IsComplexMission
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetProceduralSetup
+                EX_Self
+21:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetMissionDNA_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+                EX_FinalFunction import /Script/FSD->ProceduralSetup->GetMissionDNA
+                RValue = [CallFunc_GetMissionDNA_ReturnValue]
+63:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetMissionDNA_ReturnValue]
+                    EX_InstanceVariable [Complexity]
+                    RValue = [Complexity]
+                EX_ObjectConst import /Game/GameElements/Missions/MissionDescription/MD_Complexity_Complex->MD_Complexity_Complex
+123:    EX_LetBool
+            EX_LocalOutVariable
+                [IsComplex]
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+142:    EX_Return
+            EX_Nothing
+144:    EX_EndOfScript

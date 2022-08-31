@@ -1,0 +1,145 @@
+FunctionExport ExecuteUbergraph_Grenade_Freeze
+0:      EX_PushExecutionFlow 427
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsNonFriendlyPawn_ReturnValue]
+            EX_FinalFunction import /Script/FSD->Grenade->IsNonFriendlyPawn
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+44:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsNonFriendlyPawn_ReturnValue]
+54:     EX_PushExecutionFlow 74
+59:     EX_JumpIfNot 326
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+73:     EX_PopExecutionFlow
+74:     EX_JumpIfNot 89
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+88:     EX_PopExecutionFlow
+89:     EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+100:    EX_LocalFinalFunction import /Game/WeaponsNTools/Grenades/ITM_Grenade_Base->ITM_Grenade_Base_C->OnExploded
+110:    EX_PushExecutionFlow 351
+115:    EX_PushExecutionFlow 228
+120:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+140:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+150:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+178:    EX_Context
+            EX_InstanceVariable [Damage]
+            EX_FinalFunction import /Script/FSD->DamageComponent->DamageTarget
+                EX_NoObject
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_NoObject
+                EX_NoObject
+                EX_IntConst -1
+            RValue = []
+227:    EX_PopExecutionFlow
+228:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+256:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [TriggerEffect]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+325:    EX_PopExecutionFlow
+326:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+337:    EX_PopExecutionFlowIfNot
+            EX_False
+339:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+350:    EX_PopExecutionFlow
+351:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [StaticMesh]
+            EX_InstanceVariable [TriggerSound]
+            EX_NoObject
+            EX_FloatConst 1
+            EX_NoObject
+387:    EX_Context
+            EX_InstanceVariable [Widget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+421:    EX_PopExecutionFlow
+422:    EX_Jump 54
+427:    EX_Return
+            EX_Nothing
+429:    EX_EndOfScript
+FunctionExport BndEvt__Sphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export Grenade_Freeze_C->ExecuteUbergraph_Grenade_Freeze
+            EX_IntConst 15
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport OnExploded
+0:      EX_LocalFinalFunction export Grenade_Freeze_C->ExecuteUbergraph_Grenade_Freeze
+            EX_IntConst 422
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport AddGearStateEntries
+0:      EX_PushExecutionFlow 208
+5:      EX_LocalFinalFunction import /Game/WeaponsNTools/Grenades/ITM_Grenade_Base->ITM_Grenade_Base_C->AddGearStateEntries
+            EX_LocalVariable [playerState]
+            EX_LocalOutVariable
+                [Stats]
+33:     EX_PushExecutionFlow 208
+38:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+59:     EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_NoObject
+                EX_LocalVariable [playerState]
+                EX_ByteConst 5
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue]
+            RValue = []
+139:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [Stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+207:    EX_PopExecutionFlow
+208:    EX_Return
+            EX_Nothing
+210:    EX_EndOfScript

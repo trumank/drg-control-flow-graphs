@@ -1,0 +1,501 @@
+FunctionExport ExecuteUbergraph_UI_Perks_View
+0:      EX_PushExecutionFlow 1255
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_InstanceVariable [SelectedPerk]
+            EX_LocalVirtualFunction Set Selected
+                EX_False
+            RValue = []
+52:     EX_LocalVirtualFunction SelectPerkWidget
+            EX_NoObject
+67:     EX_PopExecutionFlow
+68:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedPerk]
+97:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+107:    EX_Jump 15
+112:    EX_PushExecutionFlow 483
+117:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+141:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/HUD_SpaceRig/KPI/UI_Perks_Column_Items->UI_Perks_Column_Items_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+202:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+244:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetIntPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Tier
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+285:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetIntPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst PerkRows
+            EX_IntConst 6
+322:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [TierBox]
+                EX_FinalFunction import /Script/UMG->HorizontalBox->AddChildToHorizontalBox
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToHorizontalBox_ReturnValue]
+373:    EX_BindDelegate OnPerkClicked_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+396:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [OnPerkClicked]
+                RValue = [OnPerkClicked]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+437:    EX_Context
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_LocalVirtualFunction SetPerks
+                EX_InstanceVariable [AllPerks]
+            RValue = []
+482:    EX_PopExecutionFlow
+483:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+525:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+552:    EX_Let
+            EX_LocalVariable [CallFunc_GetHighestPerkTier_ReturnValue]
+            EX_CallMath import /Script/FSD->PerkFunctionLibrary->GetHighestPerkTier
+580:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_GetHighestPerkTier_ReturnValue]
+                EX_IntConst 1
+622:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+660:    EX_JumpIfNot 679
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+674:    EX_Jump 112
+679:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [AllPerks]
+            RValue = []
+720:    EX_PopExecutionFlow
+721:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+744:    EX_Jump 552
+749:    EX_Context
+            EX_InstanceVariable [TierBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+785:    EX_LocalVirtualFunction SetColors
+799:    EX_Let
+            EX_LocalVariable [CallFunc_GetAvailablePerks_ReturnValue]
+            EX_CallMath import /Script/FSD->PerkFunctionLibrary->GetAvailablePerks
+827:    EX_Let
+            EX_InstanceVariable [AllPerks]
+            EX_LocalVariable [CallFunc_GetAvailablePerks_ReturnValue]
+854:    EX_Jump 721
+859:    EX_LocalVirtualFunction SelectPerkWidget
+            EX_LocalVariable [K2Node_CustomEvent_PerkWidget]
+882:    EX_PopExecutionFlow
+883:    EX_LocalVirtualFunction Toggle Loadout Hint
+            EX_True
+898:    EX_PopExecutionFlow
+899:    EX_LocalVirtualFunction Toggle Loadout Hint
+            EX_False
+914:    EX_PopExecutionFlow
+915:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [K2Node_CustomEvent_Visible]
+                EX_InstanceVariable [FirstPerkPurchase]
+953:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [HintBlur]
+                EX_ByteConst 1
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+1039:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+1049:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimLoadoutHint]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+1096:   EX_LetBool
+            EX_InstanceVariable [FirstPerkPurchase]
+            EX_False
+1107:   EX_PopExecutionFlow
+1108:   EX_Let
+            EX_LocalVariable [CallFunc_GetOwnedPerks_ReturnValue]
+            EX_CallMath import /Script/FSD->PerkFunctionLibrary->GetOwnedPerks
+                EX_Self
+1137:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetOwnedPerks_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+1196:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 0
+1230:   EX_LetBool
+            EX_InstanceVariable [FirstPerkPurchase]
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+1249:   EX_PopExecutionFlow
+1250:   EX_Jump 68
+1255:   EX_Return
+            EX_Nothing
+1257:   EX_EndOfScript
+FunctionExport OnFocusLost
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InFocusEvent]
+            EX_LocalVariable [InFocusEvent]
+18:     EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 1250
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 1108
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Toggle Loadout Hint
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Visible]
+            EX_LocalVariable [Visible]
+18:     EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 915
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__ButtonOkHint_K2Node_ComponentBoundEvent_1_OnClicked__DelegateSignature
+0:      EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 899
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__UI_Perks_Buy_K2Node_ComponentBoundEvent_0_OnPerkClaimed__DelegateSignature
+0:      EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 883
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnPerkClicked_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PerkWidget]
+            EX_LocalVariable [PerkWidget]
+18:     EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 859
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_Perks_View_C->ExecuteUbergraph_UI_Perks_View
+            EX_IntConst 749
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SelectPerkWidget
+0:      EX_PushExecutionFlow 395
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_LocalVariable [PerkWidget]
+                EX_InstanceVariable [SelectedPerk]
+43:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+53:     EX_PushExecutionFlow 135
+58:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedPerk]
+87:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+97:     EX_Context
+            EX_InstanceVariable [SelectedPerk]
+            EX_LocalVirtualFunction Set Selected
+                EX_False
+            RValue = []
+134:    EX_PopExecutionFlow
+135:    EX_LetObj
+            EX_InstanceVariable [SelectedPerk]
+            EX_LocalVariable [PerkWidget]
+154:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedPerk]
+183:    EX_JumpIfNot 352
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+197:    EX_Context
+            EX_InstanceVariable [SelectedPerk]
+            EX_LocalVirtualFunction Set Selected
+                EX_True
+            RValue = []
+234:    EX_Context
+            EX_InstanceVariable [SelectedPerk]
+            EX_LocalVirtualFunction GetPerkAsset
+                EX_LocalVariable [CallFunc_GetPerkAsset_PerkAsset]
+                EX_LocalVariable [CallFunc_GetPerkAsset_State]
+                EX_LocalVariable [CallFunc_GetPerkAsset_Tier]
+            RValue = []
+297:    EX_Context
+            EX_InstanceVariable [UI_Perks_Buy]
+            EX_LocalVirtualFunction SetPerk
+                EX_LocalVariable [CallFunc_GetPerkAsset_PerkAsset]
+                EX_LocalVariable [CallFunc_GetPerkAsset_Tier]
+            RValue = []
+351:    EX_PopExecutionFlow
+352:    EX_Context
+            EX_InstanceVariable [UI_Perks_Buy]
+            EX_LocalVirtualFunction SetPerk
+                EX_NoObject
+                EX_IntConst 0
+            RValue = []
+394:    EX_PopExecutionFlow
+395:    EX_Return
+            EX_Nothing
+397:    EX_EndOfScript
+FunctionExport HandleKeyEvent
+0:      EX_PushExecutionFlow 580
+5:      EX_JumpIfNot 227
+            EX_LocalVariable [InUp]
+19:     EX_PushExecutionFlow 227
+24:     EX_PushExecutionFlow 243
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsCloseOrBackMenu_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Game/UI/LIB_Input->Default__LIB_Input_C
+                EX_LocalVirtualFunction IsCloseOrBackMenu
+                    EX_LocalVariable [InKeyEvent]
+                    EX_Self
+                RValue = [CallFunc_IsCloseOrBackMenu_ReturnValue]
+85:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HintBlur]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+127:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+                EX_LocalVariable [CallFunc_IsCloseOrBackMenu_ReturnValue]
+165:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+175:    EX_Context
+            EX_InstanceVariable [ButtonOkHint]
+            EX_LocalVirtualFunction Click
+            RValue = []
+211:    EX_LetBool
+            EX_LocalOutVariable
+                [OutHandled]
+            EX_True
+222:    EX_Jump 580
+227:    EX_LetBool
+            EX_LocalOutVariable
+                [OutHandled]
+            EX_False
+238:    EX_Jump 580
+243:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedPerk]
+272:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+282:    EX_Let
+            EX_LocalVariable [CallFunc_GetKey_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->GetKey
+                EX_LocalVariable [InKeyEvent]
+319:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsOkMenu_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Game/UI/LIB_Input->Default__LIB_Input_C
+                EX_LocalVirtualFunction IsOkMenu
+                    EX_LocalVariable [InKeyEvent]
+                    EX_Self
+                RValue = [CallFunc_IsOkMenu_ReturnValue]
+375:    EX_LetBool
+            EX_LocalVariable [CallFunc_Key_IsGamepadKey_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetInputLibrary->Key_IsGamepadKey
+                EX_LocalVariable [CallFunc_GetKey_ReturnValue]
+404:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Key_IsGamepadKey_ReturnValue]
+423:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsUseButton_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Game/UI/LIB_Input->Default__LIB_Input_C
+                EX_LocalVirtualFunction IsUseButton
+                    EX_LocalVariable [InKeyEvent]
+                    EX_Self
+                RValue = [CallFunc_IsUseButton_ReturnValue]
+479:    EX_PopExecutionFlowIfNot
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 533
+                case 0:
+                    EX_False
+                    NextCaseOffset = 510
+                    EX_LocalVariable [CallFunc_IsUseButton_ReturnValue]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 524
+                    EX_LocalVariable [CallFunc_IsOkMenu_ReturnValue]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+533:    EX_Context
+            EX_InstanceVariable [UI_Perks_Buy]
+            EX_LocalVirtualFunction Buy Selected Perk
+            RValue = []
+569:    EX_LetBool
+            EX_LocalOutVariable
+                [OutHandled]
+            EX_True
+580:    EX_Return
+            EX_Nothing
+582:    EX_EndOfScript
+FunctionExport HandleMouseEvent
+0:      EX_PushExecutionFlow 349
+5:      EX_PushExecutionFlow 338
+10:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [InUp]
+20:     EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Use
+61:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsMouseEventAction_ReturnValue]
+            EX_CallMath import /Script/FSD->InputFunctionLibrary->IsMouseEventAction
+                EX_LocalOutVariable
+                    [InMouseEvent]
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_False
+100:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HintBlur]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+142:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+171:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedPerk]
+200:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsMouseEventAction_ReturnValue]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+238:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+276:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+286:    EX_Context
+            EX_InstanceVariable [UI_Perks_Buy]
+            EX_LocalVirtualFunction Buy Selected Perk
+            RValue = []
+322:    EX_LetBool
+            EX_LocalOutVariable
+                [OutHandled]
+            EX_True
+333:    EX_Jump 349
+338:    EX_LetBool
+            EX_LocalOutVariable
+                [OutHandled]
+            EX_False
+349:    EX_Return
+            EX_Nothing
+351:    EX_EndOfScript
+FunctionExport SetColors
+0:      EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 2
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+48:     EX_Context
+            EX_InstanceVariable [PerksOutline]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+89:     EX_Context
+            EX_InstanceVariable [PerkPointsOutline]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+130:    EX_Context
+            EX_InstanceVariable [PerkInfoOutline]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+171:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColorsAndOpacity
+                EX_ByteConst 9
+                EX_FloatConst 0.5
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColorsAndOpacity_OutputColor]
+            RValue = []
+224:    EX_Context
+            EX_InstanceVariable [PerkPointsBG]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColorsAndOpacity_OutputColor]
+            RValue = []
+265:    EX_Context
+            EX_InstanceVariable [PerkInfoBG]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColorsAndOpacity_OutputColor]
+            RValue = []
+306:    EX_Context
+            EX_InstanceVariable [PerksBG]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColorsAndOpacity_OutputColor]
+            RValue = []
+347:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [FirstPerkHeader]
+                EX_ByteConst 0
+                EX_Self
+            RValue = []
+395:    EX_Return
+            EX_Nothing
+397:    EX_EndOfScript

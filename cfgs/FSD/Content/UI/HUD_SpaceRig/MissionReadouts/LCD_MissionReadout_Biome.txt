@@ -1,0 +1,72 @@
+FunctionExport ExecuteUbergraph_LCD_MissionReadout_Biome
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Pan]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+57:     EX_Jump 381
+62:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Biome]
+91:     EX_JumpIfNot 381
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+105:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBiomeWorldMap_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Biome]
+                EX_FinalFunction import /Script/FSD->Biome->GetBiomeWorldMap
+                RValue = [CallFunc_GetBiomeWorldMap_ReturnValue]
+147:    EX_Context
+            EX_InstanceVariable [Image_Biome]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetBiomeWorldMap_ReturnValue]
+                EX_False
+            RValue = []
+193:    EX_Let
+            EX_LocalVariable [CallFunc_GetBiomeName_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Biome]
+                EX_FinalFunction import /Script/FSD->Biome->GetBiomeName
+                RValue = [CallFunc_GetBiomeName_ReturnValue]
+243:    EX_Let
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextToUpper
+                EX_LocalVariable [CallFunc_GetBiomeName_ReturnValue]
+280:    EX_Context
+            EX_InstanceVariable [BiomeName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            RValue = []
+325:    EX_Jump 381
+330:    EX_LetObj
+            EX_InstanceVariable [Biome]
+            EX_Context
+                EX_LocalVariable [K2Node_ComponentBoundEvent_InMission]
+                EX_InstanceVariable [Biome]
+                RValue = [Biome]
+371:    EX_Jump 62
+376:    EX_Jump 10
+381:    EX_Return
+            EX_Nothing
+383:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export LCD_MissionReadout_Biome_C->ExecuteUbergraph_LCD_MissionReadout_Biome
+            EX_IntConst 376
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__UI_MissionReadOut_Base_K2Node_ComponentBoundEvent_0_OnMissionSelected__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_InMission]
+            EX_LocalVariable [InMission]
+18:     EX_LocalFinalFunction export LCD_MissionReadout_Biome_C->ExecuteUbergraph_LCD_MissionReadout_Biome
+            EX_IntConst 330
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

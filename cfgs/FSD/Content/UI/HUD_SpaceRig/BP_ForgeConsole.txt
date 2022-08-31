@@ -1,0 +1,79 @@
+FunctionExport ExecuteUbergraph_BP_ForgeConsole
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdateNotificationBanner
+24:     EX_Jump 445
+29:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsMENU_Forge]
+            EX_DynamicCast import /Game/UI/HUD_SpaceRig/Forge/MENU_Forge->MENU_Forge_C
+                EX_LocalVariable [K2Node_Event_WindowWidget]
+65:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsMENU_Forge]
+94:     EX_JumpIfNot 445
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+108:    EX_BindDelegate UpdateNotificationBanner
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+131:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+152:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnItemUINotificationChange]
+                RValue = [OnItemUINotificationChange]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+193:    EX_Jump 10
+198:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Widget]
+                EX_FinalFunction import /Script/UMG->WidgetComponent->GetUserWidgetObject
+                RValue = [CallFunc_GetUserWidgetObject_ReturnValue]
+240:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsConsole_Screen_Base]
+            EX_DynamicCast import /Game/UI/HUD_SpaceRig/ConsoleScreen_Base->ConsoleScreen_Base_C
+                EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+276:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsConsole_Screen_Base]
+305:    EX_JumpIfNot 445
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+319:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+339:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsInItemUINotificationSet_ReturnValue]
+            EX_CallMath import /Script/FSD->UIFunctionLibrary->IsInItemUINotificationSet
+                EX_Self
+                EX_StructMemberContext [ForgeID]
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                        EX_InstanceVariable [ItemCategoryIDs]
+                        RValue = [ItemCategoryIDs]
+400:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsConsole_Screen_Base]
+            EX_LocalVirtualFunction SetNotificationVisible
+                EX_LocalVariable [CallFunc_IsInItemUINotificationSet_ReturnValue]
+            RValue = []
+445:    EX_Return
+            EX_Nothing
+447:    EX_EndOfScript
+FunctionExport UpdateNotificationBanner
+0:      EX_LocalFinalFunction export BP_ForgeConsole_C->ExecuteUbergraph_BP_ForgeConsole
+            EX_IntConst 198
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnWindowCreated
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_WindowWidget]
+            EX_LocalVariable [WindowWidget]
+18:     EX_LocalFinalFunction export BP_ForgeConsole_C->ExecuteUbergraph_BP_ForgeConsole
+            EX_IntConst 29
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

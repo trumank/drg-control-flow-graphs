@@ -1,0 +1,152 @@
+FunctionExport ExecuteUbergraph_HUD_DownedBomb_Activation
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+26:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+46:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue]
+                EX_ObjectConst import /Script/FSD->DownedStateComponent
+84:     EX_LetObj
+            EX_InstanceVariable [DownedState]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+103:    EX_BindDelegate OnEnableDownedBombUIEvent_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+126:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [OnEnableDownedBombUIEvent]
+                RValue = [OnEnableDownedBombUIEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+167:    EX_Jump 856
+172:    EX_Context
+            EX_InstanceVariable [DownedState]
+            EX_VirtualFunction Server_TriggerDownedBomb
+            RValue = []
+208:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+224:    EX_Jump 856
+229:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_Self
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [K2Node_CustomEvent_active]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+307:    EX_JumpIfNot 648
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+321:    EX_BindDelegate OnGrenadePressed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+344:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+364:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_1]
+                EX_InstanceVariable [OnGrenadePressed]
+                RValue = [OnGrenadePressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+405:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetLocalPlayerCharacter_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetLocalPlayerCharacter
+                EX_Self
+426:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetLocalPlayerCharacter_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerController
+                RValue = [CallFunc_GetPlayerController_ReturnValue]
+468:    EX_Let
+            EX_LocalVariable [CallFunc_GetRemainingUseCharges_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PerkAsset]
+                EX_FinalFunction import /Script/FSD->PerkAsset->GetRemainingUseCharges
+                    EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+                RValue = [CallFunc_GetRemainingUseCharges_ReturnValue]
+527:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_GetRemainingUseCharges_ReturnValue]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+576:    EX_Context
+            EX_Context
+                EX_InstanceVariable [HUD_Hold_Activation]
+                EX_InstanceVariable [CountDownLabel]
+                RValue = [CountDownLabel]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+643:    EX_Jump 856
+648:    EX_BindDelegate OnGrenadePressed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+671:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->PerkHUDWidget->GetCharacter
+691:    EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCharacter_ReturnValue_1]
+                EX_InstanceVariable [OnGrenadePressed]
+                RValue = [OnGrenadePressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+732:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction CancelCountDown
+                EX_False
+            RValue = []
+769:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction SetHolding
+                EX_False
+            RValue = []
+806:    EX_Jump 856
+811:    EX_Context
+            EX_InstanceVariable [HUD_Hold_Activation]
+            EX_LocalVirtualFunction SetHolding
+                EX_LocalVariable [K2Node_CustomEvent_boolValue]
+            RValue = []
+856:    EX_Return
+            EX_Nothing
+858:    EX_EndOfScript
+FunctionExport OnGrenadePressed
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_boolValue]
+            EX_LocalVariable [boolValue]
+18:     EX_LocalFinalFunction export HUD_DownedBomb_Activation_C->ExecuteUbergraph_HUD_DownedBomb_Activation
+            EX_IntConst 811
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnEnableDownedBombUIEvent_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_active]
+            EX_LocalVariable [active]
+18:     EX_LocalFinalFunction export HUD_DownedBomb_Activation_C->ExecuteUbergraph_HUD_DownedBomb_Activation
+            EX_IntConst 229
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__HUD_Hold_Activation_K2Node_ComponentBoundEvent_1_OnHoldingFinished__DelegateSignature
+0:      EX_LocalFinalFunction export HUD_DownedBomb_Activation_C->ExecuteUbergraph_HUD_DownedBomb_Activation
+            EX_IntConst 172
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_DownedBomb_Activation_C->ExecuteUbergraph_HUD_DownedBomb_Activation
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

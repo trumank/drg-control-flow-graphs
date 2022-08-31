@@ -1,0 +1,156 @@
+FunctionExport ExecuteUbergraph_BP_ExplodingGooPlant_Fast_Base
+0:      EX_PushExecutionFlow 872
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+43:     EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/ExplodingGooPlant/BP_ExplodingGooPlant_Puddle->BP_ExplodingGooPlant_Puddle_C
+                EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_NoObject
+85:     EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+113:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+151:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetProceduralSetup
+                EX_Self
+172:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+200:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+220:    EX_SetArray
+            EX_LocalVariable [CallFunc_PlaceActors_OutSpawnedActors]
+231:    EX_LetBool
+            EX_LocalVariable [CallFunc_PlaceActors_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SpawnActorWithDebrisPos]
+                EX_FinalFunction import /Script/FSD->SpawnActorWithDebrisPosComponent->PlaceActors
+                    EX_IntConst 5
+                    EX_IntConst 3
+                    EX_IntConst 3
+                    EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/ExplodingGooPlant/BP_ExplodingGooPlant_Puddle->BP_ExplodingGooPlant_Puddle_C
+                    EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+                    EX_FloatConst 200
+                    EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/ExplodingGooPlant/PlantGoo_Positioning->PlantGoo_Positioning
+                    EX_LocalVariable [K2Node_MakeArray_Array]
+                    EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/ExplodingGooPlant/CRV_PlantGoo_CostCurve->CRV_PlantGoo_CostCurve
+                    EX_LocalVariable [CallFunc_PlaceActors_OutSpawnedActors]
+                    EX_VectorConst 0,0,0
+                RValue = [CallFunc_PlaceActors_ReturnValue]
+360:    EX_PopExecutionFlow
+361:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnDecalAtActor_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameplayStatics->SpawnDecalAtActor
+                EX_Self
+                EX_ObjectConst import /Game/Art/Decals/M_Decal_Splat_Yellow->M_Decal_Splat_Yellow
+                EX_FloatConst 300
+                EX_FloatConst 4
+                EX_FloatConst 1
+406:    EX_PopExecutionFlow
+407:    EX_PushExecutionFlow 427
+412:    EX_JumpIfNot 508
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+426:    EX_PopExecutionFlow
+427:    EX_JumpIfNot 442
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+441:    EX_PopExecutionFlow
+442:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+453:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -1436875742
+                EX_NameConst ExecuteUbergraph_BP_ExplodingGooPlant_Fast_Base
+                EX_Self
+507:    EX_PopExecutionFlow
+508:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+519:    EX_PopExecutionFlowIfNot
+            EX_False
+521:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+532:    EX_PopExecutionFlow
+533:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+553:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+563:    EX_Jump 407
+568:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Body]
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/GooBomber/GooBomberDeathExploding_Cue->GooBomberDeathExploding_Cue
+            EX_NoObject
+            EX_FloatConst 1
+            EX_InstanceVariable [PathfinderCollision]
+612:    EX_PushExecutionFlow 622
+617:    EX_Jump 533
+622:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+650:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+696:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+                EX_FloatConst 120
+738:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+793:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/LevelElements/RoomObjects/Hazards/ExplodingGooPlant/P_ExplodingGooPlant_Explosion->P_ExplodingGooPlant_Explosion
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 2,2,2
+                EX_True
+                EX_ByteConst 0
+                EX_True
+862:    EX_Jump 361
+867:    EX_Jump 568
+872:    EX_Return
+            EX_Nothing
+874:    EX_EndOfScript
+FunctionExport BndEvt__TerrainDetect_K2Node_ComponentBoundEvent_0_PointRemovedEvent__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_point]
+            EX_LocalVariable [point]
+18:     EX_LocalFinalFunction export BP_ExplodingGooPlant_Fast_Base_C->ExecuteUbergraph_BP_ExplodingGooPlant_Fast_Base
+            EX_IntConst 867
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_0_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export BP_ExplodingGooPlant_Fast_Base_C->ExecuteUbergraph_BP_ExplodingGooPlant_Fast_Base
+            EX_IntConst 568
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

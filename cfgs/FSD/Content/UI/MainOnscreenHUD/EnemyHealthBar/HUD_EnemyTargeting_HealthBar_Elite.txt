@@ -1,0 +1,469 @@
+FunctionExport ExecuteUbergraph_HUD_EnemyTargeting_HealthBar_Elite
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimGlow]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+57:     EX_Jump 557
+62:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [TargetName]
+                EX_ByteConst 4
+                EX_Self
+            RValue = []
+110:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 12
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+158:    EX_Context
+            EX_InstanceVariable [HealthbarBorder]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+199:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 12
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+247:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+283:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+312:    EX_Context
+            EX_InstanceVariable [HexagonBackground]
+            EX_FinalFunction import /Script/UMG->Image->SetBrushTintColor
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+353:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [Header]
+                EX_ByteConst 12
+                EX_Self
+            RValue = []
+401:    EX_Jump 557
+406:    EX_LocalVirtualFunction Refresh
+            EX_True
+421:    EX_Jump 557
+426:    EX_LetObj
+            EX_InstanceVariable [HitAnimation]
+            EX_InstanceVariable [NormalHit]
+445:    EX_Jump 10
+450:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [bWeakPointHit]
+469:    EX_LetObj
+            EX_InstanceVariable [HitAnimation]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 532
+                case 0:
+                    EX_False
+                    NextCaseOffset = 509
+                    EX_InstanceVariable [NormalHit]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 523
+                    EX_InstanceVariable [WeakPointHit]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+532:    EX_LocalVirtualFunction Refresh
+            EX_False
+547:    EX_Jump 557
+552:    EX_Jump 426
+557:    EX_Return
+            EX_Nothing
+559:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_EnemyTargeting_HealthBar_Elite_C->ExecuteUbergraph_HUD_EnemyTargeting_HealthBar_Elite
+            EX_IntConst 552
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveUpdateTarget
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InCurrentTarget]
+            EX_LocalVariable [InCurrentTarget]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaTime]
+            EX_LocalVariable [DeltaTime]
+36:     EX_LocalFinalFunction export HUD_EnemyTargeting_HealthBar_Elite_C->ExecuteUbergraph_HUD_EnemyTargeting_HealthBar_Elite
+            EX_IntConst 450
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveNewTarget
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InCurrentTarget_1]
+            EX_LocalVariable [InCurrentTarget]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_HealthBar_Elite_C->ExecuteUbergraph_HUD_EnemyTargeting_HealthBar_Elite
+            EX_IntConst 406
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_HealthBar_Elite_C->ExecuteUbergraph_HUD_EnemyTargeting_HealthBar_Elite
+            EX_IntConst 62
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Refresh
+0:      EX_PushExecutionFlow 2265
+5:      EX_Let
+            EX_LocalVariable [CurrentHealth]
+            EX_FloatConst 0
+28:     EX_LetBool
+            EX_LocalVariable [IsAlive]
+            EX_False
+39:     EX_LetObj
+            EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->Conv_InterfaceToObject
+                EX_InstanceVariable [CurrentTargetHealth]
+68:     EX_LetObj
+            EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->Conv_InterfaceToObject
+                EX_InstanceVariable [PreviousHealthBar]
+97:     EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue]
+135:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [Reset]
+                EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+173:    EX_LetBool
+            EX_LocalVariable [ResetHealthBar]
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+192:    EX_Let
+            EX_InstanceVariable [PreviousHealthBar]
+            EX_InstanceVariable [CurrentTargetHealth]
+219:    EX_LetObj
+            EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->Conv_InterfaceToObject
+                EX_InstanceVariable [CurrentTargetHealth]
+248:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue_2]
+277:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [HealthBarCanvas]
+                EX_ByteConst 2
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_3]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_3]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_3]
+            RValue = []
+363:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_3]
+373:    EX_Let
+            EX_LocalVariable [CallFunc_GetMaxHealth_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_InstanceVariable [CurrentTargetHealth]
+                EX_VirtualFunction GetMaxHealth
+                RValue = [CallFunc_GetMaxHealth_ReturnValue]
+428:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealth_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_InstanceVariable [CurrentTargetHealth]
+                EX_VirtualFunction GetHealth
+                RValue = [CallFunc_GetHealth_ReturnValue]
+483:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [CallFunc_GetHealth_ReturnValue]
+                EX_LocalVariable [CallFunc_GetMaxHealth_ReturnValue]
+529:    EX_Let
+            EX_LocalVariable [CurrentHealth]
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+556:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_InstanceVariable [CurrentTargetHealth]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+603:    EX_LetBool
+            EX_LocalVariable [IsAlive]
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+622:    EX_PushExecutionFlow 2072
+627:    EX_PushExecutionFlow 1269
+632:    EX_PushExecutionFlow 1176
+637:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealthbarType_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_InstanceVariable [CurrentTargetHealth]
+                EX_VirtualFunction GetHealthbarType
+                RValue = [CallFunc_GetHealthbarType_ReturnValue]
+692:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetHealthbarType_ReturnValue]
+                EX_ByteConst 2
+723:    EX_LetBool
+            EX_LocalVariable [IsShield]
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+742:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0.275
+                EX_FloatConst 0.005199
+                EX_FloatConst 0
+                EX_FloatConst 1
+794:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [IsShield]
+813:    EX_Context
+            EX_InstanceVariable [HealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 919
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 874
+                        EX_LocalVariable [Temp_struct_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 910
+                        EX_Context
+                            EX_InstanceVariable [Icon_Shield]
+                            EX_InstanceVariable [ColorAndOpacity]
+                            RValue = [ColorAndOpacity]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+920:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [IsShield]
+                EX_LocalVariable [IsAlive]
+958:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Icon_Shield]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_2]
+            RValue = []
+1044:   EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [HealthBarSize]
+                EX_ByteConst 2
+                EX_ByteConst 4
+                EX_LocalVariable [IsAlive]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+1130:   EX_Context
+            EX_InstanceVariable [TargetName]
+            EX_VirtualFunction SetVisibility
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+1175:   EX_PopExecutionFlow
+1176:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [ResetHealthBar]
+1186:   EX_Context
+            EX_InstanceVariable [HealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CurrentHealth]
+            RValue = []
+1227:   EX_Context
+            EX_InstanceVariable [GhostHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CurrentHealth]
+            RValue = []
+1268:   EX_PopExecutionFlow
+1269:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CurrentHealth]
+                EX_Context
+                    EX_InstanceVariable [HealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+1329:   EX_JumpIfNot 1642
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+1343:   EX_Context
+            EX_InstanceVariable [GhostHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_Context
+                    EX_InstanceVariable [HealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+            RValue = []
+1406:   EX_Context
+            EX_InstanceVariable [HealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CurrentHealth]
+            RValue = []
+1447:   EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 2
+1470:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CurrentHealth]
+                EX_FloatConst 0
+1504:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+1523:   EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 4
+1546:   EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [HitAnimation]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 1639
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1616
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1630
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+                EX_False
+1641:   EX_PopExecutionFlow
+1642:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CurrentHealth]
+                EX_Context
+                    EX_InstanceVariable [HealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+1702:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+1712:   EX_Context
+            EX_InstanceVariable [GhostHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CurrentHealth]
+            RValue = []
+1753:   EX_Context
+            EX_InstanceVariable [GhostHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0.709804
+                    EX_FloatConst 0.298039
+                    EX_FloatConst 1
+                    EX_FloatConst 1
+            RValue = []
+1819:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CurrentHealth]
+                EX_Context
+                    EX_InstanceVariable [HealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+1887:   EX_Let
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetWorldDeltaSeconds
+                EX_Self
+1916:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+1962:   EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_Context
+                    EX_InstanceVariable [HealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+2030:   EX_Context
+            EX_InstanceVariable [HealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            RValue = []
+2071:   EX_PopExecutionFlow
+2072:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentTargetInfo]
+2101:   EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [TargetName]
+                EX_ByteConst 2
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+2187:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+2197:   EX_Context
+            EX_InstanceVariable [TargetName]
+            EX_VirtualFunction SetText
+                EX_Context
+                    EX_InstanceVariable [CurrentTargetInfo]
+                    EX_InstanceVariable [InGameName]
+                    RValue = [InGameName]
+            RValue = []
+2264:   EX_PopExecutionFlow
+2265:   EX_Return
+            EX_Nothing
+2267:   EX_EndOfScript
+FunctionExport GetCharacter
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_LetObj
+            EX_LocalOutVariable
+                [Character]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+104:    EX_Return
+            EX_Nothing
+106:    EX_EndOfScript

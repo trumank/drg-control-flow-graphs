@@ -1,0 +1,49 @@
+FunctionExport ExecuteUbergraph_BP_HackedPatrolBotComponent
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+30:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPatrol_Bot]
+            EX_DynamicCast import /Script/FSD->PatrolBot
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+66:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPatrol_Bot]
+95:     EX_JumpIfNot 310
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+109:    EX_LetBool
+            EX_LocalVariable [CallFunc_RemoveGameplayTag_ReturnValue]
+            EX_CallMath import /Script/GameplayTags->BlueprintGameplayTagLibrary->RemoveGameplayTag
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPatrol_Bot]
+                    EX_InstanceVariable [GameplayTags]
+                    RValue = [GameplayTags]
+                EX_StructConst import /Script/GameplayTags->GameplayTag
+                    EX_NameConst Attitude.Hostile
+187:    EX_CallMath import /Script/GameplayTags->BlueprintGameplayTagLibrary->AddGameplayTag
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPatrol_Bot]
+                EX_InstanceVariable [GameplayTags]
+                RValue = [GameplayTags]
+            EX_StructConst import /Script/GameplayTags->GameplayTag
+                EX_NameConst Attitude.Friendly
+255:    EX_Let
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPatrol_Bot]
+                EX_InstanceVariable [DelayAfterLockOn]
+                RValue = [DelayAfterLockOn]
+            EX_FloatConst 0.25
+300:    EX_Jump 310
+305:    EX_Jump 10
+310:    EX_Return
+            EX_Nothing
+312:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_HackedPatrolBotComponent_C->ExecuteUbergraph_BP_HackedPatrolBotComponent
+            EX_IntConst 305
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

@@ -1,0 +1,165 @@
+FunctionExport ExecuteUbergraph_HUD_Crossbow_AmmoCount_Row
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetIsActiveArrow
+            EX_InstanceVariable [IsActive]
+33:     EX_Jump 209
+38:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+86:     EX_Context
+            EX_InstanceVariable [Text_Reload]
+            EX_LocalVirtualFunction SetTints
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+158:    EX_LocalVirtualFunction SetAmmoCount
+            EX_InstanceVariable [AmmoCount]
+181:    EX_LocalVirtualFunction SetIcon
+            EX_InstanceVariable [ArrowIcon]
+204:    EX_Jump 10
+209:    EX_Return
+            EX_Nothing
+211:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Crossbow_AmmoCount_Row_C->ExecuteUbergraph_HUD_Crossbow_AmmoCount_Row
+            EX_IntConst 38
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetIcon
+0:      EX_LetObj
+            EX_InstanceVariable [ArrowIcon]
+            EX_LocalVariable [InTexture]
+19:     EX_Context
+            EX_InstanceVariable [Icon]
+            EX_LocalVirtualFunction SetBrushFromTexture
+                EX_InstanceVariable [ArrowIcon]
+                EX_True
+            RValue = []
+65:     EX_Return
+            EX_Nothing
+67:     EX_EndOfScript
+FunctionExport SetAmmoCount
+0:      EX_Let
+            EX_InstanceVariable [AmmoCount]
+            EX_LocalVariable [InAmmoCount]
+27:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_InstanceVariable [AmmoCount]
+                EX_False
+                EX_False
+                EX_IntConst 2
+                EX_IntConst 324
+76:     EX_Context
+            EX_InstanceVariable [Text_Ammo]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+121:    EX_Return
+            EX_Nothing
+123:    EX_EndOfScript
+FunctionExport SetIsActiveArrow
+0:      EX_Let
+            EX_LocalVariable [Scale]
+            EX_FloatConst 0
+23:     EX_LetBool
+            EX_InstanceVariable [IsActive]
+            EX_LocalVariable [InActive]
+42:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Text_Reload]
+                EX_ByteConst 4
+                EX_ByteConst 1
+                EX_InstanceVariable [IsActive]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+128:    EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 1
+151:    EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 0.75
+174:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [IsActive]
+193:    EX_Let
+            EX_LocalVariable [Scale]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 264
+                case 0:
+                    EX_False
+                    NextCaseOffset = 241
+                    EX_LocalVariable [Temp_float_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 255
+                    EX_LocalVariable [Temp_float_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+264:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [Scale]
+                EX_FloatConst 50
+306:    EX_Context
+            EX_InstanceVariable [Height_Box]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetHeightOverride
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            RValue = []
+347:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntFloat
+                EX_IntConst 25
+                EX_LocalVariable [Scale]
+389:    EX_Let
+            EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FTrunc
+                EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+426:    EX_Context
+            EX_InstanceVariable [Text_Ammo]
+            EX_LocalVirtualFunction SetFontSize
+                EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+            RValue = []
+471:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [Scale]
+                EX_FloatConst 70
+513:    EX_Context
+            EX_InstanceVariable [Icon_SizeBox]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetWidthOverride
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            RValue = []
+554:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [Scale]
+                EX_FloatConst 35
+596:    EX_Context
+            EX_InstanceVariable [Icon_SizeBox]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetHeightOverride
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            RValue = []
+637:    EX_Context
+            EX_InstanceVariable [RootCanvas]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_LocalVariable [Scale]
+            RValue = []
+678:    EX_Return
+            EX_Nothing
+680:    EX_EndOfScript

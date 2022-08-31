@@ -1,0 +1,62 @@
+FunctionExport PerformConditionCheckAI
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [ControlledPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->AttackCooldownComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+51:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+80:     EX_JumpIfNot 325
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+94:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [ControlledPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->AttackCooldownComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+145:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAttackOffCooldown_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->AttackCooldownComponent->IsAttackOffCooldown
+                    EX_InstanceVariable [AttackName]
+                RValue = [CallFunc_IsAttackOffCooldown_ReturnValue]
+196:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAnyAttackOffCooldown_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->AttackCooldownComponent->IsAnyAttackOffCooldown
+                RValue = [CallFunc_IsAnyAttackOffCooldown_ReturnValue]
+238:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Any]
+257:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 320
+                case 0:
+                    EX_False
+                    NextCaseOffset = 297
+                    EX_LocalVariable [CallFunc_IsAttackOffCooldown_ReturnValue]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 311
+                    EX_LocalVariable [CallFunc_IsAnyAttackOffCooldown_ReturnValue]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+320:    EX_Jump 336
+325:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_False
+336:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+346:    EX_EndOfScript

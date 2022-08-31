@@ -1,0 +1,237 @@
+FunctionExport ExecuteUbergraph_ITM_SupplyBar
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [Image_SupplyType]
+            EX_LocalVirtualFunction SetBrushFromTexture
+                EX_InstanceVariable [SupplyIcon]
+                EX_False
+            RValue = []
+56:     EX_Context
+            EX_InstanceVariable [Image_SupplyType]
+            EX_LocalVirtualFunction SetTint
+                EX_InstanceVariable [IconTint]
+                EX_FloatConst 1
+            RValue = []
+106:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [ProgressBar]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [ShowAsProgressBar]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+192:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [ProgressChunks]
+                EX_ByteConst 4
+                EX_ByteConst 2
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+278:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_InstanceVariable [ProgressBarTint]
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+333:    EX_Context
+            EX_InstanceVariable [ProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+374:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SupplyIcon]
+403:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Image_SupplyType]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_2]
+            RValue = []
+489:    EX_Context
+            EX_InstanceVariable [ITM_SupplyBarItem_1]
+            EX_LocalVirtualFunction SetColors
+                EX_InstanceVariable [SegmentBorderTint]
+                EX_InstanceVariable [SegmentInnerTint]
+                EX_InstanceVariable [SegmentLowTint]
+            RValue = []
+552:    EX_Context
+            EX_InstanceVariable [ITM_SupplyBarItem_2]
+            EX_LocalVirtualFunction SetColors
+                EX_InstanceVariable [SegmentBorderTint]
+                EX_InstanceVariable [SegmentInnerTint]
+                EX_InstanceVariable [SegmentLowTint]
+            RValue = []
+615:    EX_Context
+            EX_InstanceVariable [ITM_SupplyBarItem_3]
+            EX_LocalVirtualFunction SetColors
+                EX_InstanceVariable [SegmentBorderTint]
+                EX_InstanceVariable [SegmentInnerTint]
+                EX_InstanceVariable [SegmentLowTint]
+            RValue = []
+678:    EX_Context
+            EX_InstanceVariable [ITM_SupplyBarItem_4]
+            EX_LocalVirtualFunction SetColors
+                EX_InstanceVariable [SegmentBorderTint]
+                EX_InstanceVariable [SegmentInnerTint]
+                EX_InstanceVariable [SegmentLowTint]
+            RValue = []
+741:    EX_Return
+            EX_Nothing
+743:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_SupplyBar_C->ExecuteUbergraph_ITM_SupplyBar
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetProgress
+0:      EX_PushExecutionFlow 1010
+5:      EX_Let
+            EX_LocalVariable [Percent]
+            EX_FloatConst 0
+28:     EX_Let
+            EX_LocalVariable [ChunkSize]
+            EX_FloatConst 0
+51:     EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [Progress (0-1)]
+                EX_FloatConst 0
+                EX_FloatConst 1
+98:     EX_Let
+            EX_LocalVariable [Percent]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+125:    EX_JumpIfNot 181
+            EX_InstanceVariable [ShowAsProgressBar]
+139:    EX_Context
+            EX_InstanceVariable [ProgressBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [Percent]
+            RValue = []
+180:    EX_PopExecutionFlow
+181:    EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ProgressChunks]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+231:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+268:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+310:    EX_Let
+            EX_LocalVariable [ChunkSize]
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue_1]
+337:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+360:    EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ProgressChunks]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+410:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+                EX_IntConst 1
+452:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+490:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+500:    EX_PushExecutionFlow 839
+505:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetChildAt_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ProgressChunks]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildAt
+                    EX_LocalVariable [Temp_int_Variable]
+                RValue = [CallFunc_GetChildAt_ReturnValue]
+556:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsITM_Supply_Bar_Item]
+            EX_DynamicCast import /Game/UI/Global_UI_Elements/ITM_SupplyBarItem->ITM_SupplyBarItem_C
+                EX_LocalVariable [CallFunc_GetChildAt_ReturnValue]
+592:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsITM_Supply_Bar_Item]
+621:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+631:    EX_LetObj
+            EX_LocalVariable [BarItem]
+            EX_LocalVariable [K2Node_DynamicCast_AsITM_Supply_Bar_Item]
+650:    EX_PushExecutionFlow 913
+655:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntFloat
+                EX_LocalVariable [ChunkNo]
+                EX_LocalVariable [ChunkSize]
+701:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [Percent]
+                EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+747:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_LocalVariable [ChunkSize]
+793:    EX_Context
+            EX_LocalVariable [BarItem]
+            EX_LocalVirtualFunction SetProgress
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            RValue = []
+838:    EX_PopExecutionFlow
+839:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+881:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+908:    EX_Jump 360
+913:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [ChunkNo]
+                EX_IntConst 1
+955:    EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+982:    EX_Let
+            EX_LocalVariable [ChunkNo]
+            EX_LocalVariable [Temp_int_Variable_1]
+1009:   EX_PopExecutionFlow
+1010:   EX_Return
+            EX_Nothing
+1012:   EX_EndOfScript

@@ -1,0 +1,645 @@
+FunctionExport OnOneMainSaveLeft__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_Popup_MoreThanOneMainSave
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction RemoveTempSave
+24:     EX_FinalFunction import /Script/FSD->WindowWidget->CloseThisWindow
+34:     EX_CallMulticastDelegate export Popup_MoreThanOneMainSave_C->OnOneMainSaveLeft__DelegateSignature
+            EX_InstanceVariable [OnOneMainSaveLeft]
+53:     EX_Jump 417
+58:     EX_LocalVirtualFunction CreateMainSaveslots
+72:     EX_LocalVirtualFunction CreateTempSave
+86:     EX_Jump 417
+91:     EX_LocalVirtualFunction SetColors
+105:    EX_Jump 417
+110:    EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [MainSaves]
+                    EX_LocalVariable [K2Node_CustomEvent_save]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue]
+170:    EX_LocalVirtualFunction CreateMainSaveslots
+184:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [MainSaves]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+243:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 1
+277:    EX_JumpIfNot 370
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+291:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MainSaves]
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+346:    EX_CallMath import /Script/FSD->FSDSaveGame->FixNamingOfMainSave
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+365:    EX_Jump 10
+370:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [FlashingText]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+417:    EX_Return
+            EX_Nothing
+419:    EX_EndOfScript
+FunctionExport SaveDeleted
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_save]
+            EX_LocalVariable [save]
+18:     EX_LocalFinalFunction export Popup_MoreThanOneMainSave_C->ExecuteUbergraph_Popup_MoreThanOneMainSave
+            EX_IntConst 110
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export Popup_MoreThanOneMainSave_C->ExecuteUbergraph_Popup_MoreThanOneMainSave
+            EX_IntConst 91
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export Popup_MoreThanOneMainSave_C->ExecuteUbergraph_Popup_MoreThanOneMainSave
+            EX_IntConst 58
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetColors
+0:      EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 9
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+48:     EX_Context
+            EX_InstanceVariable [Border_0]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+89:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [Header]
+                EX_ByteConst 0
+                EX_Self
+            RValue = []
+137:    EX_Return
+            EX_Nothing
+139:    EX_EndOfScript
+FunctionExport BindSaveslotEvents
+0:      EX_BindDelegate SaveDeleted
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+23:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [SaveslotWidget]
+                EX_InstanceVariable [OnSaveDeletedWithReference]
+                RValue = [OnSaveDeletedWithReference]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+64:     EX_BindDelegate Reset Color on Non Selected Save
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+87:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [SaveslotWidget]
+                EX_InstanceVariable [OnSaveDetails]
+                RValue = [OnSaveDetails]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+128:    EX_Return
+            EX_Nothing
+130:    EX_EndOfScript
+FunctionExport Reset Color on Non Selected Save
+0:      EX_PushExecutionFlow 2046
+5:      EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+51:     EX_Let
+            EX_LocalVariable [CallFunc_GetAllChildren_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SaveSlotContainer]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetAllChildren
+                RValue = [CallFunc_GetAllChildren_ReturnValue]
+101:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetAllChildren_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+160:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+198:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+208:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+235:    EX_PushExecutionFlow 1972
+240:    EX_Let
+            EX_LocalVariable [CallFunc_GetAllChildren_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SaveSlotContainer]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetAllChildren
+                RValue = [CallFunc_GetAllChildren_ReturnValue]
+290:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllChildren_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+349:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+            EX_DynamicCast import /Game/UI/Menu_SaveSlots/ITM_SaveSlot_Entry->ITM_SaveSlot_Entry_C
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+385:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+414:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+424:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                EX_InstanceVariable [Basic_Menu_ColorBar]
+                RValue = [Basic_Menu_ColorBar]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_FloatConst 0.2
+            RValue = []
+483:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                EX_InstanceVariable [Basic_Menu_ColorBar]
+                RValue = [Basic_Menu_ColorBar]
+            EX_LocalVirtualFunction SetColor
+                EX_ByteConst 0
+            RValue = []
+543:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+604:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+633:    EX_Let
+            EX_StructMemberContext [ImageSize]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [ImageSize]
+                EX_StructMemberContext [Normal]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                            EX_InstanceVariable [MainButton]
+                            RValue = [MainButton]
+                        EX_InstanceVariable [WidgetStyle]
+                        RValue = [WidgetStyle]
+731:    EX_Let
+            EX_StructMemberContext [Margin]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [Margin]
+                EX_StructMemberContext [Normal]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                            EX_InstanceVariable [MainButton]
+                            RValue = [MainButton]
+                        EX_InstanceVariable [WidgetStyle]
+                        RValue = [WidgetStyle]
+829:    EX_Let
+            EX_StructMemberContext [TintColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+865:    EX_LetObj
+            EX_StructMemberContext [ResourceObject]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [ResourceObject]
+                EX_StructMemberContext [Normal]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                            EX_InstanceVariable [MainButton]
+                            RValue = [MainButton]
+                        EX_InstanceVariable [WidgetStyle]
+                        RValue = [WidgetStyle]
+955:    EX_Let
+            EX_StructMemberContext [DrawAs]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [DrawAs]
+                EX_StructMemberContext [Normal]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                            EX_InstanceVariable [MainButton]
+                            RValue = [MainButton]
+                        EX_InstanceVariable [WidgetStyle]
+                        RValue = [WidgetStyle]
+1053:   EX_Let
+            EX_StructMemberContext [Tiling]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [Tiling]
+                EX_StructMemberContext [Normal]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                            EX_InstanceVariable [MainButton]
+                            RValue = [MainButton]
+                        EX_InstanceVariable [WidgetStyle]
+                        RValue = [WidgetStyle]
+1151:   EX_Let
+            EX_StructMemberContext [Mirroring]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [Mirroring]
+                EX_StructMemberContext [Normal]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                            EX_InstanceVariable [MainButton]
+                            RValue = [MainButton]
+                        EX_InstanceVariable [WidgetStyle]
+                        RValue = [WidgetStyle]
+1249:   EX_Let
+            EX_StructMemberContext [Normal]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+1285:   EX_Let
+            EX_StructMemberContext [Hovered]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [Hovered]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1374:   EX_Let
+            EX_StructMemberContext [Pressed]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [Pressed]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1463:   EX_Let
+            EX_StructMemberContext [Disabled]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [Disabled]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1552:   EX_Let
+            EX_StructMemberContext [NormalPadding]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [NormalPadding]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1641:   EX_Let
+            EX_StructMemberContext [PressedPadding]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [PressedPadding]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1730:   EX_Let
+            EX_StructMemberContext [PressedSlateSound]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [PressedSlateSound]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1819:   EX_Let
+            EX_StructMemberContext [HoveredSlateSound]
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            EX_StructMemberContext [HoveredSlateSound]
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                        EX_InstanceVariable [MainButton]
+                        RValue = [MainButton]
+                    EX_InstanceVariable [WidgetStyle]
+                    RValue = [WidgetStyle]
+1908:   EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsITM_Save_Slot_Entry]
+                EX_InstanceVariable [MainButton]
+                RValue = [MainButton]
+            EX_FinalFunction import /Script/UMG->Button->SetStyle
+                EX_LocalVariable [K2Node_MakeStruct_ButtonStyle]
+            RValue = []
+1971:   EX_PopExecutionFlow
+1972:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+2014:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+2041:   EX_Jump 51
+2046:   EX_Return
+            EX_Nothing
+2048:   EX_EndOfScript
+FunctionExport CreateMainSaveslots
+0:      EX_PushExecutionFlow 1102
+5:      EX_Context
+            EX_InstanceVariable [SaveSlotContainer]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+41:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+64:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+87:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [MainSaves]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+146:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+184:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+194:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+221:    EX_PushExecutionFlow 1028
+226:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+250:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_SaveSlots/ITM_SaveSlot_Entry->ITM_SaveSlot_Entry_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+311:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MainSaves]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+370:    EX_Context
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_LocalVirtualFunction SetValues
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_True
+            RValue = []
+416:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MainSaves]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+475:    EX_Let
+            EX_LocalVariable [CallFunc_GetSlotLoadedFrom_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetSlotLoadedFrom
+                RValue = [CallFunc_GetSlotLoadedFrom_ReturnValue]
+525:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_GetSlotLoadedFrom_ReturnValue]
+562:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [TXT_SaveName]
+                RValue = [TXT_SaveName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+629:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [Button_Load]
+                RValue = [Button_Load]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 2
+            RValue = []
+689:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [Button_Delete]
+                RValue = [Button_Delete]
+            EX_VirtualFunction SetIsEnabled
+                EX_True
+            RValue = []
+748:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SaveSlotContainer]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChild_ReturnValue]
+799:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MainSaves]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+858:    EX_Let
+            EX_LocalVariable [CallFunc_GetSlotLoadedFrom_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetSlotLoadedFrom
+                RValue = [CallFunc_GetSlotLoadedFrom_ReturnValue]
+908:    EX_LocalVirtualFunction TransformSavenameByBranch
+            EX_LocalVariable [CallFunc_GetSlotLoadedFrom_ReturnValue]
+            EX_LocalVariable [CallFunc_TransformSavenameByBranch_Savename]
+940:    EX_Let
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [FullSaveSlotName]
+                RValue = [FullSaveSlotName]
+            EX_LocalVariable [CallFunc_TransformSavenameByBranch_Savename]
+989:    EX_LocalVirtualFunction BindSaveslotEvents
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+1012:   EX_LocalVirtualFunction Reset Color on Non Selected Save
+            EX_NoObject
+1027:   EX_PopExecutionFlow
+1028:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1070:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1097:   EX_Jump 87
+1102:   EX_Return
+            EX_Nothing
+1104:   EX_EndOfScript
+FunctionExport TransformSavenameByBranch
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSteamUtils->GetSteamBranchString
+28:     EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->NotEqual_StrStr
+                EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+                EX_StringConst main
+63:     EX_JumpIfNot 496
+            EX_LocalVariable [CallFunc_NotEqual_StrStr_ReturnValue]
+77:     EX_Let
+            EX_LocalVariable [CallFunc_RightChop_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->RightChop
+                EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+                EX_IntConst 1
+119:    EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+156:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+                EX_StringConst  
+196:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue]
+                EX_IntConst 1
+238:    EX_Let
+            EX_LocalVariable [CallFunc_LeftChop_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->LeftChop
+                EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+284:    EX_Let
+            EX_LocalVariable [CallFunc_ToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->ToUpper
+                EX_LocalVariable [CallFunc_LeftChop_ReturnValue]
+321:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_ToUpper_ReturnValue]
+                EX_LocalVariable [CallFunc_RightChop_ReturnValue]
+367:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+                EX_StringConst _
+407:    EX_Let
+            EX_LocalVariable [CallFunc_Replace_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Replace
+                EX_LocalVariable [InSavename]
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_2]
+                EX_ByteConst 1
+464:    EX_Let
+            EX_LocalOutVariable
+                [Savename]
+            EX_LocalVariable [CallFunc_Replace_ReturnValue]
+491:    EX_Jump 523
+496:    EX_Let
+            EX_LocalOutVariable
+                [Savename]
+            EX_LocalVariable [InSavename]
+523:    EX_Return
+            EX_Nothing
+525:    EX_EndOfScript
+FunctionExport CreateTempSave
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+20:     EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameUserSettings->SetCurrentUserSaveSlotName
+                EX_Self
+                EX_InstanceVariable [TmpSaveslot]
+                EX_ByteConst 0
+            RValue = []
+64:     EX_Return
+            EX_Nothing
+66:     EX_EndOfScript
+FunctionExport RemoveTempSave
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetSaveSlotName_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSaveGame->GetSaveSlotName
+                EX_IntConst 0
+33:     EX_Let
+            EX_InstanceVariable [TmpSaveslot]
+            EX_LocalVariable [CallFunc_GetSaveSlotName_ReturnValue]
+60:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+80:     EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameUserSettings->SetCurrentUserSaveSlotName
+                EX_Self
+                EX_StringConst 
+                EX_ByteConst 1
+            RValue = []
+117:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+138:    EX_LetBool
+            EX_LocalVariable [CallFunc_DeleteFromDisk_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSaveGame->DeleteFromDisk
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [TmpSaveslot]
+                EX_IntConst 0
+181:    EX_Return
+            EX_Nothing
+183:    EX_EndOfScript

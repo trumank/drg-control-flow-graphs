@@ -1,0 +1,116 @@
+FunctionExport ExecuteUbergraph_ITM_Gear_Bar
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetCustomProgress
+            EX_True
+            EX_False
+            EX_True
+27:     EX_Jump 51
+32:     EX_JumpIfNot 51
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+46:     EX_Jump 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_Gear_Bar_C->ExecuteUbergraph_ITM_Gear_Bar
+            EX_IntConst 32
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetCustomProgress
+0:      EX_LocalVirtualFunction SetStageStatus
+            EX_InstanceVariable [ITM_DeepDive_StageIcon]
+            EX_LocalVariable [Stage1Complete]
+32:     EX_LocalVirtualFunction SetStageStatus
+            EX_InstanceVariable [ITM_DeepDive_StageIcon_C_0]
+            EX_LocalVariable [Stage2Complete]
+64:     EX_LocalVirtualFunction SetStageStatus
+            EX_InstanceVariable [ITM_DeepDive_StageIcon_C_1]
+            EX_LocalVariable [Stage3Complete]
+96:     EX_Return
+            EX_Nothing
+98:     EX_EndOfScript
+FunctionExport SetActiveProgress
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+21:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetActiveDeepDive_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                    EX_InstanceVariable [DeepDiveManager]
+                    RValue = [DeepDiveManager]
+                EX_FinalFunction import /Script/FSD->DeepDiveManager->GetActiveDeepDive
+                RValue = [CallFunc_GetActiveDeepDive_ReturnValue]
+85:     EX_LocalVirtualFunction SetDeepDiveProgress
+            EX_LocalVariable [CallFunc_GetActiveDeepDive_ReturnValue]
+108:    EX_Return
+            EX_Nothing
+110:    EX_EndOfScript
+FunctionExport SetDeepDiveProgress
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Deep Dive]
+29:     EX_JumpIfNot 281
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Deep Dive]
+                EX_FinalFunction import /Script/FSD->DeepDive->GetGivenRewardAtStage
+                    EX_IntConst 2
+                RValue = [CallFunc_GetGivenRewardAtStage_ReturnValue]
+98:     EX_Let
+            EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [Deep Dive]
+                EX_FinalFunction import /Script/FSD->DeepDive->GetGivenRewardAtStage
+                    EX_IntConst 1
+                RValue = [CallFunc_GetGivenRewardAtStage_ReturnValue_1]
+153:    EX_Let
+            EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue_2]
+            EX_Context
+                EX_LocalVariable [Deep Dive]
+                EX_FinalFunction import /Script/FSD->DeepDive->GetGivenRewardAtStage
+                    EX_IntConst 0
+                RValue = [CallFunc_GetGivenRewardAtStage_ReturnValue_2]
+208:    EX_LocalVirtualFunction SetCustomProgress
+            EX_StructMemberContext [WasAlreadyGiven]
+                EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue_2]
+            EX_StructMemberContext [WasAlreadyGiven]
+                EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue_1]
+            EX_StructMemberContext [WasAlreadyGiven]
+                EX_LocalVariable [CallFunc_GetGivenRewardAtStage_ReturnValue]
+276:    EX_Jump 298
+281:    EX_LocalVirtualFunction SetCustomProgress
+            EX_False
+            EX_False
+            EX_False
+298:    EX_Return
+            EX_Nothing
+300:    EX_EndOfScript
+FunctionExport SetStageStatus
+0:      EX_Context
+            EX_LocalVariable [Target]
+            EX_LocalVirtualFunction SetActive
+                EX_LocalVariable [Claimed]
+            RValue = []
+45:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [Claimed]
+                EX_InstanceVariable [ShowClaimText]
+83:     EX_Context
+            EX_LocalVariable [Target]
+            EX_LocalVirtualFunction SetClaimStatusActive
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            RValue = []
+128:    EX_Return
+            EX_Nothing
+130:    EX_EndOfScript

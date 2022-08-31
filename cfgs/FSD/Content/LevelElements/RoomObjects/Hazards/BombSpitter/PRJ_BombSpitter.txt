@@ -1,0 +1,128 @@
+FunctionExport ExecuteUbergraph_PRJ_BombSpitter
+0:      EX_PushExecutionFlow 656
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+35:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+45:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Projectile]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+95:     EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageAndCarve
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_VectorConst 0,0,1
+                EX_NameConst None
+                EX_NoObject
+                EX_NoObject
+                EX_InstanceVariable [Damage]
+            RValue = []
+173:    EX_PopExecutionFlow
+174:    EX_VirtualFunction DisableAndDestroy
+188:    EX_PopExecutionFlow
+189:    EX_PushExecutionFlow 15
+194:    EX_VirtualFunction GoBoom
+208:    EX_PopExecutionFlow
+209:    EX_Jump 189
+214:    EX_Context
+            EX_InstanceVariable [Projectile]
+            EX_VirtualFunction Deactivate
+            RValue = []
+250:    EX_Context
+            EX_InstanceVariable [Projectile]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+284:    EX_Context
+            EX_InstanceVariable [Projectile]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+322:    EX_Jump 174
+327:    EX_Jump 189
+332:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Projectile]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+382:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Environment/BombSpitter/BombSpitterExplode_Cue->BombSpitterExplode_Cue
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+442:    EX_Context
+            EX_ObjectConst import /Game/Audio/Functions/MixFunctions->Default__MixFunctions_C
+            EX_LocalVirtualFunction PushMixAtDistance
+                EX_ObjectConst import /Game/Audio/SoundControl/SoundMixes/PSM_DuckOnExplosionClose->PSM_DuckOnExplosionClose
+                EX_Self
+                EX_FloatConst 0
+                EX_FloatConst 200
+                EX_Self
+            RValue = []
+499:    EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+537:    EX_Jump 214
+542:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Projectile]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+592:    EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ProjectileExplosion->SpawnEffects
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_VectorConst 0,0,1
+            RValue = []
+646:    EX_Jump 332
+651:    EX_Jump 542
+656:    EX_Return
+            EX_Nothing
+658:    EX_EndOfScript
+FunctionExport GoBoom
+0:      EX_LocalFinalFunction export PRJ_BombSpitter_C->ExecuteUbergraph_PRJ_BombSpitter
+            EX_IntConst 651
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_0_HitSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Damage]
+            EX_LocalVariable [Damage]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_anyHealthLost]
+            EX_LocalVariable [anyHealthLost]
+54:     EX_LocalFinalFunction export PRJ_BombSpitter_C->ExecuteUbergraph_PRJ_BombSpitter
+            EX_IntConst 327
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_BombSpitter_C->ExecuteUbergraph_PRJ_BombSpitter
+            EX_IntConst 209
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

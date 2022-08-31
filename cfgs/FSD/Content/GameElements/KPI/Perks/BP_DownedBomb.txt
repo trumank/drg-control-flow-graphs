@@ -1,0 +1,48 @@
+FunctionExport ExecuteUbergraph_BP_DownedBomb
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [K2Node_Event_character]
+                EX_ObjectConst import /Script/FSD->DownedStateComponent
+48:     EX_LetBool
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [DownedBombActive]
+                RValue = [DownedBombActive]
+            EX_True
+81:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_character]
+                EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+                RValue = [CallFunc_HasAuthority_ReturnValue]
+123:    EX_JumpIfNot 237
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+137:    EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDownedBombDamage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DownedStateComponent->CreateDownedBombDamage
+                    EX_ObjectConst import /Game/GameElements/KPI/Perks/BP_DownedBombDamage->BP_DownedBombDamage_C
+                RValue = [CallFunc_CreateDownedBombDamage_ReturnValue]
+188:    EX_Let
+            EX_Context
+                EX_LocalVariable [CallFunc_CreateDownedBombDamage_ReturnValue]
+                EX_InstanceVariable [DamageRadius]
+                RValue = [DamageRadius]
+            EX_LocalVariable [K2Node_Event_value]
+237:    EX_Return
+            EX_Nothing
+239:    EX_EndOfScript
+FunctionExport Receive_ActivatePerk
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_character]
+            EX_LocalVariable [character]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_value]
+            EX_LocalVariable [value]
+36:     EX_LocalFinalFunction export BP_DownedBomb_C->ExecuteUbergraph_BP_DownedBomb
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

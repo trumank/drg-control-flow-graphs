@@ -1,0 +1,349 @@
+FunctionExport ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Jump 208
+15:     EX_LocalVirtualFunction UpdateAmount
+            EX_LocalVariable [K2Node_Event_amount]
+38:     EX_Jump 208
+43:     EX_LocalVirtualFunction UpdateAmount
+            EX_LocalVariable [K2Node_Event_Value]
+66:     EX_Jump 208
+71:     EX_JumpIfNot 127
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+85:     EX_LocalVirtualFunction SetHeatValue
+            EX_InstanceVariable [Progress]
+            EX_InstanceVariable [Overheating]
+            EX_FloatConst 0.5
+122:    EX_Jump 208
+127:    EX_LocalVirtualFunction SetHeatValue
+            EX_FloatConst 0
+            EX_False
+            EX_FloatConst 0.5
+152:    EX_Jump 208
+157:    EX_LocalVirtualFunction OverheatStatus
+            EX_LocalVariable [K2Node_CustomEvent_Overheated]
+180:    EX_LocalVirtualFunction SetProgress
+            EX_LocalVariable [K2Node_CustomEvent_HeatPercentage]
+203:    EX_Jump 208
+208:    EX_Return
+            EX_Nothing
+210:    EX_EndOfScript
+FunctionExport SetHeatValue
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HeatPercentage]
+            EX_LocalVariable [HeatPercentage]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Overheated]
+            EX_LocalVariable [Overheated]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ThermalFeedbackLevel]
+            EX_LocalVariable [ThermalFeedbackLevel]
+54:     EX_LocalFinalFunction export WeaponDisplay_PlasmaCarbine_AmmoCounter_C->ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+            EX_IntConst 157
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export WeaponDisplay_PlasmaCarbine_AmmoCounter_C->ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+            EX_IntConst 71
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetClipCount
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Value]
+            EX_LocalVariable [Value]
+18:     EX_LocalFinalFunction export WeaponDisplay_PlasmaCarbine_AmmoCounter_C->ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+            EX_IntConst 43
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Total Ammo left changed
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_amount]
+            EX_LocalVariable [amount]
+18:     EX_LocalFinalFunction export WeaponDisplay_PlasmaCarbine_AmmoCounter_C->ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+            EX_IntConst 15
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Max Ammo Changed
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_amount_1]
+            EX_LocalVariable [amount]
+18:     EX_LocalFinalFunction export WeaponDisplay_PlasmaCarbine_AmmoCounter_C->ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetTotalCount
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Value_1]
+            EX_LocalVariable [Value]
+18:     EX_LocalFinalFunction export WeaponDisplay_PlasmaCarbine_AmmoCounter_C->ExecuteUbergraph_WeaponDisplay_PlasmaCarbine_AmmoCounter
+            EX_IntConst 208
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateAmount
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [Value]
+                EX_False
+                EX_True
+                EX_IntConst 1
+                EX_IntConst 324
+49:     EX_Context
+            EX_InstanceVariable [DATA_AmmoCount]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+94:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [Value]
+                EX_IntConst 100
+128:    EX_JumpIfNot 204
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+142:    EX_Context
+            EX_InstanceVariable [Overlay_AmmoLow]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+180:    EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [Anim_AmmoCritical]
+199:    EX_Jump 289
+204:    EX_Context
+            EX_InstanceVariable [Overlay_AmmoLow]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+242:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Anim_AmmoCritical]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+289:    EX_Return
+            EX_Nothing
+291:    EX_EndOfScript
+FunctionExport SetProgress
+0:      EX_Let
+            EX_LocalVariable [VisualMaxProgress]
+            EX_FloatConst 0.93
+23:     EX_Let
+            EX_LocalVariable [VisualProgress]
+            EX_FloatConst 0
+46:     EX_Let
+            EX_InstanceVariable [Progress]
+            EX_LocalVariable [Value]
+73:     EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 0.5
+96:     EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 0.9
+119:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Overheating]
+138:    EX_Let
+            EX_LocalVariable [VisualMaxProgress]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 209
+                case 0:
+                    EX_False
+                    NextCaseOffset = 186
+                    EX_LocalVariable [Temp_float_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 200
+                    EX_LocalVariable [Temp_float_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+209:    EX_Let
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MapRangeClamped
+                EX_InstanceVariable [Progress]
+                EX_FloatConst 0.1
+                EX_LocalVariable [VisualMaxProgress]
+                EX_FloatConst 0
+                EX_FloatConst 1
+270:    EX_Let
+            EX_LocalVariable [VisualProgress]
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+297:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_InstanceVariable [Progress]
+                EX_LocalVariable [VisualMaxProgress]
+335:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+                EX_InstanceVariable [Overheating]
+373:    EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->ToggleAnimationLooping
+            EX_Self
+            EX_InstanceVariable [Anim_LowerBlink]
+            EX_StructConst import /Script/FSD->WidgetAnimationSettings
+                EX_FloatConst 1
+                EX_ByteConst 0
+                EX_True
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_LocalVariable [CallFunc_ToggleAnimationLooping_OutPlayingChanged]
+            EX_LocalVariable [CallFunc_ToggleAnimationLooping_OutIsPlaying]
+442:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Image_ProgressLowerBit]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_ToggleAnimationLooping_OutIsPlaying]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+528:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Image_Progress]
+                EX_FinalFunction import /Script/UMG->Image->GetDynamicMaterial
+                RValue = [CallFunc_GetDynamicMaterial_ReturnValue]
+570:    EX_Context
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst Progress
+                EX_LocalVariable [VisualProgress]
+            RValue = []
+624:    EX_LocalVirtualFunction Scrub Animation
+            EX_InstanceVariable [Anim_ProgressColor]
+            EX_InstanceVariable [Progress]
+656:    EX_Return
+            EX_Nothing
+658:    EX_EndOfScript
+FunctionExport OverheatStatus
+0:      EX_LetBool
+            EX_InstanceVariable [Overheating]
+            EX_LocalVariable [Condition]
+19:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [DATA_AmmoCount]
+                EX_ByteConst 4
+                EX_ByteConst 1
+                EX_InstanceVariable [Overheating]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+105:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Overlay_Overheat]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [Overheating]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+191:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+229:    EX_JumpIfNot 278
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+243:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimationForward_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimationForward
+                EX_InstanceVariable [Anim_Overheat]
+                EX_FloatConst 1
+                EX_False
+278:    EX_Return
+            EX_Nothing
+280:    EX_EndOfScript
+FunctionExport Scrub Animation
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetEndTime_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InAnimation]
+                EX_FinalFunction import /Script/UMG->WidgetAnimation->GetEndTime
+                RValue = [CallFunc_GetEndTime_ReturnValue]
+50:     EX_Let
+            EX_LocalVariable [CallFunc_GetStartTime_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InAnimation]
+                EX_FinalFunction import /Script/UMG->WidgetAnimation->GetStartTime
+                RValue = [CallFunc_GetStartTime_ReturnValue]
+100:    EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_LocalVariable [CallFunc_GetStartTime_ReturnValue]
+                EX_LocalVariable [CallFunc_GetEndTime_ReturnValue]
+                EX_LocalVariable [InProgress]
+155:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_LocalVariable [InAnimation]
+                EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 0
+                EX_False
+206:    EX_Return
+            EX_Nothing
+208:    EX_EndOfScript
+FunctionExport SetProgressColor
+0:      EX_Let
+            EX_InstanceVariable [ProgressColor]
+            EX_LocalVariable [InColor]
+27:     EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 1
+79:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Overheating]
+98:     EX_Context
+            EX_InstanceVariable [Image_Progress]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 182
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 159
+                        EX_InstanceVariable [ProgressColor]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 173
+                        EX_LocalVariable [Temp_struct_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+183:    EX_Context
+            EX_InstanceVariable [Image_ProgressLowerBit]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 267
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 244
+                        EX_InstanceVariable [ProgressColor]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 258
+                        EX_LocalVariable [Temp_struct_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+268:    EX_Return
+            EX_Nothing
+270:    EX_EndOfScript

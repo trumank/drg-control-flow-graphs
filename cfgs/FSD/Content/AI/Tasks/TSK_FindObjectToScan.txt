@@ -1,0 +1,202 @@
+FunctionExport ExecuteUbergraph_TSK_FindObjectToScan
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_True
+21:     EX_Jump 523
+26:     EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_True
+37:     EX_Jump 523
+42:     EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_ByteConst 1
+55:     EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array_1]
+            EX_LocalVariable [K2Node_Event_ControlledPawn]
+75:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_ControlledPawn]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+125:    EX_SetArray
+            EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+136:    EX_LetBool
+            EX_LocalVariable [CallFunc_SphereOverlapActors_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->SphereOverlapActors
+                EX_Self
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_InstanceVariable [SearchRadius]
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_NoObject
+                EX_LocalVariable [K2Node_MakeArray_Array_1]
+                EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+203:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsAIC_Prospector]
+            EX_DynamicCast import /Game/Critters/Prospector/AIC_Prospector->AIC_Prospector_C
+                EX_LocalVariable [K2Node_Event_OwnerController]
+239:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsAIC_Prospector]
+268:    EX_LocalVirtualFunction SelectRandomTarget
+            EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+            EX_LocalVariable [K2Node_DynamicCast_AsAIC_Prospector]
+            EX_LocalVariable [CallFunc_SelectRandomTarget_Target]
+309:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [Target]
+            EX_LocalVariable [CallFunc_SelectRandomTarget_Target]
+338:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_SelectRandomTarget_Target]
+367:    EX_JumpIfNot 26
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+381:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsAIC_Prospector]
+            EX_DynamicCast import /Game/Critters/Prospector/AIC_Prospector->AIC_Prospector_C
+                EX_LocalVariable [K2Node_Event_OwnerController]
+417:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsAIC_Prospector]
+446:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintSetLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintSetLibrary->Set_Add
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsAIC_Prospector]
+                    EX_InstanceVariable [ScannedObjects]
+                    RValue = [ScannedObjects]
+                EX_LocalVariable [CallFunc_SelectRandomTarget_Target]
+            RValue = []
+518:    EX_Jump 10
+523:    EX_Return
+            EX_Nothing
+525:    EX_EndOfScript
+FunctionExport ReceiveExecuteAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_FindObjectToScan_C->ExecuteUbergraph_TSK_FindObjectToScan
+            EX_IntConst 42
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SelectRandomTarget
+0:      EX_PushExecutionFlow 513
+5:      EX_Let
+            EX_LocalVariable [Index]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [Actors]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+87:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 0
+121:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+131:    EX_PushExecutionFlow 28
+136:    EX_Let
+            EX_LocalVariable [CallFunc_Array_LastIndex_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_LastIndex
+                    EX_LocalOutVariable
+                        [Actors]
+                RValue = [CallFunc_Array_LastIndex_ReturnValue]
+195:    EX_Let
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomIntegerInRange
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Array_LastIndex_ReturnValue]
+237:    EX_Let
+            EX_LocalVariable [Index]
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+264:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [Actors]
+                EX_LocalVariable [Index]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+323:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidObjectToScan_ReturnValue]
+            EX_LocalVirtualFunction IsValidObjectToScan
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+                EX_LocalVariable [Prospector]
+365:    EX_JumpIfNot 462
+            EX_LocalVariable [CallFunc_IsValidObjectToScan_ReturnValue]
+379:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [Actors]
+                EX_LocalVariable [Index]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+438:    EX_LetObj
+            EX_LocalOutVariable
+                [Target]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+457:    EX_Jump 513
+462:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Remove
+                EX_LocalOutVariable
+                    [Actors]
+                EX_LocalVariable [Index]
+            RValue = []
+512:    EX_PopExecutionFlow
+513:    EX_Return
+            EX_Nothing
+515:    EX_EndOfScript
+FunctionExport IsValidObjectToScan
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Object]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->SimpleObjectInfoComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+51:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+80:     EX_LetBool
+            EX_LocalVariable [CallFunc_Set_Contains_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintSetLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintSetLibrary->Set_Contains
+                    EX_Context
+                        EX_LocalVariable [Prospector]
+                        EX_InstanceVariable [ScannedObjects]
+                        RValue = [ScannedObjects]
+                    EX_LocalVariable [Object]
+                RValue = [CallFunc_Set_Contains_ReturnValue]
+162:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_Set_Contains_ReturnValue]
+191:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+229:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+248:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+258:    EX_EndOfScript

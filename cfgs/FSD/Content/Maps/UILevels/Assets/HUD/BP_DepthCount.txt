@@ -1,0 +1,188 @@
+FunctionExport ExecuteUbergraph_BP_DepthCount
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/FSD->GameFunctionLibrary->SpawnOrUpdateAudio2D
+            EX_Self
+            EX_InstanceVariable [Audio Component]
+            EX_ObjectConst import /Game/Audio/SFX/UI/Menu/DeepDiveMenu/DeepDiveInbetweenScreen/DroppodDrilling_LoadScreen/SonarPing_Deep_Cue->SonarPing_Deep_Cue
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_NameConst None
+            EX_FloatConst 0
+67:     EX_BindDelegate DoPing
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+90:     EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 2
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+143:    EX_Let
+            EX_InstanceVariable [PingHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+170:    EX_Jump 792
+175:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Widget]
+204:    EX_JumpIfNot 792
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+218:    EX_Context
+            EX_InstanceVariable [Widget]
+            EX_LocalVirtualFunction SetProgress
+                EX_InstanceVariable [CurrentDepth]
+            RValue = []
+263:    EX_Context
+            EX_InstanceVariable [DepthWidget]
+            EX_VirtualFunction RequestRenderUpdate
+            RValue = []
+299:    EX_Jump 792
+304:    EX_JumpIfNot 792
+            EX_InstanceVariable [PingActive]
+318:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+346:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+392:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_FloatConst 0.25
+434:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_FloatConst 0
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+476:    EX_Let
+            EX_InstanceVariable [NewDepth]
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+503:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_FloatFloat
+                EX_InstanceVariable [NewDepth]
+                EX_InstanceVariable [CurrentDepth]
+541:    EX_JumpIfNot 560
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+555:    EX_Jump 792
+560:    EX_Let
+            EX_InstanceVariable [CurrentDepth]
+            EX_InstanceVariable [NewDepth]
+587:    EX_Jump 175
+592:    EX_Context
+            EX_InstanceVariable [DepthWidget]
+            EX_VirtualFunction RequestRenderUpdate
+            RValue = []
+628:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DepthWidget]
+                EX_FinalFunction import /Script/UMG->WidgetComponent->GetUserWidgetObject
+                RValue = [CallFunc_GetUserWidgetObject_ReturnValue]
+670:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Depth_Count_Widget]
+            EX_DynamicCast import /Game/Maps/UILevels/Assets/HUD/BP_DepthCountWidget->BP_DepthCountWidget_C
+                EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+706:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Depth_Count_Widget]
+735:    EX_JumpIfNot 792
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+749:    EX_LetObj
+            EX_InstanceVariable [Widget]
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Depth_Count_Widget]
+768:    EX_Jump 792
+773:    EX_JumpIfNot 792
+            EX_InstanceVariable [PingActive]
+787:    EX_Jump 10
+792:    EX_Return
+            EX_Nothing
+794:    EX_EndOfScript
+FunctionExport DoPing
+0:      EX_LocalFinalFunction export BP_DepthCount_C->ExecuteUbergraph_BP_DepthCount
+            EX_IntConst 773
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_DepthCount_C->ExecuteUbergraph_BP_DepthCount
+            EX_IntConst 592
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveTick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+18:     EX_LocalFinalFunction export BP_DepthCount_C->ExecuteUbergraph_BP_DepthCount
+            EX_IntConst 304
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetPingActive
+0:      EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction UpdateBool
+                EX_InstanceVariable [PingActive]
+                EX_LocalVariable [InPingActive]
+                EX_Self
+                EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+                EX_LocalVariable [CallFunc_UpdateBool_OutValue]
+            RValue = []
+73:     EX_JumpIfNot 435
+            EX_LocalVariable [CallFunc_UpdateBool_ValueChanged]
+87:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [PingActive]
+116:    EX_VirtualFunction SetActorHiddenInGame
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+139:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_BoolToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Conv_BoolToString
+                EX_InstanceVariable [PingActive]
+176:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst SetPingActive: 
+                EX_LocalVariable [CallFunc_Conv_BoolToString_ReturnValue]
+230:    EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_True
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0.332451
+                EX_FloatConst 0
+                EX_FloatConst 1
+            EX_FloatConst 20
+291:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [PingHandle]
+311:    EX_JumpIfNot 344
+            EX_InstanceVariable [PingActive]
+325:    EX_LocalVirtualFunction DoPing
+339:    EX_Jump 435
+344:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Audio Component]
+373:    EX_JumpIfNot 435
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+387:    EX_Context
+            EX_InstanceVariable [Audio Component]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.25
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+435:    EX_Return
+            EX_Nothing
+437:    EX_EndOfScript

@@ -1,0 +1,71 @@
+FunctionExport ExecuteUbergraph_PRJ_Spider_Boss_Twin_Multifireball
+0:      EX_PushExecutionFlow 354
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+35:     EX_JumpIfNot 50
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+49:     EX_PopExecutionFlow
+50:     EX_Context
+            EX_InstanceVariable [CollisionComponent]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+88:     EX_PopExecutionFlow
+89:     EX_VirtualFunction DisableAndDestroy
+103:    EX_PopExecutionFlow
+104:    EX_PushExecutionFlow 263
+109:    EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ProjectileExplosion->SpawnEffectsFromHit
+                EX_LocalVariable [K2Node_Event_HitResult]
+            RValue = []
+150:    EX_Context
+            EX_InstanceVariable [ParticleComponent]
+            EX_VirtualFunction Deactivate
+            RValue = []
+186:    EX_Context
+            EX_InstanceVariable [PointLight]
+            EX_VirtualFunction Deactivate
+            RValue = []
+222:    EX_Context
+            EX_InstanceVariable [Audio]
+            EX_VirtualFunction Deactivate
+            RValue = []
+258:    EX_Jump 89
+263:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+283:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+293:    EX_Context
+            EX_InstanceVariable [ProjectileExplosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageOnlyFromHit
+                EX_LocalVariable [K2Node_Event_HitResult]
+                EX_InstanceVariable [Damage]
+            RValue = []
+343:    EX_PopExecutionFlow
+344:    EX_Jump 104
+349:    EX_Jump 15
+354:    EX_Return
+            EX_Nothing
+356:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export PRJ_Spider_Boss_Twin_Multifireball_C->ExecuteUbergraph_PRJ_Spider_Boss_Twin_Multifireball
+            EX_IntConst 349
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_Spider_Boss_Twin_Multifireball_C->ExecuteUbergraph_PRJ_Spider_Boss_Twin_Multifireball
+            EX_IntConst 344
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

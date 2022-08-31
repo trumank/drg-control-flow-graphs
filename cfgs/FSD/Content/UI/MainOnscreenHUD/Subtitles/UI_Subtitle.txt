@@ -1,0 +1,114 @@
+FunctionExport ExecuteUbergraph_UI_Subtitle
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [SubtitleText]
+                EX_ByteConst 4
+                EX_Self
+            RValue = []
+58:     EX_Jump 116
+63:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [SubtitleSender]
+                EX_ByteConst 5
+                EX_Self
+            RValue = []
+111:    EX_Jump 10
+116:    EX_Return
+            EX_Nothing
+118:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_Subtitle_C->ExecuteUbergraph_UI_Subtitle
+            EX_IntConst 63
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ShoutStart
+0:      EX_PushExecutionFlow 518
+5:      EX_PushExecutionFlow 332
+10:     EX_Context
+            EX_InstanceVariable [SubtitleText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [InText]
+            RValue = []
+55:     EX_Let
+            EX_LocalVariable [Temp_text_Variable]
+            EX_TextConst
+                SourceString = Me
+                LocalizedKey = F40A144645E1266C5FEEC7A29F68EBBC
+                LocalizedNamespace = 
+115:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InSender]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+161:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+180:    EX_Let
+            EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InSender]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetHeroName
+                RValue = [CallFunc_GetHeroName_ReturnValue]
+230:    EX_Context
+            EX_ObjectConst import /Game/Game/Text/LIB_Text->Default__LIB_Text_C
+            EX_LocalVirtualFunction SetTextCased
+                EX_InstanceVariable [SubtitleSender]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 327
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 304
+                        EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 318
+                        EX_LocalVariable [Temp_text_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_ByteConst 0
+                EX_Self
+            RValue = []
+331:    EX_PopExecutionFlow
+332:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [TimeOutHandle]
+352:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [InDuration]
+                EX_FloatConst 0.5
+394:    EX_BindDelegate OnShoutEnd
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+417:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+474:    EX_Let
+            EX_InstanceVariable [TimeOutHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+501:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 3
+517:    EX_PopExecutionFlow
+518:    EX_Return
+            EX_Nothing
+520:    EX_EndOfScript
+FunctionExport OnShoutEnd
+0:      EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+16:     EX_Return
+            EX_Nothing
+18:     EX_EndOfScript

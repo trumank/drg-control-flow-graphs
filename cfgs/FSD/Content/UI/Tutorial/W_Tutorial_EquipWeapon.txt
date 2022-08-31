@@ -1,0 +1,89 @@
+FunctionExport ExecuteUbergraph_W_Tutorial_EquipWeapon
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction CompleteWithAnim
+24:     EX_Jump 767
+29:     EX_LocalFinalFunction import /Game/UI/Tutorial/W_TutorialContent_Base->W_TutorialContent_Base_C->OnShown
+39:     EX_Let
+            EX_InstanceVariable [Gold Mined]
+            EX_FloatConst 0
+62:     EX_LocalVirtualFunction SetImage
+            EX_ObjectConst import /Game/UI/Art/Icons/Tutorial_Images/Icon_Tutorial_EquipWeapons->Icon_Tutorial_EquipWeapons
+85:     EX_LocalVirtualFunction UpdateText
+99:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasCharacter_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDUserWidget->HasCharacter
+119:    EX_JumpIfNot 767
+            EX_LocalVariable [CallFunc_HasCharacter_ReturnValue]
+133:    EX_SetArray
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+144:    EX_CallMath import /Script/Engine->GameplayStatics->GetAllActorsOfClass
+            EX_Self
+            EX_ObjectConst import /Game/LevelElements/Tutorial/BP_TutorialTriggerManager->BP_TutorialTriggerManager_C
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+173:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+228:    EX_LetObj
+            EX_InstanceVariable [Manager]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+247:    EX_BindDelegate MessageReceived
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+270:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Manager]
+                EX_InstanceVariable [MessageReceived]
+                RValue = [MessageReceived]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+311:    EX_Jump 767
+316:    EX_LocalVirtualFunction SetText
+            EX_TextConst
+                SourceString = Equip your Weapons
+                LocalizedKey = C1161F6D48894311AE27758E5CFE4F17
+                LocalizedNamespace = 
+            EX_TextConst
+                SourceString = All classes are equipped with both a primary and a secondary weapon. Your current <bold>loadout</> can be seen in the <bold>Status</> tab of the <MenuButton/> menu.
+
+Press <equip1/>  to equip <bold>Primary Weapon</>
+
+Press <equip2/> to equip <bold>Secondary Weapon</>
+                LocalizedKey = 71906945497510A9896455B1C57E5323
+                LocalizedNamespace = 
+            EX_TextConst
+701:    EX_Jump 767
+706:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_NameName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_NameName
+                EX_LocalVariable [K2Node_CustomEvent_TriggerName]
+                EX_NameConst EquipWeapon
+748:    EX_JumpIfNot 767
+            EX_LocalVariable [CallFunc_EqualEqual_NameName_ReturnValue]
+762:    EX_Jump 10
+767:    EX_Return
+            EX_Nothing
+769:    EX_EndOfScript
+FunctionExport MessageReceived
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_TriggerName]
+            EX_LocalVariable [TriggerName]
+18:     EX_LocalFinalFunction export W_Tutorial_EquipWeapon_C->ExecuteUbergraph_W_Tutorial_EquipWeapon
+            EX_IntConst 706
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateText
+0:      EX_LocalFinalFunction export W_Tutorial_EquipWeapon_C->ExecuteUbergraph_W_Tutorial_EquipWeapon
+            EX_IntConst 316
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnShown
+0:      EX_LocalFinalFunction export W_Tutorial_EquipWeapon_C->ExecuteUbergraph_W_Tutorial_EquipWeapon
+            EX_IntConst 29
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

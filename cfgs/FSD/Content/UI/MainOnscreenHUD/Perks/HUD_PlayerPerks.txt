@@ -1,0 +1,185 @@
+FunctionExport ExecuteUbergraph_HUD_PlayerPerks
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetOwningFSDPlayerState
+                EX_Self
+31:     EX_BindDelegate SetCharacter
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+54:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue_1]
+                EX_InstanceVariable [OnPlayerCharacterSpawned]
+                RValue = [OnPlayerCharacterSpawned]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+95:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetOwningFSDPlayerState
+                EX_Self
+116:    EX_LocalVirtualFunction SetCharacter
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue]
+                EX_InstanceVariable [PlayerCharacter]
+                RValue = [PlayerCharacter]
+161:    EX_Return
+            EX_Nothing
+163:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_PlayerPerks_C->ExecuteUbergraph_HUD_PlayerPerks
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetCharacter
+0:      EX_PushExecutionFlow 1095
+5:      EX_Context
+            EX_InstanceVariable [PerksBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+41:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InPlayerCharacter]
+70:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+80:     EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterEquippedPerks_ReturnValue]
+            EX_CallMath import /Script/FSD->PerkFunctionLibrary->GetCharacterEquippedPerks
+                EX_Self
+                EX_Context
+                    EX_LocalVariable [InPlayerCharacter]
+                    EX_InstanceVariable [CharacterID]
+                    RValue = [CharacterID]
+140:    EX_Let
+            EX_LocalVariable [Perks]
+            EX_LocalVariable [CallFunc_GetCharacterEquippedPerks_ReturnValue]
+167:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+190:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+213:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [Perks]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+272:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+310:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+320:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+347:    EX_PushExecutionFlow 635
+352:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [Perks]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+411:    EX_LetObj
+            EX_LocalVariable [Perk]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+430:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetHudIconWidgetClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Perk]
+                EX_FinalFunction import /Script/FSD->PerkAsset->GetHudIconWidgetClass
+                RValue = [CallFunc_GetHudIconWidgetClass_ReturnValue]
+472:    EX_LetObj
+            EX_LocalVariable [HudWidgetClass]
+            EX_LocalVariable [CallFunc_GetHudIconWidgetClass_ReturnValue]
+491:    EX_Let
+            EX_LocalVariable [CallFunc_GetUsageType_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Perk]
+                EX_VirtualFunction GetUsageType
+                RValue = [CallFunc_GetUsageType_ReturnValue]
+545:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetUsageType_ReturnValue]
+                EX_ByteConst 1
+576:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+586:    EX_PushExecutionFlow 709
+591:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_LocalVariable [HudWidgetClass]
+620:    EX_JumpIfNot 1075
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+634:    EX_PopExecutionFlow
+635:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+677:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+704:    EX_Jump 213
+709:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+733:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_LocalVariable [HudWidgetClass]
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+794:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst PerkAsset
+            EX_LocalVariable [Perk]
+835:    EX_LetObj
+            EX_LocalVariable [HudWidget]
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+854:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PerksBox]
+                EX_FinalFunction import /Script/UMG->HorizontalBox->AddChildToHorizontalBox
+                    EX_LocalVariable [HudWidget]
+                RValue = [CallFunc_AddChildToHorizontalBox_ReturnValue]
+905:    EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 5
+937:    EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+969:    EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 5
+1001:   EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+1033:   EX_Context
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_FinalFunction import /Script/UMG->HorizontalBoxSlot->SetPadding
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            RValue = []
+1074:   EX_PopExecutionFlow
+1075:   EX_LetObj
+            EX_LocalVariable [HudWidgetClass]
+            EX_ObjectConst import /Game/UI/MainOnscreenHUD/Perks/HUD_PlayerPerks_Icon->HUD_PlayerPerks_Icon_C
+1094:   EX_PopExecutionFlow
+1095:   EX_Return
+            EX_Nothing
+1097:   EX_EndOfScript

@@ -1,0 +1,212 @@
+FunctionExport ExecuteUbergraph_Grenade_Pheromone
+0:      EX_PushExecutionFlow 980
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 415
+20:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+79:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+115:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+144:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+154:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_IntConst 0
+                EX_InstanceVariable [MinGuaranteedTargets]
+188:    EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_IntConst 0
+                EX_InstanceVariable [AffectEveryNthTarget]
+230:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+                EX_IntConst 0
+264:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+302:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+312:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+332:    EX_LetBool
+            EX_LocalVariable [CallFunc_PushActiveStatusEffect_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+                    EX_InstanceVariable [StatusEffects]
+                    RValue = [StatusEffects]
+                EX_FinalFunction import /Script/FSD->StatusEffectsComponent->PushActiveStatusEffect
+                    EX_ObjectConst import /Game/WeaponsNTools/Grenades/Pheromone/STE_Grenade_Pheromone->STE_Grenade_Pheromone_C
+                    EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+                RValue = [CallFunc_PushActiveStatusEffect_ReturnValue]
+414:    EX_PopExecutionFlow
+415:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+457:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+484:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+543:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+581:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+591:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+618:    EX_Jump 15
+623:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+646:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+669:    EX_Jump 484
+674:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+694:    EX_JumpIfNot 722
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+708:    EX_LocalVirtualFunction ApplyPheromones
+722:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Box]
+            EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/ITM_Grenades/PheromoneGrenade/PheromoneGrenadeExplosion_Cue->PheromoneGrenadeExplosion_Cue
+            EX_ObjectConst import /Game/WeaponsNTools/Grenades/Pheromone/P_Grenade_Pheromone_Splash->P_Grenade_Pheromone_Splash
+            EX_FloatConst 1
+            EX_NoObject
+766:    EX_Context
+            EX_ObjectConst import /Game/Audio/Functions/MixFunctions->Default__MixFunctions_C
+            EX_LocalVirtualFunction PushMixAtDistanceForDuration
+                EX_InstanceVariable [ExplosionMixModifier]
+                EX_Self
+                EX_InstanceVariable [ExplosionDuckMinDistance]
+                EX_InstanceVariable [ExplosionDuckMaxDistance]
+                EX_InstanceVariable [ExplosionDuckingTime]
+                EX_Self
+            RValue = []
+840:    EX_PopExecutionFlow
+841:    EX_Jump 674
+846:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+874:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_ByteConst 2
+            EX_ByteConst 8
+889:    EX_SetArray
+            EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+900:    EX_LetBool
+            EX_LocalVariable [CallFunc_SphereOverlapActors_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->SphereOverlapActors
+                EX_Self
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_InstanceVariable [EffectRadius]
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_ObjectConst import /Script/FSD->FSDPawn
+                EX_LocalVariable [Temp_object_Variable]
+                EX_LocalVariable [CallFunc_SphereOverlapActors_OutActors]
+975:    EX_Jump 623
+980:    EX_Return
+            EX_Nothing
+982:    EX_EndOfScript
+FunctionExport ApplyPheromones
+0:      EX_LocalFinalFunction export Grenade_Pheromone_C->ExecuteUbergraph_Grenade_Pheromone
+            EX_IntConst 846
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnExploded
+0:      EX_LocalFinalFunction export Grenade_Pheromone_C->ExecuteUbergraph_Grenade_Pheromone
+            EX_IntConst 841
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport AddGearStateEntries
+0:      EX_PushExecutionFlow 467
+5:      EX_LocalFinalFunction import /Game/WeaponsNTools/Grenades/ITM_Grenade_Base->ITM_Grenade_Base_C->AddGearStateEntries
+            EX_LocalVariable [playerState]
+            EX_LocalOutVariable
+                [Stats]
+33:     EX_PushExecutionFlow 467
+38:     EX_PushExecutionFlow 265
+43:     EX_Let
+            EX_LocalVariable [CallFunc_GetStatusEffectDuration_ReturnValue]
+            EX_CallMath import /Script/FSD->StatusEffect->GetStatusEffectDuration
+                EX_ObjectConst import /Game/WeaponsNTools/Grenades/Pheromone/STE_Grenade_Pheromone->STE_Grenade_Pheromone_C
+80:     EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction FormatStatic
+                EX_TextConst
+                    TableId = /Game/Game/Text/StatValues.StatValues
+                    TableKey = Duration
+                EX_LocalVariable [CallFunc_GetStatusEffectDuration_ReturnValue]
+                EX_ByteConst 1
+                EX_Self
+                EX_LocalVariable [CallFunc_FormatStatic_GearStatEntry]
+            RValue = []
+196:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [Stats]
+                    EX_LocalVariable [CallFunc_FormatStatic_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+264:    EX_PopExecutionFlow
+265:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction FormatStatic
+                EX_TextConst
+                    TableId = /Game/Game/Text/StatValues.StatValues
+                    TableKey = RadialRange
+                EX_Context
+                    EX_Self
+                    EX_InstanceVariable [EffectRadius]
+                    RValue = [EffectRadius]
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_FormatStatic_GearStatEntry_1]
+            RValue = []
+398:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [Stats]
+                    EX_LocalVariable [CallFunc_FormatStatic_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_1]
+466:    EX_PopExecutionFlow
+467:    EX_Return
+            EX_Nothing
+469:    EX_EndOfScript

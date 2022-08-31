@@ -1,0 +1,83 @@
+FunctionExport ExecuteUbergraph_BP_OxygenTankSound
+0:      EX_PushExecutionFlow 431
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 242
+20:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+41:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsMutatorActive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameInstance->IsMutatorActive
+                    EX_ObjectConst import /Script/FSD->NoOxygenMutator
+                RValue = [CallFunc_IsMutatorActive_ReturnValue]
+92:     EX_JumpIfNot 323
+            EX_LocalVariable [CallFunc_IsMutatorActive_ReturnValue]
+106:    EX_BindDelegate OnOxygenActivationChanged_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+129:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetParentActor_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetParentActor
+149:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetParentActor_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->OxygenSourceComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+200:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [OnOxygenActivationChanged]
+                RValue = [OnOxygenActivationChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+241:    EX_PopExecutionFlow
+242:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [OverrideAttenuation]
+271:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+281:    EX_LetObj
+            EX_Context
+                EX_InstanceVariable [Audio]
+                EX_InstanceVariable [AttenuationSettings]
+                RValue = [AttenuationSettings]
+            EX_InstanceVariable [OverrideAttenuation]
+322:    EX_PopExecutionFlow
+323:    EX_VirtualFunction K2_DestroyActor
+337:    EX_PopExecutionFlow
+338:    EX_JumpIfNot 394
+            EX_LocalVariable [K2Node_CustomEvent_isActive]
+352:    EX_Context
+            EX_InstanceVariable [Audio]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+393:    EX_PopExecutionFlow
+394:    EX_Context
+            EX_InstanceVariable [Audio]
+            EX_VirtualFunction Stop
+            RValue = []
+430:    EX_PopExecutionFlow
+431:    EX_Return
+            EX_Nothing
+433:    EX_EndOfScript
+FunctionExport OnOxygenActivationChanged_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_isActive]
+            EX_LocalVariable [isActive]
+18:     EX_LocalFinalFunction export BP_OxygenTankSound_C->ExecuteUbergraph_BP_OxygenTankSound
+            EX_IntConst 338
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_OxygenTankSound_C->ExecuteUbergraph_BP_OxygenTankSound
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

@@ -1,0 +1,274 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [RadiationSound]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.5
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+58:     EX_Jump 1453
+63:     EX_LocalVirtualFunction OnRep_RadiationAttackActive
+77:     EX_VirtualFunction ForceNetUpdate
+91:     EX_Jump 1453
+96:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 17
+            EX_NameConst RadiationAttackActive
+125:    EX_Jump 63
+130:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+140:    EX_LetBool
+            EX_InstanceVariable [RadiationAttackActive]
+            EX_True
+151:    EX_Jump 96
+156:    EX_LocalVirtualFunction OnRep_RadiationAttackActive
+170:    EX_Jump 77
+175:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 17
+            EX_NameConst RadiationAttackActive
+204:    EX_Jump 156
+209:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+219:    EX_LetBool
+            EX_InstanceVariable [RadiationAttackActive]
+            EX_False
+230:    EX_Jump 175
+235:    EX_Context
+            EX_InstanceVariable [Radiation]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Stop
+            RValue = []
+267:    EX_Jump 1453
+272:    EX_Context
+            EX_InstanceVariable [Radiation]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+304:    EX_Jump 1453
+309:    EX_Context
+            EX_InstanceVariable [Radiation]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Play
+            RValue = []
+341:    EX_Jump 1453
+346:    EX_LocalFinalFunction import /Game/Enemies/Spider/Tank/ENE_Spider_Tank_Generic->ENE_Spider_Tank_Generic_C->ReceiveBeginPlay
+356:    EX_Context
+            EX_InstanceVariable [RadiationAttack]
+            EX_LocalVirtualFunction SetConeCollider
+                EX_InstanceVariable [Sphere]
+            RValue = []
+401:    EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction CreateDynamicMaterialInstance
+                    EX_IntConst 0
+                    EX_NoObject
+                    EX_NameConst None
+                RValue = [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+466:    EX_LetObj
+            EX_InstanceVariable [DynamicGlowbuttMat]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+485:    EX_Context
+            EX_InstanceVariable [DynamicGlowbuttMat]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_InstanceVariable [ScalarParam_Emissive]
+                EX_InstanceVariable [BaseEmissive]
+            RValue = []
+535:    EX_Jump 1453
+540:    EX_LocalFinalFunction import /Game/Enemies/Spider/Tank/ENE_Spider_Tank_Base->ENE_Spider_Tank_Base_C->OnDeathBase
+550:    EX_Context
+            EX_InstanceVariable [ParticleSystem]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+583:    EX_Jump 1453
+588:    EX_Context
+            EX_InstanceVariable [RadiationSphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_True
+                EX_False
+            RValue = []
+622:    EX_Context
+            EX_InstanceVariable [RadiationSound]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+663:    EX_Jump 272
+668:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Radiation_Intensity_491FF937435DBE6C1B8926899616FADE]
+                EX_FloatConst 200
+710:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [BaseLightIntensity]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+756:    EX_Context
+            EX_InstanceVariable [Light_BackBody]
+            EX_FinalFunction import /Script/Engine->LightComponent->SetIntensity
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            RValue = []
+797:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Radiation_Intensity_491FF937435DBE6C1B8926899616FADE]
+                EX_FloatConst 300
+839:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [BaseLightRadius]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+885:    EX_Context
+            EX_InstanceVariable [Light_BackBody]
+            EX_FinalFunction import /Script/Engine->LocalLightComponent->SetAttenuationRadius
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_2]
+            RValue = []
+926:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [Radiation_Intensity_491FF937435DBE6C1B8926899616FADE]
+                EX_FloatConst 20
+968:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [BaseEmissive]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+1014:   EX_Context
+            EX_InstanceVariable [DynamicGlowbuttMat]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_InstanceVariable [ScalarParam_Emissive]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_1]
+            RValue = []
+1064:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_VectorConst 8,8,8
+                EX_InstanceVariable [Radiation_Intensity_491FF937435DBE6C1B8926899616FADE]
+1114:   EX_Context
+            EX_InstanceVariable [RadiationSphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetWorldScale3D
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            RValue = []
+1155:   EX_Jump 1453
+1160:   EX_Jump 1453
+1165:   EX_Jump 235
+1170:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_ComponentBoundEvent_nameValue]
+                EX_NameConst Begin
+1212:   EX_JumpIfNot 130
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+1226:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_ComponentBoundEvent_nameValue]
+                EX_NameConst End
+1268:   EX_JumpIfNot 209
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+1282:   EX_Jump 1453
+1287:   EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_SpiderBase_Large->ENE_SpiderBase_Large_C->OnFrozen
+            EX_LocalVariable [K2Node_Event_source]
+1306:   EX_JumpIfNot 1453
+            EX_InstanceVariable [RadiationAttackActive]
+1320:   EX_Context
+            EX_InstanceVariable [RadiationSound]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.2
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+1368:   EX_Jump 235
+1373:   EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_SpiderBase_Large->ENE_SpiderBase_Large_C->OnUnFrozen
+1383:   EX_JumpIfNot 1453
+            EX_InstanceVariable [RadiationAttackActive]
+1397:   EX_Context
+            EX_InstanceVariable [RadiationSound]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+1438:   EX_Jump 309
+1443:   EX_Jump 1453
+1448:   EX_Jump 668
+1453:   EX_Return
+            EX_Nothing
+1455:   EX_EndOfScript
+FunctionExport SpecialAttackFlow_1
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1443
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnUnFrozen
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1373
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_source]
+            EX_LocalVariable [source]
+18:     EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1287
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__RadiationAttack_K2Node_ComponentBoundEvent_0_NameDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_nameValue]
+            EX_LocalVariable [nameValue]
+18:     EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1170
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport CancelRadionGlow
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1165
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CancelSpecialAttack
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1160
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DoRadiationGlow
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 588
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDeathBase
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 540
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 346
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Radiation__UpdateFunc
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 1448
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Radiation__FinishedFunc
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Radioactive_C->ExecuteUbergraph_ENE_Spider_Tank_Radioactive
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_RadiationAttackActive
+0:      EX_JumpIfNot 33
+            EX_InstanceVariable [RadiationAttackActive]
+14:     EX_LocalVirtualFunction DoRadiationGlow
+28:     EX_Jump 47
+33:     EX_LocalVirtualFunction CancelRadionGlow
+47:     EX_Return
+            EX_Nothing
+49:     EX_EndOfScript

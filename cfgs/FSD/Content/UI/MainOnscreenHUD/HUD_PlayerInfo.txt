@@ -1,0 +1,608 @@
+FunctionExport ExecuteUbergraph_HUD_PlayerInfo
+0:      EX_PushExecutionFlow 2549
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [HealthComponent]
+44:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+54:     EX_Let
+            EX_LocalVariable [CallFunc_GetHealthRegeneratingTargetRatio_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_FinalFunction import /Script/FSD->PlayerHealthComponent->GetHealthRegeneratingTargetRatio
+                RValue = [CallFunc_GetHealthRegeneratingTargetRatio_ReturnValue]
+104:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+150:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_FinalFunction import /Script/FSD->HealthComponentBase->GetHealthPct
+                RValue = [CallFunc_GetHealthPct_ReturnValue]
+200:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue]
+                EX_LocalVariable [CallFunc_GetHealthRegeneratingTargetRatio_ReturnValue]
+238:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+276:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [UsingItem]
+305:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+343:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [UsingLaserpointer]
+372:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+410:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+420:    EX_CallMath import /Script/FSD->HUDVisibilityGroup->SetHudGroupDynamicallyVisible
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_PlayerHealthShield->HG_PlayerHealthShield
+            EX_False
+440:    EX_PopExecutionFlow
+441:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_InstanceVariable [UsingLaserpointer]
+                EX_InstanceVariable [LookingAtSupplyPod]
+479:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+508:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+518:    EX_Context
+            EX_InstanceVariable [AmmoBar]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 2
+            RValue = []
+556:    EX_PopExecutionFlow
+557:    EX_BindDelegate OnHealthChanged_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+580:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_InstanceVariable [OnHealthChanged]
+                RValue = [OnHealthChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+621:    EX_BindDelegate OnHealthChanged_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_9]
+            EX_Self
+644:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_InstanceVariable [OnArmorChanged]
+                RValue = [OnArmorChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_9]
+685:    EX_BindDelegate OnCharacterStateChanged_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+708:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnCharacterStateChanged]
+                RValue = [OnCharacterStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+749:    EX_BindDelegate OnFirePressed_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+772:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnFirePressed]
+                RValue = [OnFirePressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+813:    EX_BindDelegate OnFireReleased_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_5]
+            EX_Self
+836:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnFireReleased]
+                RValue = [OnFireReleased]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_5]
+877:    EX_BindDelegate OnLaserPointerPressed_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+900:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnLaserPointerPressed]
+                RValue = [OnLaserPointerPressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+941:    EX_BindDelegate OnLaserPointerReleased_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+964:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnLaserPointerReleased]
+                RValue = [OnLaserPointerReleased]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+1005:   EX_BindDelegate OnSupplyStatusChangedEvent
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_6]
+            EX_Self
+1028:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue]
+1070:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+                EX_InstanceVariable [OnSupplyStatusChangedEvent]
+                RValue = [OnSupplyStatusChangedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_6]
+1111:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue_1]
+1153:   EX_Let
+            EX_LocalVariable [CallFunc_GetSupplyAmmoStatus_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSupplyAmmoStatus
+                RValue = [CallFunc_GetSupplyAmmoStatus_ReturnValue]
+1203:   EX_LocalVirtualFunction OnSupplyStatusChangedEvent
+            EX_LocalVariable [CallFunc_GetSupplyAmmoStatus_ReturnValue]
+            EX_FloatConst 0
+1231:   EX_BindDelegate OnBeginHoveringEvent
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_7]
+            EX_Self
+1254:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetUseComponent
+                RValue = [CallFunc_GetUseComponent_ReturnValue]
+1296:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+                EX_InstanceVariable [OnBeginHoveringEvent]
+                RValue = [OnBeginHoveringEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_7]
+1337:   EX_BindDelegate OnEndHoveringEvent_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_8]
+            EX_Self
+1360:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetUseComponent
+                RValue = [CallFunc_GetUseComponent_ReturnValue]
+1402:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+                EX_InstanceVariable [OnEndHoveringEvent]
+                RValue = [OnEndHoveringEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_8]
+1443:   EX_PopExecutionFlow
+1444:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+1464:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+1500:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1529:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1539:   EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+1558:   EX_LetObj
+            EX_InstanceVariable [HealthComponent]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [HealthComponent]
+                RValue = [HealthComponent]
+1599:   EX_Jump 557
+1604:   EX_CallMath import /Script/FSD->HUDVisibilityGroup->SetHudGroupDynamicallyVisible
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_PlayerHealthShield->HG_PlayerHealthShield
+            EX_True
+1624:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -1065356000
+                EX_NameConst ExecuteUbergraph_HUD_PlayerInfo
+                EX_Self
+1678:   EX_PopExecutionFlow
+1679:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_newState]
+                EX_ByteConst 1
+1710:   EX_JumpIfNot 1736
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+1724:   EX_LetBool
+            EX_InstanceVariable [WasDead]
+            EX_True
+1735:   EX_PopExecutionFlow
+1736:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [WasDead]
+1746:   EX_LetBool
+            EX_InstanceVariable [WasDead]
+            EX_False
+1757:   EX_LocalVirtualFunction ShowDynamically
+1771:   EX_PopExecutionFlow
+1772:   EX_LocalVirtualFunction ShowDynamically
+1786:   EX_PopExecutionFlow
+1787:   EX_LocalVirtualFunction ShowDynamically
+1801:   EX_PopExecutionFlow
+1802:   EX_LetBool
+            EX_InstanceVariable [UsingItem]
+            EX_True
+1813:   EX_Jump 1772
+1818:   EX_LetBool
+            EX_InstanceVariable [UsingItem]
+            EX_False
+1829:   EX_LocalVirtualFunction ShowDynamically
+1843:   EX_PopExecutionFlow
+1844:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [UsingItem]
+1854:   EX_Jump 1818
+1859:   EX_LetBool
+            EX_InstanceVariable [UsingLaserpointer]
+            EX_True
+1870:   EX_LocalVirtualFunction ShowDynamically
+1884:   EX_LocalVirtualFunction ShowAmmoCounter
+1898:   EX_PopExecutionFlow
+1899:   EX_LetBool
+            EX_InstanceVariable [UsingLaserpointer]
+            EX_False
+1910:   EX_LocalVirtualFunction ShowDynamically
+1924:   EX_LocalVirtualFunction ShowAmmoCounter
+1938:   EX_PopExecutionFlow
+1939:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsHudGroupVisible_ReturnValue]
+            EX_CallMath import /Script/FSD->HUDVisibilityGroup->IsHudGroupVisible
+                EX_InstanceVariable [HG_ClassName]
+1968:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsHudGroupVisible_ReturnValue_1]
+            EX_CallMath import /Script/FSD->HUDVisibilityGroup->IsHudGroupVisible
+                EX_InstanceVariable [HG_HealthShield]
+1997:   EX_LocalVirtualFunction SetElementVisibility
+            EX_LocalVariable [CallFunc_IsHudGroupVisible_ReturnValue]
+            EX_LocalVariable [CallFunc_IsHudGroupVisible_ReturnValue_1]
+2029:   EX_PopExecutionFlow
+2030:   EX_LocalVirtualFunction VisibilityModeChanged
+2044:   EX_Jump 1444
+2049:   EX_LocalVirtualFunction VisibilityModeChanged
+2063:   EX_PopExecutionFlow
+2064:   EX_LocalVirtualFunction VisibilityModeChanged
+2078:   EX_PopExecutionFlow
+2079:   EX_Jump 1802
+2084:   EX_Jump 1844
+2089:   EX_Context
+            EX_InstanceVariable [AmmoBar]
+            EX_LocalVirtualFunction SetProgress
+                EX_LocalVariable [K2Node_CustomEvent_ammoStatus01]
+            RValue = []
+2134:   EX_PopExecutionFlow
+2135:   EX_Context
+            EX_InstanceVariable [AmmoBar]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+2173:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 441
+                EX_IntConst -2107672768
+                EX_NameConst ExecuteUbergraph_HUD_PlayerInfo
+                EX_Self
+2227:   EX_PopExecutionFlow
+2228:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_component]
+                EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+                RValue = [CallFunc_GetOwner_ReturnValue]
+2270:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsRessuply_Pod]
+            EX_DynamicCast import /Script/FSD->RessuplyPod
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+2306:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsRessuply_Pod]
+2335:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+2345:   EX_LetBool
+            EX_InstanceVariable [LookingAtSupplyPod]
+            EX_True
+2356:   EX_LocalVirtualFunction ShowDynamically
+2370:   EX_LocalVirtualFunction ShowAmmoCounter
+2384:   EX_PopExecutionFlow
+2385:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [LookingAtSupplyPod]
+2395:   EX_LetBool
+            EX_InstanceVariable [LookingAtSupplyPod]
+            EX_False
+2406:   EX_LocalVirtualFunction ShowAmmoCounter
+2420:   EX_LocalVirtualFunction ShowDynamically
+2434:   EX_PopExecutionFlow
+2435:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+2445:   EX_LocalVirtualFunction SetElementVisibility
+            EX_InstanceVariable [PreviewShowName&Icon]
+            EX_InstanceVariable [PreviewShowHealth&Shield]
+2477:   EX_PopExecutionFlow
+2478:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetOwningFSDPlayerState
+                EX_Self
+2499:   EX_Context
+            EX_InstanceVariable [UI_CallingMolly]
+            EX_LocalVirtualFunction SetPlayerState
+                EX_LocalVariable [CallFunc_GetOwningFSDPlayerState_ReturnValue]
+            RValue = []
+2544:   EX_Jump 2030
+2549:   EX_Return
+            EX_Nothing
+2551:   EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2478
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2435
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnEndHoveringEvent_Event
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2385
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnBeginHoveringEvent
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_component]
+            EX_LocalVariable [component]
+18:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2228
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ShowAmmoCounter
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2135
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnSupplyStatusChangedEvent
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ammoStatus01]
+            EX_LocalVariable [ammoStatus01]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_healthStatus01]
+            EX_LocalVariable [healthStatus01]
+36:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2089
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnFireReleased_Event
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2084
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFirePressed_Event
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2079
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__HG_HealthShield_K2Node_ComponentBoundEvent_3_VisibilityDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Group]
+            EX_LocalVariable [Group]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_IsVisible]
+            EX_LocalVariable [IsVisible]
+36:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2064
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__HG_ClassName_K2Node_ComponentBoundEvent_2_VisibilityDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Group_1]
+            EX_LocalVariable [Group]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_IsVisible_1]
+            EX_LocalVariable [IsVisible]
+36:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 2049
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport VisibilityModeChanged
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 1939
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnLaserPointerReleased_Event
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 1899
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnLaserPointerPressed_Event
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 1859
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnHealthChanged_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_health]
+            EX_LocalVariable [health]
+18:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 1787
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnCharacterStateChanged_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_newState]
+            EX_LocalVariable [newState]
+18:     EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 1679
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ShowDynamically
+0:      EX_LocalFinalFunction export HUD_PlayerInfo_C->ExecuteUbergraph_HUD_PlayerInfo
+            EX_IntConst 1604
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetElementVisibility
+0:      EX_Let
+            EX_LocalVariable [Temp_byte_Variable_2]
+            EX_ByteConst 4
+20:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable_3]
+            EX_ByteConst 1
+40:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [Name, Class & Icon]
+59:     EX_Context
+            EX_InstanceVariable [ClassLine]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 147
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 124
+                        EX_LocalVariable [Temp_byte_Variable_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 138
+                        EX_LocalVariable [Temp_byte_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+148:    EX_Context
+            EX_InstanceVariable [NameLine]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 236
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 213
+                        EX_LocalVariable [Temp_byte_Variable_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 227
+                        EX_LocalVariable [Temp_byte_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+237:    EX_Context
+            EX_InstanceVariable [HUD_PlayerClass_Icon_86]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 325
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 302
+                        EX_LocalVariable [Temp_byte_Variable_3]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 316
+                        EX_LocalVariable [Temp_byte_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+326:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 4
+346:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+366:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [Health & Shield]
+385:    EX_Context
+            EX_InstanceVariable [HealthLine]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 473
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 450
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 464
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+474:    EX_Context
+            EX_InstanceVariable [HUD_PlayerPerks]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 562
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 539
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 553
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+563:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [GradientBGMiddle]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [Name, Class & Icon]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+649:    EX_Return
+            EX_Nothing
+651:    EX_EndOfScript

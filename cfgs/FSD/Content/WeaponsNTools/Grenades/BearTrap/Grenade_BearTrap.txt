@@ -1,0 +1,523 @@
+FunctionExport ExecuteUbergraph_Grenade_BearTrap
+0:      EX_PushExecutionFlow 1848
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction OnRep_Stick
+29:     EX_PopExecutionFlow
+30:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 12
+            EX_NameConst Stuck
+59:     EX_Jump 15
+64:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+74:     EX_LetBool
+            EX_InstanceVariable [Stuck]
+            EX_True
+85:     EX_Jump 30
+90:     EX_LocalVirtualFunction OnRep_Snapped
+104:    EX_PopExecutionFlow
+105:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 13
+            EX_NameConst Snapped
+134:    EX_Jump 90
+139:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+149:    EX_LetBool
+            EX_InstanceVariable [Snapped]
+            EX_False
+160:    EX_Jump 105
+165:    EX_LocalVirtualFunction OnRep_Snapped
+179:    EX_PopExecutionFlow
+180:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 13
+            EX_NameConst Snapped
+209:    EX_Jump 165
+214:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+224:    EX_LetBool
+            EX_InstanceVariable [Snapped]
+            EX_True
+235:    EX_Jump 180
+240:    EX_PushExecutionFlow 260
+245:    EX_JumpIfNot 321
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+259:    EX_PopExecutionFlow
+260:    EX_JumpIfNot 275
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+274:    EX_PopExecutionFlow
+275:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+286:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+306:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+316:    EX_Jump 64
+321:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+332:    EX_PopExecutionFlowIfNot
+            EX_False
+334:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+345:    EX_PopExecutionFlow
+346:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_False
+357:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [Temp_bool_Variable]
+367:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+395:    EX_Context
+            EX_InstanceVariable [Damage]
+            EX_FinalFunction import /Script/FSD->DamageComponent->DamageTarget
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_NoObject
+                EX_NoObject
+                EX_IntConst -1
+            RValue = []
+452:    EX_Jump 214
+457:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+477:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+487:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+523:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_3]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+552:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_3]
+562:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsGameplay_Tag_Asset_Interface]
+            EX_ObjToInterfaceCast import /Script/GameplayTags->GameplayTagAssetInterface
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+598:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsGameplay_Tag_Asset_Interface]
+627:    EX_JumpIfNot 1045
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+641:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralGameplayTagContainer_ReturnValue]
+            EX_CallMath import /Script/GameplayTags->BlueprintGameplayTagLibrary->MakeLiteralGameplayTagContainer
+                EX_StructConst import /Script/GameplayTags->GameplayTagContainer
+                    EX_ArrayConst 
+                        [GameplayTags,GameplayTags]
+                        EX_StructConst import /Script/GameplayTags->GameplayTag
+                            EX_NameConst Attitude.Friendly
+                        EX_StructConst import /Script/GameplayTags->GameplayTag
+                            EX_NameConst Enemy.Type.Swarmer
+                        EX_StructConst import /Script/GameplayTags->GameplayTag
+                            EX_NameConst Attitude.Neutral
+                        EX_StructConst import /Script/GameplayTags->GameplayTag
+                            EX_NameConst Enemy.Type.Critter
+805:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyMatchingGameplayTags_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsGameplay_Tag_Asset_Interface]
+                EX_VirtualFunction HasAnyMatchingGameplayTags
+                    EX_LocalVariable [CallFunc_MakeLiteralGameplayTagContainer_ReturnValue]
+                RValue = [CallFunc_HasAnyMatchingGameplayTags_ReturnValue]
+861:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_HasAnyMatchingGameplayTags_ReturnValue]
+880:    EX_JumpIfNot 895
+            EX_LocalVariable [Temp_bool_Variable_1]
+894:    EX_PopExecutionFlow
+895:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+            EX_ObjToInterfaceCast import /Script/FSD->Targetable
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+931:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+960:    EX_JumpIfNot 346
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+974:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsTargetable_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsTargetable]
+                EX_VirtualFunction GetIsTargetable
+                RValue = [CallFunc_GetIsTargetable_ReturnValue]
+1021:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GetIsTargetable_ReturnValue]
+1040:   EX_Jump 357
+1045:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_False
+1056:   EX_Jump 880
+1061:   EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Hit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+1233:   EX_Let
+            EX_LocalVariable [CallFunc_Dot_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Dot_VectorVector
+                EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+                EX_VectorConst 0,0,-1
+1283:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_Dot_VectorVector_ReturnValue]
+                EX_FloatConst -0.45
+1317:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+1327:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPawn]
+            EX_DynamicCast import /Script/Engine->Pawn
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor_1]
+1363:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPawn]
+1392:   EX_JumpIfNot 240
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1406:   EX_PopExecutionFlow
+1407:   EX_PushExecutionFlow 1427
+1412:   EX_LocalVirtualFunction SetFixedOrientation
+1426:   EX_PopExecutionFlow
+1427:   EX_LocalVirtualFunction HandleSnapAnimation
+            EX_LocalVariable [K2Node_Event_DeltaSeconds]
+1450:   EX_PopExecutionFlow
+1451:   EX_Context
+            EX_InstanceVariable [SnapCollision]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+1489:   EX_PopExecutionFlow
+1490:   EX_Jump 457
+1495:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [Snapped]
+1524:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [EverSnapped]
+1553:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+1591:   EX_JumpIfNot 139
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+1605:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_InstanceVariable [MaxGrenades]
+1642:   EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+1684:   EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                EX_InstanceVariable [InventoryComponent]
+                RValue = [InventoryComponent]
+            EX_FinalFunction import /Script/FSD->InventoryComponent->ResupplyGrenades
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            RValue = []
+1747:   EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 0.07
+1766:   EX_PopExecutionFlow
+1767:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [Snapped]
+1777:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [K2Node_ComponentBoundEvent_progress]
+1819:   EX_LocalVirtualFunction SetSnapProgress
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+1842:   EX_PopExecutionFlow
+1843:   EX_Jump 1767
+1848:   EX_Return
+            EX_Nothing
+1850:   EX_EndOfScript
+FunctionExport BndEvt__Grenade_BearTrap_SingleUsable_K2Node_ComponentBoundEvent_3_ProgressSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_progress]
+            EX_LocalVariable [progress]
+18:     EX_LocalFinalFunction export Grenade_BearTrap_C->ExecuteUbergraph_Grenade_BearTrap
+            EX_IntConst 1843
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Grenade_BearTrap_SingleUsable_K2Node_ComponentBoundEvent_2_UsedBySignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_user]
+            EX_LocalVariable [user]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_key]
+            EX_LocalVariable [key]
+36:     EX_LocalFinalFunction export Grenade_BearTrap_C->ExecuteUbergraph_Grenade_BearTrap
+            EX_IntConst 1495
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__Grenade_BearTrap_SnapCollision_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export Grenade_BearTrap_C->ExecuteUbergraph_Grenade_BearTrap
+            EX_IntConst 1490
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export Grenade_BearTrap_C->ExecuteUbergraph_Grenade_BearTrap
+            EX_IntConst 1451
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveTick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+18:     EX_LocalFinalFunction export Grenade_BearTrap_C->ExecuteUbergraph_Grenade_BearTrap
+            EX_IntConst 1407
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Box_K2Node_ComponentBoundEvent_1_ComponentHitSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HitComponent]
+            EX_LocalVariable [HitComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor_1]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp_1]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_NormalImpulse]
+            EX_LocalVariable [NormalImpulse]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Hit]
+            EX_LocalOutVariable
+                [Hit]
+90:     EX_LocalFinalFunction export Grenade_BearTrap_C->ExecuteUbergraph_Grenade_BearTrap
+            EX_IntConst 1061
+105:    EX_Return
+            EX_Nothing
+107:    EX_EndOfScript
+FunctionExport OnRep_Stick
+0:      EX_Context
+            EX_InstanceVariable [Box]
+            EX_VirtualFunction SetSimulatePhysics
+                EX_False
+            RValue = []
+37:     EX_Context
+            EX_InstanceVariable [Movement]
+            EX_VirtualFunction StopMovementImmediately
+            RValue = []
+73:     EX_Let
+            EX_Context
+                EX_InstanceVariable [Movement]
+                EX_InstanceVariable [ProjectileGravityScale]
+                RValue = [ProjectileGravityScale]
+            EX_FloatConst 0
+118:    EX_Context
+            EX_InstanceVariable [Box]
+            EX_VirtualFunction SetEnableGravity
+                EX_False
+            RValue = []
+155:    EX_Context
+            EX_InstanceVariable [SnapCollision]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 1
+            RValue = []
+193:    EX_Context
+            EX_InstanceVariable [SingleUsable]
+            EX_FinalFunction import /Script/FSD->SingleUsableComponent->SetCanUse
+                EX_True
+            RValue = []
+226:    EX_Return
+            EX_Nothing
+228:    EX_EndOfScript
+FunctionExport OnRep_Snapped
+0:      EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 0
+20:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+40:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Snapped]
+59:     EX_Context
+            EX_InstanceVariable [SnapCollision]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 147
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 124
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 138
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+148:    EX_Context
+            EX_InstanceVariable [SingleUsable]
+            EX_FinalFunction import /Script/FSD->SingleUsableComponent->SetCanUse
+                EX_InstanceVariable [Snapped]
+            RValue = []
+189:    EX_LetBool
+            EX_InstanceVariable [EverSnapped]
+            EX_True
+200:    EX_Return
+            EX_Nothing
+202:    EX_EndOfScript
+FunctionExport SetFixedOrientation
+0:      EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorRotation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorRotation
+28:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakRotator
+            EX_LocalVariable [CallFunc_K2_GetActorRotation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakRotator_Roll]
+            EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+            EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+74:     EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_FloatFloat
+                EX_LocalVariable [CallFunc_BreakRotator_Roll]
+                EX_FloatConst 0
+108:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_FloatFloat
+                EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+                EX_FloatConst 0
+142:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_NotEqual_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_NotEqual_FloatFloat_ReturnValue_1]
+180:    EX_JumpIfNot 345
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+194:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorRotation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorRotation
+222:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakRotator
+            EX_LocalVariable [CallFunc_K2_GetActorRotation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakRotator_Roll]
+            EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+            EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+268:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+315:    EX_LetBool
+            EX_LocalVariable [CallFunc_K2_SetActorRotation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_SetActorRotation
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+                EX_True
+345:    EX_Return
+            EX_Nothing
+347:    EX_EndOfScript
+FunctionExport HandleSnapAnimation
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_InstanceVariable [SnappedTimer]
+                EX_FloatConst 1
+34:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [Snapped]
+                EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+72:     EX_JumpIfNot 239
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+86:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [DeltaTime]
+                EX_FloatConst 15
+128:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_InstanceVariable [SnappedTimer]
+174:    EX_Let
+            EX_LocalVariable [CallFunc_FMin_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FMin
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                EX_FloatConst 1
+216:    EX_LocalVirtualFunction SetSnapProgress
+            EX_LocalVariable [CallFunc_FMin_ReturnValue]
+239:    EX_Return
+            EX_Nothing
+241:    EX_EndOfScript
+FunctionExport SetSnapProgress
+0:      EX_Let
+            EX_InstanceVariable [SnappedTimer]
+            EX_LocalVariable [Progress]
+27:     EX_Let
+            EX_LocalVariable [CallFunc_RLerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RLerp
+                EX_RotationConst 0,0,0
+                EX_RotationConst 0,0,1119092736
+                EX_InstanceVariable [SnappedTimer]
+                EX_False
+91:     EX_Context
+            EX_InstanceVariable [Scene]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeRotation
+                EX_LocalVariable [CallFunc_RLerp_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeRotation_SweepHitResult]
+                EX_False
+            RValue = []
+143:    EX_Let
+            EX_LocalVariable [CallFunc_RLerp_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RLerp
+                EX_RotationConst 0,0,0
+                EX_RotationConst 0,0,-1028390912
+                EX_InstanceVariable [SnappedTimer]
+                EX_False
+207:    EX_Context
+            EX_InstanceVariable [Scene1]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetRelativeRotation
+                EX_LocalVariable [CallFunc_RLerp_ReturnValue_1]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetRelativeRotation_SweepHitResult_1]
+                EX_False
+            RValue = []
+259:    EX_Return
+            EX_Nothing
+261:    EX_EndOfScript

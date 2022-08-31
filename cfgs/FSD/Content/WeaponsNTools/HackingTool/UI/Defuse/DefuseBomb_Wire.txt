@@ -1,0 +1,390 @@
+FunctionExport ExecuteUbergraph_DefuseBomb_Wire
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_InstanceVariable [CutPosition]
+            EX_FloatConst -1
+33:     EX_Jump 276
+38:     EX_LocalVirtualFunction SetStartAndEnd
+            EX_InstanceVariable [StartPos]
+            EX_InstanceVariable [StartTangent]
+            EX_InstanceVariable [Endpos]
+            EX_InstanceVariable [EndTangent]
+88:     EX_LocalVirtualFunction SetIsCuttable
+            EX_InstanceVariable [IsCuttable]
+111:    EX_Jump 276
+116:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [CutPosition]
+                EX_FloatConst 0
+150:    EX_JumpIfNot 276
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+164:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimBreak]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 2
+                EX_False
+211:    EX_Jump 276
+216:    EX_Let
+            EX_InstanceVariable [CutPosition]
+            EX_LocalVariable [K2Node_CustomEvent_InCutPosition]
+243:    EX_Jump 116
+248:    EX_Let
+            EX_InstanceVariable [BreakProgress]
+            EX_FloatConst -1
+271:    EX_Jump 10
+276:    EX_Return
+            EX_Nothing
+278:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export DefuseBomb_Wire_C->ExecuteUbergraph_DefuseBomb_Wire
+            EX_IntConst 248
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BreakAt
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InCutPosition]
+            EX_LocalVariable [InCutPosition]
+18:     EX_LocalFinalFunction export DefuseBomb_Wire_C->ExecuteUbergraph_DefuseBomb_Wire
+            EX_IntConst 216
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export DefuseBomb_Wire_C->ExecuteUbergraph_DefuseBomb_Wire
+            EX_IntConst 38
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnPaint
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetDrawSize_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetDrawSize
+                EX_LocalOutVariable
+                    [Context]
+37:     EX_Let
+            EX_LocalVariable [DrawSize]
+            EX_LocalVariable [CallFunc_GetDrawSize_ReturnValue]
+64:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [IsCuttable]
+83:     EX_Let
+            EX_LocalVariable [Look]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 154
+                case 0:
+                    EX_False
+                    NextCaseOffset = 131
+                    EX_InstanceVariable [AppearanceDefault]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 145
+                    EX_InstanceVariable [AppearanceCuttable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+154:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_InstanceVariable [CutPosition]
+                EX_FloatConst 0
+188:    EX_JumpIfNot 290
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+202:    EX_Let
+            EX_LocalVariable [CallFunc_GetRenderOpacity_ReturnValue]
+            EX_FinalFunction import /Script/UMG->Widget->GetRenderOpacity
+230:    EX_CallMath import /Script/FSD->FSDSplineLibrary->DrawCurveScaled2D
+            EX_LocalOutVariable
+                [Context]
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [DrawSize]
+            EX_LocalVariable [Look]
+            EX_LocalVariable [CallFunc_GetRenderOpacity_ReturnValue]
+285:    EX_Jump 402
+290:    EX_LocalVirtualFunction DrawCurveEnd
+            EX_LocalOutVariable
+                [Context]
+            EX_LocalVariable [DrawSize]
+            EX_LocalVariable [Look]
+            EX_FloatConst 0
+            EX_InstanceVariable [CutPosition]
+            EX_False
+346:    EX_LocalVirtualFunction DrawCurveEnd
+            EX_LocalOutVariable
+                [Context]
+            EX_LocalVariable [DrawSize]
+            EX_LocalVariable [Look]
+            EX_FloatConst 1
+            EX_InstanceVariable [CutPosition]
+            EX_True
+402:    EX_Return
+            EX_Nothing
+404:    EX_EndOfScript
+FunctionExport SetStartAndEnd
+0:      EX_Let
+            EX_LocalVariable [TangentScale]
+            EX_FloatConst 0
+23:     EX_Let
+            EX_InstanceVariable [StartPos]
+            EX_LocalVariable [InStartPos]
+50:     EX_Let
+            EX_InstanceVariable [StartTangent]
+            EX_LocalVariable [InStartTangent]
+77:     EX_Let
+            EX_InstanceVariable [Endpos]
+            EX_LocalVariable [InEndPos]
+104:    EX_Let
+            EX_InstanceVariable [EndTangent]
+            EX_LocalVariable [InEndTangent]
+131:    EX_Let
+            EX_LocalVariable [CallFunc_Distance2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Distance2D
+                EX_InstanceVariable [StartPos]
+                EX_InstanceVariable [Endpos]
+177:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Distance2D_ReturnValue]
+                EX_FloatConst 2
+219:    EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst 0
+                EX_FloatConst 1
+266:    EX_Let
+            EX_LocalVariable [TangentScale]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+293:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_Vector2DFloat
+                EX_InstanceVariable [EndTangent]
+                EX_LocalVariable [TangentScale]
+339:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_Vector2DFloat
+                EX_InstanceVariable [StartTangent]
+                EX_LocalVariable [TangentScale]
+385:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_InstanceVariable [StartPos]
+            EX_InstanceVariable [Endpos]
+414:    EX_Let
+            EX_LocalVariable [CallFunc_CreateCurveWithTangents2D_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSplineLibrary->CreateCurveWithTangents2D
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+                EX_ByteConst 1
+471:    EX_Let
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [CallFunc_CreateCurveWithTangents2D_ReturnValue]
+498:    EX_Return
+            EX_Nothing
+500:    EX_EndOfScript
+FunctionExport SetIsCuttable
+0:      EX_LetBool
+            EX_InstanceVariable [IsCuttable]
+            EX_LocalVariable [InCuttable]
+19:     EX_Return
+            EX_Nothing
+21:     EX_EndOfScript
+FunctionExport DrawCurveEnd
+0:      EX_Let
+            EX_LocalVariable [Dir]
+            EX_FloatConst 1
+23:     EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst -1
+46:     EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 1
+69:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [InvertTangents]
+88:     EX_Let
+            EX_LocalVariable [Dir]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 159
+                case 0:
+                    EX_False
+                    NextCaseOffset = 136
+                    EX_LocalVariable [Temp_float_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 150
+                    EX_LocalVariable [Temp_float_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+159:    EX_CallMath import /Script/FSD->FSDSplineLibrary->EvalCurve2D
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [Start]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent]
+205:    EX_Let
+            EX_LocalVariable [SP]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition]
+232:    EX_CallMath import /Script/FSD->FSDSplineLibrary->EvalCurve2D
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [Start]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent]
+278:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_Vector2DFloat
+                EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent]
+                EX_LocalVariable [Dir]
+324:    EX_Let
+            EX_LocalVariable [ST]
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+351:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [BreakProgress]
+                EX_FloatConst 0.25
+393:    EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_LocalVariable [End]
+                EX_LocalVariable [Start]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+448:    EX_CallMath import /Script/FSD->FSDSplineLibrary->EvalCurve2D
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition_1]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent_1]
+494:    EX_Let
+            EX_LocalVariable [EP]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition_1]
+521:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [BreakProgress]
+                EX_FloatConst 0.25
+563:    EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_LocalVariable [End]
+                EX_LocalVariable [Start]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+618:    EX_CallMath import /Script/FSD->FSDSplineLibrary->EvalCurve2D
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition_1]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent_1]
+664:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_Vector2DFloat
+                EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent_1]
+                EX_LocalVariable [Dir]
+710:    EX_Let
+            EX_LocalVariable [ET]
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue_1]
+737:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_Vector2DToVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_Vector2DToVector
+                EX_LocalVariable [ET]
+                EX_FloatConst 0
+779:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_Vector2DToVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_Vector2DToVector
+                EX_LocalVariable [ST]
+                EX_FloatConst 0
+821:    EX_Let
+            EX_LocalVariable [CallFunc_VLerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VLerp
+                EX_LocalVariable [CallFunc_Conv_Vector2DToVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Conv_Vector2DToVector_ReturnValue_1]
+                EX_InstanceVariable [BreakProgress]
+876:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_VLerp_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+922:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+968:    EX_Let
+            EX_LocalVariable [ET]
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+995:    EX_Let
+            EX_LocalVariable [CallFunc_GetRenderOpacity_ReturnValue]
+            EX_FinalFunction import /Script/UMG->Widget->GetRenderOpacity
+1023:   EX_CallMath import /Script/FSD->FSDSplineLibrary->DrawBezierScaled2D
+            EX_LocalOutVariable
+                [Context]
+            EX_LocalVariable [SP]
+            EX_LocalVariable [ST]
+            EX_LocalVariable [EP]
+            EX_LocalVariable [ET]
+            EX_LocalVariable [InAppearance]
+            EX_LocalOutVariable
+                [DrawSize]
+            EX_LocalVariable [CallFunc_GetRenderOpacity_ReturnValue]
+            EX_True
+1106:   EX_Return
+            EX_Nothing
+1108:   EX_EndOfScript
+FunctionExport SetCuttableTint
+0:      EX_Let
+            EX_StructMemberContext [Thickness]
+                EX_LocalVariable [K2Node_MakeStruct_Curve2DAppearance]
+            EX_StructMemberContext [Thickness]
+                EX_InstanceVariable [AppearanceCuttable]
+45:     EX_Let
+            EX_StructMemberContext [Tint]
+                EX_LocalVariable [K2Node_MakeStruct_Curve2DAppearance]
+            EX_LocalVariable [Appearance Cuttable Tint]
+81:     EX_Let
+            EX_StructMemberContext [OutlineThickness]
+                EX_LocalVariable [K2Node_MakeStruct_Curve2DAppearance]
+            EX_StructMemberContext [OutlineThickness]
+                EX_InstanceVariable [AppearanceCuttable]
+126:    EX_Let
+            EX_StructMemberContext [OutlineTint]
+                EX_LocalVariable [K2Node_MakeStruct_Curve2DAppearance]
+            EX_StructMemberContext [OutlineTint]
+                EX_InstanceVariable [AppearanceCuttable]
+171:    EX_Let
+            EX_InstanceVariable [AppearanceCuttable]
+            EX_LocalVariable [K2Node_MakeStruct_Curve2DAppearance]
+198:    EX_Return
+            EX_Nothing
+200:    EX_EndOfScript
+FunctionExport GetWireDistance
+0:      EX_CallMath import /Script/FSD->FSDSplineLibrary->EvalCurve2D
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [InEndKey]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent]
+46:     EX_CallMath import /Script/FSD->FSDSplineLibrary->EvalCurve2D
+            EX_InstanceVariable [Curve]
+            EX_LocalVariable [InStartKey]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition_1]
+            EX_LocalVariable [CallFunc_EvalCurve2D_OutTangent_1]
+92:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_Vector2DVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_Vector2DVector2D
+                EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition_1]
+                EX_LocalVariable [CallFunc_EvalCurve2D_OutPosition]
+138:    EX_Let
+            EX_LocalVariable [CallFunc_VSize2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VSize2D
+                EX_LocalVariable [CallFunc_Subtract_Vector2DVector2D_ReturnValue]
+175:    EX_Let
+            EX_LocalOutVariable
+                [OutDist]
+            EX_LocalVariable [CallFunc_VSize2D_ReturnValue]
+202:    EX_Return
+            EX_Nothing
+204:    EX_EndOfScript

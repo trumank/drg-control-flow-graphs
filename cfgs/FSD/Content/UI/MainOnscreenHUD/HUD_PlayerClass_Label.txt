@@ -1,0 +1,89 @@
+FunctionExport ExecuteUbergraph_HUD_PlayerClass_Label
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdateCharacterName
+24:     EX_Jump 183
+29:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+77:     EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+113:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+142:    EX_Context
+            EX_InstanceVariable [DATA_ClassName]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+183:    EX_Return
+            EX_Nothing
+185:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_PlayerClass_Label_C->ExecuteUbergraph_HUD_PlayerClass_Label
+            EX_IntConst 29
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_PlayerClass_Label_C->ExecuteUbergraph_HUD_PlayerClass_Label
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UpdateCharacterName
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+20:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+56:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+85:     EX_JumpIfNot 330
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+99:     EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_StructConst import /Script/Engine->FormatArgumentData
+                EX_StringConst 
+                EX_ByteConst 0
+                EX_TextConst
+                EX_IntConst 0
+                EX_FloatConst 0
+                EX_ByteConst 0
+142:    EX_Let
+            EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetHeroName
+                RValue = [CallFunc_GetHeroName_ReturnValue]
+192:    EX_Let
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextToUpper
+                EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+229:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+                EX_LocalVariable [K2Node_MakeArray_Array]
+275:    EX_Context
+            EX_InstanceVariable [DATA_ClassName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+320:    EX_FinalFunction import /Script/UMG->Widget->InvalidateLayoutAndVolatility
+330:    EX_Return
+            EX_Nothing
+332:    EX_EndOfScript

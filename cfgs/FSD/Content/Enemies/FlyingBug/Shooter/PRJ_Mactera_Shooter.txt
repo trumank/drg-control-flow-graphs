@@ -1,0 +1,141 @@
+FunctionExport ExecuteUbergraph_PRJ_Mactera_Shooter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+30:     EX_Context
+            EX_InstanceVariable [CollisionComponent]
+            EX_FinalFunction import /Script/Engine->PrimitiveComponent->IgnoreActorWhenMoving
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+                EX_True
+            RValue = []
+72:     EX_Jump 912
+77:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+97:     EX_JumpIfNot 912
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+111:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_Event_HitResult]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+283:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPhysical_Material]
+            EX_DynamicCast import /Script/FSD->FSDPhysicalMaterial
+                EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+319:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPhysical_Material]
+348:    EX_Context
+            EX_InstanceVariable [Damage]
+            EX_FinalFunction import /Script/FSD->DamageComponent->DamageTarget
+                EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+                EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+                EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPhysical_Material]
+                EX_IntConst -1
+            RValue = []
+421:    EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 3
+440:    EX_Jump 912
+445:    EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+456:    EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+484:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+530:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_InstanceVariable [ImpactParticle]
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 1
+                EX_True
+595:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_Event_HitResult]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+767:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/MacteraSpawn/MacteraSpawnHit/MacteraSpawnHit_Cue->MacteraSpawnHit_Cue
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+827:    EX_Jump 77
+832:    EX_Context
+            EX_InstanceVariable [SM_CactusSpikeProjectile]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+866:    EX_Context
+            EX_InstanceVariable [P_CactusSpikeTrail1]
+            EX_VirtualFunction Deactivate
+            RValue = []
+902:    EX_Jump 445
+907:    EX_Jump 832
+912:    EX_Return
+            EX_Nothing
+914:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export PRJ_Mactera_Shooter_C->ExecuteUbergraph_PRJ_Mactera_Shooter
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnImpacted
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PredictedImpact]
+            EX_LocalVariable [PredictedImpact]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_HitResult]
+            EX_LocalOutVariable
+                [HitResult]
+36:     EX_LocalFinalFunction export PRJ_Mactera_Shooter_C->ExecuteUbergraph_PRJ_Mactera_Shooter
+            EX_IntConst 907
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

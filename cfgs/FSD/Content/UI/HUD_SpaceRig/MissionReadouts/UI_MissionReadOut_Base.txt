@@ -1,0 +1,126 @@
+FunctionExport OnMissionSelected__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_UI_MissionReadOut_Base
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+31:     EX_CallMulticastDelegate export UI_MissionReadOut_Base_C->OnMissionSelected__DelegateSignature
+            EX_InstanceVariable [OnMissionSelected]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [GeneratedMission]
+                RValue = [GeneratedMission]
+81:     EX_Jump 478
+86:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+107:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                    EX_InstanceVariable [GeneratedMission]
+                    RValue = [GeneratedMission]
+158:    EX_JumpIfNot 478
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+172:    EX_Jump 10
+177:    EX_BindDelegate OnGeneratedMissionChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+200:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+221:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+                EX_InstanceVariable [OnGeneratedMissionChanged]
+                RValue = [OnGeneratedMissionChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+262:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_2]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+283:    EX_LocalVirtualFunction OnGeneratedMissionChanged
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_2]
+                EX_InstanceVariable [GeneratedMission]
+                RValue = [GeneratedMission]
+328:    EX_Jump 478
+333:    EX_LocalVirtualFunction CanShowMissionType
+            EX_LocalVariable [K2Node_CustomEvent_OutGeneratedMission]
+            EX_LocalVariable [CallFunc_CanShowMissionType_CanShow]
+365:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_CanShowMissionType_CanShow]
+384:    EX_Context
+            EX_InstanceVariable [MissionSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 472
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 449
+                        EX_InstanceVariable [LCD_MissionReadout_NoMissionSelected]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 463
+                        EX_InstanceVariable [ContentSlot]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+473:    EX_Jump 86
+478:    EX_Return
+            EX_Nothing
+480:    EX_EndOfScript
+FunctionExport OnGeneratedMissionChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OutGeneratedMission]
+            EX_LocalVariable [OutGeneratedMission]
+18:     EX_LocalFinalFunction export UI_MissionReadOut_Base_C->ExecuteUbergraph_UI_MissionReadOut_Base
+            EX_IntConst 333
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_MissionReadOut_Base_C->ExecuteUbergraph_UI_MissionReadOut_Base
+            EX_IntConst 177
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CanShowMissionType
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InMission]
+29:     EX_JumpIfNot 147
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsSingleMission_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InMission]
+                EX_FinalFunction import /Script/FSD->GeneratedMission->IsSingleMission
+                RValue = [CallFunc_IsSingleMission_ReturnValue]
+85:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_IsSingleMission_ReturnValue]
+                EX_InstanceVariable [ShowDeepDives]
+123:    EX_LetBool
+            EX_LocalOutVariable
+                [CanShow]
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+142:    EX_Jump 158
+147:    EX_LetBool
+            EX_LocalOutVariable
+                [CanShow]
+            EX_False
+158:    EX_Return
+            EX_Nothing
+160:    EX_EndOfScript

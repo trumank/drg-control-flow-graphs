@@ -1,0 +1,307 @@
+FunctionExport ExecuteUbergraph_HUD_Directional_Damage_Indicator
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdatePosition
+            EX_FloatConst 0
+29:     EX_Jump 67
+34:     EX_LocalVirtualFunction UpdatePosition
+            EX_LocalVariable [K2Node_Event_InDeltaTime]
+57:     EX_Jump 67
+62:     EX_Jump 10
+67:     EX_Return
+            EX_Nothing
+69:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Directional_Damage_Indicator_C->ExecuteUbergraph_HUD_Directional_Damage_Indicator
+            EX_IntConst 62
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Tick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_MyGeometry]
+            EX_LocalVariable [MyGeometry]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_InDeltaTime]
+            EX_LocalVariable [InDeltaTime]
+36:     EX_LocalFinalFunction export HUD_Directional_Damage_Indicator_C->ExecuteUbergraph_HUD_Directional_Damage_Indicator
+            EX_IntConst 34
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport Hit
+0:      EX_LetObj
+            EX_InstanceVariable [DamageCauser]
+            EX_LocalVariable [DamageCauser]
+19:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DamageCauser]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+69:     EX_Let
+            EX_InstanceVariable [DamageOrigin]
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+96:     EX_LetObj
+            EX_InstanceVariable [Character]
+            EX_LocalVariable [Victim]
+115:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 1
+167:    EX_Let
+            EX_LocalVariable [Temp_struct_Variable_1]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.563974
+                EX_FloatConst 1
+                EX_FloatConst 1
+219:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [Damage]
+                EX_FloatConst 0
+253:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+272:    EX_FinalFunction import /Script/UMG->UserWidget->SetColorAndOpacity
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 334
+                case 0:
+                    EX_False
+                    NextCaseOffset = 311
+                    EX_LocalVariable [Temp_struct_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 325
+                    EX_LocalVariable [Temp_struct_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+335:    EX_LetObj
+            EX_LocalOutVariable
+                [Widget]
+            EX_Self
+346:    EX_Return
+            EX_Nothing
+348:    EX_EndOfScript
+FunctionExport MoveTowards
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [End]
+                EX_LocalVariable [Value]
+46:     EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+83:     EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+                EX_LocalVariable [Delta]
+121:    EX_JumpIfNot 167
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+135:    EX_Let
+            EX_LocalOutVariable
+                [Result]
+            EX_LocalVariable [End]
+162:    EX_Jump 369
+167:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [End]
+                EX_LocalVariable [Value]
+213:    EX_Let
+            EX_LocalVariable [CallFunc_SignOfFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SignOfFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+250:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [Delta]
+                EX_LocalVariable [CallFunc_SignOfFloat_ReturnValue]
+296:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [Value]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+342:    EX_Let
+            EX_LocalOutVariable
+                [Result]
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+369:    EX_Return
+            EX_Nothing
+371:    EX_EndOfScript
+FunctionExport SetAngle
+0:      EX_Let
+            EX_LocalVariable [CallFunc_DegSin_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->DegSin
+                EX_LocalVariable [Angle]
+37:     EX_Let
+            EX_LocalVariable [CallFunc_DegCos_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->DegCos
+                EX_LocalVariable [Angle]
+74:     EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_LocalVariable [CallFunc_DegCos_ReturnValue]
+                EX_LocalVariable [CallFunc_DegSin_ReturnValue]
+120:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_Vector2DFloat
+                EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+                EX_InstanceVariable [Radius]
+166:    EX_FinalFunction import /Script/UMG->Widget->SetRenderTranslation
+            EX_LocalVariable [CallFunc_Multiply_Vector2DFloat_ReturnValue]
+185:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [Angle]
+                EX_FloatConst 90
+227:    EX_FinalFunction import /Script/UMG->Widget->SetRenderTransformAngle
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+246:    EX_Return
+            EX_Nothing
+248:    EX_EndOfScript
+FunctionExport UpdatePosition
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [InputPin]
+                EX_FloatConst 0.5
+42:     EX_LocalVirtualFunction MoveTowards
+            EX_StructMemberContext [A]
+                EX_InstanceVariable [ColorAndOpacity]
+            EX_FloatConst 0
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_LocalVariable [CallFunc_MoveTowards_Result]
+97:     EX_Let
+            EX_StructMemberContext [R]
+                EX_LocalVariable [K2Node_MakeStruct_LinearColor]
+            EX_StructMemberContext [R]
+                EX_InstanceVariable [ColorAndOpacity]
+142:    EX_Let
+            EX_StructMemberContext [G]
+                EX_LocalVariable [K2Node_MakeStruct_LinearColor]
+            EX_StructMemberContext [G]
+                EX_InstanceVariable [ColorAndOpacity]
+187:    EX_Let
+            EX_StructMemberContext [B]
+                EX_LocalVariable [K2Node_MakeStruct_LinearColor]
+            EX_StructMemberContext [B]
+                EX_InstanceVariable [ColorAndOpacity]
+232:    EX_Let
+            EX_StructMemberContext [A]
+                EX_LocalVariable [K2Node_MakeStruct_LinearColor]
+            EX_LocalVariable [CallFunc_MoveTowards_Result]
+268:    EX_FinalFunction import /Script/UMG->UserWidget->SetColorAndOpacity
+            EX_LocalVariable [K2Node_MakeStruct_LinearColor]
+287:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [InputPin]
+                EX_FloatConst 0.5
+329:    EX_LocalVirtualFunction MoveTowards
+            EX_StructMemberContext [A]
+                EX_InstanceVariable [ColorAndOpacity]
+            EX_FloatConst 0
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_LocalVariable [CallFunc_MoveTowards_Result]
+384:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [CallFunc_MoveTowards_Result]
+                EX_FloatConst 0
+418:    EX_JumpIfNot 451
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+432:    EX_VirtualFunction RemoveFromParent
+446:    EX_Jump 1110
+451:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->GetActorRightVector
+                RValue = [CallFunc_GetActorRightVector_ReturnValue]
+501:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+                RValue = [CallFunc_GetActorForwardVector_ReturnValue]
+551:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+601:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_InstanceVariable [DamageOrigin]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+647:    EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+                EX_FloatConst 0.0001
+689:    EX_Let
+            EX_LocalVariable [CallFunc_Dot_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Dot_VectorVector
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+735:    EX_Let
+            EX_LocalVariable [CallFunc_SignOfFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SignOfFloat
+                EX_LocalVariable [CallFunc_Dot_VectorVector_ReturnValue]
+772:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_SignOfFloat_ReturnValue]
+                EX_FloatConst 0
+806:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+825:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_SignOfFloat_ReturnValue]
+                EX_FloatConst 90
+867:    EX_Let
+            EX_LocalVariable [CallFunc_Dot_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Dot_VectorVector
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+913:    EX_Let
+            EX_LocalVariable [CallFunc_DegAcos_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->DegAcos
+                EX_LocalVariable [CallFunc_Dot_VectorVector_ReturnValue_1]
+950:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 180
+                EX_LocalVariable [CallFunc_DegAcos_ReturnValue]
+992:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 1072
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1049
+                        EX_LocalVariable [CallFunc_DegAcos_ReturnValue]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1063
+                        EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+1082:   EX_LocalVirtualFunction SetAngle
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+1105:   EX_Jump 446
+1110:   EX_Return
+            EX_Nothing
+1112:   EX_EndOfScript

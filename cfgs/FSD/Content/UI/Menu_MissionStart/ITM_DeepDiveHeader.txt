@@ -1,0 +1,124 @@
+FunctionExport ExecuteUbergraph_ITM_DeepDiveHeader
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetEliteActive
+            EX_InstanceVariable [EliteActive]
+33:     EX_Jump 66
+38:     EX_LocalVirtualFunction SetHeaderContents
+            EX_InstanceVariable [Header Contents]
+61:     EX_Jump 10
+66:     EX_Return
+            EX_Nothing
+68:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_DeepDiveHeader_C->ExecuteUbergraph_ITM_DeepDiveHeader
+            EX_IntConst 38
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetHeaderContents
+0:      EX_Let
+            EX_InstanceVariable [Header Contents]
+            EX_LocalVariable [Header Contents]
+27:     EX_Let
+            EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->TextToUpper
+                EX_InstanceVariable [Header Contents]
+64:     EX_Context
+            EX_InstanceVariable [TXT_DeepDive_BG]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            RValue = []
+109:    EX_Context
+            EX_InstanceVariable [TXT_DeepDive_Front]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_TextToUpper_ReturnValue]
+            RValue = []
+154:    EX_Return
+            EX_Nothing
+156:    EX_EndOfScript
+FunctionExport SetEliteActive
+0:      EX_LetBool
+            EX_InstanceVariable [EliteActive]
+            EX_LocalVariable [EliteActive]
+19:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [EliteActive]
+38:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 4
+58:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+78:     EX_Context
+            EX_InstanceVariable [ITM_DeepDiveHeaderElite]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 166
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 143
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 157
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+167:    EX_Context
+            EX_InstanceVariable [SizeBox_0]
+            EX_FinalFunction import /Script/UMG->SizeBox->SetHeightOverride
+                EX_FloatConst 125
+            RValue = []
+204:    EX_Return
+            EX_Nothing
+206:    EX_EndOfScript
+FunctionExport FromDeepDive
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InDeepDive]
+29:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_Self
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+107:    EX_JumpIfNot 174
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+121:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsEliteDeepDive_ReturnValue]
+            EX_CallMath import /Script/FSD->DeepDiveFunctionLibrary->IsEliteDeepDive
+                EX_Self
+                EX_LocalVariable [InDeepDive]
+151:    EX_LocalVirtualFunction SetEliteActive
+            EX_LocalVariable [CallFunc_IsEliteDeepDive_ReturnValue]
+174:    EX_Return
+            EX_Nothing
+176:    EX_EndOfScript
+FunctionExport FromActiveDeepDive
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetDeepDiveManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetDeepDiveManager
+                EX_Self
+21:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetActiveDeepDive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetDeepDiveManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepDiveManager->GetActiveDeepDive
+                RValue = [CallFunc_GetActiveDeepDive_ReturnValue]
+63:     EX_LocalVirtualFunction FromDeepDive
+            EX_LocalVariable [CallFunc_GetActiveDeepDive_ReturnValue]
+86:     EX_Return
+            EX_Nothing
+88:     EX_EndOfScript

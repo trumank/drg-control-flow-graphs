@@ -1,0 +1,203 @@
+FunctionExport ExecuteUbergraph_BP_ConeAttackBase
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [ConeCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+48:     EX_LetBool
+            EX_InstanceVariable [AttackIsActive]
+            EX_False
+59:     EX_Jump 899
+64:     EX_BindDelegate OnAttackActionNotify_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+87:     EX_AddMulticastDelegate
+            EX_InstanceVariable [OnAttackActionNotify]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+106:    EX_Jump 899
+111:    EX_BindDelegate Cone_Begin_Overlap
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+134:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [ConeCollider]
+                EX_InstanceVariable [OnComponentBeginOverlap]
+                RValue = [OnComponentBeginOverlap]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+175:    EX_BindDelegate Cone_End_Overlap
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+198:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [ConeCollider]
+                EX_InstanceVariable [OnComponentEndOverlap]
+                RValue = [OnComponentEndOverlap]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+239:    EX_Context
+            EX_InstanceVariable [ConeCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+277:    EX_Jump 899
+282:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+302:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue_1]
+                EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+                RValue = [CallFunc_HasAuthority_ReturnValue]
+344:    EX_JumpIfNot 899
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+358:    EX_Jump 64
+363:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_CustomEvent_nameValue]
+                EX_NameConst Begin
+405:    EX_JumpIfNot 480
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+419:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_CustomEvent_nameValue]
+                EX_NameConst End
+461:    EX_JumpIfNot 10
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+475:    EX_Jump 899
+480:    EX_Context
+            EX_InstanceVariable [ConeCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 1
+            RValue = []
+518:    EX_LetBool
+            EX_InstanceVariable [AttackIsActive]
+            EX_True
+529:    EX_Jump 899
+534:    EX_LetObj
+            EX_InstanceVariable [ConeCollider]
+            EX_LocalVariable [K2Node_CustomEvent_ConeCollider]
+553:    EX_Jump 111
+558:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_LocalVariable [K2Node_CustomEvent_OtherActor_1]
+                EX_Self
+588:    EX_JumpIfNot 899
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+602:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+622:    EX_LetBool
+            EX_LocalVariable [CallFunc_TryPushActiveStatusEffect_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__StatusEffectsComponent
+                EX_FinalFunction import /Script/FSD->StatusEffectsComponent->TryPushActiveStatusEffect
+                    EX_InstanceVariable [StatusEffect]
+                    EX_LocalVariable [K2Node_CustomEvent_OtherActor_1]
+                    EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+                RValue = [CallFunc_TryPushActiveStatusEffect_ReturnValue]
+691:    EX_Jump 899
+696:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+716:    EX_LetBool
+            EX_LocalVariable [CallFunc_TryPopActiveStatusEffect_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__StatusEffectsComponent
+                EX_FinalFunction import /Script/FSD->StatusEffectsComponent->TryPopActiveStatusEffect
+                    EX_InstanceVariable [StatusEffect]
+                    EX_LocalVariable [K2Node_CustomEvent_OtherActor]
+                    EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+                RValue = [CallFunc_TryPopActiveStatusEffect_ReturnValue]
+785:    EX_Jump 899
+790:    EX_JumpIfNot 847
+            EX_LocalVariable [K2Node_Event_isFrozen]
+804:    EX_Context
+            EX_InstanceVariable [ConeCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+842:    EX_Jump 899
+847:    EX_JumpIfNot 899
+            EX_InstanceVariable [AttackIsActive]
+861:    EX_Context
+            EX_InstanceVariable [ConeCollider]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 1
+            RValue = []
+899:    EX_Return
+            EX_Nothing
+901:    EX_EndOfScript
+FunctionExport ReceiveAbortAttack
+0:      EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_isFrozen]
+            EX_LocalVariable [isFrozen]
+18:     EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 790
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Cone_End_Overlap
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 696
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport Cone_Begin_Overlap
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OverlappedComponent_1]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OtherActor_1]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OtherComp_1]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OtherBodyIndex_1]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 558
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport SetConeCollider
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ConeCollider]
+            EX_LocalVariable [ConeCollider]
+18:     EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 534
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAttackActionNotify_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_nameValue]
+            EX_LocalVariable [nameValue]
+18:     EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 363
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_ConeAttackBase_C->ExecuteUbergraph_BP_ConeAttackBase
+            EX_IntConst 282
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

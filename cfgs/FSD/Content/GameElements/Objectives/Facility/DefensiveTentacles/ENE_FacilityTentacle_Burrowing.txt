@@ -1,0 +1,952 @@
+FunctionExport ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+0:      EX_PushExecutionFlow 4342
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 70
+                EX_IntConst 55522998
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+69:     EX_PopExecutionFlow
+70:     EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+120:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefensiveTentacles/ENE_FacilityTentacle_End->ENE_FacilityTentacle_End_C
+                EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_Self
+162:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_NameConst Instigator
+            EX_Self
+195:    EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+245:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+283:    EX_LetObj
+            EX_InstanceVariable [ChildTentacle]
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+302:    EX_PushExecutionFlow 452
+307:    EX_BindDelegate ChildTentacleDied
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+330:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [ChildTentacle]
+                    EX_InstanceVariable [Health]
+                    RValue = [Health]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+393:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_InstanceVariable [BurrowDuration]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 580
+                EX_IntConst -1409025318
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+451:    EX_PopExecutionFlow
+452:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetAIController
+                EX_InstanceVariable [ChildTentacle]
+481:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsAIC_Facility_Tentacle]
+            EX_DynamicCast import /Game/GameElements/Objectives/Facility/DefensiveTentacles/AIC_FacilityTentacle->AIC_FacilityTentacle_C
+                EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+517:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsAIC_Facility_Tentacle]
+546:    EX_LetBool
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsAIC_Facility_Tentacle]
+                EX_InstanceVariable [IsChildOfOtherTentacle]
+                RValue = [IsChildOfOtherTentacle]
+            EX_True
+579:    EX_PopExecutionFlow
+580:    EX_BindDelegate ChildTentacleDied
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+603:    EX_RemoveMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [ChildTentacle]
+                    EX_InstanceVariable [Health]
+                    RValue = [Health]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+666:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [Health]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue_2]
+712:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue_3]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [ChildTentacle]
+                    EX_InstanceVariable [Health]
+                    RValue = [Health]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue_3]
+780:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsAlive_ReturnValue_2]
+                EX_LocalVariable [CallFunc_IsAlive_ReturnValue_3]
+818:    EX_JumpIfNot 924
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+832:    EX_Context
+            EX_InstanceVariable [Health]
+            EX_FinalFunction import /Script/FSD->HealthComponentBase->SetCanTakeDamage
+                EX_True
+            RValue = []
+865:    EX_Context
+            EX_Context
+                EX_InstanceVariable [ChildTentacle]
+                EX_InstanceVariable [Health]
+                RValue = [Health]
+            EX_VirtualFunction Kill
+                EX_NoObject
+            RValue = []
+924:    EX_PushExecutionFlow 1078
+929:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Health]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+975:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+985:    EX_VirtualFunction MoveHydraHead
+            EX_InstanceVariable [RestTransform]
+            EX_FloatConst 2.5
+            EX_InstanceVariable [IdleHeadMovementDuration]
+            EX_False
+1023:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 2.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 1248
+                EX_IntConst -630193291
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+1077:   EX_PopExecutionFlow
+1078:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SpawnActor]
+1107:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1117:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SpawnActor]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->TerrainPlacementComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+1168:   EX_Context
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TerrainPlacementComponent->RemoveBlockers
+            RValue = []
+1200:   EX_Context
+            EX_InstanceVariable [SpawnActor]
+            EX_VirtualFunction K2_DestroyActor
+            RValue = []
+1236:   EX_LetObj
+            EX_InstanceVariable [SpawnActor]
+            EX_NoObject
+1247:   EX_PopExecutionFlow
+1248:   EX_LetObj
+            EX_InstanceVariable [CurrentTarget]
+            EX_NoObject
+1259:   EX_Context
+            EX_InstanceVariable [BurrowAttack]
+            EX_FinalFunction import /Script/FSD->AttackBaseComponent->CompleteAttack
+                EX_True
+            RValue = []
+1292:   EX_PopExecutionFlow
+1293:   EX_Context
+            EX_InstanceVariable [DamageSphere]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+1331:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentTarget]
+1360:   EX_JumpIfNot 2394
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+1374:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [CurrentTarget]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue_2]
+1424:   EX_LocalVirtualFunction PlaceEndTentacles
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+            EX_LocalVariable [CallFunc_PlaceEndTentacles_Success]
+            EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+1465:   EX_JumpIfNot 2394
+            EX_LocalVariable [CallFunc_PlaceEndTentacles_Success]
+1479:   EX_LetObj
+            EX_InstanceVariable [SpawnActor]
+            EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+1498:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 1553
+                EX_IntConst -1942952282
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+1552:   EX_PopExecutionFlow
+1553:   EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+1603:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+1649:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSystemAtLocation_ReturnValue]
+            EX_CallMath import /Script/Niagara->NiagaraFunctionLibrary->SpawnSystemAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Art/Particles/ActorFX/Spawning/NS_SpawnCloud_Medium->NS_SpawnCloud_Medium
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_True
+                EX_ByteConst 0
+                EX_True
+1715:   EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+1765:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+1811:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/SpiderUnborrow/SpiderUnburrow_Cue->SpiderUnburrow_Cue
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+1871:   EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+1921:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+1967:   EX_CallMath import /Script/Engine->GameplayStatics->PlayWorldCameraShake
+            EX_Self
+            EX_ObjectConst import /Game/Character/Camera/CameraShakes/CameraShake_Tentacle_Spawn->CameraShake_Tentacle_Spawn_C
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_FloatConst 500
+            EX_FloatConst 1500
+            EX_FloatConst 1
+            EX_False
+2012:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 2067
+                EX_IntConst -801454214
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+2066:   EX_PopExecutionFlow
+2067:   EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+2117:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+2163:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSystemAtLocation_ReturnValue_1]
+            EX_CallMath import /Script/Niagara->NiagaraFunctionLibrary->SpawnSystemAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefensiveTentacles/NS_TMP_Facility_Tentacl_Emerge->NS_TMP_Facility_Tentacl_Emerge
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_True
+                EX_ByteConst 0
+                EX_False
+2233:   EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_PlaceEndTentacles_SpawnedTentacle]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+2283:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+2329:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefensiveTentacles/Facility_Tentacle_Emerge_Cue->Facility_Tentacle_Emerge_Cue
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+2389:   EX_Jump 15
+2394:   EX_Context
+            EX_InstanceVariable [Health]
+            EX_FinalFunction import /Script/FSD->HealthComponentBase->SetCanTakeDamage
+                EX_True
+            RValue = []
+2427:   EX_Jump 924
+2432:   EX_LocalVirtualFunction PlayHitGround
+2446:   EX_Let
+            EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Head]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetForwardVector
+                RValue = [CallFunc_GetForwardVector_ReturnValue]
+2496:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Head]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+2546:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+                EX_FloatConst -200
+2588:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+2634:   EX_Context
+            EX_InstanceVariable [Explosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageAndCarve
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+                EX_VectorConst 0,0,1
+                EX_NameConst None
+                EX_NoObject
+                EX_NoObject
+                EX_InstanceVariable [HeadDamage]
+            RValue = []
+2712:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 1293
+                EX_IntConst 607036128
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+2766:   EX_PopExecutionFlow
+2767:   EX_Context
+            EX_InstanceVariable [Health]
+            EX_VirtualFunction Kill
+                EX_Self
+            RValue = []
+2804:   EX_PopExecutionFlow
+2805:   EX_Let
+            EX_LocalVariable [CallFunc_GetUpVector_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Head]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetUpVector
+                RValue = [CallFunc_GetUpVector_ReturnValue]
+2855:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst -1
+2898:   EX_Let
+            EX_LocalVariable [CallFunc_MakeRotFromZX_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotFromZX
+                EX_LocalVariable [CallFunc_GetUpVector_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+2944:   EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_InstanceVariable [Target]
+                EX_LocalVariable [CallFunc_MakeRotFromZX_ReturnValue]
+                EX_VectorConst 1,1,1
+3003:   EX_Let
+            EX_InstanceVariable [AttackGoalTransform]
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue_1]
+3030:   EX_VirtualFunction MoveHydraHead
+            EX_InstanceVariable [AttackGoalTransform]
+            EX_FloatConst 9999999
+            EX_InstanceVariable [MeleeAttackDuration]
+            EX_False
+3068:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Health]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue_1]
+3114:   EX_JumpIfNot 2394
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue_1]
+3128:   EX_VirtualFunction PlayAttackCue
+3142:   EX_Context
+            EX_InstanceVariable [DamageSphere]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 1
+            RValue = []
+3180:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_InstanceVariable [MeleeAttackDuration]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 2432
+                EX_IntConst -916066966
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+3238:   EX_PopExecutionFlow
+3239:   EX_LocalFinalFunction import /Game/GameElements/Objectives/Facility/DefensiveTentacles/ENE_FacilityTentacle->ENE_FacilityTentacle_C->HandleDeath
+3249:   EX_PopExecutionFlow
+3250:   EX_LetObj
+            EX_InstanceVariable [CurrentTarget]
+            EX_LocalVariable [K2Node_CustomEvent_AttackTarget]
+3269:   EX_Context
+            EX_InstanceVariable [Health]
+            EX_FinalFunction import /Script/FSD->HealthComponentBase->SetCanTakeDamage
+                EX_False
+            RValue = []
+3302:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+3330:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+                EX_FloatConst 400
+3372:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+3400:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+3446:   EX_LetBool
+            EX_LocalVariable [CallFunc_FindBurrowLocation_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FacilityTentacle->FindBurrowLocation
+                EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefensiveTentacles/DRB_Facility_Tentacle_Burrow->DRB_Facility_Tentacle_Burrow
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_FloatConst 150
+                EX_LocalVariable [CallFunc_FindBurrowLocation_outLocation]
+3498:   EX_LetBool
+            EX_InstanceVariable [HitGround]
+            EX_LocalVariable [CallFunc_FindBurrowLocation_ReturnValue]
+3517:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_FindBurrowLocation_outLocation]
+                EX_VectorConst 0,0,-50
+3567:   EX_Let
+            EX_InstanceVariable [Target]
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+3594:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CurrentTarget]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+3644:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [MeleeAttackPosition]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+3694:   EX_Let
+            EX_LocalVariable [CallFunc_FindLookAtRotation_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FindLookAtRotation
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+3740:   EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+                EX_LocalVariable [CallFunc_FindLookAtRotation_ReturnValue]
+                EX_VectorConst 1,1,1
+3799:   EX_VirtualFunction MoveHydraHead
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_FloatConst 9999
+            EX_FloatConst 1
+            EX_False
+3833:   EX_VirtualFunction PlayPreBurrowSound
+3847:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 2805
+                EX_IntConst -537288514
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+3901:   EX_PopExecutionFlow
+3902:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 2767
+                EX_IntConst -304798749
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+3956:   EX_PopExecutionFlow
+3957:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Head]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+4007:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/Enemies/FacilityBoss/FacilityTentacle_PreBurrow_Cue->FacilityTentacle_PreBurrow_Cue
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+4067:   EX_PopExecutionFlow
+4068:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [ChildTentacle]
+4097:   EX_JumpIfNot 4202
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+4111:   EX_Context
+            EX_InstanceVariable [ChildTentacle]
+            EX_LocalVirtualFunction KillTentacle
+            RValue = []
+4147:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 3239
+                EX_IntConst 932990466
+                EX_NameConst ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+                EX_Self
+4201:   EX_PopExecutionFlow
+4202:   EX_LocalFinalFunction import /Game/GameElements/Objectives/Facility/DefensiveTentacles/ENE_FacilityTentacle->ENE_FacilityTentacle_C->HandleDeath
+4212:   EX_PopExecutionFlow
+4213:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetOwner
+4233:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Facility_Tentacle_Manager]
+            EX_DynamicCast import /Game/GameElements/Objectives/Facility/BP_FacilityTentacleManager->BP_FacilityTentacleManager_C
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+4269:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Facility_Tentacle_Manager]
+4298:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+4308:   EX_LetObj
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Facility_Tentacle_Manager]
+                EX_InstanceVariable [Spawned]
+                RValue = [Spawned]
+            EX_Self
+4341:   EX_PopExecutionFlow
+4342:   EX_Return
+            EX_Nothing
+4344:   EX_EndOfScript
+FunctionExport Recieve_OnRep_Owner
+0:      EX_LocalFinalFunction export ENE_FacilityTentacle_Burrowing_C->ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+            EX_IntConst 4213
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport HandleDeath
+0:      EX_LocalFinalFunction export ENE_FacilityTentacle_Burrowing_C->ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+            EX_IntConst 4068
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PlayPreBurrowSound
+0:      EX_LocalFinalFunction export ENE_FacilityTentacle_Burrowing_C->ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+            EX_IntConst 3957
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ChildTentacleDied
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export ENE_FacilityTentacle_Burrowing_C->ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+            EX_IntConst 3902
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BurrowingAttack
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_AttackTarget]
+            EX_LocalVariable [AttackTarget]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_BurrowLocation]
+            EX_LocalVariable [BurrowLocation]
+36:     EX_LocalFinalFunction export ENE_FacilityTentacle_Burrowing_C->ExecuteUbergraph_ENE_FacilityTentacle_Burrowing
+            EX_IntConst 3250
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport FindGroundLocation
+0:      EX_Let
+            EX_LocalVariable [Temp_struct_Variable]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0.042093
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 1
+52:     EX_Let
+            EX_LocalVariable [Temp_struct_Variable_1]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 1
+104:    EX_Let
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomIntegerInRange
+                EX_IntConst -15
+                EX_IntConst 15
+142:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+163:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorRightVector
+191:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+219:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+                EX_FloatConst 50
+261:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+307:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorInt
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+353:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+                EX_FloatConst 250
+395:    EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+423:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+478:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X_1]
+            EX_LocalVariable [CallFunc_BreakVector_Y_1]
+            EX_LocalVariable [CallFunc_BreakVector_Z_1]
+524:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorInt_ReturnValue]
+570:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z_1]
+                EX_FloatConst 0.33
+612:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X_1]
+                EX_LocalVariable [CallFunc_BreakVector_Y_1]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+667:    EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue_1]
+                EX_FloatConst 0.0001
+709:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_FloatConst 5000
+751:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+797:    EX_LetBool
+            EX_LocalVariable [CallFunc_Linecast_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepCSGWorld->Linecast
+                    EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                    EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+                    EX_LocalVariable [CallFunc_Linecast_hitInfo]
+                    EX_ByteConst 2
+                RValue = [CallFunc_Linecast_ReturnValue]
+868:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Linecast_ReturnValue]
+887:    EX_CallMath import /Script/Engine->KismetSystemLibrary->DrawDebugLine
+            EX_Self
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 968
+                case 0:
+                    EX_False
+                    NextCaseOffset = 945
+                    EX_LocalVariable [Temp_struct_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 959
+                    EX_LocalVariable [Temp_struct_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_FloatConst 1
+            EX_FloatConst 5
+979:    EX_Let
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomIntegerInRange
+                EX_IntConst -15
+                EX_IntConst 15
+1017:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetCSGWorld
+                EX_Self
+1038:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorRightVector
+1066:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+1094:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetActorRightVector_ReturnValue]
+                EX_FloatConst 50
+1136:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+1182:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorInt
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+1228:   EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+                EX_FloatConst 250
+1270:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+1298:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X]
+                EX_LocalVariable [CallFunc_BreakVector_Y]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+1353:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X_1]
+            EX_LocalVariable [CallFunc_BreakVector_Y_1]
+            EX_LocalVariable [CallFunc_BreakVector_Z_1]
+1399:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorInt_ReturnValue]
+1445:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z_1]
+                EX_FloatConst 0.33
+1487:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X_1]
+                EX_LocalVariable [CallFunc_BreakVector_Y_1]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+1542:   EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue_1]
+                EX_FloatConst 0.0001
+1584:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_FloatConst 5000
+1626:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+1672:   EX_LetBool
+            EX_LocalVariable [CallFunc_Linecast_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetCSGWorld_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DeepCSGWorld->Linecast
+                    EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                    EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+                    EX_LocalVariable [CallFunc_Linecast_hitInfo]
+                    EX_ByteConst 2
+                RValue = [CallFunc_Linecast_ReturnValue]
+1743:   EX_LetBool
+            EX_LocalOutVariable
+                [Success]
+            EX_True
+1754:   EX_Let
+            EX_LocalOutVariable
+                [Location]
+            EX_StructMemberContext [Position]
+                EX_LocalVariable [CallFunc_Linecast_hitInfo]
+1790:   EX_Return
+            EX_Nothing
+1792:   EX_EndOfScript
+FunctionExport GetTentacle
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [ChildTentacle]
+29:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+48:     EX_LetObj
+            EX_LocalOutVariable
+                [tentacle]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 103
+                case 0:
+                    EX_False
+                    NextCaseOffset = 80
+                    EX_Self
+                case 1:
+                    EX_True
+                    NextCaseOffset = 94
+                    EX_InstanceVariable [ChildTentacle]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+103:    EX_Return
+            EX_Nothing
+105:    EX_EndOfScript
+FunctionExport PlaceEndTentacles
+0:      EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+11:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+            EX_CallMath import /Script/FSD->ProceduralFunctionLibrary->GetProceduralSetup
+                EX_Self
+32:     EX_SetArray
+            EX_LocalVariable [CallFunc_PlaceActors_OutSpawnedActors]
+43:     EX_LetBool
+            EX_LocalVariable [CallFunc_PlaceActors_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SpawnActorWithDebrisPos]
+                EX_FinalFunction import /Script/FSD->SpawnActorWithDebrisPosComponent->PlaceActors
+                    EX_IntConst 1
+                    EX_IntConst 1
+                    EX_IntConst 10
+                    EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefensiveTentacles/BP_Facility_Tentacle_SpawnPoint->BP_Facility_Tentacle_SpawnPoint_C
+                    EX_LocalVariable [CallFunc_GetProceduralSetup_ReturnValue]
+                    EX_FloatConst 500
+                    EX_ObjectConst import /Game/GameElements/Objectives/Facility/DefensiveTentacles/BurrowinTentacle_End_Positioning->BurrowinTentacle_End_Positioning
+                    EX_LocalVariable [K2Node_MakeArray_Array]
+                    EX_NoObject
+                    EX_LocalVariable [CallFunc_PlaceActors_OutSpawnedActors]
+                    EX_LocalVariable [PlayerLocation]
+                RValue = [CallFunc_PlaceActors_ReturnValue]
+160:    EX_JumpIfNot 264
+            EX_LocalVariable [CallFunc_PlaceActors_ReturnValue]
+174:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_PlaceActors_OutSpawnedActors]
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+229:    EX_LetBool
+            EX_LocalOutVariable
+                [Success]
+            EX_True
+240:    EX_LetObj
+            EX_LocalOutVariable
+                [SpawnedTentacle]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+259:    EX_Jump 286
+264:    EX_LetBool
+            EX_LocalOutVariable
+                [Success]
+            EX_False
+275:    EX_LetObj
+            EX_LocalOutVariable
+                [SpawnedTentacle]
+            EX_NoObject
+286:    EX_Return
+            EX_Nothing
+288:    EX_EndOfScript

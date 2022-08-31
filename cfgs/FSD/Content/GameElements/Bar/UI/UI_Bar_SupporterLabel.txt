@@ -1,0 +1,97 @@
+FunctionExport ExecuteUbergraph_UI_Bar_SupporterLabel
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction SetTextColor
+                EX_InstanceVariable [SupporterHeader]
+                EX_ByteConst 0
+                EX_Self
+            RValue = []
+58:     EX_Context
+            EX_ObjectConst import /Game/Game/Text/LIB_Text->Default__LIB_Text_C
+            EX_LocalVirtualFunction SetFontSize
+                EX_InstanceVariable [SupporterHeader]
+                EX_InstanceVariable [Font Size]
+                EX_Self
+            RValue = []
+113:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_InstanceVariable [Icon Size]
+                EX_InstanceVariable [Icon Size]
+159:    EX_Context
+            EX_InstanceVariable [SupportIconLeft]
+            EX_FinalFunction import /Script/UMG->Image->SetBrushSize
+                EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            RValue = []
+200:    EX_Return
+            EX_Nothing
+202:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_Bar_SupporterLabel_C->ExecuteUbergraph_UI_Bar_SupporterLabel
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetDrinkable
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Drinkable]
+29:     EX_JumpIfNot 289
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasSupporterUpgrade_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSteamUtils->HasSupporterUpgrade
+63:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlayInEditor_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->IsPlayInEditor
+                EX_Self
+84:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_HasSupporterUpgrade_ReturnValue]
+                EX_LocalVariable [CallFunc_IsPlayInEditor_ReturnValue]
+122:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasSupporterEdition_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Drinkable]
+                EX_FinalFunction import /Script/FSD->DrinkableDataAsset->HasSupporterEdition
+                RValue = [CallFunc_HasSupporterEdition_ReturnValue]
+164:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_HasSupporterEdition_ReturnValue]
+                EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+202:    EX_JumpIfNot 289
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+216:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 4
+232:    EX_LetBool
+            EX_LocalOutVariable
+                [IsSupporterEdition]
+            EX_True
+243:    EX_LetObj
+            EX_LocalOutVariable
+                [OutDrinkable]
+            EX_Context
+                EX_LocalVariable [Drinkable]
+                EX_InstanceVariable [SupporterEdition]
+                RValue = [SupporterEdition]
+284:    EX_Jump 335
+289:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+305:    EX_LetBool
+            EX_LocalOutVariable
+                [IsSupporterEdition]
+            EX_False
+316:    EX_LetObj
+            EX_LocalOutVariable
+                [OutDrinkable]
+            EX_LocalVariable [Drinkable]
+335:    EX_Return
+            EX_Nothing
+337:    EX_EndOfScript

@@ -1,0 +1,694 @@
+FunctionExport ExecuteUbergraph_UI_DeathStats_View
+0:      EX_PushExecutionFlow 2987
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [K2Node_CustomEvent_Index]
+                EX_IntConst 1
+57:     EX_LocalVirtualFunction Store Mode
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+80:     EX_PopExecutionFlow
+81:     EX_Context
+            EX_InstanceVariable [SelectedLine]
+            EX_LocalVirtualFunction Set Selected
+                EX_True
+            RValue = []
+118:    EX_PopExecutionFlow
+119:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedLine]
+148:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+158:    EX_Jump 81
+163:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+186:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_SortStats_Sorted_Stats]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+245:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+283:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+293:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+320:    EX_PushExecutionFlow 671
+325:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+349:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/HUD_SpaceRig/Infirmary/UI_InfirmaryStats_Item->UI_InfirmaryStats_Item_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+410:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_SortStats_Sorted_Stats]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+469:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Mission Stat
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+510:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Player State
+            EX_InstanceVariable [OwningState]
+551:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToVerticalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StatsParent]
+                EX_FinalFunction import /Script/UMG->VerticalBox->AddChildToVerticalBox
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToVerticalBox_ReturnValue]
+602:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [MissionStatLines]
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue]
+670:    EX_PopExecutionFlow
+671:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+713:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+740:    EX_Jump 186
+745:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [OwningState]
+774:    EX_JumpIfNot 991
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+788:    EX_LetBool
+            EX_InstanceVariable [StopStoreMode]
+            EX_True
+799:    EX_BindDelegate ChangeName
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+822:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [OwningState]
+                EX_InstanceVariable [OnPlayerNameChanged]
+                RValue = [OnPlayerNameChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+863:    EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [OwningState]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue]
+913:    EX_LocalVirtualFunction ChangeName
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+936:    EX_LocalVirtualFunction ReBuild
+950:    EX_LetBool
+            EX_InstanceVariable [StopStoreMode]
+            EX_False
+961:    EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [StoreMode]
+971:    EX_LocalVirtualFunction Store Mode
+            EX_IntConst 0
+990:    EX_PopExecutionFlow
+991:    EX_LocalVirtualFunction ReBuild
+1005:   EX_PopExecutionFlow
+1006:   EX_Context
+            EX_InstanceVariable [SelectedLine]
+            EX_LocalVirtualFunction Set Selected
+                EX_False
+            RValue = []
+1043:   EX_LetObj
+            EX_InstanceVariable [SelectedLine]
+            EX_LocalVariable [K2Node_CustomEvent_SelectedLine]
+1062:   EX_Jump 119
+1067:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [SelectedLine]
+1096:   EX_JumpIfNot 1043
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+1110:   EX_Jump 1006
+1115:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+1138:   EX_Jump 163
+1143:   EX_Context
+            EX_InstanceVariable [StatsParent]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+1179:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [MissionStatLines]
+            RValue = []
+1220:   EX_LocalVirtualFunction GetMissionStats
+            EX_LocalVariable [CallFunc_GetMissionStats_Assets]
+1243:   EX_LocalVirtualFunction SortStats
+            EX_LocalVariable [CallFunc_GetMissionStats_Assets]
+            EX_LocalVariable [CallFunc_SortStats_Categories]
+            EX_LocalVariable [CallFunc_SortStats_Sorted_Stats]
+1284:   EX_Let
+            EX_InstanceVariable [CategoryIcons]
+            EX_LocalVariable [CallFunc_SortStats_Categories]
+1311:   EX_Jump 1115
+1316:   EX_JumpIfNot 1331
+            EX_InstanceVariable [StopStoreMode]
+1330:   EX_PopExecutionFlow
+1331:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [MissionStatLines]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+1390:   EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_LocalVariable [K2Node_CustomEvent_Index]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+1436:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MissionStatLines]
+                EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1495:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+1524:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_3]
+1534:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [MissionStatLines]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+1593:   EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_LocalVariable [K2Node_CustomEvent_Index]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+1639:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [MissionStatLines]
+                EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1698:   EX_LocalVirtualFunction Set Selected Item
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+1721:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_InstanceVariable [StoreModePause]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 1605013794
+                EX_NameConst ExecuteUbergraph_UI_DeathStats_View
+                EX_Self
+1779:   EX_PopExecutionFlow
+1780:   EX_Jump 1067
+1785:   EX_LetObj
+            EX_InstanceVariable [OwningState]
+            EX_LocalVariable [K2Node_CustomEvent_Player_State]
+1804:   EX_Jump 745
+1809:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [K2Node_CustomEvent_NewName]
+1846:   EX_Context
+            EX_InstanceVariable [PlayerName]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+1891:   EX_PopExecutionFlow
+1892:   EX_PushExecutionFlow 1902
+1897:   EX_Jump 1143
+1902:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_4]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [OwningState]
+1931:   EX_JumpIfNot 2705
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_4]
+1945:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerState_SpaceRig->BP_PlayerState_SpaceRig_C
+                EX_InstanceVariable [OwningState]
+1981:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+2010:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+2020:   EX_Let
+            EX_LocalVariable [Temp_text_Variable]
+            EX_TextConst
+                SourceString = A LIABILITY
+                LocalizedKey = 888E211944D595E9A7BA4BAEB4B38B43
+                LocalizedNamespace = 
+2089:   EX_Let
+            EX_LocalVariable [Temp_text_Variable_1]
+            EX_TextConst
+                SourceString = TOO DANGEROUS FOR PANTS
+                LocalizedKey = DBB551CD4653F8A642FEB5AF0BBD6B43
+                LocalizedNamespace = 
+2170:   EX_Let
+            EX_LocalVariable [Temp_text_Variable_2]
+            EX_TextConst
+                SourceString = PRONE TO EXPLODE
+                LocalizedKey = 9D0495E743DE52B3F57657B90B4B5D58
+                LocalizedNamespace = 
+2244:   EX_Let
+            EX_LocalVariable [Temp_text_Variable_3]
+            EX_TextConst
+                SourceString = DRINKS TOO MUCH
+                LocalizedKey = AAE482694DF537ECAA577BA7B353592F
+                LocalizedNamespace = 
+2317:   EX_Let
+            EX_LocalVariable [Temp_text_Variable_4]
+            EX_TextConst
+                SourceString = PARTY DWARF
+                LocalizedKey = C688265942837DDEF12E26A907E40442
+                LocalizedNamespace = 
+2386:   EX_Let
+            EX_LocalVariable [Temp_text_Variable_5]
+            EX_TextConst
+                SourceString = NO HEALTH INSURANCE
+                LocalizedKey = 35BD958D4B90107633306AAF066EE571
+                LocalizedNamespace = 
+2463:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+            EX_LocalVirtualFunction GetHealthInsuranceStatus
+                EX_LocalVariable [CallFunc_GetHealthInsuranceStatus_HealthInsuranceStatus]
+            RValue = []
+2508:   EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_GetHealthInsuranceStatus_HealthInsuranceStatus]
+2535:   EX_Context
+            EX_InstanceVariable [HealthInsuranceEvaluation]
+            EX_VirtualFunction SetText
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_int_Variable]
+                    OffsetToSwitchEnd = 2703
+                    case 0:
+                        EX_IntConst 0
+                        NextCaseOffset = 2604
+                        EX_LocalVariable [Temp_text_Variable]
+                    case 1:
+                        EX_IntConst 1
+                        NextCaseOffset = 2622
+                        EX_LocalVariable [Temp_text_Variable_1]
+                    case 2:
+                        EX_IntConst 2
+                        NextCaseOffset = 2640
+                        EX_LocalVariable [Temp_text_Variable_2]
+                    case 3:
+                        EX_IntConst 3
+                        NextCaseOffset = 2658
+                        EX_LocalVariable [Temp_text_Variable_3]
+                    case 4:
+                        EX_IntConst 4
+                        NextCaseOffset = 2676
+                        EX_LocalVariable [Temp_text_Variable_4]
+                    case 5:
+                        EX_IntConst 5
+                        NextCaseOffset = 2694
+                        EX_LocalVariable [Temp_text_Variable_5]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+2704:   EX_PopExecutionFlow
+2705:   EX_Context
+            EX_InstanceVariable [HealthInsuranceEvaluation]
+            EX_VirtualFunction SetText
+                EX_TextConst
+                    SourceString = - EMPTY -
+                    LocalizedKey = 1BD49FA1467DFCAFDC2DB2B1CB3E2206
+                    LocalizedNamespace = 
+            RValue = []
+2790:   EX_PopExecutionFlow
+2791:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+2839:   EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+2875:   EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+2904:   EX_Context
+            EX_InstanceVariable [TextBlock_1]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+2945:   EX_Context
+            EX_InstanceVariable [TextBlock_0]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+2986:   EX_PopExecutionFlow
+2987:   EX_Return
+            EX_Nothing
+2989:   EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_DeathStats_View_C->ExecuteUbergraph_UI_DeathStats_View
+            EX_IntConst 2791
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReBuild
+0:      EX_LocalFinalFunction export UI_DeathStats_View_C->ExecuteUbergraph_UI_DeathStats_View
+            EX_IntConst 1892
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ChangeName
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_NewName]
+            EX_LocalVariable [NewName]
+18:     EX_LocalFinalFunction export UI_DeathStats_View_C->ExecuteUbergraph_UI_DeathStats_View
+            EX_IntConst 1809
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetStatsOwner
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Player_State]
+            EX_LocalVariable [Player State]
+18:     EX_LocalFinalFunction export UI_DeathStats_View_C->ExecuteUbergraph_UI_DeathStats_View
+            EX_IntConst 1785
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Set Selected Item
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_SelectedLine]
+            EX_LocalVariable [SelectedLine]
+18:     EX_LocalFinalFunction export UI_DeathStats_View_C->ExecuteUbergraph_UI_DeathStats_View
+            EX_IntConst 1780
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Store Mode
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Index]
+            EX_LocalVariable [Index]
+18:     EX_LocalFinalFunction export UI_DeathStats_View_C->ExecuteUbergraph_UI_DeathStats_View
+            EX_IntConst 1316
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport GetMissionStats
+0:      EX_PushExecutionFlow 611
+5:      EX_Let
+            EX_LocalVariable [AllStats]
+            EX_InstanceVariable [StoreModeStats]
+32:     EX_PushExecutionFlow 52
+37:     EX_JumpIfNot 84
+            EX_InstanceVariable [StoreMode]
+51:     EX_PopExecutionFlow
+52:     EX_Let
+            EX_LocalOutVariable
+                [Assets]
+            EX_LocalVariable [AllStats]
+79:     EX_Jump 611
+84:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+107:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+130:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+150:    EX_Let
+            EX_LocalVariable [CallFunc_GetAllInfirmaryStats_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->GameData->GetAllInfirmaryStats
+                RValue = [CallFunc_GetAllInfirmaryStats_ReturnValue]
+200:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetAllInfirmaryStats_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+259:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+297:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+307:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+334:    EX_PushExecutionFlow 537
+339:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+359:    EX_Let
+            EX_LocalVariable [CallFunc_GetAllInfirmaryStats_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->GameData->GetAllInfirmaryStats
+                RValue = [CallFunc_GetAllInfirmaryStats_ReturnValue]
+409:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllInfirmaryStats_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+468:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_LocalVariable [AllStats]
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue]
+536:    EX_PopExecutionFlow
+537:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+579:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+606:    EX_Jump 130
+611:    EX_Return
+            EX_Nothing
+613:    EX_EndOfScript
+FunctionExport SortStats
+0:      EX_PushExecutionFlow 1336
+5:      EX_PushExecutionFlow 1129
+10:     EX_PushExecutionFlow 370
+15:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+38:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_2]
+            EX_IntConst 0
+61:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [InStats]
+                RValue = [CallFunc_Array_Length_ReturnValue_2]
+120:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_2]
+158:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_2]
+168:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_2]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+195:    EX_PushExecutionFlow 1188
+200:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [InStats]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_2]
+                EX_LocalVariable [CallFunc_Array_Get_Item_2]
+            RValue = []
+259:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetIcon_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item_2]
+                EX_FinalFunction import /Script/FSD->MissionStat->GetIcon
+                RValue = [CallFunc_GetIcon_ReturnValue_1]
+301:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_LocalVariable [OutCategories]
+                    EX_LocalVariable [CallFunc_GetIcon_ReturnValue_1]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue]
+369:    EX_PopExecutionFlow
+370:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+393:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+416:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [OutCategories]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+475:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+513:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+523:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+550:    EX_PushExecutionFlow 1055
+555:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [OutCategories]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+614:    EX_LetObj
+            EX_LocalVariable [CurrentCategory]
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+633:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+            EX_IntConst 0
+656:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+679:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [InStats]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+738:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+776:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+786:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+813:    EX_PushExecutionFlow 1262
+818:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [InStats]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+877:    EX_LetObj
+            EX_LocalVariable [CurrentStat]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+896:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetIcon_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CurrentStat]
+                EX_FinalFunction import /Script/FSD->MissionStat->GetIcon
+                RValue = [CallFunc_GetIcon_ReturnValue]
+938:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [CallFunc_GetIcon_ReturnValue]
+                EX_LocalVariable [CurrentCategory]
+976:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+986:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalVariable [OutStats]
+                    EX_LocalVariable [CurrentStat]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+1054:   EX_PopExecutionFlow
+1055:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+1097:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+1124:   EX_Jump 416
+1129:   EX_Let
+            EX_LocalOutVariable
+                [Categories]
+            EX_LocalVariable [OutCategories]
+1156:   EX_Let
+            EX_LocalOutVariable
+                [Sorted Stats]
+            EX_LocalVariable [OutStats]
+1183:   EX_Jump 1336
+1188:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1230:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1257:   EX_Jump 61
+1262:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+                EX_IntConst 1
+1304:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_2]
+1331:   EX_Jump 679
+1336:   EX_Return
+            EX_Nothing
+1338:   EX_EndOfScript

@@ -1,0 +1,165 @@
+FunctionExport ExecuteUbergraph_GooCannon_AmmoCounter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdateClipCount
+24:     EX_Jump 163
+29:     EX_LocalVirtualFunction SetNumber
+            EX_LocalVariable [K2Node_Event_Value_1]
+            EX_InstanceVariable [TotalCount]
+            EX_LocalVariable [CallFunc_SetNumber_OutValue]
+70:     EX_Jump 163
+75:     EX_Context
+            EX_InstanceVariable [WarningOverlay]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_FloatConst 0
+            RValue = []
+112:    EX_Jump 163
+117:    EX_Let
+            EX_InstanceVariable [ActualClipCount]
+            EX_LocalVariable [K2Node_Event_Value]
+144:    EX_LocalVirtualFunction UpdateAmmoCritical
+158:    EX_Jump 10
+163:    EX_Return
+            EX_Nothing
+165:    EX_EndOfScript
+FunctionExport SetClipCount
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Value]
+            EX_LocalVariable [Value]
+18:     EX_LocalFinalFunction export GooCannon_AmmoCounter_C->ExecuteUbergraph_GooCannon_AmmoCounter
+            EX_IntConst 117
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export GooCannon_AmmoCounter_C->ExecuteUbergraph_GooCannon_AmmoCounter
+            EX_IntConst 75
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetTotalCount
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Value_1]
+            EX_LocalVariable [Value]
+18:     EX_LocalFinalFunction export GooCannon_AmmoCounter_C->ExecuteUbergraph_GooCannon_AmmoCounter
+            EX_IntConst 29
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetNumber
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [Value]
+                EX_False
+                EX_False
+                EX_IntConst 2
+                EX_IntConst 324
+49:     EX_Context
+            EX_LocalVariable [Label]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+94:     EX_Let
+            EX_LocalOutVariable
+                [OutValue]
+            EX_LocalVariable [Value]
+121:    EX_Return
+            EX_Nothing
+123:    EX_EndOfScript
+FunctionExport UpdateAmmoCritical
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_InstanceVariable [ActualClipCount]
+                EX_IntConst 1
+34:     EX_JumpIfNot 72
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+48:     EX_FinalFunction import /Script/UMG->UserWidget->StopAnimation
+            EX_InstanceVariable [AmmoCritical]
+67:     EX_Jump 191
+72:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->IsAnimationPlaying
+                EX_InstanceVariable [AmmoCritical]
+101:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+130:    EX_JumpIfNot 191
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+144:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AmmoCritical]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_True
+191:    EX_Return
+            EX_Nothing
+193:    EX_EndOfScript
+FunctionExport UpdateClipCount
+0:      EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [CountHandle]
+20:     EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_InstanceVariable [AnimatedClipCount]
+                EX_IntConst 0
+54:     EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_InstanceVariable [AnimatedClipCount]
+                EX_InstanceVariable [ActualClipCount]
+92:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+                EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+130:    EX_JumpIfNot 414
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+144:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [AnimatedClipCount]
+                EX_IntConst 1
+186:    EX_LocalVirtualFunction SetNumber
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_InstanceVariable [ClipCount]
+            EX_LocalVariable [CallFunc_SetNumber_OutValue]
+227:    EX_Let
+            EX_InstanceVariable [AnimatedClipCount]
+            EX_LocalVariable [CallFunc_SetNumber_OutValue]
+254:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_InstanceVariable [AnimatedClipCount]
+                EX_InstanceVariable [ActualClipCount]
+292:    EX_JumpIfNot 482
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+306:    EX_BindDelegate UpdateClipCount
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+329:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 0.06
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+382:    EX_Let
+            EX_InstanceVariable [CountHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+409:    EX_Jump 482
+414:    EX_LocalVirtualFunction SetNumber
+            EX_InstanceVariable [ActualClipCount]
+            EX_InstanceVariable [ClipCount]
+            EX_LocalVariable [CallFunc_SetNumber_OutValue_1]
+455:    EX_Let
+            EX_InstanceVariable [AnimatedClipCount]
+            EX_LocalVariable [CallFunc_SetNumber_OutValue_1]
+482:    EX_Return
+            EX_Nothing
+484:    EX_EndOfScript

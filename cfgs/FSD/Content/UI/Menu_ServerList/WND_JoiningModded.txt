@@ -1,0 +1,2398 @@
+FunctionExport JoinModdedServer__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnCancel__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_WND_JoiningModded
+0:      EX_PushExecutionFlow 9081
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+36:     EX_Context
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->WindowManager->SetSingletonWidgetVisibility
+                EX_ObjectConst import /Game/UI/Modding/TOOLTIP_Mod_Joining->TOOLTIP_Mod_Joining_C
+                EX_ByteConst 1
+            RValue = []
+79:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+100:    EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SaveToDisk
+            RValue = []
+132:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_5]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+161:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_5]
+190:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_5]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+211:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_5]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_5]
+240:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_5]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+278:    EX_JumpIfNot 710
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+292:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+313:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsModded_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetIsModded
+                RValue = [CallFunc_GetIsModded_ReturnValue]
+355:    EX_LetBool
+            EX_LocalVariable [CallFunc_FSDIsModdedSandboxServer_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDIsModdedSandboxServer
+                EX_InstanceVariable [session]
+384:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_GetIsModded_ReturnValue]
+413:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_FSDIsModdedSandboxServer_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_2]
+451:    EX_JumpIfNot 725
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_3]
+465:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_3]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+486:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_3]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenSingleUseWindow
+                    EX_ObjectConst import /Game/UI/Menu_SaveSlots/Popup_ModdedSave->Popup_ModdedSave_C
+                    EX_IntConst 202
+                RValue = [CallFunc_OpenSingleUseWindow_ReturnValue]
+542:    EX_Context
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_LocalVirtualFunction SetCanCancel
+                EX_True
+                EX_TextConst
+            RValue = []
+581:    EX_BindDelegate Cancel
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+604:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+                EX_InstanceVariable [OnModdedSaveCancelled]
+                RValue = [OnModdedSaveCancelled]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+645:    EX_BindDelegate ModdedSaveChosen
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+668:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+                EX_InstanceVariable [OnModdedSaveLoaded]
+                RValue = [OnModdedSaveLoaded]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+709:    EX_PopExecutionFlow
+710:    EX_LocalVirtualFunction Cancel
+724:    EX_PopExecutionFlow
+725:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_9]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+754:    EX_LetBool
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_9]
+                EX_InstanceVariable [IsJoining]
+                RValue = [IsJoining]
+            EX_True
+787:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+810:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_2]
+            EX_IntConst 0
+833:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [ModsToEnable]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+892:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+930:    EX_JumpIfNot 1355
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+944:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_2]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+971:    EX_PushExecutionFlow 1281
+976:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_1]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+997:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [ModsToEnable]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_2]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1056:   EX_LetObj
+            EX_LocalVariable [CallFunc_TryGetPackageFromId_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_1]
+                EX_FinalFunction import /Script/SimpleUGC->UGCRegistry->TryGetPackageFromId
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_TryGetPackageFromId_ReturnValue]
+1107:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_TryGetPackageFromId_ReturnValue]
+1136:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+1146:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_Context
+                    EX_LocalVariable [CallFunc_TryGetPackageFromId_ReturnValue]
+                    EX_InstanceVariable [IsMounted]
+                    RValue = [IsMounted]
+1197:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+1207:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_2]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+1228:   EX_LetBool
+            EX_LocalVariable [CallFunc_MountUGCPackage_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_2]
+                EX_FinalFunction import /Script/SimpleUGC->UGCRegistry->MountUGCPackage
+                    EX_LocalVariable [CallFunc_TryGetPackageFromId_ReturnValue]
+                    EX_True
+                RValue = [CallFunc_MountUGCPackage_ReturnValue]
+1280:   EX_PopExecutionFlow
+1281:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1323:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1350:   EX_Jump 833
+1355:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [ModsToInstall]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+1414:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 0
+1448:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_6]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [OptionalMods]
+                RValue = [CallFunc_Array_Length_ReturnValue_6]
+1507:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_6]
+                EX_IntConst 0
+1541:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue_1]
+1579:   EX_JumpIfNot 1608
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+1593:   EX_LocalVirtualFunction ReloadWorldAndJoin
+1607:   EX_PopExecutionFlow
+1608:   EX_LocalVirtualFunction SubscribeToMods
+1622:   EX_PopExecutionFlow
+1623:   EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DependencyHideTimerHandle]
+1643:   EX_PopExecutionFlow
+1644:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCLatentActionManager_ReturnValue]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCLatentActionManager
+                EX_Self
+1665:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_7]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetUGCLatentActionManager_ReturnValue]
+1694:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_7]
+1704:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCLatentActionManager_ReturnValue]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCLatentActionManager
+                EX_Self
+1725:   EX_LocalVirtualFunction OnFetchedTermsOfUse
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUGCLatentActionManager_ReturnValue]
+                EX_InstanceVariable [LatestModioTermsAndConditions]
+                RValue = [LatestModioTermsAndConditions]
+1770:   EX_PopExecutionFlow
+1771:   EX_LocalVirtualFunction OnGottonModDependencies
+            EX_LocalVariable [CallFunc_K2_RequestModDependencyList_outModIds]
+            EX_LocalVariable [CallFunc_K2_RequestModDependencyList_outParentId]
+1803:   EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [DependencyMods]
+                    EX_InstanceVariable [DependencyRequestedMod]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue]
+1863:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_5]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [NumOfDependenciesChecked]
+                EX_IntConst 1
+1905:   EX_Let
+            EX_LocalVariable [Temp_int_Variable_2]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_5]
+1932:   EX_Let
+            EX_InstanceVariable [NumOfDependenciesChecked]
+            EX_LocalVariable [Temp_int_Variable_2]
+1959:   EX_PopExecutionFlow
+1960:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+1989:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->RemoveRequestOfType
+                EX_ByteConst 4
+            RValue = []
+2023:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_2]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+2044:   EX_Context
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_2]
+            EX_FinalFunction import /Script/FSD->WindowManager->SetSingletonWidgetVisibility
+                EX_ObjectConst import /Game/UI/Modding/TOOLTIP_Mod_Joining->TOOLTIP_Mod_Joining_C
+                EX_ByteConst 1
+            RValue = []
+2087:   EX_PopExecutionFlow
+2088:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+2117:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->RemoveRequestOfType
+                EX_ByteConst 2
+            RValue = []
+2151:   EX_Jump 1960
+2156:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+2185:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->RemoveRequestOfType
+                EX_ByteConst 0
+            RValue = []
+2219:   EX_Jump 2088
+2224:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_2]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+2253:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasOutstadingRequestOfType_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_2]
+                EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->HasOutstadingRequestOfType
+                    EX_ByteConst 8
+                RValue = [CallFunc_HasOutstadingRequestOfType_ReturnValue]
+2297:   EX_JumpIfNot 2312
+            EX_LocalVariable [CallFunc_HasOutstadingRequestOfType_ReturnValue]
+2311:   EX_PopExecutionFlow
+2312:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_True
+            RValue = []
+2349:   EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DependencyHideTimerHandle]
+2369:   EX_BindDelegate OnHideDenpendencyLoader
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+2392:   EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+                EX_FloatConst 2
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+2445:   EX_Let
+            EX_InstanceVariable [DependencyHideTimerHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+2472:   EX_Context
+            EX_InstanceVariable [DependenciesProgressBar]
+            EX_LocalVirtualFunction SetProgressCustomText
+                EX_TextConst
+                    SourceString = Checking
+                    LocalizedKey = 220480DB4E30CFEC84A64A8177D0EB0B
+                    LocalizedNamespace = 
+                EX_IntConst 1
+                EX_IntConst 1
+            RValue = []
+2566:   EX_Let
+            EX_InstanceVariable [NumOfDependenciesChecked]
+            EX_IntConst 0
+2589:   EX_Let
+            EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            EX_IntConst 0
+2612:   EX_PopExecutionFlow
+2613:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+2655:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+2682:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_4]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [K2Node_CustomEvent_OptionalModsToEnable]
+                RValue = [CallFunc_Array_Length_ReturnValue_4]
+2741:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_4]
+2779:   EX_JumpIfNot 3158
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_2]
+2793:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+2820:   EX_PushExecutionFlow 2613
+2825:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_3]
+            EX_VirtualFunction GetOwningPlayer
+2849:   EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue_3]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Modding/ITM_Mod_Joining->ITM_Mod_Joining_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_3]
+                RValue = [CallFunc_Create_ReturnValue_3]
+2910:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [K2Node_CustomEvent_OptionalModsToEnable]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_2]
+            RValue = []
+2969:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetStringPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue_3]
+            EX_NameConst ModID
+            EX_LocalVariable [CallFunc_Array_Get_Item_2]
+3010:   EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [ModsPendingBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue_3]
+                RValue = [CallFunc_AddChild_ReturnValue_2]
+3061:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_8]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+                EX_IntConst 1
+3103:   EX_Let
+            EX_LocalVariable [Temp_int_Variable_3]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_8]
+3130:   EX_Let
+            EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            EX_LocalVariable [Temp_int_Variable_3]
+3157:   EX_PopExecutionFlow
+3158:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+3195:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+3233:   EX_LocalVirtualFunction RequestDependenciesOfDependencies
+3247:   EX_PopExecutionFlow
+3248:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+3271:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+3294:   EX_Jump 2682
+3299:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_3]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+3328:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_3]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->K2_RequestFetchModUpdates
+            RValue = []
+3360:   EX_PopExecutionFlow
+3361:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_3]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+3390:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_3]
+3419:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+3429:   EX_Jump 3299
+3434:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_4]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+3463:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_4]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->K2_RequestTermsOfUse
+                EX_Self
+                EX_StructConst import /Script/Engine->LatentActionInfo
+                    EX_SkipOffsetConst 1644
+                    EX_IntConst 1230948715
+                    EX_NameConst ExecuteUbergraph_WND_JoiningModded
+                    EX_Self
+            RValue = []
+3534:   EX_PopExecutionFlow
+3535:   EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+3551:   EX_Context
+            EX_InstanceVariable [SubscribtionLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+3589:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+3627:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_True
+            RValue = []
+3664:   EX_Context
+            EX_InstanceVariable [BTN_Cancel]
+            EX_VirtualFunction SetIsEnabled
+                EX_True
+            RValue = []
+3701:   EX_FinalFunction import /Script/FSD->WindowWidget->CloseThisWindow
+3711:   EX_CallMulticastDelegate export WND_JoiningModded_C->OnCancel__DelegateSignature
+            EX_InstanceVariable [OnCancel]
+3730:   EX_Let
+            EX_InstanceVariable [session]
+            EX_StructConst import /Script/OnlineSubsystemUtils->BlueprintSessionResult
+3762:   EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DependencyHideTimerHandle]
+3782:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_7]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+3811:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_7]
+3840:   EX_JumpIfNot 2023
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_3]
+3854:   EX_LocalVirtualFunction UnbindEvents
+3868:   EX_Jump 2156
+3873:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -603190089
+                EX_NameConst ExecuteUbergraph_WND_JoiningModded
+                EX_Self
+3927:   EX_PopExecutionFlow
+3928:   EX_PushExecutionFlow 3986
+3933:   EX_LocalVirtualFunction SetColors
+3947:   EX_Context
+            EX_InstanceVariable [SubscribtionLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+3985:   EX_PopExecutionFlow
+3986:   EX_JumpIfNot 4001
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+4000:   EX_PopExecutionFlow
+4001:   EX_Context
+            EX_InstanceVariable [ModsInstalledBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+4037:   EX_Context
+            EX_InstanceVariable [ModsPendingBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+4073:   EX_PopExecutionFlow
+4074:   EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsEnabled_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [BTN_Cancel]
+                EX_FinalFunction import /Script/UMG->Widget->GetIsEnabled
+                RValue = [CallFunc_GetIsEnabled_ReturnValue_1]
+4116:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_GetIsEnabled_ReturnValue_1]
+4126:   EX_Jump 3535
+4131:   EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsEnabled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [BTN_Join]
+                EX_FinalFunction import /Script/UMG->Widget->GetIsEnabled
+                RValue = [CallFunc_GetIsEnabled_ReturnValue]
+4173:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [BTN_Join]
+                EX_FinalFunction import /Script/UMG->Widget->IsVisible
+                RValue = [CallFunc_IsVisible_ReturnValue]
+4215:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GetIsEnabled_ReturnValue]
+                EX_LocalVariable [CallFunc_IsVisible_ReturnValue]
+4253:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+4263:   EX_Jump 3873
+4268:   EX_JumpIfNot 3535
+            EX_LocalVariable [K2Node_CustomEvent_Agree]
+4282:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_8]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+4311:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_6]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_8]
+4340:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_6]
+4350:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_8]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+4379:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_8]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->K2_RequestAuthentication
+            RValue = []
+4411:   EX_PopExecutionFlow
+4412:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+4435:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_5]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [K2Node_CustomEvent_OptionalModsToSetup]
+                RValue = [CallFunc_Array_Length_ReturnValue_5]
+4494:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_5]
+4532:   EX_JumpIfNot 3248
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_3]
+4546:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+4573:   EX_PushExecutionFlow 4912
+4578:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_2]
+            EX_VirtualFunction GetOwningPlayer
+4602:   EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Modding/ITM_Mod_Joining->ITM_Mod_Joining_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_2]
+                RValue = [CallFunc_Create_ReturnValue_2]
+4663:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [K2Node_CustomEvent_OptionalModsToSetup]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item_3]
+            RValue = []
+4722:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetStringPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue_2]
+            EX_NameConst ModID
+            EX_LocalVariable [CallFunc_Array_Get_Item_3]
+4763:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetBoolPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue_2]
+            EX_NameConst DownloadRequired
+            EX_False
+4796:   EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [ModsPendingBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue_2]
+                RValue = [CallFunc_AddChild_ReturnValue_1]
+4847:   EX_BindDelegate OnSwitchedDownloadStatus
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+4870:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue_2]
+                EX_InstanceVariable [SwitchedDownload]
+                RValue = [SwitchedDownload]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+4911:   EX_PopExecutionFlow
+4912:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+                EX_IntConst 1
+4954:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_2]
+4981:   EX_Jump 4435
+4986:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [ModsNotToDisable]
+            RValue = []
+5027:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_4]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+5048:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_4]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_4]
+5077:   EX_JumpIfNot 5706
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_4]
+5091:   EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ModsInstalledBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+5141:   EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [ModsPendingBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue_1]
+5191:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+5237:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_3]
+                EX_IntConst 0
+5271:   EX_JumpIfNot 5648
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue_1]
+5285:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [ModsNotToDisable]
+                EX_InstanceVariable [HostMods]
+            RValue = []
+5335:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [ModsNotToDisable]
+                EX_InstanceVariable [OptionalMods]
+            RValue = []
+5385:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+5406:   EX_Context
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue]
+            EX_FinalFunction import /Script/SimpleUGC->UGCRegistry->UnmountUGCPackages
+                EX_InstanceVariable [ModsNotToDisable]
+            RValue = []
+5447:   EX_LocalVirtualFunction UnbindEvents
+5461:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+5482:   EX_Context
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_FinalFunction import /Script/FSD->WindowManager->CloseAllWindows
+            RValue = []
+5514:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+5535:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameInstance->ScheduleResetOfWorldsAndGameDataThenOpenLevel
+                EX_NameConst None
+            RValue = []
+5580:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+5601:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->FSDGameInstance->RefreshIsGameModded
+            RValue = []
+5633:   EX_LocalVirtualFunction StartJoinSession
+5647:   EX_PopExecutionFlow
+5648:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_3]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+5669:   EX_Context
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_3]
+            EX_FinalFunction import /Script/SimpleUGC->UGCRegistry->UnmountAllNonVerifiedUGCPackages
+            RValue = []
+5701:   EX_Jump 5447
+5706:   EX_LocalVirtualFunction Cancel
+5720:   EX_PopExecutionFlow
+5721:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [K2Node_CustomEvent_Authenticated]
+5750:   EX_JumpIfNot 5769
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+5764:   EX_Jump 3535
+5769:   EX_LocalVirtualFunction SetModNames
+5783:   EX_PopExecutionFlow
+5784:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+5822:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+5859:   EX_Context
+            EX_InstanceVariable [Basic_PasswordField]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+5897:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+5935:   EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DependencyHideTimerHandle]
+5955:   EX_Jump 3361
+5960:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_2]
+            EX_IntConst 0
+5983:   EX_Jump 4412
+5988:   EX_Jump 3535
+5993:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [DependencyMods]
+                RValue = [CallFunc_Array_Length_ReturnValue_2]
+6052:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_2]
+                EX_IntConst 0
+6086:   EX_JumpIfNot 2224
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+6100:   EX_Context
+            EX_ObjectConst import /Script/FSD->Default__FSDKismetArrayExtensionFunctions
+            EX_FinalFunction import /Script/FSD->FSDKismetArrayExtensionFunctions->Array_GetRandom
+                EX_InstanceVariable [DependencyMods]
+                EX_LocalVariable [CallFunc_Array_GetRandom_Item]
+            RValue = []
+6150:   EX_Let
+            EX_InstanceVariable [DependencyRequestedMod]
+            EX_LocalVariable [CallFunc_Array_GetRandom_Item]
+6177:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+6206:   EX_SetArray
+            EX_LocalVariable [CallFunc_K2_RequestModDependencyList_outModIds]
+6217:   EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->K2_RequestModDependencyList
+                EX_Self
+                EX_StructConst import /Script/Engine->LatentActionInfo
+                    EX_SkipOffsetConst 1771
+                    EX_IntConst -1497226378
+                    EX_NameConst ExecuteUbergraph_WND_JoiningModded
+                    EX_Self
+                EX_InstanceVariable [DependencyRequestedMod]
+                EX_LocalVariable [CallFunc_K2_RequestModDependencyList_outParentId]
+                EX_LocalVariable [CallFunc_K2_RequestModDependencyList_outModIds]
+            RValue = []
+6315:   EX_PopExecutionFlow
+6316:   EX_Context
+            EX_InstanceVariable [DependenciesProgressBar]
+            EX_LocalVirtualFunction SetProgressCustomText
+                EX_TextConst
+                    SourceString = Checking
+                    LocalizedKey = 220480DB4E30CFEC84A64A8177D0EB0B
+                    LocalizedNamespace = 
+                EX_InstanceVariable [NumOfDependenciesChecked]
+                EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            RValue = []
+6418:   EX_Jump 5993
+6423:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+6447:   EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_ServerList/WND_JoinFailed->WND_JoinFailed_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+6508:   EX_Jump 3535
+6513:   EX_BindDelegate OnModioUserAuthenticated
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+6536:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_6]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+6565:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_6]
+                EX_InstanceVariable [OnModioUserAuthenticated]
+                RValue = [OnModioUserAuthenticated]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+6606:   EX_Jump 3434
+6611:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_3]
+            EX_IntConst 0
+6634:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_3]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [HostMods]
+                RValue = [CallFunc_Array_Length_ReturnValue_3]
+6693:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_3]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_3]
+6731:   EX_JumpIfNot 7505
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+6745:   EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_3]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_3]
+6772:   EX_PushExecutionFlow 7431
+6777:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_1]
+            EX_VirtualFunction GetOwningPlayer
+6801:   EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Modding/ITM_Mod_Joining->ITM_Mod_Joining_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_1]
+                RValue = [CallFunc_Create_ReturnValue_1]
+6862:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_3]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+6921:   EX_CallMath import /Script/Engine->KismetSystemLibrary->SetStringPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue_1]
+            EX_NameConst ModID
+            EX_LocalVariable [CallFunc_Array_Get_Item_1]
+6962:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_6]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+6983:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_3]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+7042:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsModInstalled_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_6]
+                EX_FinalFunction import /Script/SimpleUGC->UGCRegistry->IsModInstalled
+                    EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                RValue = [CallFunc_IsModInstalled_ReturnValue]
+7093:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsModInstalled_ReturnValue]
+7112:   EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue]
+            EX_Context
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 7176
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 7153
+                        EX_InstanceVariable [ModsPendingBox]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 7167
+                        EX_InstanceVariable [ModsInstalledBox]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue_1]
+                RValue = [CallFunc_AddChild_ReturnValue]
+7207:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_3]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+7266:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_InstanceVariable [DependencyMods]
+                    EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+7334:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_6]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+                EX_IntConst 1
+7376:   EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_6]
+7403:   EX_Let
+            EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            EX_LocalVariable [Temp_int_Variable_1]
+7430:   EX_PopExecutionFlow
+7431:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_4]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_3]
+                EX_IntConst 1
+7473:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_3]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_4]
+7500:   EX_Jump 6634
+7505:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+7543:   EX_LocalVirtualFunction RequestDependenciesOfDependencies
+7557:   EX_LocalVirtualFunction UpdateHasModsInstalled
+7571:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+7609:   EX_PopExecutionFlow
+7610:   EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    TableId = /Game/Game/Text/ST_Modding.ST_Modding
+                    TableKey = Join_Blocked_HiddenMods
+7712:   EX_Context
+            EX_InstanceVariable [AboutToJoinModdedText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            RValue = []
+7757:   EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = Tip: Right-clicking the server in the Server List will redirect you to the host's Steam community profile.
+                    LocalizedKey = BB1D02DE45FFAAD5760BB39F7543C13F
+                    LocalizedNamespace = 
+7931:   EX_Context
+            EX_InstanceVariable [DisclaimerModded]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            RValue = []
+7976:   EX_Context
+            EX_InstanceVariable [Basic_PasswordField]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+8014:   EX_Context
+            EX_InstanceVariable [ModsInstalledBox]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+8052:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+8090:   EX_Context
+            EX_InstanceVariable [ModsPendingBox]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+8128:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+8166:   EX_PopExecutionFlow
+8167:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [ModsToEnable]
+                EX_LocalVariable [K2Node_CustomEvent_ModsToEnable_1]
+            RValue = []
+8217:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [ModsToInstall]
+                EX_LocalVariable [K2Node_CustomEvent_ModsToInstall_1]
+            RValue = []
+8267:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [K2Node_CustomEvent_ModsToEnable_1]
+            RValue = []
+8317:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [K2Node_CustomEvent_ModsToInstall_1]
+            RValue = []
+8367:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_3]
+            EX_IntConst 0
+8390:   EX_Jump 6611
+8395:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [K2Node_CustomEvent_ModsToEnable]
+            RValue = []
+8445:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Append
+                EX_InstanceVariable [HostMods]
+                EX_LocalVariable [K2Node_CustomEvent_ModsToInstall]
+            RValue = []
+8495:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+8533:   EX_LocalVirtualFunction SetupOptionalMods
+            EX_LocalVariable [K2Node_CustomEvent_ModsToInstall]
+            EX_LocalVariable [K2Node_CustomEvent_ModsToEnable]
+8565:   EX_PopExecutionFlow
+8566:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_7]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+8587:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_8]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue_7]
+8616:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_8]
+8626:   EX_Jump 5960
+8631:   EX_JumpIfNot 8967
+            EX_LocalVariable [K2Node_CustomEvent_ShouldDownload]
+8645:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_InstanceVariable [OptionalMods]
+                    EX_LocalVariable [K2Node_CustomEvent_ModID]
+                RValue = [CallFunc_Array_Add_ReturnValue_1]
+8713:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_InstanceVariable [DependencyMods]
+                    EX_LocalVariable [K2Node_CustomEvent_ModID]
+                RValue = [CallFunc_Array_Add_ReturnValue_2]
+8781:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_7]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+                EX_IntConst 1
+8823:   EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_7]
+8850:   EX_Let
+            EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            EX_LocalVariable [Temp_int_Variable]
+8877:   EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+8914:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+8952:   EX_LocalVirtualFunction RequestDependenciesOfDependencies
+8966:   EX_PopExecutionFlow
+8967:   EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [OptionalMods]
+                    EX_LocalVariable [K2Node_CustomEvent_ModID]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue_1]
+9027:   EX_PopExecutionFlow
+9028:   EX_Jump 3873
+9033:   EX_Jump 6513
+9038:   EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+9076:   EX_Jump 1623
+9081:   EX_Return
+            EX_Nothing
+9083:   EX_EndOfScript
+FunctionExport OnHideDenpendencyLoader
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 9038
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport RequestTermsOfUse
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 9033
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ModdedSaveChosen
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 9028
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnSwitchedDownloadStatus
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ShouldDownload]
+            EX_LocalVariable [ShouldDownload]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ModID]
+            EX_LocalVariable [ModID]
+36:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 8631
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SetupOptionalMods
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OptionalModsToSetup]
+            EX_LocalOutVariable
+                [OptionalModsToSetup]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OptionalModsToEnable]
+            EX_LocalOutVariable
+                [OptionalModsToEnable]
+36:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 8566
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnOptionalModsFetched
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ModsToEnable]
+            EX_LocalOutVariable
+                [ModsToEnable]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ModsToInstall]
+            EX_LocalOutVariable
+                [ModsToInstall]
+36:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 8395
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport OnRequiredModsFetched
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ModsToEnable_1]
+            EX_LocalOutVariable
+                [ModsToEnable]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ModsToInstall_1]
+            EX_LocalOutVariable
+                [ModsToInstall]
+36:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 8167
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport SetHasHiddenMods
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 7610
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnErrorInstallingMod
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ModName]
+            EX_LocalVariable [ModName]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ErrorType]
+            EX_LocalVariable [ErrorType]
+36:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 6423
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport RequestDependenciesOfDependencies
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 6316
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Cancel
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 5988
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 5784
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnModioUserAuthenticated
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Authenticated]
+            EX_LocalVariable [Authenticated]
+18:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 5721
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReloadWorldAndJoin
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 4986
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport AnsweredTerms
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Agree]
+            EX_LocalVariable [Agree]
+18:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 4268
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveOkCommand
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 4131
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveCloseCommand
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 4074
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 3928
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Button_Join_K2Node_ComponentBoundEvent_45_OnButtonClickedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 3873
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Button_Close_K2Node_ComponentBoundEvent_62_OnButtonClickedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export WND_JoiningModded_C->ExecuteUbergraph_WND_JoiningModded
+            EX_IntConst 3535
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetSession
+0:      EX_Let
+            EX_InstanceVariable [session]
+            EX_LocalVariable [session]
+27:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 0
+47:     EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+67:     EX_LetBool
+            EX_LocalVariable [CallFunc_FSDIsPasswordRequired_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDIsPasswordRequired
+                EX_InstanceVariable [session]
+96:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_FSDIsPasswordRequired_ReturnValue]
+115:    EX_Context
+            EX_InstanceVariable [Basic_PasswordField]
+            EX_VirtualFunction SetVisibility
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 203
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 180
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 194
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+204:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+233:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+262:    EX_JumpIfNot 431
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+276:    EX_BindDelegate OnErrorInstallingMod
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+299:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+328:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+                EX_InstanceVariable [OnErrorInstalling]
+                RValue = [OnErrorInstalling]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+369:    EX_LetBool
+            EX_LocalVariable [CallFunc_FSDHasHiddenModsNotInstalledOnClient_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDHasHiddenModsNotInstalledOnClient
+                EX_InstanceVariable [session]
+398:    EX_JumpIfNot 450
+            EX_LocalVariable [CallFunc_FSDHasHiddenModsNotInstalledOnClient_ReturnValue]
+412:    EX_LocalVirtualFunction SetHasHiddenMods
+426:    EX_Jump 577
+431:    EX_LocalVirtualFunction Cancel
+445:    EX_Jump 577
+450:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+479:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+                    EX_InstanceVariable [ModioTermsAndConditionsAccepted]
+                    RValue = [ModioTermsAndConditionsAccepted]
+530:    EX_JumpIfNot 563
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+544:    EX_LocalVirtualFunction RequestTermsOfUse
+558:    EX_Jump 577
+563:    EX_LocalVirtualFunction SetModNames
+577:    EX_Return
+            EX_Nothing
+579:    EX_EndOfScript
+FunctionExport SetModNames
+0:      EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = You are about to join a game running the following mods:
+                    LocalizedKey = 5DFAB8BB47F6F49DC71B4A97E89C536C
+                    LocalizedNamespace = 
+124:    EX_Context
+            EX_InstanceVariable [AboutToJoinModdedText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            RValue = []
+169:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = By clicking join you agree to install missing Mods, and deactivate Mods that the host have not installed. Mods may impact your regular game experience and cause crashes. All mods were made by the modding community and are not supported by GSG.
+                    LocalizedKey = 6FB5B747449E3A58CE66DCA3D202B5E9
+                    LocalizedNamespace = 
+480:    EX_Context
+            EX_InstanceVariable [DisclaimerModded]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            RValue = []
+525:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [ModsToInstall]
+            RValue = []
+566:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [HostMods]
+            RValue = []
+607:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [ModsToEnable]
+            RValue = []
+648:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [DependencyMods]
+            RValue = []
+689:    EX_Context
+            EX_InstanceVariable [ModsInstalledBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+725:    EX_Context
+            EX_InstanceVariable [ModsPendingBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+761:    EX_Let
+            EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            EX_IntConst 0
+784:    EX_Let
+            EX_InstanceVariable [NumOfDependenciesChecked]
+            EX_IntConst 0
+807:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+836:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+865:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+886:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue]
+915:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+953:    EX_JumpIfNot 1385
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+967:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+996:    EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->ApplyPendingMods
+                EX_False
+            RValue = []
+1029:   EX_BindDelegate OnRequiredModsFetched
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+1052:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_2]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+1081:   EX_Let
+            EX_LocalVariable [CallFunc_FSDGetRequiredModsToDownload_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDGetRequiredModsToDownload
+                EX_InstanceVariable [session]
+1118:   EX_LetBool
+            EX_LocalVariable [CallFunc_FetchModsForSession_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_2]
+                EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->FetchModsForSession
+                    EX_LocalVariable [CallFunc_FSDGetRequiredModsToDownload_ReturnValue]
+                    EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+                RValue = [CallFunc_FetchModsForSession_ReturnValue_1]
+1178:   EX_BindDelegate OnOptionalModsFetched
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1201:   EX_Let
+            EX_LocalVariable [CallFunc_FSDGetOptionalModsInstalled_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDGetOptionalModsInstalled
+                EX_InstanceVariable [session]
+                EX_True
+1239:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_3]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+1268:   EX_LetBool
+            EX_LocalVariable [CallFunc_FetchModsForSession_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_3]
+                EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->FetchModsForSession
+                    EX_LocalVariable [CallFunc_FSDGetOptionalModsInstalled_ReturnValue]
+                    EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                RValue = [CallFunc_FetchModsForSession_ReturnValue]
+1328:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_FetchModsForSession_ReturnValue]
+                EX_LocalVariable [CallFunc_FetchModsForSession_ReturnValue_1]
+1366:   EX_JumpIfNot 1404
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+1380:   EX_Jump 1418
+1385:   EX_LocalVirtualFunction Cancel
+1399:   EX_Jump 1418
+1404:   EX_LocalVirtualFunction SetDefaultModDescription
+1418:   EX_Return
+            EX_Nothing
+1420:   EX_EndOfScript
+FunctionExport SetColors
+0:      EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 9
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_2]
+            RValue = []
+48:     EX_Context
+            EX_InstanceVariable [Border_0]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_2]
+            RValue = []
+89:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+137:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor_1]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+173:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor_1]
+            EX_ByteConst 0
+202:    EX_Context
+            EX_InstanceVariable [Header]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor_1]
+            RValue = []
+243:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+291:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+327:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+356:    EX_Context
+            EX_InstanceVariable [Image_122]
+            EX_FinalFunction import /Script/UMG->Image->SetBrushTintColor
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+397:    EX_Return
+            EX_Nothing
+399:    EX_EndOfScript
+FunctionExport SetDefaultModDescription
+0:      EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = You are about to join a Sandbox game.
+                    LocalizedKey = 0BEC3146458385E9614009BA57E78B95
+                    LocalizedNamespace = 
+105:    EX_Context
+            EX_InstanceVariable [AboutToJoinModdedText]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            RValue = []
+150:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = The game experience might differ from normal gameplay.
+You might also experience unexpected glitches, bugs, or crashes.
+Warning: Your progression is saved to a Sandbox save, instead of your normal one.
+                    LocalizedKey = 2E2DF104408B91F6A1146687B2A9330E
+                    LocalizedNamespace = 
+421:    EX_Context
+            EX_InstanceVariable [DisclaimerModded]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            RValue = []
+466:    EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+504:    EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_True
+            RValue = []
+541:    EX_Context
+            EX_InstanceVariable [DependenciesLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+579:    EX_Return
+            EX_Nothing
+581:    EX_EndOfScript
+FunctionExport SubscribeToMods
+0:      EX_PushExecutionFlow 1406
+5:      EX_Context
+            EX_InstanceVariable [SubscribtionLoading]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+43:     EX_Context
+            EX_InstanceVariable [BTN_Join]
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+80:     EX_Context
+            EX_InstanceVariable [BTN_Cancel]
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+117:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+146:    EX_BindDelegate OnDownloadFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+169:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+                EX_InstanceVariable [OnModDownloadExtractProgressFinished]
+                RValue = [OnModDownloadExtractProgressFinished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+210:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+233:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+256:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [ModsToInstall]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+315:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+353:    EX_JumpIfNot 553
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+367:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+394:    EX_PushExecutionFlow 966
+399:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+428:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [ModsToInstall]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+487:    EX_LetBool
+            EX_LocalVariable [CallFunc_K2_RequestSubscribe_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_1]
+                EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->K2_RequestSubscribe
+                    EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                RValue = [CallFunc_K2_RequestSubscribe_ReturnValue_1]
+538:    EX_JumpIfNot 1040
+            EX_LocalVariable [CallFunc_K2_RequestSubscribe_ReturnValue_1]
+552:    EX_PopExecutionFlow
+553:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_IntConst 0
+576:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_IntConst 0
+599:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [OptionalMods]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+658:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+696:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+706:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+733:    EX_PushExecutionFlow 892
+738:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [OptionalMods]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+797:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_2]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+826:    EX_LetBool
+            EX_LocalVariable [CallFunc_K2_RequestSubscribe_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue_2]
+                EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->K2_RequestSubscribe
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_K2_RequestSubscribe_ReturnValue]
+877:    EX_JumpIfNot 1223
+            EX_LocalVariable [CallFunc_K2_RequestSubscribe_ReturnValue]
+891:    EX_PopExecutionFlow
+892:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+                EX_IntConst 1
+934:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable_1]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+961:    EX_Jump 599
+966:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1008:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1035:   EX_Jump 256
+1040:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [ModsToInstall]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+1099:   EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst Failed to subscribe to:
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+1161:   EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_True
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.66
+                EX_FloatConst 1
+                EX_FloatConst 1
+            EX_FloatConst 2
+1222:   EX_PopExecutionFlow
+1223:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [OptionalMods]
+                EX_LocalVariable [Temp_int_Array_Index_Variable_1]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+1282:   EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst Failed to subscribe to:
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+1344:   EX_CallMath import /Script/Engine->KismetSystemLibrary->PrintString
+            EX_Self
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_True
+            EX_True
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0
+                EX_FloatConst 0.66
+                EX_FloatConst 1
+                EX_FloatConst 1
+            EX_FloatConst 2
+1405:   EX_PopExecutionFlow
+1406:   EX_Return
+            EX_Nothing
+1408:   EX_EndOfScript
+FunctionExport OnDownloadFinished
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [ModsToInstall]
+                    EX_LocalVariable [ModId]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue_1]
+60:     EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [OptionalMods]
+                    EX_LocalVariable [ModId]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue]
+120:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [OptionalMods]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+179:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 0
+213:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [ModsToInstall]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+272:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+                EX_IntConst 0
+306:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue_1]
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+344:    EX_JumpIfNot 506
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+358:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+387:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+416:    EX_JumpIfNot 492
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+430:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+459:    EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->ApplyPendingMods
+                EX_True
+            RValue = []
+492:    EX_LocalVirtualFunction ReloadWorldAndJoin
+506:    EX_Return
+            EX_Nothing
+508:    EX_EndOfScript
+FunctionExport StartJoinSession
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+58:     EX_JumpIfNot 133
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+72:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+101:    EX_Context
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/SimpleUGC->UGCSubsystem->MarkRecentlyInstalledModsSuccesful
+            RValue = []
+133:    EX_LetBool
+            EX_LocalVariable [CallFunc_FSDIsPasswordRequired_ReturnValue]
+            EX_CallMath import /Script/FSD->SessionHandling->FSDIsPasswordRequired
+                EX_InstanceVariable [session]
+162:    EX_JumpIfNot 300
+            EX_LocalVariable [CallFunc_FSDIsPasswordRequired_ReturnValue]
+176:    EX_Context
+            EX_InstanceVariable [Basic_PasswordField]
+            EX_LocalVirtualFunction GetPassword
+                EX_LocalVariable [CallFunc_GetPassword_Password]
+            RValue = []
+221:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [CallFunc_GetPassword_Password]
+258:    EX_CallMulticastDelegate export WND_JoiningModded_C->JoinModdedServer__DelegateSignature
+            EX_InstanceVariable [JoinModdedServer]
+            EX_InstanceVariable [session]
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+295:    EX_Jump 330
+300:    EX_CallMulticastDelegate export WND_JoiningModded_C->JoinModdedServer__DelegateSignature
+            EX_InstanceVariable [JoinModdedServer]
+            EX_InstanceVariable [session]
+            EX_StringConst 
+330:    EX_Return
+            EX_Nothing
+332:    EX_EndOfScript
+FunctionExport OnFetchedTermsOfUse
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Terms]
+29:     EX_JumpIfNot 721
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetBool
+            EX_LocalVariable [CallFunc_isEmpty_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Terms]
+                EX_FinalFunction import /Script/SimpleUGC->ModioTermsWrapper->isEmpty
+                RValue = [CallFunc_isEmpty_ReturnValue]
+85:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_isEmpty_ReturnValue]
+114:    EX_JumpIfNot 721
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+128:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+149:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenSingleUseWindow
+                    EX_ObjectConst import /Game/UI/Menu_EscapeMenu/Modding/Dialog_Modding_TermsAndConditions->Dialog_Modding_TermsAndConditions_C
+                    EX_IntConst 350
+                RValue = [CallFunc_OpenSingleUseWindow_ReturnValue]
+205:    EX_BindDelegate AnsweredTerms
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+228:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+                EX_InstanceVariable [OnAnswer]
+                RValue = [OnAnswer]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+269:    EX_Context
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_LocalVirtualFunction ShowTerms
+                EX_LocalVariable [Terms]
+            RValue = []
+314:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = If you agree to the terms and conditions you will join the game.
+                    LocalizedKey = FD96C28D4918E56647FF9787D80B076F
+                    LocalizedNamespace = 
+446:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+                EX_InstanceVariable [BTN_Yes]
+                RValue = [BTN_Yes]
+            EX_FinalFunction import /Script/UMG->Widget->SetToolTipText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue_1]
+            RValue = []
+509:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralText
+                EX_TextConst
+                    SourceString = If you don't agree to the terms and conditions you are not able to join the game.
+                    LocalizedKey = 0D1A869742CBAF2E427EFF92F20C3DCA
+                    LocalizedNamespace = 
+658:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+                EX_InstanceVariable [BTN_No]
+                RValue = [BTN_No]
+            EX_FinalFunction import /Script/UMG->Widget->SetToolTipText
+                EX_LocalVariable [CallFunc_MakeLiteralText_ReturnValue]
+            RValue = []
+721:    EX_Return
+            EX_Nothing
+723:    EX_EndOfScript
+FunctionExport UnbindEvents
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+58:     EX_JumpIfNot 351
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+72:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+101:    EX_BindDelegate OnDownloadFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+124:    EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+                EX_InstanceVariable [OnModDownloadExtractProgressFinished]
+                RValue = [OnModDownloadExtractProgressFinished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+165:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+194:    EX_BindDelegate OnModioUserAuthenticated
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+217:    EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+                EX_InstanceVariable [OnModioUserAuthenticated]
+                RValue = [OnModioUserAuthenticated]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+258:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+287:    EX_BindDelegate OnErrorInstallingMod
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+310:    EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+                EX_InstanceVariable [OnErrorInstalling]
+                RValue = [OnErrorInstalling]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+351:    EX_Return
+            EX_Nothing
+353:    EX_EndOfScript
+FunctionExport OnGottonModDependencies
+0:      EX_PushExecutionFlow 1212
+5:      EX_LetBool
+            EX_LocalVariable [ModInstalled]
+            EX_False
+16:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+39:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+62:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [ModIds]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+121:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+159:    EX_JumpIfNot 1036
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+173:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+200:    EX_PushExecutionFlow 1065
+205:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [ModIds]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+264:    EX_Let
+            EX_LocalVariable [ModID]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+291:    EX_LetBool
+            EX_LocalVariable [CallFunc_Array_Contains_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Contains
+                    EX_InstanceVariable [HostMods]
+                    EX_LocalVariable [ModID]
+                RValue = [CallFunc_Array_Contains_ReturnValue]
+351:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_Array_Contains_ReturnValue]
+380:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+390:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [HostMods]
+                    EX_LocalVariable [ModID]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue]
+458:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [DependencyMods]
+                    EX_LocalVariable [ModID]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue_1]
+526:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+                EX_IntConst 1
+568:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+595:    EX_Let
+            EX_InstanceVariable [TotalNumberOfDependenciesToCheck]
+            EX_LocalVariable [Temp_int_Variable]
+622:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue]
+            EX_CallMath import /Script/SimpleUGC->UGCBlueprintLibrary->GetUGCRegistry
+                EX_Self
+643:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsModInstalled_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUGCRegistry_ReturnValue]
+                EX_FinalFunction import /Script/SimpleUGC->UGCRegistry->IsModInstalled
+                    EX_LocalVariable [ModID]
+                RValue = [CallFunc_IsModInstalled_ReturnValue]
+694:    EX_LetBool
+            EX_LocalVariable [ModInstalled]
+            EX_LocalVariable [CallFunc_IsModInstalled_ReturnValue]
+713:    EX_JumpIfNot 1139
+            EX_LocalVariable [ModInstalled]
+727:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue_3]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [ModsToEnable]
+                    EX_LocalVariable [ModID]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue_3]
+795:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+819:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Modding/ITM_Mod_Joining->ITM_Mod_Joining_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+880:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetStringPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst ModID
+            EX_LocalVariable [ModID]
+921:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [ModInstalled]
+940:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue]
+            EX_Context
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 1004
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 981
+                        EX_InstanceVariable [ModsPendingBox]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 995
+                        EX_InstanceVariable [ModsInstalledBox]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChild_ReturnValue]
+1035:   EX_PopExecutionFlow
+1036:   EX_LocalVirtualFunction RequestDependenciesOfDependencies
+1050:   EX_LocalVirtualFunction UpdateHasModsInstalled
+1064:   EX_PopExecutionFlow
+1065:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1107:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1134:   EX_Jump 62
+1139:   EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [ModsToInstall]
+                    EX_LocalVariable [ModID]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue_2]
+1207:   EX_Jump 795
+1212:   EX_Return
+            EX_Nothing
+1214:   EX_EndOfScript
+FunctionExport UpdateHasModsInstalled
+0:      EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+23:     EX_Let
+            EX_LocalVariable [Temp_int_Variable_1]
+            EX_IntConst 1
+46:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ModsPendingBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+96:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [ModsInstalledBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue_1]
+146:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+192:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+                EX_IntConst 0
+226:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+245:    EX_Context
+            EX_InstanceVariable [HasMods_Switcher]
+            EX_VirtualFunction SetActiveWidgetIndex
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 333
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 310
+                        EX_LocalVariable [Temp_int_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 324
+                        EX_LocalVariable [Temp_int_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+334:    EX_Return
+            EX_Nothing
+336:    EX_EndOfScript
+FunctionExport GetJoinButtonTooltip
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [JoinButtonTooltip]
+29:     EX_JumpIfNot 67
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [JoinButtonTooltip]
+62:     EX_Jump 315
+67:     EX_Context
+            EX_ObjectConst import /Game/UI/ToolTips/LIB_ToolTips->Default__LIB_ToolTips_C
+            EX_LocalVirtualFunction CreateBasicToolTip
+                EX_InstanceVariable [BTN_Join]
+                EX_TextConst
+                    SourceString = Will install all required mods (and selected optional mods), and join the session
+                    LocalizedKey = FA7F0FA4494D18428C39AA8DB251565D
+                    LocalizedNamespace = 
+                EX_StructConst import /Script/CoreUObject->Vector2D
+                    EX_FloatConst 0
+                    EX_FloatConst 50
+                EX_StructConst import /Script/CoreUObject->Vector2D
+                    EX_FloatConst 0.5
+                    EX_FloatConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_CreateBasicToolTip_ToolTipWidget]
+            RValue = []
+291:    EX_LetObj
+            EX_InstanceVariable [JoinButtonTooltip]
+            EX_LocalVariable [CallFunc_CreateBasicToolTip_ToolTipWidget]
+310:    EX_Jump 43
+315:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+325:    EX_EndOfScript

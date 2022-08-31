@@ -1,0 +1,286 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Tank_Base
+0:      EX_PushExecutionFlow 1302
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_FinalFunction import /Script/Engine->Actor->SetActorTickEnabled
+            EX_False
+26:     EX_PopExecutionFlow
+27:     EX_Let
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+            EX_VirtualFunction GetTargetCenterMass
+59:     EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+122:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_InstanceVariable [AcidCloudClass]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_NoObject
+164:    EX_Let
+            EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+            EX_VirtualFunction GetTargetCenterMass
+196:    EX_Let
+            EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeTransform
+                EX_LocalVariable [CallFunc_GetTargetCenterMass_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+259:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeTransform_ReturnValue]
+297:    EX_PopExecutionFlow
+298:    EX_Context
+            EX_InstanceVariable [Capsule]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+336:    EX_FinalFunction import /Script/Engine->Actor->SetActorTickEnabled
+            EX_True
+347:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 1332447716
+                EX_NameConst ExecuteUbergraph_ENE_Spider_Tank_Base
+                EX_Self
+401:    EX_PopExecutionFlow
+402:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_SpiderBase_Large->ENE_SpiderBase_Large_C->OnDeathBase
+412:    EX_PushExecutionFlow 831
+417:    EX_PushExecutionFlow 701
+422:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+442:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGoal_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [CommunityGoalSettings]
+                    RValue = [CommunityGoalSettings]
+                EX_FinalFunction import /Script/FSD->CommunityGoalSettings->GetGoal
+                    EX_ByteConst 4
+                RValue = [CallFunc_GetGoal_ReturnValue]
+508:    EX_Context
+            EX_LocalVariable [CallFunc_GetGoal_ReturnValue]
+            EX_FinalFunction import /Script/FSD->CommunityGoal->IncrementGoal
+                EX_Self
+                EX_FloatConst 1
+            RValue = []
+546:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetGoogleAnalyticsWrapper
+                EX_Self
+567:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+596:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+606:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetGoogleAnalyticsWrapper
+                EX_Self
+627:    EX_Context
+            EX_LocalVariable [CallFunc_GetGoogleAnalyticsWrapper_ReturnValue]
+            EX_FinalFunction import /Script/FSD->GoogleAnalyticsWrapper->RecordGAEvent
+                EX_StringConst CommunityGoals
+                EX_StringConst Kill
+                EX_StringConst Praetorian
+                EX_IntConst 1
+                EX_ByteConst 2
+            RValue = []
+700:    EX_PopExecutionFlow
+701:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [RagdollImpulseSpeed]
+                EX_FloatConst 0
+735:    EX_JumpIfNot 788
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+749:    EX_Context
+            EX_InstanceVariable [Capsule]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+787:    EX_PopExecutionFlow
+788:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+826:    EX_Jump 749
+831:    EX_LocalVirtualFunction CreateButtDynamicMaterial
+845:    EX_Context
+            EX_InstanceVariable [ButtTurnOff]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Play
+            RValue = []
+877:    EX_PopExecutionFlow
+878:    EX_CallMath import /Script/FSD->FadeVisibilitySubSystem->FadeOutLight
+            EX_InstanceVariable [Light_BackBody]
+            EX_FloatConst 3
+902:    EX_PopExecutionFlow
+903:    EX_Let
+            EX_LocalVariable [CallFunc_LinearColorLerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LinearColorLerp
+                EX_InstanceVariable [ButtFinalColor]
+                EX_InstanceVariable [ButtInitialColor]
+                EX_InstanceVariable [ButtTurnOff_TurnOffTime_F69DC0FD4B3F86895DBCE39304B9A3BA]
+958:    EX_Context
+            EX_InstanceVariable [ButtMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetVectorParameterValue
+                EX_NameConst Emissive - Tint
+                EX_LocalVariable [CallFunc_LinearColorLerp_ReturnValue]
+            RValue = []
+1012:   EX_PopExecutionFlow
+1013:   EX_Jump 903
+1018:   EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_SpiderBase_Large->ENE_SpiderBase_Large_C->DeathDetailedBase
+            EX_LocalVariable [K2Node_Event_Amount]
+            EX_LocalVariable [K2Node_Event_DamageData]
+            EX_LocalVariable [K2Node_Event_Tags]
+1055:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ObjectObject
+                EX_StructMemberContext [DamageClass]
+                    EX_LocalVariable [K2Node_Event_DamageData]
+                EX_ObjectConst import /Game/GameElements/Damage/DMG_Disintegrate->DMG_Disintegrate
+1102:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [IsFrozen]
+1131:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_InstanceVariable [AcidCloudClass]
+1160:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_NotEqual_ObjectObject_ReturnValue]
+1198:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+1236:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+1246:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 27
+                EX_IntConst -496902724
+                EX_NameConst ExecuteUbergraph_ENE_Spider_Tank_Base
+                EX_Self
+1300:   EX_PopExecutionFlow
+1301:   EX_PopExecutionFlow
+1302:   EX_Return
+            EX_Nothing
+1304:   EX_EndOfScript
+FunctionExport DeathDetailedBase
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Amount]
+            EX_LocalVariable [Amount]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_DamageData]
+            EX_LocalOutVariable
+                [DamageData]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_Tags]
+            EX_LocalOutVariable
+                [Tags]
+54:     EX_LocalFinalFunction export ENE_Spider_Tank_Base_C->ExecuteUbergraph_ENE_Spider_Tank_Base
+            EX_IntConst 1018
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport StartFadeBody
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Base_C->ExecuteUbergraph_ENE_Spider_Tank_Base
+            EX_IntConst 878
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDeathBase
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Base_C->ExecuteUbergraph_ENE_Spider_Tank_Base
+            EX_IntConst 402
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRagdoll
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Base_C->ExecuteUbergraph_ENE_Spider_Tank_Base
+            EX_IntConst 298
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ButtTurnOff__UpdateFunc
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Base_C->ExecuteUbergraph_ENE_Spider_Tank_Base
+            EX_IntConst 1013
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ButtTurnOff__FinishedFunc
+0:      EX_LocalFinalFunction export ENE_Spider_Tank_Base_C->ExecuteUbergraph_ENE_Spider_Tank_Base
+            EX_IntConst 1301
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport GetEnemySpawnedCount
+0:      EX_Let
+            EX_LocalOutVariable
+                [SpawnCount]
+            EX_IntConst 3
+23:     EX_Return
+            EX_Nothing
+25:     EX_EndOfScript
+FunctionExport IsWeakPointDeath
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [material]
+                EX_ObjectConst import /Game/Enemies/Spider/PhysicalMaterials/PM_SpiderTankHeadWeakpoint->PM_SpiderTankHeadWeakpoint
+38:     EX_LetBool
+            EX_LocalOutVariable
+                [IsWeakPoint]
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+57:     EX_Return
+            EX_Nothing
+59:     EX_EndOfScript
+FunctionExport CreateButtDynamicMaterial
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction CreateDynamicMaterialInstance
+                    EX_IntConst 0
+                    EX_NoObject
+                    EX_NameConst None
+                RValue = [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+65:     EX_LetObj
+            EX_InstanceVariable [ButtMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+84:     EX_Let
+            EX_LocalVariable [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ButtMaterial]
+                EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->K2_GetVectorParameterValue
+                    EX_NameConst Emissive - Tint
+                RValue = [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+147:    EX_Let
+            EX_InstanceVariable [ButtInitialColor]
+            EX_LocalVariable [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+174:    EX_Return
+            EX_Nothing
+176:    EX_EndOfScript
+FunctionExport GetFXMeshScale
+0:      EX_Let
+            EX_LocalOutVariable
+                [scale]
+            EX_FloatConst 2
+23:     EX_Return
+            EX_Nothing
+25:     EX_EndOfScript

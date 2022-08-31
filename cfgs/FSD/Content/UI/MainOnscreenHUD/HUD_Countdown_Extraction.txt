@@ -1,0 +1,225 @@
+FunctionExport ExecuteUbergraph_HUD_Countdown_Extraction
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [DATA_Header]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [K2Node_CustomEvent_countdownText]
+            RValue = []
+55:     EX_VirtualFunction SetVisibility
+            EX_ByteConst 3
+71:     EX_Jump 655
+76:     EX_LocalVirtualFunction FormatTime
+            EX_LocalVariable [K2Node_CustomEvent_SecondsLeft]
+            EX_LocalVariable [CallFunc_FormatTime_Text]
+108:    EX_Context
+            EX_InstanceVariable [DATA_Time]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_FormatTime_Text]
+            RValue = []
+153:    EX_Jump 655
+158:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+174:    EX_Jump 655
+179:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+195:    EX_Jump 655
+200:    EX_BindDelegate CountdownStarted
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+223:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+244:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnCountdownStarted]
+                RValue = [OnCountdownStarted]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+285:    EX_BindDelegate OnCountdownTimeChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+308:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+329:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnCountdownTimeChanged]
+                RValue = [OnCountdownTimeChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+370:    EX_BindDelegate OnCountdownFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+393:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+414:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnCountdownFinished]
+                RValue = [OnCountdownFinished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+455:    EX_Jump 179
+460:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+508:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+544:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+573:    EX_Context
+            EX_InstanceVariable [DATA_Time]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+614:    EX_Context
+            EX_InstanceVariable [DATA_Header]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+655:    EX_Return
+            EX_Nothing
+657:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Countdown_Extraction_C->ExecuteUbergraph_HUD_Countdown_Extraction
+            EX_IntConst 460
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Countdown_Extraction_C->ExecuteUbergraph_HUD_Countdown_Extraction
+            EX_IntConst 200
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnCountdownFinished
+0:      EX_LocalFinalFunction export HUD_Countdown_Extraction_C->ExecuteUbergraph_HUD_Countdown_Extraction
+            EX_IntConst 158
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnCountdownTimeChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_SecondsLeft]
+            EX_LocalVariable [SecondsLeft]
+18:     EX_LocalFinalFunction export HUD_Countdown_Extraction_C->ExecuteUbergraph_HUD_Countdown_Extraction
+            EX_IntConst 76
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport CountdownStarted
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_countdownText]
+            EX_LocalOutVariable
+                [countdownText]
+18:     EX_LocalFinalFunction export HUD_Countdown_Extraction_C->ExecuteUbergraph_HUD_Countdown_Extraction
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport FormatTime
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Divide_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_IntInt
+                EX_LocalVariable [Time]
+                EX_IntConst 60
+42:     EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_LocalVariable [Time]
+                EX_IntConst 60
+84:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Divide_IntInt_ReturnValue]
+                EX_False
+                EX_True
+                EX_IntConst 2
+                EX_IntConst 324
+133:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+                EX_False
+                EX_True
+                EX_IntConst 2
+                EX_IntConst 324
+182:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst mm
+213:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+242:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+278:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+310:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+342:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+371:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst ss
+402:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 4
+431:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue_1]
+467:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_IntConst 0
+499:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+531:    EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+560:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+589:    EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {mm} : {ss}
+                    LocalizedKey = 8CD67AFE4DF49038B4A101B7ACE70CE1
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_MakeArray_Array]
+677:    EX_Let
+            EX_LocalOutVariable
+                [Text]
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+704:    EX_Return
+            EX_Nothing
+706:    EX_EndOfScript

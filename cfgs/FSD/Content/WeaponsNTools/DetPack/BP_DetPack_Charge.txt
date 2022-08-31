@@ -1,0 +1,368 @@
+FunctionExport ExecuteUbergraph_BP_DetPack_Charge
+0:      EX_PushExecutionFlow 2026
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PopExecutionFlow
+16:     EX_CallMath import /Script/Engine->GameplayStatics->PushSoundMixModifier
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SoundControl/SoundMixes/PSM_DuckOnExplosionClose->PSM_DuckOnExplosionClose
+36:     EX_PopExecutionFlow
+37:     EX_LocalVirtualFunction OnRep_IsPlaced
+51:     EX_Context
+            EX_InstanceVariable [Movement]
+            EX_VirtualFunction StopMovementImmediately
+            RValue = []
+87:     EX_PopExecutionFlow
+88:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 13
+            EX_NameConst IsPlaced
+117:    EX_Jump 37
+122:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+132:    EX_LetBool
+            EX_InstanceVariable [IsPlaced]
+            EX_True
+143:    EX_Jump 88
+148:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+176:    EX_CallMath import /Script/Engine->GameplayStatics->PlayWorldCameraShake
+            EX_Self
+            EX_ObjectConst import /Game/Character/Camera/CameraShakes/CameraShake_Generic_Explosions->CameraShake_Generic_Explosions_C
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FloatConst 1000
+            EX_FloatConst 1500
+            EX_FloatConst 1
+            EX_False
+221:    EX_Context
+            EX_ObjectConst import /Game/Character/Rumble/LIB_RumbleFunctions->Default__LIB_RumbleFunctions_C
+            EX_LocalVirtualFunction FSD Rumble At Actor
+                EX_Self
+                EX_ObjectConst import /Game/Character/Rumble/Explosion->Explosion
+                EX_False
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_True
+                EX_Self
+            RValue = []
+280:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsCloseToLocalPlayer_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->IsCloseToLocalPlayer
+                EX_Self
+                EX_FloatConst 800
+306:    EX_JumpIfNot 380
+            EX_LocalVariable [CallFunc_IsCloseToLocalPlayer_ReturnValue]
+320:    EX_PushExecutionFlow 380
+325:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 16
+                EX_IntConst 163125719
+                EX_NameConst ExecuteUbergraph_BP_DetPack_Charge
+                EX_Self
+379:    EX_PopExecutionFlow
+380:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsCloseToLocalPlayer_ReturnValue_1]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->IsCloseToLocalPlayer
+                EX_Self
+                EX_FloatConst 500
+406:    EX_JumpIfNot 556
+            EX_LocalVariable [CallFunc_IsCloseToLocalPlayer_ReturnValue_1]
+420:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerCharacter_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetPlayerCharacter
+                EX_Self
+                EX_IntConst 0
+446:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetPlayerCharacter_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+496:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/ExplosionSinus/ExplosionSinusDistant_Cue->ExplosionSinusDistant_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+556:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+590:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+618:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/WeaponsNTools/DetPack/P_DetPack_Explosion->P_DetPack_Explosion
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_2]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+687:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+707:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+717:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_4]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+745:    EX_Context
+            EX_InstanceVariable [Explosion]
+            EX_FinalFunction import /Script/FSD->ExplosionBaseComponent->DamageOnly
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_4]
+                EX_NameConst None
+                EX_NoObject
+                EX_NoObject
+                EX_InstanceVariable [Damage]
+            RValue = []
+810:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_3]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+838:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_3]
+                EX_VectorConst 0,0,150
+888:    EX_Context
+            EX_ObjectConst import /Script/FSD->Default__TerrainFunctionLibrary
+            EX_FinalFunction import /Script/FSD->TerrainFunctionLibrary->CreateExplosionCrater
+                EX_Self
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_Context
+                    EX_InstanceVariable [Explosion]
+                    EX_InstanceVariable [CarveDiameterCM]
+                    RValue = [CarveDiameterCM]
+                EX_Context
+                    EX_InstanceVariable [Explosion]
+                    EX_InstanceVariable [CarveNoiseCM]
+                    RValue = [CarveNoiseCM]
+                EX_Context
+                    EX_InstanceVariable [Explosion]
+                    EX_InstanceVariable [CarveBurnThicknessCM]
+                    RValue = [CarveBurnThicknessCM]
+                EX_True
+                EX_NoObject
+            RValue = []
+1025:   EX_FinalFunction import /Script/FSD->DetPack->UseFearStaggerUpgrades
+1035:   EX_PopExecutionFlow
+1036:   EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+1070:   EX_PopExecutionFlow
+1071:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1091:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+1101:   EX_Jump 122
+1106:   EX_Context
+            EX_InstanceVariable [UseComp]
+            EX_FinalFunction import /Script/FSD->SingleUsableComponent->SetCanUse
+                EX_False
+            RValue = []
+1139:   EX_PushExecutionFlow 1445
+1144:   EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+1178:   EX_Context
+            EX_InstanceVariable [Audio]
+            EX_VirtualFunction Stop
+            RValue = []
+1214:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+1242:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/WPN_DetPack/DetPack_Beep_Exlode_Cue->DetPack_Beep_Exlode_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+1302:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+1330:   EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/WPN_DetPack/Explosion/DetPack_Explosion_Cue->DetPack_Explosion_Cue
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+1390:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 148
+                EX_IntConst 1767703637
+                EX_NameConst ExecuteUbergraph_BP_DetPack_Charge
+                EX_Self
+1444:   EX_PopExecutionFlow
+1445:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1465:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_2]
+1475:   EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 3
+1494:   EX_PopExecutionFlow
+1495:   EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_True
+                EX_True
+            RValue = []
+1529:   EX_Let
+            EX_LocalVariable [CallFunc_GetTimelineLength_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SphereTimeline]
+                EX_FinalFunction import /Script/Engine->TimelineComponent->GetTimelineLength
+                RValue = [CallFunc_GetTimelineLength_ReturnValue]
+1579:   EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+1608:   EX_Let
+            EX_LocalVariable [CallFunc_Percent_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_FloatFloat
+                EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+                EX_LocalVariable [CallFunc_GetTimelineLength_ReturnValue]
+1654:   EX_Context
+            EX_InstanceVariable [SphereTimeline]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->SetPlaybackPosition
+                EX_LocalVariable [CallFunc_Percent_FloatFloat_ReturnValue]
+                EX_False
+                EX_False
+            RValue = []
+1697:   EX_Context
+            EX_InstanceVariable [SphereTimeline]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Play
+            RValue = []
+1729:   EX_PopExecutionFlow
+1730:   EX_Jump 1495
+1735:   EX_Context
+            EX_InstanceVariable [SphereMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst Alpha
+                EX_InstanceVariable [SphereTimeline_Alpha_B734CAA34EA448BC3B483384E4E415D3]
+            RValue = []
+1789:   EX_PopExecutionFlow
+1790:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [VisualDamageRadius]
+                EX_FloatConst 2
+1832:   EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst 100
+1874:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [SphereTimeline_Scale_B734CAA34EA448BC3B483384E4E415D3]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+1920:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+1975:   EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetWorldScale3D
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            RValue = []
+2016:   EX_Jump 1735
+2021:   EX_Jump 1790
+2026:   EX_Return
+            EX_Nothing
+2028:   EX_EndOfScript
+FunctionExport Show Warning Sphere
+0:      EX_LocalFinalFunction export BP_DetPack_Charge_C->ExecuteUbergraph_BP_DetPack_Charge
+            EX_IntConst 1730
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnExploded
+0:      EX_LocalFinalFunction export BP_DetPack_Charge_C->ExecuteUbergraph_BP_DetPack_Charge
+            EX_IntConst 1106
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport RecieveHitObject
+0:      EX_LocalFinalFunction export BP_DetPack_Charge_C->ExecuteUbergraph_BP_DetPack_Charge
+            EX_IntConst 1071
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_DetPack_Charge_C->ExecuteUbergraph_BP_DetPack_Charge
+            EX_IntConst 1036
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SphereTimeline__UpdateFunc
+0:      EX_LocalFinalFunction export BP_DetPack_Charge_C->ExecuteUbergraph_BP_DetPack_Charge
+            EX_IntConst 2021
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SphereTimeline__FinishedFunc
+0:      EX_LocalFinalFunction export BP_DetPack_Charge_C->ExecuteUbergraph_BP_DetPack_Charge
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Sphere]
+                EX_VirtualFunction CreateDynamicMaterialInstance
+                    EX_IntConst 0
+                    EX_NoObject
+                    EX_NameConst None
+                RValue = [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+65:     EX_LetObj
+            EX_InstanceVariable [SphereMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+84:     EX_Return
+            EX_Nothing
+86:     EX_EndOfScript
+FunctionExport OnRep_IsPlaced
+0:      EX_LocalVirtualFunction Show Warning Sphere
+14:     EX_Context
+            EX_InstanceVariable [Box]
+            EX_VirtualFunction SetSimulatePhysics
+                EX_False
+            RValue = []
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

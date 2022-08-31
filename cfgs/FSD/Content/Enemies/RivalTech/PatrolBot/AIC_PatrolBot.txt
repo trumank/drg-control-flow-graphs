@@ -1,0 +1,181 @@
+FunctionExport ExecuteUbergraph_AIC_PatrolBot
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetActive
+            EX_False
+25:     EX_Jump 1029
+30:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+59:     EX_JumpIfNot 1029
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+73:     EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_ObjectConst import /Game/Enemies/RivalTech/PatrolBot/AI/BT_PatrolBot->BT_PatrolBot
+106:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+142:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+171:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasMatchingGameplayTag_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+                EX_VirtualFunction HasMatchingGameplayTag
+                    EX_StructConst import /Script/GameplayTags->GameplayTag
+                        EX_NameConst Enemy.Type.Critical
+                RValue = [CallFunc_HasMatchingGameplayTag_ReturnValue]
+245:    EX_JumpIfNot 408
+            EX_LocalVariable [CallFunc_HasMatchingGameplayTag_ReturnValue]
+259:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+295:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+324:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetHealthComponent_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+                EX_VirtualFunction GetHealthComponent
+                RValue = [CallFunc_GetHealthComponent_ReturnValue]
+370:    EX_Context
+            EX_LocalVariable [CallFunc_GetHealthComponent_ReturnValue]
+            EX_FinalFunction import /Script/FSD->HealthComponentBase->SetCanTakeDamage
+                EX_False
+            RValue = []
+403:    EX_Jump 10
+408:    EX_LocalVirtualFunction SetActive
+            EX_True
+423:    EX_Jump 1029
+428:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst IsHackable
+469:    EX_Context
+            EX_InstanceVariable [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_LocalVariable [K2Node_CustomEvent_BoolValue]
+            RValue = []
+519:    EX_Jump 1029
+524:    EX_Context
+            EX_InstanceVariable [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Hacked
+            RValue = []
+568:    EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue_1]
+            EX_VirtualFunction RunBehaviorTree
+                EX_ObjectConst import /Game/Enemies/RivalTech/PatrolBot/AI/BT_HackedPatrolBot->BT_HackedPatrolBot
+601:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Friend
+642:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_Self
+663:    EX_Context
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsObject
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue_1]
+                EX_LocalVariable [K2Node_CustomEvent_HackingPlayer]
+            RValue = []
+713:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+733:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn_1]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+769:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn_1]
+798:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddPetComponent_ReturnValue]
+            EX_CallMath import /Script/FSD->BeastMasterComponent->AddPetComponent
+                EX_ObjectConst import /Game/Enemies/RivalTech/PatrolBot/BP_HackedPatrolBotComponent->BP_HackedPatrolBotComponent_C
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn_1]
+                EX_LocalVariable [K2Node_CustomEvent_HackingPlayer]
+845:    EX_Jump 1029
+850:    EX_LocalVirtualFunction SetActive
+            EX_True
+865:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+885:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn_2]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue_1]
+921:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn_2]
+950:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetHealthComponent_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn_2]
+                EX_VirtualFunction GetHealthComponent
+                RValue = [CallFunc_GetHealthComponent_ReturnValue_1]
+996:    EX_Context
+            EX_LocalVariable [CallFunc_GetHealthComponent_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->HealthComponentBase->SetCanTakeDamage
+                EX_True
+            RValue = []
+1029:   EX_Return
+            EX_Nothing
+1031:   EX_EndOfScript
+FunctionExport ActivateDrone
+0:      EX_LocalFinalFunction export AIC_PatrolBot_C->ExecuteUbergraph_AIC_PatrolBot
+            EX_IntConst 850
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Hacked
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HackingPlayer]
+            EX_LocalVariable [HackingPlayer]
+18:     EX_LocalFinalFunction export AIC_PatrolBot_C->ExecuteUbergraph_AIC_PatrolBot
+            EX_IntConst 524
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetReadyToHack
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_BoolValue]
+            EX_LocalVariable [BoolValue]
+18:     EX_LocalFinalFunction export AIC_PatrolBot_C->ExecuteUbergraph_AIC_PatrolBot
+            EX_IntConst 428
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_PatrolBot_C->ExecuteUbergraph_AIC_PatrolBot
+            EX_IntConst 30
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetActive
+0:      EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst IsActive
+41:     EX_Context
+            EX_InstanceVariable [Blackboard]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_LocalVariable [BoolValue]
+            RValue = []
+91:     EX_Return
+            EX_Nothing
+93:     EX_EndOfScript

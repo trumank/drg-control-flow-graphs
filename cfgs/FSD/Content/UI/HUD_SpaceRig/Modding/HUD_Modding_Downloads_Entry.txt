@@ -1,0 +1,188 @@
+FunctionExport ExecuteUbergraph_HUD_Modding_Downloads_Entry
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_JumpIfNot 79
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+24:     EX_LocalVirtualFunction SetProgress
+            EX_InstanceVariable [PreviewName]
+            EX_InstanceVariable [PreviewDownloading]
+            EX_InstanceVariable [PreviewDownloaded]
+            EX_InstanceVariable [PreviewTotal]
+74:     EX_Jump 129
+79:     EX_LocalVirtualFunction SetProgress
+            EX_InstanceVariable [ModName]
+            EX_InstanceVariable [Downloading]
+            EX_InstanceVariable [Downloaded]
+            EX_InstanceVariable [Total]
+129:    EX_Return
+            EX_Nothing
+131:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Modding_Downloads_Entry_C->ExecuteUbergraph_HUD_Modding_Downloads_Entry
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetProgress
+0:      EX_LetBool
+            EX_InstanceVariable [Downloading]
+            EX_LocalVariable [InDownloading]
+19:     EX_Let
+            EX_InstanceVariable [Downloaded]
+            EX_LocalVariable [InDownloaded]
+46:     EX_Let
+            EX_InstanceVariable [Total]
+            EX_LocalVariable [InTotal]
+73:     EX_Let
+            EX_InstanceVariable [ModName]
+            EX_LocalVariable [InModName]
+100:    EX_LetBool
+            EX_InstanceVariable [IsFinished]
+            EX_False
+111:    EX_Context
+            EX_InstanceVariable [ModdingProgressBar]
+            EX_LocalVirtualFunction SetProgress
+                EX_InstanceVariable [Downloading]
+                EX_InstanceVariable [Downloaded]
+                EX_InstanceVariable [Total]
+            RValue = []
+174:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_InstanceVariable [ModName]
+211:    EX_Context
+            EX_InstanceVariable [LabelModName]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+256:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 8
+276:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 23
+296:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [InTotal]
+                EX_IntConst 0
+330:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+349:    EX_Context
+            EX_InstanceVariable [LabelModName]
+            EX_LocalVirtualFunction SetTextColor
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 437
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 414
+                        EX_LocalVariable [Temp_byte_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 428
+                        EX_LocalVariable [Temp_byte_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+438:    EX_JumpIfNot 495
+            EX_InstanceVariable [Downloading]
+452:    EX_Context
+            EX_InstanceVariable [Img_Completed]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+490:    EX_Jump 561
+495:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [InDownloaded]
+                EX_InstanceVariable [Total]
+533:    EX_JumpIfNot 561
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+547:    EX_LocalVirtualFunction Finish
+561:    EX_Return
+            EX_Nothing
+563:    EX_EndOfScript
+FunctionExport GetModName
+0:      EX_Let
+            EX_LocalOutVariable
+                [ModName]
+            EX_InstanceVariable [ModName]
+27:     EX_Return
+            EX_Nothing
+29:     EX_EndOfScript
+FunctionExport GetProgress
+0:      EX_Let
+            EX_LocalOutVariable
+                [Progress]
+            EX_InstanceVariable [Progress]
+27:     EX_Return
+            EX_Nothing
+29:     EX_EndOfScript
+FunctionExport Finish
+0:      EX_LetBool
+            EX_InstanceVariable [IsFinished]
+            EX_True
+11:     EX_Context
+            EX_InstanceVariable [ModdingProgressBar]
+            EX_LocalVirtualFunction FinishExtracting
+            RValue = []
+47:     EX_Context
+            EX_InstanceVariable [Img_Completed]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_ObjectConst import /Game/UI/Art/Discord/Icons_Milestone_Accomplished_CheckMark_Only->Icons_Milestone_Accomplished_CheckMark_Only
+                EX_False
+            RValue = []
+93:     EX_Context
+            EX_InstanceVariable [Img_Completed]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+131:    EX_Context
+            EX_InstanceVariable [LabelModName]
+            EX_LocalVirtualFunction SetTextColor
+                EX_ByteConst 8
+            RValue = []
+169:    EX_Return
+            EX_Nothing
+171:    EX_EndOfScript
+FunctionExport Error
+0:      EX_Context
+            EX_InstanceVariable [Img_Completed]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_ObjectConst import /Game/UI/Art/Icons/Icons_Misc/Icon_Alert_Notification->Icon_Alert_Notification
+                EX_False
+            RValue = []
+46:     EX_Context
+            EX_InstanceVariable [Img_Completed]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 3
+            RValue = []
+84:     EX_Context
+            EX_InstanceVariable [ModdingProgressBar]
+            EX_LocalVirtualFunction Error
+                EX_LocalVariable [InErrorType]
+            RValue = []
+129:    EX_Context
+            EX_InstanceVariable [LabelModName]
+            EX_LocalVirtualFunction SetTextColor
+                EX_ByteConst 12
+            RValue = []
+167:    EX_LetBool
+            EX_InstanceVariable [IsFinished]
+            EX_False
+178:    EX_Return
+            EX_Nothing
+180:    EX_EndOfScript
+FunctionExport GetIsFinished
+0:      EX_LetBool
+            EX_LocalOutVariable
+                [IsFinished]
+            EX_InstanceVariable [IsFinished]
+19:     EX_Return
+            EX_Nothing
+21:     EX_EndOfScript

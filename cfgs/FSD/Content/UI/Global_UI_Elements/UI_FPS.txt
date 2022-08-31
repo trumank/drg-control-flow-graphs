@@ -1,0 +1,162 @@
+FunctionExport ExecuteUbergraph_UI_FPS
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_InstanceVariable [TextBlock_FPS]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetFont
+                EX_InstanceVariable [Font]
+            RValue = []
+51:     EX_Context
+            EX_InstanceVariable [TextBlock_FPS]
+            EX_VirtualFunction SetJustification
+                EX_InstanceVariable [Justification]
+            RValue = []
+96:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+144:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+180:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+209:    EX_Context
+            EX_InstanceVariable [TextBlock_FPS]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+250:    EX_Jump 925
+255:    EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_InstanceVariable [SmoothedDeltaT]
+                EX_LocalVariable [K2Node_Event_InDeltaTime]
+                EX_FloatConst 0.1
+306:    EX_Let
+            EX_InstanceVariable [SmoothedDeltaT]
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+333:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_FloatConst 1
+                EX_InstanceVariable [SmoothedDeltaT]
+375:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+                EX_FloatConst 0.01
+417:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_FloatToText
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                EX_ByteConst 0
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+                EX_IntConst 0
+                EX_IntConst 0
+478:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+515:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+                EX_StringConst  FPS
+558:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+595:    EX_Context
+            EX_InstanceVariable [TextBlock_FPS]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+640:    EX_Jump 925
+645:    EX_LetObj
+            EX_LocalVariable [CallFunc_FSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->FSDGameUserSettings
+665:    EX_BindDelegate OnShowFPSChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+688:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_FSDGameUserSettings_ReturnValue]
+                EX_InstanceVariable [OnShowFPSChanged]
+                RValue = [OnShowFPSChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+729:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetShowFPS_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_FSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetShowFPS
+                RValue = [CallFunc_GetShowFPS_ReturnValue]
+771:    EX_LocalVirtualFunction OnShowFPSChanged
+            EX_LocalVariable [CallFunc_GetShowFPS_ReturnValue]
+794:    EX_Jump 925
+799:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 3
+819:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 1
+839:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [K2Node_CustomEvent_NewValue]
+858:    EX_VirtualFunction SetVisibility
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 924
+                case 0:
+                    EX_False
+                    NextCaseOffset = 901
+                    EX_LocalVariable [Temp_byte_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 915
+                    EX_LocalVariable [Temp_byte_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+925:    EX_Return
+            EX_Nothing
+927:    EX_EndOfScript
+FunctionExport OnShowFPSChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_NewValue]
+            EX_LocalVariable [NewValue]
+18:     EX_LocalFinalFunction export UI_FPS_C->ExecuteUbergraph_UI_FPS
+            EX_IntConst 799
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_FPS_C->ExecuteUbergraph_UI_FPS
+            EX_IntConst 645
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Tick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_MyGeometry]
+            EX_LocalVariable [MyGeometry]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_InDeltaTime]
+            EX_LocalVariable [InDeltaTime]
+36:     EX_LocalFinalFunction export UI_FPS_C->ExecuteUbergraph_UI_FPS
+            EX_IntConst 255
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_FPS_C->ExecuteUbergraph_UI_FPS
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

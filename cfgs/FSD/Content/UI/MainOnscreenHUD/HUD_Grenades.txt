@@ -1,0 +1,295 @@
+FunctionExport ExecuteUbergraph_HUD_Grenades
+0:      EX_PushExecutionFlow 1562
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Character]
+44:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+54:     EX_JumpIfNot 202
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_InstanceVariable [bItemsLoaded]
+                RValue = [bItemsLoaded]
+112:    EX_LocalVirtualFunction OnGrenadeCountChanged
+            EX_Context
+                EX_Context
+                    EX_Context
+                        EX_InstanceVariable [Character]
+                        EX_InstanceVariable [InventoryComponent]
+                        RValue = [InventoryComponent]
+                    EX_InstanceVariable [GrenadeItem]
+                    RValue = [GrenadeItem]
+                EX_InstanceVariable [Grenades]
+                RValue = [Grenades]
+201:    EX_PopExecutionFlow
+202:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -2064038641
+                EX_NameConst ExecuteUbergraph_HUD_Grenades
+                EX_Self
+256:    EX_PopExecutionFlow
+257:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [LaserpointerPressed]
+286:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [ItemEquipped]
+315:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+353:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+363:    EX_CallMath import /Script/FSD->HUDVisibilityGroup->SetHudGroupDynamicallyVisible
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_Grenades->HG_Grenades
+            EX_False
+383:    EX_PopExecutionFlow
+384:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Character]
+413:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+423:    EX_Jump 54
+428:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+476:    EX_Context
+            EX_InstanceVariable [UI_AdvancedLabel]
+            EX_LocalVirtualFunction SetTints
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+548:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+596:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+632:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+661:    EX_Context
+            EX_InstanceVariable [DATA_GrenadeCount]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+702:    EX_PopExecutionFlow
+703:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [K2Node_CustomEvent_CurrentCount]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+752:    EX_Context
+            EX_InstanceVariable [DATA_GrenadeCount]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+797:    EX_PopExecutionFlow
+798:    EX_LocalVirtualFunction Setup Dynamic HUD
+812:    EX_BindDelegate OnGrenadeCountChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+835:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_InstanceVariable [OnGrenadeCountChanged]
+                RValue = [OnGrenadeCountChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+898:    EX_Jump 384
+903:    EX_CallMath import /Script/FSD->HUDVisibilityGroup->RegisterWidgetWithVisibilityGroup
+            EX_Self
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_Grenades->HG_Grenades
+            EX_ByteConst 4
+            EX_ByteConst 2
+927:    EX_BindDelegate OnItemEquipped_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+950:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_InstanceVariable [OnItemEquipped]
+                RValue = [OnItemEquipped]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+1013:   EX_BindDelegate OnItemUnequipped_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+1036:   EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_InstanceVariable [OnItemUnequipped]
+                RValue = [OnItemUnequipped]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+1099:   EX_BindDelegate OnLaserpointerPressed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+1122:   EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnLaserPointerPressed]
+                RValue = [OnLaserPointerPressed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+1163:   EX_BindDelegate OnLaserpointerReleased
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+1186:   EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_InstanceVariable [OnLaserPointerReleased]
+                RValue = [OnLaserPointerReleased]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+1227:   EX_PopExecutionFlow
+1228:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsThrown_Grenade_Item]
+            EX_DynamicCast import /Script/FSD->ThrownGrenadeItem
+                EX_LocalVariable [K2Node_CustomEvent_Item_1]
+1264:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsThrown_Grenade_Item]
+1293:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1303:   EX_LetBool
+            EX_InstanceVariable [ItemEquipped]
+            EX_True
+1314:   EX_LocalVirtualFunction Update Visibility
+1328:   EX_PopExecutionFlow
+1329:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsThrown_Grenade_Item_1]
+            EX_DynamicCast import /Script/FSD->ThrownGrenadeItem
+                EX_LocalVariable [K2Node_CustomEvent_Item]
+1365:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsThrown_Grenade_Item_1]
+1394:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+1404:   EX_LetBool
+            EX_InstanceVariable [ItemEquipped]
+            EX_False
+1415:   EX_LocalVirtualFunction Update Visibility
+1429:   EX_PopExecutionFlow
+1430:   EX_CallMath import /Script/FSD->HUDVisibilityGroup->SetHudGroupDynamicallyVisible
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_Grenades->HG_Grenades
+            EX_True
+1450:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 257
+                EX_IntConst 968172707
+                EX_NameConst ExecuteUbergraph_HUD_Grenades
+                EX_Self
+1504:   EX_PopExecutionFlow
+1505:   EX_Jump 1430
+1510:   EX_LetBool
+            EX_InstanceVariable [LaserpointerPressed]
+            EX_True
+1521:   EX_LocalVirtualFunction Update Visibility
+1535:   EX_PopExecutionFlow
+1536:   EX_LetBool
+            EX_InstanceVariable [LaserpointerPressed]
+            EX_False
+1547:   EX_LocalVirtualFunction Update Visibility
+1561:   EX_PopExecutionFlow
+1562:   EX_Return
+            EX_Nothing
+1564:   EX_EndOfScript
+FunctionExport OnLaserpointerReleased
+0:      EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 1536
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnLaserpointerPressed
+0:      EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 1510
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Update Visibility
+0:      EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 1505
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnItemUnequipped_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Item]
+            EX_LocalVariable [Item]
+18:     EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 1329
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnItemEquipped_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Item_1]
+            EX_LocalVariable [Item]
+18:     EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 1228
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Setup Dynamic HUD
+0:      EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 903
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 798
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnGrenadeCountChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_CurrentCount]
+            EX_LocalVariable [CurrentCount]
+18:     EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 703
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Grenades_C->ExecuteUbergraph_HUD_Grenades
+            EX_IntConst 428
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

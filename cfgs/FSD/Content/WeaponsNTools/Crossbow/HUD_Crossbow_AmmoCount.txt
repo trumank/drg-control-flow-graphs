@@ -1,0 +1,312 @@
+FunctionExport ExecuteUbergraph_HUD_Crossbow_AmmoCount
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_JumpIfNot 521
+            EX_InstanceVariable [HasSpecialArrow]
+24:     EX_LetObj
+            EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetAnimationPlayCallbackProxy->CreatePlayAnimationProxyObject
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_Result]
+                EX_Self
+                EX_InstanceVariable [AnimSwap]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+80:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue]
+109:    EX_JumpIfNot 521
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+123:    EX_BindDelegate Finished_7D5D15E24B34D3D4466E3BA129F1FC49
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+146:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue]
+                EX_InstanceVariable [Finished]
+                RValue = [Finished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+187:    EX_Jump 521
+192:    EX_Jump 521
+197:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsCrossbow]
+            EX_DynamicCast import /Script/FSD->Crossbow
+                EX_InstanceVariable [Item]
+233:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsCrossbow]
+262:    EX_JumpIfNot 521
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+276:    EX_LetObj
+            EX_InstanceVariable [Crossbow]
+            EX_LocalVariable [K2Node_DynamicCast_AsCrossbow]
+295:    EX_LetObj
+            EX_InstanceVariable [AmmoAggregator]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_InstanceVariable [Aggregator]
+                RValue = [Aggregator]
+336:    EX_LocalVirtualFunction Refresh
+350:    EX_BindDelegate OnAmmoCountChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+373:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [AmmoAggregator]
+                EX_InstanceVariable [OnClipAndTotalChanged]
+                RValue = [OnClipAndTotalChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+414:    EX_BindDelegate OnArrowTypeChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+437:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_InstanceVariable [OnDefaultArrowEquippedChanged]
+                RValue = [OnDefaultArrowEquippedChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+478:    EX_Jump 521
+483:    EX_LocalVirtualFunction Refresh
+497:    EX_Jump 521
+502:    EX_LocalVirtualFunction Refresh
+516:    EX_Jump 10
+521:    EX_Return
+            EX_Nothing
+523:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Crossbow_AmmoCount_C->ExecuteUbergraph_HUD_Crossbow_AmmoCount
+            EX_IntConst 521
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnArrowTypeChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InDefaultArrow]
+            EX_LocalVariable [InDefaultArrow]
+18:     EX_LocalFinalFunction export HUD_Crossbow_AmmoCount_C->ExecuteUbergraph_HUD_Crossbow_AmmoCount
+            EX_IntConst 502
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAmmoCountChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_amount]
+            EX_LocalVariable [amount]
+18:     EX_LocalFinalFunction export HUD_Crossbow_AmmoCount_C->ExecuteUbergraph_HUD_Crossbow_AmmoCount
+            EX_IntConst 483
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveItemSet
+0:      EX_LocalFinalFunction export HUD_Crossbow_AmmoCount_C->ExecuteUbergraph_HUD_Crossbow_AmmoCount
+            EX_IntConst 197
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Finished_7D5D15E24B34D3D4466E3BA129F1FC49
+0:      EX_LocalFinalFunction export HUD_Crossbow_AmmoCount_C->ExecuteUbergraph_HUD_Crossbow_AmmoCount
+            EX_IntConst 192
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Refresh
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetIsDefaultArrowEquipped
+                RValue = [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+42:     EX_LetBool
+            EX_InstanceVariable [DefaultEquipped]
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+61:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_Context
+                    EX_InstanceVariable [Crossbow]
+                    EX_InstanceVariable [SpecialArrow]
+                    RValue = [SpecialArrow]
+112:    EX_LetBool
+            EX_InstanceVariable [HasSpecialArrow]
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+131:    EX_LocalVirtualFunction GetArrowIcon
+            EX_InstanceVariable [DefaultEquipped]
+            EX_LocalVariable [CallFunc_GetArrowIcon_OutTexture_1]
+            EX_LocalVariable [CallFunc_GetArrowIcon_OutValid_1]
+172:    EX_Context
+            EX_InstanceVariable [Arrow_Active]
+            EX_LocalVirtualFunction SetIcon
+                EX_LocalVariable [CallFunc_GetArrowIcon_OutTexture_1]
+            RValue = []
+217:    EX_Let
+            EX_LocalVariable [CallFunc_GetTotalArrowCount_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetTotalArrowCount
+                    EX_InstanceVariable [DefaultEquipped]
+                RValue = [CallFunc_GetTotalArrowCount_ReturnValue_1]
+276:    EX_Context
+            EX_InstanceVariable [Arrow_Active]
+            EX_LocalVirtualFunction SetAmmoCount
+                EX_LocalVariable [CallFunc_GetTotalArrowCount_ReturnValue_1]
+            RValue = []
+321:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [DefaultEquipped]
+350:    EX_LocalVirtualFunction GetArrowIcon
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_LocalVariable [CallFunc_GetArrowIcon_OutTexture]
+            EX_LocalVariable [CallFunc_GetArrowIcon_OutValid]
+391:    EX_Context
+            EX_InstanceVariable [Arrow_Inactive]
+            EX_LocalVirtualFunction SetIcon
+                EX_LocalVariable [CallFunc_GetArrowIcon_OutTexture]
+            RValue = []
+436:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [DefaultEquipped]
+465:    EX_Let
+            EX_LocalVariable [CallFunc_GetTotalArrowCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetTotalArrowCount
+                    EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                RValue = [CallFunc_GetTotalArrowCount_ReturnValue]
+524:    EX_Context
+            EX_InstanceVariable [Arrow_Inactive]
+            EX_LocalVirtualFunction SetAmmoCount
+                EX_LocalVariable [CallFunc_GetTotalArrowCount_ReturnValue]
+            RValue = []
+569:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Arrow_Inactive]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_InstanceVariable [HasSpecialArrow]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+655:    EX_Return
+            EX_Nothing
+657:    EX_EndOfScript
+FunctionExport GetArrowIcon
+0:      EX_PushExecutionFlow 650
+5:      EX_PushExecutionFlow 620
+10:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [InDefaultArrow]
+29:     EX_LetObj
+            EX_LocalVariable [Arrow]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 136
+                case 0:
+                    EX_False
+                    NextCaseOffset = 91
+                    EX_Context
+                        EX_InstanceVariable [Crossbow]
+                        EX_InstanceVariable [SpecialArrow]
+                        RValue = [SpecialArrow]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 127
+                    EX_Context
+                        EX_InstanceVariable [Crossbow]
+                        EX_InstanceVariable [DefaultArrow]
+                        RValue = [DefaultArrow]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+136:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_LocalVariable [Arrow]
+165:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+175:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+            EX_MetaCast import /Script/FSD->CrossbowProjectileBase
+                EX_LocalVariable [Arrow]
+211:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+240:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+250:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_Context
+                    EX_InstanceVariable [Crossbow]
+                    EX_InstanceVariable [CanTrifork]
+                    RValue = [CanTrifork]
+                EX_LocalVariable [InDefaultArrow]
+310:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+329:    EX_Let
+            EX_LocalVariable [Icon]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 444
+                case 0:
+                    EX_False
+                    NextCaseOffset = 399
+                    EX_ClassContext
+                        EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+                        EX_DefaultVariable [Icon]
+                        RValue = [Icon]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 435
+                    EX_ClassContext
+                        EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+                        EX_DefaultVariable [TriforkIcon]
+                        RValue = [TriforkIcon]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+444:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidSoftObjectReference_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidSoftObjectReference
+                EX_LocalVariable [Icon]
+473:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValidSoftObjectReference_ReturnValue]
+483:    EX_LetObj
+            EX_LocalVariable [CallFunc_LoadAsset_Blocking_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->LoadAsset_Blocking
+                EX_LocalVariable [Icon]
+512:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+            EX_DynamicCast import /Script/Engine->Texture2D
+                EX_LocalVariable [CallFunc_LoadAsset_Blocking_ReturnValue]
+548:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+577:    EX_LetObj
+            EX_LocalOutVariable
+                [OutTexture]
+            EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+596:    EX_LetBool
+            EX_LocalOutVariable
+                [OutValid]
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+615:    EX_Jump 650
+620:    EX_LetObj
+            EX_LocalOutVariable
+                [OutTexture]
+            EX_ObjectConst import /Game/Art/_TestingGrounds/ScalableHUD/8x8box->8x8box
+639:    EX_LetBool
+            EX_LocalOutVariable
+                [OutValid]
+            EX_False
+650:    EX_Return
+            EX_Nothing
+652:    EX_EndOfScript

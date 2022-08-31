@@ -1,0 +1,442 @@
+FunctionExport ExecuteUbergraph_HUD_EnemyTargeting_AfflictionBox
+0:      EX_PushExecutionFlow 603
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction ClearAfflictions
+29:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+52:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+75:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [PreviewAfflictions]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+134:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+172:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+182:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+209:    EX_PushExecutionFlow 402
+214:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [PreviewAfflictions]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+273:    EX_LetObj
+            EX_LocalVariable [CallFunc_LoadAsset_Blocking_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->LoadAsset_Blocking
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+302:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPawn_Affliction]
+            EX_DynamicCast import /Script/FSD->PawnAffliction
+                EX_LocalVariable [CallFunc_LoadAsset_Blocking_ReturnValue]
+338:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPawn_Affliction]
+367:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+377:    EX_LocalVirtualFunction ToggleAffliction
+            EX_LocalVariable [K2Node_DynamicCast_AsPawn_Affliction]
+            EX_True
+401:    EX_PopExecutionFlow
+402:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+444:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+471:    EX_Jump 75
+476:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [K2Node_CustomEvent_InAfflictionTarget]
+                EX_ObjectConst import /Script/FSD->PawnAfflictionComponent
+514:    EX_LocalVirtualFunction SetAfflictionComponent
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+537:    EX_PopExecutionFlow
+538:    EX_LocalVirtualFunction ToggleAffliction
+            EX_LocalVariable [K2Node_CustomEvent_affliction_1]
+            EX_True
+562:    EX_PopExecutionFlow
+563:    EX_LocalVirtualFunction ToggleAffliction
+            EX_LocalVariable [K2Node_CustomEvent_affliction]
+            EX_False
+587:    EX_PopExecutionFlow
+588:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+598:    EX_Jump 15
+603:    EX_Return
+            EX_Nothing
+605:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_AfflictionBox_C->ExecuteUbergraph_HUD_EnemyTargeting_AfflictionBox
+            EX_IntConst 588
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAfflictionDeactivatedEvent_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_affliction]
+            EX_LocalVariable [affliction]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_AfflictionBox_C->ExecuteUbergraph_HUD_EnemyTargeting_AfflictionBox
+            EX_IntConst 563
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAfflictionActivatedEvent_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_affliction_1]
+            EX_LocalVariable [affliction]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_AfflictionBox_C->ExecuteUbergraph_HUD_EnemyTargeting_AfflictionBox
+            EX_IntConst 538
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetTarget
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InAfflictionTarget]
+            EX_LocalVariable [InAfflictionTarget]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_AfflictionBox_C->ExecuteUbergraph_HUD_EnemyTargeting_AfflictionBox
+            EX_IntConst 476
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ToggleAffliction
+0:      EX_PushExecutionFlow 729
+5:      EX_LetBool
+            EX_LocalVariable [CallFunc_Array_Contains_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Contains
+                    EX_InstanceVariable [IgnoreAfflictions]
+                    EX_LocalVariable [InAffliction]
+                RValue = [CallFunc_Array_Contains_ReturnValue]
+65:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_Array_Contains_ReturnValue]
+94:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_Context
+                    EX_LocalVariable [InAffliction]
+                    EX_InstanceVariable [bShowOnEnemyHealthbar]
+                    RValue = [bShowOnEnemyHealthbar]
+154:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+164:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [AfflictionWidgets]
+                    EX_LocalVariable [InAffliction]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+233:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Map_Find_Value]
+252:    EX_JumpIfNot 315
+            EX_LocalVariable [InVisible]
+266:    EX_PushExecutionFlow 393
+271:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Widget]
+300:    EX_JumpIfNot 432
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+314:    EX_PopExecutionFlow
+315:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Widget]
+344:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+354:    EX_Context
+            EX_LocalVariable [Widget]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+392:    EX_PopExecutionFlow
+393:    EX_Context
+            EX_LocalVariable [Widget]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+431:    EX_PopExecutionFlow
+432:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+456:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/MainOnscreenHUD/EnemyHealthBar/HUD_EnemyTargeting_Affliction->HUD_EnemyTargeting_Affliction_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+517:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetFloatPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Size
+            EX_InstanceVariable [Size]
+558:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Affliction
+            EX_LocalVariable [InAffliction]
+599:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+618:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AfflictionBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [Widget]
+                RValue = [CallFunc_AddChild_ReturnValue]
+669:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_InstanceVariable [AfflictionWidgets]
+                EX_LocalVariable [InAffliction]
+                EX_LocalVariable [Widget]
+            RValue = []
+728:    EX_PopExecutionFlow
+729:    EX_Return
+            EX_Nothing
+731:    EX_EndOfScript
+FunctionExport ClearAfflictions
+0:      EX_Context
+            EX_InstanceVariable [AfflictionBox]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+36:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Clear
+                EX_InstanceVariable [AfflictionWidgets]
+            RValue = []
+77:     EX_Return
+            EX_Nothing
+79:     EX_EndOfScript
+FunctionExport ToggleIgnoreAffliction
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Affliction]
+29:     EX_JumpIfNot 190
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_JumpIfNot 130
+            EX_LocalVariable [ShouldIgnore]
+57:     EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [IgnoreAfflictions]
+                    EX_LocalVariable [Affliction]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue]
+125:    EX_Jump 190
+130:    EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [IgnoreAfflictions]
+                    EX_LocalVariable [Affliction]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue]
+190:    EX_Return
+            EX_Nothing
+192:    EX_EndOfScript
+FunctionExport ToggleIgnoreAfflictions
+0:      EX_PushExecutionFlow 356
+5:      EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+51:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [Affliction]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+110:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+148:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+158:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+185:    EX_PushExecutionFlow 282
+190:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [Affliction]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+249:    EX_LocalVirtualFunction ToggleIgnoreAffliction
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [ShouldIgnore]
+281:    EX_PopExecutionFlow
+282:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+324:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+351:    EX_Jump 51
+356:    EX_Return
+            EX_Nothing
+358:    EX_EndOfScript
+FunctionExport SetAfflictionComponent
+0:      EX_PushExecutionFlow 907
+5:      EX_PushExecutionFlow 178
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [AfflictionComponent]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+49:     EX_BindDelegate OnAfflictionActivatedEvent_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+72:     EX_RemoveMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [AfflictionComponent]
+                EX_InstanceVariable [OnAfflictionActivatedEvent]
+                RValue = [OnAfflictionActivatedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+113:    EX_BindDelegate OnAfflictionDeactivatedEvent_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+136:    EX_RemoveMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [AfflictionComponent]
+                EX_InstanceVariable [OnAfflictionDeactivatedEvent]
+                RValue = [OnAfflictionDeactivatedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+177:    EX_PopExecutionFlow
+178:    EX_LetObj
+            EX_InstanceVariable [AfflictionComponent]
+            EX_LocalVariable [InAfflictionComponent]
+197:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [AfflictionComponent]
+226:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [AfflictionBox]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+312:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+322:    EX_LocalVirtualFunction ClearAfflictions
+336:    EX_BindDelegate OnAfflictionActivatedEvent_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+359:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [AfflictionComponent]
+                EX_InstanceVariable [OnAfflictionActivatedEvent]
+                RValue = [OnAfflictionActivatedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+400:    EX_BindDelegate OnAfflictionDeactivatedEvent_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+423:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [AfflictionComponent]
+                EX_InstanceVariable [OnAfflictionDeactivatedEvent]
+                RValue = [OnAfflictionDeactivatedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+464:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+487:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+510:    EX_Let
+            EX_LocalVariable [CallFunc_GetActiveAfflictions_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AfflictionComponent]
+                EX_FinalFunction import /Script/FSD->PawnAfflictionComponent->GetActiveAfflictions
+                RValue = [CallFunc_GetActiveAfflictions_ReturnValue]
+560:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetActiveAfflictions_ReturnValue]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+619:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+657:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+667:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+694:    EX_PushExecutionFlow 833
+699:    EX_Let
+            EX_LocalVariable [CallFunc_GetActiveAfflictions_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AfflictionComponent]
+                EX_FinalFunction import /Script/FSD->PawnAfflictionComponent->GetActiveAfflictions
+                RValue = [CallFunc_GetActiveAfflictions_ReturnValue]
+749:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetActiveAfflictions_ReturnValue]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+808:    EX_LocalVirtualFunction ToggleAffliction
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_True
+832:    EX_PopExecutionFlow
+833:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+875:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+902:    EX_Jump 510
+907:    EX_Return
+            EX_Nothing
+909:    EX_EndOfScript

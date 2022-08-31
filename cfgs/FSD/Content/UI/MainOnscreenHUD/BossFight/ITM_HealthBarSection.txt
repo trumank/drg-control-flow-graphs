@@ -1,0 +1,300 @@
+FunctionExport ExecuteUbergraph_ITM_HealthBarSection
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_InstanceVariable [Percent]
+                EX_LocalVariable [K2Node_CustomEvent_InPercent]
+48:     EX_LetBool
+            EX_InstanceVariable [IsHeal]
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue_1]
+67:     EX_Let
+            EX_InstanceVariable [Percent]
+            EX_LocalVariable [K2Node_CustomEvent_InPercent]
+94:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [K2Node_CustomEvent_WithAnim]
+123:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->IsAnimationPlaying
+                EX_InstanceVariable [HitAnim]
+152:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_IsAnimationPlaying_ReturnValue]
+190:    EX_JumpIfNot 313
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+204:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [IsHeal]
+223:    EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 277
+                case 0:
+                    EX_False
+                    NextCaseOffset = 254
+                    EX_InstanceVariable [ProgressBar_Health]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 268
+                    EX_InstanceVariable [ProgressBar_Trail]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_InstanceVariable [Percent]
+            RValue = []
+308:    EX_Jump 1712
+313:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_InstanceVariable [IsHeal]
+332:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_2]
+                    OffsetToSwitchEnd = 404
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 381
+                        EX_InstanceVariable [HitAnim]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 395
+                        EX_InstanceVariable [HealAnim]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_2]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 2
+                EX_False
+423:    EX_Jump 204
+428:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_InstanceVariable [FillledGoodHealth]
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+483:    EX_Context
+            EX_InstanceVariable [ProgressBar_Health]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+524:    EX_Context
+            EX_InstanceVariable [Background]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_InstanceVariable [BackgroundColor]
+            RValue = []
+565:    EX_Jump 1712
+570:    EX_LocalVirtualFunction SetPercent
+            EX_FloatConst 0
+            EX_True
+590:    EX_Context
+            EX_Self
+            EX_VirtualFunction SetIsEnabled
+                EX_False
+            RValue = []
+619:    EX_Jump 1712
+624:    EX_BindDelegate HitAnimFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+647:    EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationFinished
+            EX_InstanceVariable [HitAnim]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+675:    EX_BindDelegate HitAnimFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+698:    EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationFinished
+            EX_InstanceVariable [HealAnim]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+726:    EX_Context
+            EX_InstanceVariable [ProgressBar_Trail]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_FloatConst 1
+            RValue = []
+763:    EX_Context
+            EX_InstanceVariable [ProgressBar_Health]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_FloatConst 1
+            RValue = []
+800:    EX_Jump 1712
+805:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [IsHeal]
+824:    EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 878
+                case 0:
+                    EX_False
+                    NextCaseOffset = 855
+                    EX_InstanceVariable [ProgressBar_Trail]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 869
+                    EX_InstanceVariable [ProgressBar_Health]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_InstanceVariable [Percent]
+            RValue = []
+909:    EX_Context
+            EX_InstanceVariable [ProgressBar_Trail]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderOpacity
+                EX_FloatConst 1
+            RValue = []
+946:    EX_Jump 1712
+951:    EX_Jump 428
+956:    EX_LetBool
+            EX_InstanceVariable [DoFadeGray]
+            EX_LocalVariable [K2Node_CustomEvent_FadeToGray]
+975:    EX_Let
+            EX_LocalVariable [CallFunc_GetGameTimeInSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->GetGameTimeInSeconds
+                EX_Self
+1004:   EX_Let
+            EX_InstanceVariable [FadeStartTime]
+            EX_LocalVariable [CallFunc_GetGameTimeInSeconds_ReturnValue]
+1031:   EX_BindDelegate Colorfade
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+1054:   EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 0.05
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+1107:   EX_Let
+            EX_InstanceVariable [GrayFadeTimer]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+1134:   EX_Jump 1712
+1139:   EX_Let
+            EX_LocalVariable [CallFunc_GetGameTimeInSeconds_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->GetGameTimeInSeconds
+                EX_Self
+1168:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_GetGameTimeInSeconds_ReturnValue_2]
+                EX_InstanceVariable [FadeStartTime]
+1214:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_InstanceVariable [FillledGoodHealth]
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+1269:   EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_InstanceVariable [TotalFadeTime]
+1315:   EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+                EX_FloatConst 0
+                EX_FloatConst 1
+1362:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+1404:   EX_Let
+            EX_LocalVariable [CallFunc_SelectFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SelectFloat
+                EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+                EX_InstanceVariable [DoFadeGray]
+1459:   EX_Let
+            EX_LocalVariable [CallFunc_LinearColorLerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LinearColorLerp
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0.3
+                    EX_FloatConst 0.3
+                    EX_FloatConst 0.3
+                    EX_FloatConst 1
+                EX_LocalVariable [CallFunc_SelectFloat_ReturnValue]
+1539:   EX_Context
+            EX_InstanceVariable [ProgressBar_Health]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetFillColorAndOpacity
+                EX_LocalVariable [CallFunc_LinearColorLerp_ReturnValue]
+            RValue = []
+1580:   EX_Let
+            EX_LocalVariable [CallFunc_GetGameTimeInSeconds_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->GetGameTimeInSeconds
+                EX_Self
+1609:   EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [TotalFadeTime]
+                EX_InstanceVariable [FadeStartTime]
+1655:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_GetGameTimeInSeconds_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+1693:   EX_JumpIfNot 1712
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+1707:   EX_Jump 1031
+1712:   EX_Return
+            EX_Nothing
+1714:   EX_EndOfScript
+FunctionExport Colorfade
+0:      EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 1139
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeGray
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_FadeToGray]
+            EX_LocalVariable [FadeToGray]
+18:     EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 956
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 951
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport HitAnimFinished
+0:      EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 805
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 624
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetDestroyed
+0:      EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 570
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetPercent
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InPercent]
+            EX_LocalVariable [InPercent]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_WithAnim]
+            EX_LocalVariable [WithAnim]
+36:     EX_LocalFinalFunction export ITM_HealthBarSection_C->ExecuteUbergraph_ITM_HealthBarSection
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

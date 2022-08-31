@@ -1,0 +1,203 @@
+FunctionExport ExecuteUbergraph_W_TutorialDepositGold
+0:      EX_PushExecutionFlow 1487
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction SetImage
+            EX_ObjectConst import /Game/UI/Art/Icons/Tutorial_Images/Icon_Tutorial_Deposit->Icon_Tutorial_Deposit
+38:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasCharacter_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDUserWidget->HasCharacter
+58:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasCharacter_ReturnValue]
+68:     EX_BindDelegate FinishedDepositing
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+91:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetUseComponent
+                RValue = [CallFunc_GetUseComponent_ReturnValue]
+133:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+                EX_InstanceVariable [OnDepositingEnd]
+                RValue = [OnDepositingEnd]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+174:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDPlayerState_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDUserWidget->GetFSDPlayerState
+194:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+214:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDPlayerState_ReturnValue]
+                    EX_InstanceVariable [PlayerResources]
+                    RValue = [PlayerResources]
+                EX_FinalFunction import /Script/FSD->ResourcesComponent->GetResource
+                    EX_StructMemberContext [GoldResource]
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                            EX_InstanceVariable [Resources]
+                            RValue = [Resources]
+                    EX_True
+                RValue = [CallFunc_GetResource_ReturnValue]
+319:    EX_Let
+            EX_InstanceVariable [StartAmount]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+                EX_InstanceVariable [CurrentAmount]
+                RValue = [CurrentAmount]
+368:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+389:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+409:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetResource_ReturnValue_1]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [TeamResources]
+                    RValue = [TeamResources]
+                EX_FinalFunction import /Script/FSD->ResourcesComponent->GetResource
+                    EX_StructMemberContext [GoldResource]
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue_1]
+                            EX_InstanceVariable [Resources]
+                            RValue = [Resources]
+                    EX_True
+                RValue = [CallFunc_GetResource_ReturnValue_1]
+514:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetResource_ReturnValue_1]
+                    EX_InstanceVariable [CurrentAmount]
+                    RValue = [CurrentAmount]
+                EX_FloatConst 15
+570:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+580:    EX_LocalVirtualFunction FinishedDepositing
+            EX_NoObject
+595:    EX_PopExecutionFlow
+596:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+607:    EX_PopExecutionFlowIfNot
+            EX_False
+609:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+620:    EX_PopExecutionFlow
+621:    EX_JumpIfNot 596
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+635:    EX_PopExecutionFlow
+636:    EX_PushExecutionFlow 646
+641:    EX_Jump 621
+646:    EX_JumpIfNot 661
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+660:    EX_PopExecutionFlow
+661:    EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+672:    EX_LocalVirtualFunction CompleteWithAnim
+686:    EX_PopExecutionFlow
+687:    EX_LocalFinalFunction import /Game/UI/Tutorial/W_TutorialContent_Base->W_TutorialContent_Base_C->OnShown
+697:    EX_Let
+            EX_InstanceVariable [Gold Mined]
+            EX_FloatConst 0
+720:    EX_LocalVirtualFunction UpdateText
+734:    EX_Jump 15
+739:    EX_LocalVirtualFunction SetText
+            EX_TextConst
+                SourceString = Depositing
+                LocalizedKey = AFDABC18448B1D626DF030AD24EECE6A
+                LocalizedNamespace = 
+            EX_TextConst
+                SourceString = Press <CallDonkey/> to <bold>call the M.U.L.E.</> and approach it to <bold>deposit the resources</> you have gathered. The M.U.L.E. is a walking storage container which carries the contents of the <bold>Team Depository</>.
+                LocalizedKey = 8DA0AD8F4C6C04502369BE8F00D8D3F3
+                LocalizedNamespace = 
+            EX_TextConst
+                SourceString = <bold>Deposit</> the Gold
+                LocalizedKey = 844FA7A84504CE3362627B895BD892CE
+                LocalizedNamespace = 
+1130:   EX_PopExecutionFlow
+1131:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDPlayerState_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDUserWidget->GetFSDPlayerState
+1151:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+1171:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [StartAmount]
+                EX_FloatConst 10
+1213:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDPlayerState_ReturnValue]
+                    EX_InstanceVariable [PlayerResources]
+                    RValue = [PlayerResources]
+                EX_FinalFunction import /Script/FSD->ResourcesComponent->GetResource
+                    EX_StructMemberContext [GoldResource]
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                            EX_InstanceVariable [Resources]
+                            RValue = [Resources]
+                    EX_True
+                RValue = [CallFunc_GetResource_ReturnValue]
+1318:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+                    EX_InstanceVariable [CurrentAmount]
+                    RValue = [CurrentAmount]
+                EX_FloatConst 5
+1374:   EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+                    EX_InstanceVariable [CurrentAmount]
+                    RValue = [CurrentAmount]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+1434:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+1472:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+1482:   EX_Jump 636
+1487:   EX_Return
+            EX_Nothing
+1489:   EX_EndOfScript
+FunctionExport FinishedDepositing
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ResourceBank]
+            EX_LocalVariable [ResourceBank]
+18:     EX_LocalFinalFunction export W_TutorialDepositGold_C->ExecuteUbergraph_W_TutorialDepositGold
+            EX_IntConst 1131
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateText
+0:      EX_LocalFinalFunction export W_TutorialDepositGold_C->ExecuteUbergraph_W_TutorialDepositGold
+            EX_IntConst 739
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnShown
+0:      EX_LocalFinalFunction export W_TutorialDepositGold_C->ExecuteUbergraph_W_TutorialDepositGold
+            EX_IntConst 687
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

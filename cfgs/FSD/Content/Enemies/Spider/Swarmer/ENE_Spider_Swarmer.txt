@@ -1,0 +1,115 @@
+FunctionExport ExecuteUbergraph_ENE_Spider_Swarmer
+0:      EX_PushExecutionFlow 612
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Context
+            EX_InstanceVariable [SwarmerIdle_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.5
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+63:     EX_PopExecutionFlow
+64:     EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+98:     EX_Context
+            EX_InstanceVariable [DropShadow]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+132:    EX_PushExecutionFlow 15
+137:    EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+148:    EX_JumpIfNot 489
+            EX_InstanceVariable [IsFrozen]
+162:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketRotation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketRotation
+                    EX_NameConst Spider_Chest
+                RValue = [CallFunc_GetSocketRotation_ReturnValue]
+229:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst Spider_Chest
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+296:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Enemies/Spider/Afflictions/P_FrozenDeath_Spider_Small->P_FrozenDeath_Spider_Small
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_GetSocketRotation_ReturnValue]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+361:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst Spider_Chest
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+428:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/DiggingSoundsMaterial/RadioActiveDNA_Mining_Cue->RadioActiveDNA_Mining_Cue
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 1
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+488:    EX_PopExecutionFlow
+489:    EX_LocalVirtualFunction PlayDeathEffects
+503:    EX_PopExecutionFlow
+504:    EX_Context
+            EX_InstanceVariable [DropShadow]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [K2Node_Event_bNewVisibility]
+                EX_False
+            RValue = []
+546:    EX_PopExecutionFlow
+547:    EX_LocalFinalFunction import /Game/Enemies/Spider/ENE_PF_SpiderBase->ENE_PF_SpiderBase_C->OnFrozen
+            EX_LocalVariable [K2Node_Event_source]
+566:    EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_VirtualFunction SetPhysMaterialOverride
+                EX_ObjectConst import /Game/Enemies/Spider/PhysicalMaterials/PM_SpiderFrozen->PM_SpiderFrozen
+            RValue = []
+611:    EX_PopExecutionFlow
+612:    EX_Return
+            EX_Nothing
+614:    EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_source]
+            EX_LocalVariable [source]
+18:     EX_LocalFinalFunction export ENE_Spider_Swarmer_C->ExecuteUbergraph_ENE_Spider_Swarmer
+            EX_IntConst 547
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ChangeVisibility
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_bNewVisibility]
+            EX_LocalVariable [bNewVisibility]
+18:     EX_LocalFinalFunction export ENE_Spider_Swarmer_C->ExecuteUbergraph_ENE_Spider_Swarmer
+            EX_IntConst 504
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDeathBase
+0:      EX_LocalFinalFunction export ENE_Spider_Swarmer_C->ExecuteUbergraph_ENE_Spider_Swarmer
+            EX_IntConst 64
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

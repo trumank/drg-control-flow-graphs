@@ -1,0 +1,51 @@
+FunctionExport ExecuteUbergraph_BP_OxygenRich
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_LocalVariable [CallFunc_AddModifier_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_CustomEvent_PlayerCharacter]
+                    EX_InstanceVariable [PawnStatsComponent]
+                    RValue = [PawnStatsComponent]
+                EX_FinalFunction import /Script/FSD->PawnStatsComponent->AddModifier
+                    EX_ObjectConst import /Game/GameElements/PawnStats/PST_MovementSpeed->PST_MovementSpeed
+                    EX_FloatConst 1.5
+                RValue = [CallFunc_AddModifier_ReturnValue]
+96:     EX_Jump 221
+101:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsServer_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsServer
+                EX_Self
+122:    EX_JumpIfNot 221
+            EX_LocalVariable [CallFunc_IsServer_ReturnValue]
+136:    EX_BindDelegate PlayerSpawned
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+159:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+180:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                EX_InstanceVariable [OnPlayerCharacterRegistered]
+                RValue = [OnPlayerCharacterRegistered]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+221:    EX_Return
+            EX_Nothing
+223:    EX_EndOfScript
+FunctionExport PlayerSpawned
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_PlayerCharacter]
+            EX_LocalVariable [PlayerCharacter]
+18:     EX_LocalFinalFunction export BP_OxygenRich_C->ExecuteUbergraph_BP_OxygenRich
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport StartLogic
+0:      EX_LocalFinalFunction export BP_OxygenRich_C->ExecuteUbergraph_BP_OxygenRich
+            EX_IntConst 101
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

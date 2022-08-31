@@ -1,0 +1,1065 @@
+FunctionExport ExecuteUbergraph_WPN_MicroMissileLauncher
+0:      EX_PushExecutionFlow 2815
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 184
+20:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [FirstPersonWidget_Ammo]
+                EX_FinalFunction import /Script/UMG->WidgetComponent->GetUserWidgetObject
+                RValue = [CallFunc_GetUserWidgetObject_ReturnValue]
+62:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsWeapon_Display_Base_Ammo_Count]
+            EX_DynamicCast import /Game/UI/WeaponDisplays/WeaponDisplay_Base_AmmoCount->WeaponDisplay_Base_AmmoCount_C
+                EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+98:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsWeapon_Display_Base_Ammo_Count]
+127:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+137:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsWeapon_Display_Base_Ammo_Count]
+            EX_LocalVirtualFunction InitializeAmmoWidget
+                EX_Self
+                EX_InstanceVariable [FirstPersonWidget_Ammo]
+            RValue = []
+183:    EX_PopExecutionFlow
+184:    EX_BindDelegate OnProjectileSpawned_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+207:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [ChargedProjectileLauncher]
+                EX_InstanceVariable [OnProjectileSpawned]
+                RValue = [OnProjectileSpawned]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+248:    EX_PopExecutionFlow
+249:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Character]
+278:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+288:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_FinalFunction import /Script/FSD->Item->IsLocallyControlled
+308:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+                EX_InstanceVariable [IsEquipped]
+346:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [CanAim]
+                    RValue = [CanAim]
+406:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+416:    EX_LocalVirtualFunction SetHomingTarget
+430:    EX_PopExecutionFlow
+431:    EX_LocalVirtualFunction SetUpgradeModifiers
+            EX_LocalVariable [K2Node_Event_Event]
+454:    EX_PopExecutionFlow
+455:    EX_Let
+            EX_LocalVariable [CallFunc_Array_AddUnique_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_AddUnique
+                    EX_InstanceVariable [HomingTargetIgnoreList]
+                    EX_InstanceVariable [Instigator]
+                RValue = [CallFunc_Array_AddUnique_ReturnValue]
+523:    EX_Let
+            EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [FirstPersonCamera]
+                    RValue = [FirstPersonCamera]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetForwardVector
+                RValue = [CallFunc_GetForwardVector_ReturnValue]
+595:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [FirstPersonCamera]
+                    RValue = [FirstPersonCamera]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+667:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+                EX_InstanceVariable [TraceDistance]
+713:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+759:    EX_LetBool
+            EX_LocalVariable [CallFunc_LineTraceSingle_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->LineTraceSingle
+                EX_Self
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_ByteConst 2
+                EX_False
+                EX_InstanceVariable [HomingTargetIgnoreList]
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_LineTraceSingle_OutHit]
+                EX_True
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_FloatConst 5
+895:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LineTraceSingle_ReturnValue]
+905:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_LineTraceSingle_OutHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+1077:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsDamage_Enhancer]
+            EX_DynamicCast import /Script/FSD->DamageEnhancer
+                EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+1113:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsDamage_Enhancer]
+1142:   EX_JumpIfNot 2062
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+1156:   EX_Let
+            EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [FirstPersonCamera]
+                    RValue = [FirstPersonCamera]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetForwardVector
+                RValue = [CallFunc_GetForwardVector_ReturnValue]
+1228:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Character]
+                    EX_InstanceVariable [FirstPersonCamera]
+                    RValue = [FirstPersonCamera]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+1300:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+                EX_InstanceVariable [TraceDistance]
+1346:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+1392:   EX_LetBool
+            EX_LocalVariable [CallFunc_LineTraceSingle_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->LineTraceSingle
+                EX_Self
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_ByteConst 4
+                EX_False
+                EX_InstanceVariable [HomingTargetIgnoreList]
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_LineTraceSingle_OutHit_1]
+                EX_True
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_FloatConst 5
+1528:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LineTraceSingle_ReturnValue_1]
+1538:   EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_LineTraceSingle_OutHit_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd_1]
+1710:   EX_Let
+            EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->VectorToNetQuantize
+                EX_LocalVariable [CallFunc_BreakHitResult_Location_1]
+1747:   EX_VirtualFunction Server_SetHomingLocation
+            EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue_1]
+1770:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_3]
+            EX_FinalFunction import /Script/FSD->Item->IsLocallyControlled
+1790:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_3]
+1800:   EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_LineTraceSingle_OutHit_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart_1]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd_1]
+1972:   EX_Let
+            EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->VectorToNetQuantize
+                EX_LocalVariable [CallFunc_BreakHitResult_Location_1]
+2009:   EX_Context
+            EX_InstanceVariable [HomingTarget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetWorldLocation
+                EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue_1]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetWorldLocation_SweepHitResult_2]
+                EX_True
+            RValue = []
+2061:   EX_PopExecutionFlow
+2062:   EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_LineTraceSingle_OutHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+2234:   EX_Let
+            EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->VectorToNetQuantize
+                EX_LocalVariable [CallFunc_BreakHitResult_Location]
+2271:   EX_VirtualFunction Server_SetHomingLocation
+            EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue]
+2294:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->Item->IsLocallyControlled
+2314:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_1]
+2324:   EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_LineTraceSingle_OutHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+2496:   EX_Let
+            EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->VectorToNetQuantize
+                EX_LocalVariable [CallFunc_BreakHitResult_Location]
+2533:   EX_Context
+            EX_InstanceVariable [HomingTarget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetWorldLocation
+                EX_LocalVariable [CallFunc_VectorToNetQuantize_ReturnValue]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetWorldLocation_SweepHitResult_1]
+                EX_True
+            RValue = []
+2585:   EX_PopExecutionFlow
+2586:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsProjectile]
+            EX_DynamicCast import /Script/FSD->Projectile
+                EX_LocalVariable [K2Node_CustomEvent_Projectile]
+2622:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsProjectile]
+2651:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsProjectile]
+            EX_FinalFunction import /Script/FSD->Projectile->SetHomingTargetComponent
+                EX_InstanceVariable [HomingTarget]
+                EX_FloatConst 0.2
+            RValue = []
+2697:   EX_PopExecutionFlow
+2698:   EX_Jump 249
+2703:   EX_VirtualFunction All_SetHomingLocation
+            EX_LocalVariable [K2Node_CustomEvent_HomingLocation_1]
+2726:   EX_PopExecutionFlow
+2727:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_2]
+            EX_FinalFunction import /Script/FSD->Item->IsLocallyControlled
+2747:   EX_JumpIfNot 2762
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_2]
+2761:   EX_PopExecutionFlow
+2762:   EX_Context
+            EX_InstanceVariable [HomingTarget]
+            EX_FinalFunction import /Script/Engine->SceneComponent->K2_SetWorldLocation
+                EX_LocalVariable [K2Node_CustomEvent_HomingLocation]
+                EX_False
+                EX_LocalVariable [CallFunc_K2_SetWorldLocation_SweepHitResult]
+                EX_True
+            RValue = []
+2814:   EX_PopExecutionFlow
+2815:   EX_Return
+            EX_Nothing
+2817:   EX_EndOfScript
+FunctionExport All_SetHomingLocation
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HomingLocation]
+            EX_LocalVariable [HomingLocation]
+18:     EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 2727
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Server_SetHomingLocation
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HomingLocation_1]
+            EX_LocalVariable [HomingLocation]
+18:     EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 2703
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveTick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+18:     EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 2698
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnProjectileSpawned_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Projectile]
+            EX_LocalVariable [Projectile]
+18:     EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 2586
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetHomingTarget
+0:      EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 455
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CustomEvent1
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Event]
+            EX_LocalVariable [Event]
+18:     EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 431
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export WPN_MicroMissileLauncher_C->ExecuteUbergraph_WPN_MicroMissileLauncher
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport GetGearStatEntry
+0:      EX_PushExecutionFlow 4225
+5:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_2]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+26:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentFromClass
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_2]
+                EX_ObjectConst import /Script/FSD->ChargedProjectileLauncherComponent
+64:     EX_PushExecutionFlow 398
+69:     EX_PushExecutionFlow 3986
+74:     EX_PushExecutionFlow 3701
+79:     EX_PushExecutionFlow 3456
+84:     EX_PushExecutionFlow 3246
+89:     EX_PushExecutionFlow 3036
+94:     EX_PushExecutionFlow 2830
+99:     EX_PushExecutionFlow 2620
+104:    EX_PushExecutionFlow 2410
+109:    EX_PushExecutionFlow 2116
+114:    EX_PushExecutionFlow 1906
+119:    EX_PushExecutionFlow 1738
+124:    EX_PushExecutionFlow 1532
+129:    EX_PushExecutionFlow 1364
+134:    EX_PushExecutionFlow 971
+139:    EX_PushExecutionFlow 803
+144:    EX_PushExecutionFlow 603
+149:    EX_PushExecutionFlow 403
+154:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+175:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_TextConst
+                    SourceString = Direct
+                    LocalizedKey = D0D9BE884FDE330D9224C18BDBE0BB3D
+                    LocalizedNamespace = 
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue]
+            RValue = []
+329:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_6]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_6]
+397:    EX_PopExecutionFlow
+398:    EX_Jump 4225
+403:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+424:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 4
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_7]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_7]
+            RValue = []
+534:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_17]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_7]
+                RValue = [CallFunc_Array_Add_ReturnValue_17]
+602:    EX_PopExecutionFlow
+603:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+624:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 5
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_6]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_6]
+            RValue = []
+734:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_16]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_6]
+                RValue = [CallFunc_Array_Add_ReturnValue_16]
+802:    EX_PopExecutionFlow
+803:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+824:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 1
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades]
+            RValue = []
+902:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_1]
+970:    EX_PopExecutionFlow
+971:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+992:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_3]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades_3]
+            RValue = []
+1070:   EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_3]
+1115:   EX_Let
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_3]
+1160:   EX_Let
+            EX_StructMemberContext [BaseValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_StructMemberContext [BaseValue]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_3]
+1205:   EX_Let
+            EX_StructMemberContext [UpgradeValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_StructMemberContext [UpgradeValue]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_3]
+1250:   EX_Let
+            EX_StructMemberContext [PreviewStatus]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_StructMemberContext [PreviewStatus]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_3]
+1295:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_2]
+1363:   EX_PopExecutionFlow
+1364:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1385:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 2
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_2]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades_2]
+            RValue = []
+1463:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_4]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_2]
+                RValue = [CallFunc_Array_Add_ReturnValue_4]
+1531:   EX_PopExecutionFlow
+1532:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1553:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Projectile
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 1
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry_2]
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue_2]
+            RValue = []
+1659:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue_2]
+1669:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_11]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry_2]
+                RValue = [CallFunc_Array_Add_ReturnValue_11]
+1737:   EX_PopExecutionFlow
+1738:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1759:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 3
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades_1]
+            RValue = []
+1837:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_3]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_3]
+1905:   EX_PopExecutionFlow
+1906:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1927:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 6
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_4]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_4]
+            RValue = []
+2037:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_4]
+2047:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_15]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_4]
+                RValue = [CallFunc_Array_Add_ReturnValue_15]
+2115:   EX_PopExecutionFlow
+2116:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2137:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_DamageBonus_DamageConversion
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ObjectConst import /Game/GameElements/Damage/DMG_Heat->DMG_Heat
+                EX_TextConst
+                    TableId = /Game/Game/Text/ST_GearUpgrades.ST_GearUpgrades
+                    TableKey = T_ConvertedToHeat
+                EX_True
+                EX_ByteConst 2
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_DamageBonus_DamageConversion_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_DamageBonus_DamageConversion_HasUpgradedValue]
+            RValue = []
+2331:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_DamageBonus_DamageConversion_HasUpgradedValue]
+2341:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_10]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_DamageBonus_DamageConversion_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_10]
+2409:   EX_PopExecutionFlow
+2410:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2431:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 2
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_3]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_3]
+            RValue = []
+2541:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_3]
+2551:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_13]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_3]
+                RValue = [CallFunc_Array_Add_ReturnValue_13]
+2619:   EX_PopExecutionFlow
+2620:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2641:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 3
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_2]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_2]
+            RValue = []
+2751:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_3]
+2761:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_12]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_2]
+                RValue = [CallFunc_Array_Add_ReturnValue_12]
+2829:   EX_PopExecutionFlow
+2830:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2851:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Projectile
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue]
+            RValue = []
+2957:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue]
+2967:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_7]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_7]
+3035:   EX_PopExecutionFlow
+3036:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3057:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 1
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_1]
+            RValue = []
+3167:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_1]
+3177:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_8]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_8]
+3245:   EX_PopExecutionFlow
+3246:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3267:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 7
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_5]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_5]
+            RValue = []
+3377:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_5]
+3387:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_14]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_5]
+                RValue = [CallFunc_Array_Add_ReturnValue_14]
+3455:   EX_PopExecutionFlow
+3456:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3477:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_ObjectConst import /Game/WeaponsNTools/MicroMissileLauncher/Upgrades/UPG_MML_E_DamageOverTime->UPG_MML_E_DamageOverTime
+                EX_True
+                EX_TextConst
+                    SourceString = Nitroglycerin Compound
+                    LocalizedKey = 6C82390D4BF2D0C1E5EC0E9D002DC835
+                    LocalizedNamespace = 
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_1]
+            RValue = []
+3622:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_1]
+3632:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+3700:   EX_PopExecutionFlow
+3701:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3722:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Projectile
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetComponentFromClass_ReturnValue]
+                    EX_InstanceVariable [NormalProjectileClass]
+                    RValue = [NormalProjectileClass]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 9
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue_1]
+            RValue = []
+3828:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue_1]
+3838:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry_1]
+            EX_TextConst
+                SourceString = Instant Acceleration
+                LocalizedKey = 6CED3C0747E47FF5436350A85A2B7633
+                LocalizedNamespace = 
+3917:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_9]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_9]
+3985:   EX_PopExecutionFlow
+3986:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+4007:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_ObjectConst import /Game/WeaponsNTools/MicroMissileLauncher/Overclocks/OCBonusesAndPenalties/Bonus_MineHeadMissile_MML->Bonus_MineHeadMissile_MML
+                EX_True
+                EX_TextConst
+                    SourceString = Minelayer System
+                    LocalizedKey = D7A3A0FD4354D0A7238898B7E61FD99E
+                    LocalizedNamespace = 
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue]
+            RValue = []
+4146:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue]
+4156:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_5]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_5]
+4224:   EX_PopExecutionFlow
+4225:   EX_Return
+            EX_Nothing
+4227:   EX_EndOfScript
+FunctionExport SetUpgradeModifiers
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [ItemUpgrade]
+                EX_ObjectConst import /Game/WeaponsNTools/MicroMissileLauncher/Overclocks/OCBonusesAndPenalties/Bonus_ChargeRate_MML->Bonus_ChargeRate_MML
+38:     EX_JumpIfNot 255
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+52:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_FloatConst 1
+                EX_InstanceVariable [RateOfFire]
+94:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntFloat
+                EX_InstanceVariable [ChargeMaxFireCount]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+140:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+                EX_FloatConst 1
+182:    EX_Let
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FMax
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+228:    EX_Let
+            EX_InstanceVariable [ChargeTime]
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+255:    EX_Return
+            EX_Nothing
+257:    EX_EndOfScript

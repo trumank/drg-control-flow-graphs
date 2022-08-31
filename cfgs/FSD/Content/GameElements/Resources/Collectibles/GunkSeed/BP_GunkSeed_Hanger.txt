@@ -1,0 +1,394 @@
+FunctionExport ExecuteUbergraph_BP_GunkSeed_Hanger
+0:      EX_PushExecutionFlow 1287
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [CallFunc_RandomUnitVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomUnitVector
+43:     EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_InstanceVariable [MinForce]
+                EX_InstanceVariable [MaxForce]
+89:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_RandomUnitVector_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+135:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction SetPhysicsLinearVelocity
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_False
+                EX_NameConst GunkSeed_Head
+            RValue = []
+194:    EX_PopExecutionFlow
+195:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+215:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+225:    EX_Context
+            EX_InstanceVariable [TerrainDetect]
+            EX_FinalFunction import /Script/FSD->TerrainDetectComponent->StartDetect
+            RValue = []
+257:    EX_PopExecutionFlow
+258:    EX_LocalVirtualFunction OnRep_SlapForce
+272:    EX_VirtualFunction ForceNetUpdate
+286:    EX_PopExecutionFlow
+287:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 12
+            EX_NameConst SlapForce
+316:    EX_Jump 258
+321:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+331:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue_1]
+381:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                EX_VectorConst 0,0,50
+431:    EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 200
+                EX_FloatConst 400
+469:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst GunkSeed_Head
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+536:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+582:    EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+                EX_FloatConst 0.0001
+624:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_1]
+670:    EX_Let
+            EX_InstanceVariable [SlapForce]
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+697:    EX_Jump 287
+702:    EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [HasSeed]
+712:    EX_Jump 321
+717:    EX_PopExecutionFlow
+718:    EX_Context
+            EX_InstanceVariable [AoeOverlapSphere]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 1
+            RValue = []
+756:    EX_PushExecutionFlow 766
+761:    EX_Jump 195
+766:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst -1895943235
+                EX_NameConst ExecuteUbergraph_BP_GunkSeed_Hanger
+                EX_Self
+820:    EX_PopExecutionFlow
+821:    EX_Context
+            EX_InstanceVariable [SimpleHealth]
+            EX_VirtualFunction Kill
+                EX_NoObject
+            RValue = []
+858:    EX_PopExecutionFlow
+859:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+893:    EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+904:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+932:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Resources/Collectibles/GunkSeed/P_GunkSeed_Explode->P_GunkSeed_Explode
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+1001:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1021:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_2]
+1031:   EX_Context
+            EX_InstanceVariable [PathfinderCollision]
+            EX_FinalFunction import /Script/FSD->PathfinderCollisionComponent->DisablePFCollision
+            RValue = []
+1063:   EX_LocalVirtualFunction DropSeed
+1077:   EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 3
+1096:   EX_PopExecutionFlow
+1097:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_StructMemberContext [PhysMaterial]
+                    EX_LocalVariable [K2Node_ComponentBoundEvent_damageData]
+                EX_ObjectConst import /Game/GameElements/Resources/Collectibles/GunkSeed/GunkSeed_WeakPoint->GunkSeed_WeakPoint
+1144:   EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+1164:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+                EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+1202:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+1212:   EX_LocalVirtualFunction DropSeed
+1226:   EX_PopExecutionFlow
+1227:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.125
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 702
+                EX_IntConst 431695063
+                EX_NameConst ExecuteUbergraph_BP_GunkSeed_Hanger
+                EX_Self
+1281:   EX_PopExecutionFlow
+1282:   EX_Jump 1212
+1287:   EX_Return
+            EX_Nothing
+1289:   EX_EndOfScript
+FunctionExport BndEvt__HealthDamageTracker_K2Node_ComponentBoundEvent_5_DamageSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Amount]
+            EX_LocalVariable [Amount]
+18:     EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 1282
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__InstantUsable_K2Node_ComponentBoundEvent_3_UsedBySignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_user]
+            EX_LocalVariable [user]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_key]
+            EX_LocalVariable [key]
+36:     EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 1227
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_2_BodypartHitSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Amount_1]
+            EX_LocalVariable [Amount]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_BaseAmount]
+            EX_LocalVariable [BaseAmount]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+54:     EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 1097
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport BndEvt__SimpleHealth_K2Node_ComponentBoundEvent_1_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 859
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__TerrainDetect_K2Node_ComponentBoundEvent_0_PointRemovedEvent__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_point]
+            EX_LocalVariable [point]
+18:     EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 821
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 718
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ShowDamageEffects
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_particles]
+            EX_LocalVariable [particles]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_location]
+            EX_LocalVariable [location]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_orientation]
+            EX_LocalVariable [orientation]
+54:     EX_LocalFinalFunction export BP_GunkSeed_Hanger_C->ExecuteUbergraph_BP_GunkSeed_Hanger
+            EX_IntConst 717
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport DropSeed
+0:      EX_JumpIfNot 333
+            EX_InstanceVariable [HasSeed]
+14:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+24:     EX_LetBool
+            EX_InstanceVariable [HasSeed]
+            EX_False
+35:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst HasSeed
+64:     EX_LocalVirtualFunction OnRep_HasSeed
+78:     EX_Context
+            EX_InstanceVariable [InstantUsable]
+            EX_VirtualFunction SetCanUse
+                EX_False
+            RValue = []
+115:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketTransform
+                    EX_NameConst GunkSeed_HeadSocket
+                    EX_ByteConst 0
+                RValue = [CallFunc_GetSocketTransform_ReturnValue]
+184:    EX_LetObj
+            EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->BeginDeferredActorSpawnFromClass
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Resources/Collectibles/GunkSeed/BP_GunkSeed->BP_GunkSeed_C
+                EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+                EX_ByteConst 1
+                EX_Self
+226:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketTransform
+                    EX_NameConst GunkSeed_HeadSocket
+                    EX_ByteConst 0
+                RValue = [CallFunc_GetSocketTransform_ReturnValue]
+295:    EX_LetObj
+            EX_LocalVariable [CallFunc_FinishSpawningActor_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->FinishSpawningActor
+                EX_LocalVariable [CallFunc_BeginDeferredActorSpawnFromClass_ReturnValue]
+                EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+333:    EX_Return
+            EX_Nothing
+335:    EX_EndOfScript
+FunctionExport OnRep_HasSeed
+0:      EX_JumpIfNot 19
+            EX_InstanceVariable [HasSeed]
+14:     EX_Jump 413
+19:     EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 400
+                EX_FloatConst 600
+57:     EX_Let
+            EX_LocalVariable [CallFunc_RandomUnitVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomUnitVector
+85:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_RandomUnitVector_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+131:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction AddImpulse
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_NameConst GunkSeed_Tentacle_3
+                EX_True
+            RValue = []
+190:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketTransform
+                    EX_NameConst GunkSeed_HeadSocket
+                    EX_ByteConst 0
+                RValue = [CallFunc_GetSocketTransform_ReturnValue]
+259:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetSocketTransform_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+305:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Resources/Collectibles/GunkSeed/P_GunkSeed_Explode->P_GunkSeed_Explode
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+                EX_LocalVariable [CallFunc_BreakTransform_Scale]
+                EX_True
+                EX_ByteConst 0
+                EX_True
+366:    EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_FinalFunction import /Script/Engine->SkinnedMeshComponent->HideBoneByName
+                EX_NameConst GunkSeed_Head
+                EX_ByteConst 1
+            RValue = []
+413:    EX_Return
+            EX_Nothing
+415:    EX_EndOfScript
+FunctionExport OnRep_SlapForce
+0:      EX_Context
+            EX_InstanceVariable [SkeletalMesh]
+            EX_VirtualFunction AddImpulse
+                EX_InstanceVariable [SlapForce]
+                EX_NameConst GunkSeed_Head
+                EX_True
+            RValue = []
+59:     EX_Return
+            EX_Nothing
+61:     EX_EndOfScript
+FunctionExport GetTargetHealthComponent
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_InstanceVariable [SimpleHealth]
+19:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+29:     EX_EndOfScript
+FunctionExport GetTargetCenterMass
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [SkeletalMesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst GunkSeed_HeadSocket
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+67:     EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+94:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+104:    EX_EndOfScript
+FunctionExport GetIsTargetable
+0:      EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_False
+11:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+21:     EX_EndOfScript

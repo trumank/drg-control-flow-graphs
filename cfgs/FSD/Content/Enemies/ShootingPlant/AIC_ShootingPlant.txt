@@ -1,0 +1,116 @@
+FunctionExport ExecuteUbergraph_AIC_ShootingPlant
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_ObjectConst import /Game/Enemies/ShootingPlant/BT_ShootingPlant->BT_ShootingPlant
+43:     EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Target
+84:     EX_FinalFunction import /Script/FSD->FSDAIController->RegisterBlackboardChanges
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+103:    EX_Jump 637
+108:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+128:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant]
+            EX_DynamicCast import /Script/FSD->ShootingPlant
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+164:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant]
+193:    EX_JumpIfNot 637
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+207:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Target
+248:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Blackboard]
+                EX_FinalFunction import /Script/AIModule->BlackboardComponent->GetValueAsObject
+                    EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                RValue = [CallFunc_GetValueAsObject_ReturnValue]
+299:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsActor]
+            EX_DynamicCast import /Script/Engine->Actor
+                EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+335:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsActor]
+364:    EX_JumpIfNot 637
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+378:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant]
+            EX_FinalFunction import /Script/FSD->ShootingPlant->SetTarget
+                EX_LocalVariable [K2Node_DynamicCast_AsActor]
+            RValue = []
+419:    EX_Jump 637
+424:    EX_Context
+            EX_InstanceVariable [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+467:    EX_Jump 637
+472:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant_1]
+            EX_DynamicCast import /Script/FSD->ShootingPlant
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+508:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant_1]
+537:    EX_JumpIfNot 637
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+551:    EX_BindDelegate OnDeath
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+574:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsShooting_Plant_1]
+                    EX_InstanceVariable [Health]
+                    RValue = [Health]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+637:    EX_Return
+            EX_Nothing
+639:    EX_EndOfScript
+FunctionExport StartBehavior
+0:      EX_LocalFinalFunction export AIC_ShootingPlant_C->ExecuteUbergraph_AIC_ShootingPlant
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_ShootingPlant_C->ExecuteUbergraph_AIC_ShootingPlant
+            EX_IntConst 472
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDeath
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export AIC_ShootingPlant_C->ExecuteUbergraph_AIC_ShootingPlant
+            EX_IntConst 424
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Recieve_BlackboardValueChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_keyName]
+            EX_LocalOutVariable
+                [keyName]
+18:     EX_LocalFinalFunction export AIC_ShootingPlant_C->ExecuteUbergraph_AIC_ShootingPlant
+            EX_IntConst 108
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

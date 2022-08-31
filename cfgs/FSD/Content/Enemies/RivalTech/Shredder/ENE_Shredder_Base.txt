@@ -1,0 +1,285 @@
+FunctionExport ExecuteUbergraph_ENE_Shredder_Base
+0:      EX_PushExecutionFlow 1774
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 0
+                EX_FloatConst 360
+53:     EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Mesh]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst CenterMass
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+120:    EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+167:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSystemAtLocation_ReturnValue]
+            EX_CallMath import /Script/Niagara->NiagaraFunctionLibrary->SpawnSystemAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Enemies/RivalTech/Shredder/NS_Shredder_Explosion->NS_Shredder_Explosion
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+                EX_VectorConst 2,2,2
+                EX_True
+                EX_True
+                EX_ByteConst 0
+                EX_True
+233:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Mesh]
+            EX_NoObject
+            EX_NoObject
+            EX_FloatConst 1
+            EX_NoObject
+261:    EX_Context
+            EX_InstanceVariable [FacilityShredderDeath1st_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.1
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+309:    EX_Context
+            EX_InstanceVariable [FacilityShredderDeath2nd_Cue]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+350:    EX_PopExecutionFlow
+351:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_True
+                EX_False
+            RValue = []
+385:    EX_PopExecutionFlow
+386:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+406:    EX_JumpIfNot 577
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+420:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_source]
+                EX_FinalFunction import /Script/Engine->Actor->GetInstigator
+                RValue = [CallFunc_GetInstigator_ReturnValue]
+462:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetInstigator_ReturnValue]
+498:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+527:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+548:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->AddEnemyKill
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_NoObject
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+577:    EX_CallMath import /Script/FSD->ActorFunctionLibrary->KillActorWithEffects
+            EX_Self
+            EX_InstanceVariable [Mesh]
+            EX_ObjectConst import /Game/Audio/SFX/BiomePackages/Ice/GeneralFrozenShatter_Cue->GeneralFrozenShatter_Cue
+            EX_ObjectConst import /Game/Enemies/FlyingBug/Afflictions/P_FrozenDeath_FlyingBug->P_FrozenDeath_FlyingBug
+            EX_FloatConst 1
+            EX_NoObject
+621:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetAIController
+                EX_Self
+642:    EX_Context
+            EX_Context
+                EX_LocalVariable [CallFunc_GetAIController_ReturnValue]
+                EX_InstanceVariable [BrainComponent]
+                RValue = [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+707:    EX_PopExecutionFlow
+708:    EX_PushExecutionFlow 1533
+713:    EX_Context
+            EX_InstanceVariable [Sphere]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+751:    EX_FinalFunction import /Script/FSD->FSDPawn->MakeRagdollMesh
+            EX_InstanceVariable [Mesh]
+770:    EX_Let
+            EX_LocalVariable [CallFunc_RandomUnitVectorInEllipticalConeInDegrees_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomUnitVectorInEllipticalConeInDegrees
+                EX_VectorConst 0,0,1
+                EX_FloatConst 30
+                EX_FloatConst 30
+821:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_RandomUnitVectorInEllipticalConeInDegrees_ReturnValue]
+                EX_FloatConst 350
+863:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_Context
+                    EX_InstanceVariable [PathfinderMovement]
+                    EX_InstanceVariable [Velocity]
+                    RValue = [Velocity]
+                EX_FloatConst 1.5
+927:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+973:    EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_VirtualFunction AddImpulse
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_NameConst Base
+                EX_True
+            RValue = []
+1032:   EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 300
+1055:   EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst -300
+1078:   EX_LetBool
+            EX_LocalVariable [CallFunc_RandomBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomBool
+1098:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_RandomBool_ReturnValue]
+1117:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_FloatConst 0
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 1202
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1179
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1193
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FloatConst 0
+1208:   EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->PrimitiveComponent->AddAngularImpulseInDegrees
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+                EX_NameConst Base
+                EX_True
+            RValue = []
+1263:   EX_Context
+            EX_InstanceVariable [NS_Trail]
+            EX_VirtualFunction Deactivate
+            RValue = []
+1299:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAttached
+                EX_ObjectConst import /Game/Enemies/RivalTech/Shredder/P_TMP_Shredder_Disabled->P_TMP_Shredder_Disabled
+                EX_InstanceVariable [Mesh]
+                EX_NameConst Body
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_ByteConst 2
+                EX_True
+                EX_ByteConst 0
+                EX_True
+1395:   EX_Context
+            EX_InstanceVariable [FacilityShredderDeath1st_Cue]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+1436:   EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst 0.5
+                EX_FloatConst 1.2
+1474:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_1]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 1828069776
+                EX_NameConst ExecuteUbergraph_ENE_Shredder_Base
+                EX_Self
+1532:   EX_PopExecutionFlow
+1533:   EX_Context
+            EX_InstanceVariable [IdleSound]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.5
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+1581:   EX_PopExecutionFlow
+1582:   EX_Jump 386
+1587:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+1615:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/Enemies/Facility/FacilitySwarmer/FacilityRobotsSpawnInZap_Cue->FacilityRobotsSpawnInZap_Cue
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+1685:   EX_Context
+            EX_InstanceVariable [Mesh]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_False
+            RValue = []
+1719:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 351
+                EX_IntConst 1450637402
+                EX_NameConst ExecuteUbergraph_ENE_Shredder_Base
+                EX_Self
+1773:   EX_PopExecutionFlow
+1774:   EX_Return
+            EX_Nothing
+1776:   EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export ENE_Shredder_Base_C->ExecuteUbergraph_ENE_Shredder_Base
+            EX_IntConst 1587
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFrozen
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_source]
+            EX_LocalVariable [source]
+18:     EX_LocalFinalFunction export ENE_Shredder_Base_C->ExecuteUbergraph_ENE_Shredder_Base
+            EX_IntConst 1582
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__HealthComponent_K2Node_ComponentBoundEvent_0_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export ENE_Shredder_Base_C->ExecuteUbergraph_ENE_Shredder_Base
+            EX_IntConst 708
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

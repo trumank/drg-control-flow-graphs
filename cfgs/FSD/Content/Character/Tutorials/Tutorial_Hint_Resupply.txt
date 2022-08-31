@@ -1,0 +1,199 @@
+FunctionExport ExecuteUbergraph_Tutorial_Hint_Resupply
+0:      EX_PushExecutionFlow 1167
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 70
+                EX_IntConst 1699419596
+                EX_NameConst ExecuteUbergraph_Tutorial_Hint_Resupply
+                EX_Self
+69:     EX_PopExecutionFlow
+70:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+91:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+120:    EX_JumpIfNot 15
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+134:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+155:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [TeamResources]
+                    RValue = [TeamResources]
+206:    EX_JumpIfNot 15
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+220:    EX_BindDelegate ResourceAdded
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+243:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+264:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [TeamResources]
+                    RValue = [TeamResources]
+                EX_InstanceVariable [OnResourceIncreased]
+                RValue = [OnResourceIncreased]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+327:    EX_PopExecutionFlow
+328:    EX_Jump 70
+333:    EX_FinalFunction import /Script/FSD->TutorialComponent->MarkTutorialReadyNow
+343:    EX_PopExecutionFlow
+344:    EX_FinalFunction import /Script/FSD->TutorialComponent->CancelTutorial
+            EX_True
+355:    EX_PopExecutionFlow
+356:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetInventoryList_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerCharacter]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetInventoryList
+                RValue = [CallFunc_GetInventoryList_ReturnValue]
+398:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItem_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetInventoryList_ReturnValue]
+                    EX_InstanceVariable [ResupplyItem]
+                    RValue = [ResupplyItem]
+                EX_FinalFunction import /Script/FSD->ItemID->GetItem
+                RValue = [CallFunc_GetItem_ReturnValue]
+462:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsRessuply_Pod_Item]
+            EX_DynamicCast import /Script/FSD->RessuplyPodItem
+                EX_LocalVariable [CallFunc_GetItem_ReturnValue]
+498:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsRessuply_Pod_Item]
+527:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+537:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+557:    EX_Let
+            EX_LocalVariable [CallFunc_GetSupplyAmmoStatus_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerState]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSupplyAmmoStatus
+                RValue = [CallFunc_GetSupplyAmmoStatus_ReturnValue]
+607:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_FloatFloat
+                EX_LocalVariable [CallFunc_GetSupplyAmmoStatus_ReturnValue]
+                EX_FloatConst 0.5
+641:    EX_Let
+            EX_LocalVariable [CallFunc_GetResourceCost_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsRessuply_Pod_Item]
+                EX_FinalFunction import /Script/FSD->RessuplyPodItem->GetResourceCost
+                    EX_Self
+                RValue = [CallFunc_GetResourceCost_ReturnValue]
+692:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+713:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [CallFunc_GetResourceCost_ReturnValue]
+750:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue_1]
+                    EX_InstanceVariable [TeamResources]
+                    RValue = [TeamResources]
+                EX_FinalFunction import /Script/FSD->ResourcesComponent->GetResource
+                    EX_StructMemberContext [NitraResource]
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                            EX_InstanceVariable [Resources]
+                            RValue = [Resources]
+                    EX_True
+                RValue = [CallFunc_GetResource_ReturnValue]
+855:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+                    EX_InstanceVariable [CurrentAmount]
+                    RValue = [CurrentAmount]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+915:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_LessEqual_FloatFloat_ReturnValue]
+953:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+963:    EX_Jump 333
+968:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+988:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+1009:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue_1]
+                    EX_InstanceVariable [TeamResources]
+                    RValue = [TeamResources]
+                EX_FinalFunction import /Script/FSD->ResourcesComponent->GetResource
+                    EX_StructMemberContext [NitraResource]
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                            EX_InstanceVariable [Resources]
+                            RValue = [Resources]
+                    EX_True
+                RValue = [CallFunc_GetResource_ReturnValue]
+1114:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [K2Node_CustomEvent_Resource]
+                EX_LocalVariable [CallFunc_GetResource_ReturnValue]
+1152:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+1162:   EX_Jump 356
+1167:   EX_Return
+            EX_Nothing
+1169:   EX_EndOfScript
+FunctionExport ResourceAdded
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Resource]
+            EX_LocalVariable [Resource]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_amount]
+            EX_LocalVariable [amount]
+36:     EX_LocalFinalFunction export Tutorial_Hint_Resupply_C->ExecuteUbergraph_Tutorial_Hint_Resupply
+            EX_IntConst 968
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveOnHidden
+0:      EX_LocalFinalFunction export Tutorial_Hint_Resupply_C->ExecuteUbergraph_Tutorial_Hint_Resupply
+            EX_IntConst 344
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveOnInitialized
+0:      EX_LocalFinalFunction export Tutorial_Hint_Resupply_C->ExecuteUbergraph_Tutorial_Hint_Resupply
+            EX_IntConst 328
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

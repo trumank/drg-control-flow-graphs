@@ -1,0 +1,155 @@
+FunctionExport ExecuteUbergraph_HUD_GameTags
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdateExperimentalTag
+24:     EX_LocalVirtualFunction UpdateSandboxTag
+38:     EX_BindDelegate UpdateSandboxTag
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+61:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+81:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_InstanceVariable [OnModdingSettingsChanged]
+                RValue = [OnModdingSettingsChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+122:    EX_Return
+            EX_Nothing
+124:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_GameTags_C->ExecuteUbergraph_HUD_GameTags
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UpdateExperimentalTag
+0:      EX_Context
+            EX_InstanceVariable [GameTag_Experimental]
+            EX_LocalVirtualFunction SetVisible
+                EX_False
+            RValue = []
+37:     EX_Let
+            EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue]
+            EX_CallMath import /Script/FSD->FrontendBlueprintLibrary->FSDTargetPlatform
+65:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [CallFunc_FSDTargetPlatform_ReturnValue]
+                EX_ByteConst 0
+96:     EX_JumpIfNot 115
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+110:    EX_Jump 498
+115:    EX_Let
+            EX_LocalVariable [CallFunc_GetSteamBranch_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSteamUtils->GetSteamBranch
+143:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetSteamBranch_ReturnValue]
+                EX_ByteConst 1
+174:    EX_JumpIfNot 193
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+188:    EX_Jump 498
+193:    EX_Let
+            EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSteamUtils->GetSteamBranchString
+221:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_GetSteamBranchString_ReturnValue]
+                EX_StringConst  build  
+268:    EX_Let
+            EX_LocalVariable [CallFunc_GetProjectVersion_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetProjectVersion
+296:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+                EX_LocalVariable [CallFunc_GetProjectVersion_ReturnValue]
+342:    EX_Let
+            EX_LocalVariable [CallFunc_ToUpper_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->ToUpper
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+379:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_ToUpper_ReturnValue]
+416:    EX_Context
+            EX_InstanceVariable [GameTag_Experimental]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            RValue = []
+461:    EX_Context
+            EX_InstanceVariable [GameTag_Experimental]
+            EX_LocalVirtualFunction SetVisible
+                EX_True
+            RValue = []
+498:    EX_Return
+            EX_Nothing
+500:    EX_EndOfScript
+FunctionExport UpdateSandboxTag
+0:      EX_Context
+            EX_InstanceVariable [GameTag_Sandbox]
+            EX_LocalVirtualFunction SetVisible
+                EX_False
+            RValue = []
+37:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetEngineSubsystem
+                EX_ObjectConst import /Script/SimpleUGC->UGCSubsystem
+66:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetEngineSubsystem_ReturnValue]
+95:     EX_JumpIfNot 425
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+109:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+130:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                    EX_InstanceVariable [SaveGame]
+                    RValue = [SaveGame]
+181:    EX_JumpIfNot 425
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+195:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+215:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetShowSandboxLabel_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetShowSandboxLabel
+                RValue = [CallFunc_GetShowSandboxLabel_ReturnValue]
+257:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+278:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsModded_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                    EX_InstanceVariable [SaveGame]
+                    RValue = [SaveGame]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetIsModded
+                RValue = [CallFunc_GetIsModded_ReturnValue]
+342:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GetIsModded_ReturnValue]
+                EX_LocalVariable [CallFunc_GetShowSandboxLabel_ReturnValue]
+380:    EX_Context
+            EX_InstanceVariable [GameTag_Sandbox]
+            EX_LocalVirtualFunction SetVisible
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            RValue = []
+425:    EX_Return
+            EX_Nothing
+427:    EX_EndOfScript

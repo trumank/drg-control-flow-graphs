@@ -1,0 +1,204 @@
+FunctionExport ExecuteUbergraph_HUD_SpaceRig_NotificationsManager
+0:      EX_PushExecutionFlow 1245
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction CheckForNewSpacerigNotifications
+29:     EX_PopExecutionFlow
+30:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->NotificationSubSystem
+60:     EX_LetBool
+            EX_LocalVariable [CallFunc_GetNextSpaceRigNotification_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                EX_FinalFunction import /Script/FSD->NotificationSubSystem->GetNextSpaceRigNotification
+                    EX_LocalVariable [CallFunc_GetNextSpaceRigNotification_NextNotification]
+                RValue = [CallFunc_GetNextSpaceRigNotification_ReturnValue]
+111:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_GetNextSpaceRigNotification_ReturnValue]
+121:    EX_LocalVirtualFunction CreateNotificationWidget
+            EX_LocalVariable [CallFunc_GetNextSpaceRigNotification_NextNotification]
+144:    EX_Jump 15
+149:    EX_PushExecutionFlow 263
+154:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue_1]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->NotificationSubSystem
+184:    EX_BindDelegate CheckForNewSpacerigNotifications
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+207:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue_1]
+                EX_InstanceVariable [OnNewSpaceRigNotificationEvent]
+                RValue = [OnNewSpaceRigNotificationEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+248:    EX_LocalVirtualFunction CheckForNewSpacerigNotifications
+262:    EX_PopExecutionFlow
+263:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+284:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Game_Instance]
+            EX_DynamicCast import /Game/Game/BP_GameInstance->BP_GameInstance_C
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+320:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Game_Instance]
+349:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+359:    EX_LetObj
+            EX_InstanceVariable [BP_GameInstance]
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Game_Instance]
+378:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+399:    EX_BindDelegate CheckCraftingNotification
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+422:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnItemUINotificationChange]
+                RValue = [OnItemUINotificationChange]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+463:    EX_LocalVirtualFunction CheckCraftingNotification
+477:    EX_PopExecutionFlow
+478:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+502:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/HUD_SpaceRig/VanityNotification/HUD_SpaceRig_Notification->HUD_SpaceRig_Notification_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+563:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetSystemLibrary
+            EX_FinalFunction import /Script/Engine->KismetSystemLibrary->SetStructurePropertyByName
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_NameConst Notification
+                EX_LocalVariable [K2Node_CustomEvent_Notification]
+            RValue = []
+626:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToVerticalBox_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [EntryBox]
+                EX_FinalFunction import /Script/UMG->VerticalBox->AddChildToVerticalBox
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToVerticalBox_ReturnValue]
+677:    EX_PopExecutionFlow
+678:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 30
+                EX_IntConst -1296897804
+                EX_NameConst ExecuteUbergraph_HUD_SpaceRig_NotificationsManager
+                EX_Self
+732:    EX_PopExecutionFlow
+733:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+753:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_StructMemberContext [CraftingID]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [ItemCategoryIDs]
+                    RValue = [ItemCategoryIDs]
+804:    EX_CallMath import /Script/FSD->UIFunctionLibrary->CheckItemUINotification
+            EX_Self
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification]
+            EX_False
+834:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification]
+844:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+892:    EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+            EX_TextConst
+                SourceString = There are new items in the Accessory Shop
+                LocalizedKey = A4A0574A445CF6855F2ADFAAD49B85D7
+                LocalizedNamespace = 
+1000:   EX_LetObj
+            EX_StructMemberContext [Icon]
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+            EX_ObjectConst import /Game/UI/Art/Icons/Icons_VanityShop/Vanity_Icons_Moustache->Vanity_Icons_Moustache
+1028:   EX_Let
+            EX_StructMemberContext [IconColor]
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+1064:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue_2]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->NotificationSubSystem
+1094:   EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue_2]
+            EX_FinalFunction import /Script/FSD->NotificationSubSystem->AddSpaceRigNotification
+                EX_LocalVariable [K2Node_MakeStruct_SpaceRigNotification]
+                EX_StringConst NEWVANITY
+                EX_True
+            RValue = []
+1147:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+1167:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_StructMemberContext [CraftingID]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [ItemCategoryIDs]
+                    RValue = [ItemCategoryIDs]
+1218:   EX_CallMath import /Script/FSD->UIFunctionLibrary->RemoveItemUINotification
+            EX_Self
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_False
+1239:   EX_PopExecutionFlow
+1240:   EX_Jump 678
+1245:   EX_Return
+            EX_Nothing
+1247:   EX_EndOfScript
+FunctionExport CheckForNewSpacerigNotifications
+0:      EX_LocalFinalFunction export HUD_SpaceRig_NotificationsManager_C->ExecuteUbergraph_HUD_SpaceRig_NotificationsManager
+            EX_IntConst 1240
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CheckCraftingNotification
+0:      EX_LocalFinalFunction export HUD_SpaceRig_NotificationsManager_C->ExecuteUbergraph_HUD_SpaceRig_NotificationsManager
+            EX_IntConst 733
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CreateNotificationWidget
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Notification]
+            EX_LocalVariable [Notification]
+18:     EX_LocalFinalFunction export HUD_SpaceRig_NotificationsManager_C->ExecuteUbergraph_HUD_SpaceRig_NotificationsManager
+            EX_IntConst 478
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_SpaceRig_NotificationsManager_C->ExecuteUbergraph_HUD_SpaceRig_NotificationsManager
+            EX_IntConst 149
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

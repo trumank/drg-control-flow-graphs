@@ -1,0 +1,737 @@
+FunctionExport ExecuteUbergraph_HUD_EnemyTargeting
+0:      EX_PushExecutionFlow 900
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentTarget]
+44:     EX_JumpIfNot 59
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+58:     EX_PopExecutionFlow
+59:     EX_LocalVirtualFunction SetIsVisible
+            EX_False
+74:     EX_LocalVirtualFunction GetContent
+            EX_LocalVariable [CallFunc_GetContent_OutActiveContent]
+97:     EX_Context
+            EX_LocalVariable [CallFunc_GetContent_OutActiveContent]
+            EX_FinalFunction import /Script/FSD->LookingAtContentWidget->UpdateCurrentTarget
+                EX_FloatConst 0
+                EX_InstanceVariable [CurrentTarget]
+                EX_InstanceVariable [CurrentTargetHealth]
+            RValue = []
+152:    EX_PopExecutionFlow
+153:    EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [HealthBarVisible]
+163:    EX_Context
+            EX_InstanceVariable [VisibilityCanvas]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 4
+            RValue = []
+201:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [Intro]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 5
+                EX_False
+248:    EX_PopExecutionFlow
+249:    EX_Jump 153
+254:    EX_JumpIfNot 318
+            EX_InstanceVariable [HealthBarVisible]
+268:    EX_CallMath import /Script/FSD->PendingLatentActionLibrary->WaitOneFrame
+            EX_Self
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 249
+                EX_IntConst 1825311601
+                EX_NameConst ExecuteUbergraph_HUD_EnemyTargeting
+                EX_Self
+317:    EX_PopExecutionFlow
+318:    EX_Context
+            EX_InstanceVariable [VisibilityCanvas]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+356:    EX_PopExecutionFlow
+357:    EX_LocalVirtualFunction SetIsVisible
+            EX_False
+372:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+392:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+428:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+457:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+467:    EX_BindDelegate OnDamagedEnemy
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+490:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [OnDamagedEnemy]
+                RValue = [OnDamagedEnemy]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+531:    EX_PopExecutionFlow
+532:    EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 0.1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 15
+                EX_IntConst 956911581
+                EX_NameConst ExecuteUbergraph_HUD_EnemyTargeting
+                EX_Self
+586:    EX_PopExecutionFlow
+587:    EX_LetBool
+            EX_InstanceVariable [HealthBarVisible]
+            EX_LocalVariable [K2Node_CustomEvent_IsVisible]
+606:    EX_Jump 254
+611:    EX_Jump 532
+616:    EX_LocalVirtualFunction UpdateScreenPosition
+630:    EX_LocalVirtualFunction UpdateWidgets
+            EX_False
+645:    EX_PopExecutionFlow
+646:    EX_Context
+            EX_InstanceVariable [HUD_EnemyTargeting_AfflictionBox]
+            EX_LocalVirtualFunction SetTarget
+                EX_InstanceVariable [CurrentTarget]
+            RValue = []
+691:    EX_LocalVirtualFunction SelectContent
+705:    EX_LocalVirtualFunction SetIsVisible
+            EX_True
+720:    EX_LocalVirtualFunction UpdateWidgets
+            EX_True
+735:    EX_PopExecutionFlow
+736:    EX_Jump 357
+741:    EX_LocalVirtualFunction HandleTargetDamaged
+            EX_LocalVariable [K2Node_CustomEvent_EnemyHealth]
+            EX_LocalVariable [K2Node_CustomEvent_Damage]
+            EX_LocalVariable [K2Node_CustomEvent_DamageModifier]
+            EX_LocalVariable [K2Node_CustomEvent_HealthRemaining]
+            EX_LocalVariable [K2Node_CustomEvent_IsWeakpoint]
+            EX_LocalVariable [K2Node_CustomEvent_IsRadial]
+809:    EX_PopExecutionFlow
+810:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+858:    EX_Context
+            EX_InstanceVariable [DeadIcon]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+899:    EX_PopExecutionFlow
+900:    EX_Return
+            EX_Nothing
+902:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 810
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDamagedEnemy
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_EnemyHealth]
+            EX_LocalOutVariable
+                [EnemyHealth]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Damage]
+            EX_LocalVariable [Damage]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DamageModifier]
+            EX_LocalVariable [DamageModifier]
+54:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthRemaining]
+            EX_LocalVariable [HealthRemaining]
+72:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_IsWeakpoint]
+            EX_LocalVariable [IsWeakpoint]
+90:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_IsRadial]
+            EX_LocalVariable [IsRadial]
+108:    EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 741
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 736
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveNewTarget
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InCurrentTarget]
+            EX_LocalVariable [InCurrentTarget]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 646
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveUpdateTarget
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InCurrentTarget_1]
+            EX_LocalVariable [InCurrentTarget]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaTime]
+            EX_LocalVariable [DeltaTime]
+36:     EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 616
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport ReceiveTargetLost
+0:      EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 611
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetIsVisible
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_IsVisible]
+            EX_LocalVariable [IsVisible]
+18:     EX_LocalFinalFunction export HUD_EnemyTargeting_C->ExecuteUbergraph_HUD_EnemyTargeting
+            EX_IntConst 587
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport HandleTargetDamaged
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsHudGroupVisible_ReturnValue]
+            EX_CallMath import /Script/FSD->HUDVisibilityGroup->IsHudGroupVisible
+                EX_ObjectConst import /Game/UI/HUDVisibility/HG_EnemyHealth->HG_EnemyHealth
+29:     EX_JumpIfNot 790
+            EX_LocalVariable [CallFunc_IsHudGroupVisible_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsEnemy_Health_Component_1]
+            EX_InterfaceToObjCast import /Script/FSD->EnemyHealthComponent
+                EX_LocalVariable [Health]
+79:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsEnemy_Health_Component_1]
+108:    EX_JumpIfNot 790
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+122:    EX_LetObj
+            EX_LocalVariable [HealthComponent]
+            EX_LocalVariable [K2Node_DynamicCast_AsEnemy_Health_Component_1]
+141:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [HealthComponent]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+187:    EX_JumpIfNot 790
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+201:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_Context
+                EX_LocalVariable [HealthComponent]
+                EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+                RValue = [CallFunc_GetOwner_ReturnValue]
+243:    EX_LetObj
+            EX_LocalVariable [HealthOwner]
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+262:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [HealthOwner]
+                EX_InstanceVariable [CurrentTarget]
+300:    EX_JumpIfNot 388
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue_1]
+314:    EX_JumpIfNot 790
+            EX_LocalVariable [IsWeakpoint]
+328:    EX_LocalVirtualFunction GetContent
+            EX_LocalVariable [CallFunc_GetContent_OutActiveContent]
+351:    EX_Context
+            EX_LocalVariable [CallFunc_GetContent_OutActiveContent]
+            EX_FinalFunction import /Script/FSD->LookingAtContentWidget->RegisterWeakPointHit
+            RValue = []
+383:    EX_Jump 790
+388:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidTarget_ReturnValue]
+            EX_VirtualFunction IsValidTarget
+                EX_LocalVariable [HealthOwner]
+                EX_LocalVariable [Health]
+430:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetLookingAtHealth_ReturnValue]
+            EX_FinalFunction import /Script/FSD->LookingAtWidget->GetLookingAtHealth
+450:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsEnemy_Health_Component]
+            EX_DynamicCast import /Script/FSD->EnemyHealthComponent
+                EX_LocalVariable [CallFunc_GetLookingAtHealth_ReturnValue]
+486:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsEnemy_Health_Component]
+515:    EX_LetBool
+            EX_LocalVariable [CallFunc_WasRecentlyRendered_ReturnValue]
+            EX_Context
+                EX_LocalVariable [HealthOwner]
+                EX_FinalFunction import /Script/Engine->Actor->WasRecentlyRendered
+                    EX_FloatConst 0.2
+                RValue = [CallFunc_WasRecentlyRendered_ReturnValue]
+562:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+591:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_WasRecentlyRendered_ReturnValue]
+                EX_LocalVariable [CallFunc_IsValidTarget_ReturnValue]
+629:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [HealthComponent]
+                EX_LocalVariable [K2Node_DynamicCast_AsEnemy_Health_Component]
+667:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+705:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+743:    EX_JumpIfNot 790
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+757:    EX_FinalFunction import /Script/FSD->LookingAtWidget->SetCurrentTarget
+            EX_LocalVariable [HealthOwner]
+            EX_LocalVariable [Health]
+            EX_FloatConst 2
+790:    EX_Return
+            EX_Nothing
+792:    EX_EndOfScript
+FunctionExport UpdateWidgets
+0:      EX_PushExecutionFlow 987
+5:      EX_LetBool
+            EX_LocalVariable [IsAlive]
+            EX_False
+16:     EX_Let
+            EX_LocalVariable [TemperatureEffect]
+            EX_FloatConst 0
+39:     EX_LetBool
+            EX_LocalVariable [ResetWidgets]
+            EX_LocalVariable [Reset]
+58:     EX_LetObj
+            EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->Conv_InterfaceToObject
+                EX_InstanceVariable [CurrentTargetHealth]
+87:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_Conv_InterfaceToObject_ReturnValue]
+116:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [ContentSwitcher]
+                EX_ByteConst 2
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_3]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_3]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_3]
+            RValue = []
+202:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_3]
+212:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_InstanceVariable [CurrentTargetHealth]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+259:    EX_LetBool
+            EX_LocalVariable [IsAlive]
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+278:    EX_PushExecutionFlow 875
+283:    EX_PushExecutionFlow 601
+288:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [ContentSwitcher]
+                EX_ByteConst 2
+                EX_ByteConst 4
+                EX_LocalVariable [IsAlive]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_2]
+            RValue = []
+374:    EX_Context
+            EX_InstanceVariable [StatusIconBox]
+            EX_VirtualFunction SetVisibility
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_2]
+            RValue = []
+419:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [DeadIcon]
+                EX_ByteConst 4
+                EX_ByteConst 2
+                EX_LocalVariable [IsAlive]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+505:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+543:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+553:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [DeadAnim]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 2
+                EX_False
+600:    EX_PopExecutionFlow
+601:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetCharacterTemperatureEffect_ReturnValue]
+            EX_FinalFunction import /Script/FSD->LookingAtWidget->GetCharacterTemperatureEffect
+                EX_LocalVariable [CallFunc_GetCharacterTemperatureEffect_TemperatureEffect]
+630:    EX_Let
+            EX_LocalVariable [TemperatureEffect]
+            EX_LocalVariable [CallFunc_GetCharacterTemperatureEffect_TemperatureEffect]
+657:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetCharacterTemperatureEffect_ReturnValue]
+            EX_FinalFunction import /Script/FSD->LookingAtWidget->GetCharacterTemperatureEffect
+                EX_LocalVariable [CallFunc_GetCharacterTemperatureEffect_TemperatureEffect]
+686:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [IsAlive]
+                EX_LocalVariable [CallFunc_GetCharacterTemperatureEffect_ReturnValue]
+724:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Icon_Temperature]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+810:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+820:    EX_Context
+            EX_InstanceVariable [Icon_Temperature]
+            EX_LocalVirtualFunction SetTemperatureEffect
+                EX_LocalVariable [TemperatureEffect]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+            RValue = []
+874:    EX_PopExecutionFlow
+875:    EX_Let
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetWorldDeltaSeconds
+                EX_Self
+904:    EX_LocalVirtualFunction GetContent
+            EX_LocalVariable [CallFunc_GetContent_OutActiveContent]
+927:    EX_Context
+            EX_LocalVariable [CallFunc_GetContent_OutActiveContent]
+            EX_FinalFunction import /Script/FSD->LookingAtContentWidget->UpdateCurrentTarget
+                EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+                EX_InstanceVariable [CurrentTarget]
+                EX_InstanceVariable [CurrentTargetHealth]
+            RValue = []
+986:    EX_PopExecutionFlow
+987:    EX_Return
+            EX_Nothing
+989:    EX_EndOfScript
+FunctionExport ClampToScreenHeight
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetViewportSize_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetLayoutLibrary
+                EX_FinalFunction import /Script/UMG->WidgetLayoutLibrary->GetViewportSize
+                    EX_Self
+                RValue = [CallFunc_GetViewportSize_ReturnValue]
+51:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector2D
+            EX_LocalVariable [CallFunc_GetViewportSize_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector2D_X]
+            EX_LocalVariable [CallFunc_BreakVector2D_Y]
+88:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector2D_Y]
+                EX_LocalVariable [Bound]
+134:    EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [CoordinateY]
+                EX_LocalVariable [Bound]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+189:    EX_Let
+            EX_LocalOutVariable
+                [ClampedY]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+216:    EX_Return
+            EX_Nothing
+218:    EX_EndOfScript
+FunctionExport UpdateScreenPosition
+0:      EX_PushExecutionFlow 1445
+5:      EX_Let
+            EX_LocalVariable [MaxHeight]
+            EX_FloatConst 0
+28:     EX_PushExecutionFlow 1202
+33:     EX_PushExecutionFlow 855
+38:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentTarget]
+67:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+77:     EX_Let
+            EX_LocalVariable [CallFunc_GetActorTargetCenter_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetActorTargetCenter
+                EX_InstanceVariable [CurrentTarget]
+114:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CurrentTarget]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+164:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+210:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorTargetCenter_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X_1]
+            EX_LocalVariable [CallFunc_BreakVector_Y_1]
+            EX_LocalVariable [CallFunc_BreakVector_Z_1]
+256:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z_1]
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+302:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_FloatConst 2
+344:    EX_Let
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FMax
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+                EX_FloatConst 100
+386:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_FMax_ReturnValue]
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+432:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_1]
+                EX_FloatConst 25
+474:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_BreakVector_X_1]
+                EX_LocalVariable [CallFunc_BreakVector_Y_1]
+                EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue_2]
+529:    EX_Let
+            EX_InstanceVariable [LastTargetLocation]
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+556:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsHealth_Component_Base]
+            EX_InterfaceToObjCast import /Script/FSD->HealthComponentBase
+                EX_InstanceVariable [CurrentTargetHealth]
+592:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsHealth_Component_Base]
+621:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+631:    EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CurrentTarget]
+                EX_FinalFunction import /Script/Engine->Actor->GetTransform
+                RValue = [CallFunc_GetTransform_ReturnValue]
+681:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealthBarWorldOffset_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsHealth_Component_Base]
+                EX_VirtualFunction GetHealthBarWorldOffset
+                RValue = [CallFunc_GetHealthBarWorldOffset_ReturnValue]
+735:    EX_Let
+            EX_LocalVariable [CallFunc_TransformDirection_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->TransformDirection
+                EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+                EX_LocalVariable [CallFunc_GetHealthBarWorldOffset_ReturnValue]
+781:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_InstanceVariable [LastTargetLocation]
+                EX_LocalVariable [CallFunc_TransformDirection_ReturnValue]
+827:    EX_Let
+            EX_InstanceVariable [LastTargetLocation]
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+854:    EX_PopExecutionFlow
+855:    EX_Let
+            EX_LocalVariable [CallFunc_GetViewportSize_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetLayoutLibrary
+                EX_FinalFunction import /Script/UMG->WidgetLayoutLibrary->GetViewportSize
+                    EX_Self
+                RValue = [CallFunc_GetViewportSize_ReturnValue]
+906:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector2D
+            EX_LocalVariable [CallFunc_GetViewportSize_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector2D_X]
+            EX_LocalVariable [CallFunc_BreakVector2D_Y]
+943:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetUseComponent
+                RValue = [CallFunc_GetUseComponent_ReturnValue]
+985:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector2D_Y]
+                EX_FloatConst 0.5
+1027:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLookingAtUsable_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetUseComponent_ReturnValue]
+                EX_FinalFunction import /Script/FSD->CharacterUseComponent->IsLookingAtUsable
+                RValue = [CallFunc_IsLookingAtUsable_ReturnValue]
+1069:   EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst -250
+1111:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsLookingAtUsable_ReturnValue]
+1130:   EX_Let
+            EX_LocalVariable [MaxHeight]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 1201
+                case 0:
+                    EX_False
+                    NextCaseOffset = 1178
+                    EX_LocalVariable [CallFunc_BreakVector2D_Y]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 1192
+                    EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+1201:   EX_PopExecutionFlow
+1202:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+1226:   EX_LetBool
+            EX_LocalVariable [CallFunc_ProjectWorldLocationToWidgetPosition_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetLayoutLibrary
+                EX_FinalFunction import /Script/UMG->WidgetLayoutLibrary->ProjectWorldLocationToWidgetPosition
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                    EX_InstanceVariable [LastTargetLocation]
+                    EX_LocalVariable [CallFunc_ProjectWorldLocationToWidgetPosition_ScreenPosition]
+                    EX_False
+                RValue = [CallFunc_ProjectWorldLocationToWidgetPosition_ReturnValue]
+1296:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector2D
+            EX_LocalVariable [CallFunc_ProjectWorldLocationToWidgetPosition_ScreenPosition]
+            EX_LocalVariable [CallFunc_BreakVector2D_X_1]
+            EX_LocalVariable [CallFunc_BreakVector2D_Y_1]
+1333:   EX_Let
+            EX_LocalVariable [CallFunc_FMin_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FMin
+                EX_LocalVariable [CallFunc_BreakVector2D_Y_1]
+                EX_LocalVariable [MaxHeight]
+1379:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_LocalVariable [CallFunc_BreakVector2D_X_1]
+                EX_LocalVariable [CallFunc_FMin_ReturnValue]
+1425:   EX_FinalFunction import /Script/UMG->Widget->SetRenderTranslation
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+1444:   EX_PopExecutionFlow
+1445:   EX_Return
+            EX_Nothing
+1447:   EX_EndOfScript
+FunctionExport SelectContent
+0:      EX_PushExecutionFlow 206
+5:      EX_PushExecutionFlow 160
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentTargetAfflictions]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+49:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsAfflictedBy_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CurrentTargetAfflictions]
+                EX_FinalFunction import /Script/FSD->PawnAfflictionComponent->IsAfflictedBy
+                    EX_ObjectConst import /Game/GameElements/Missions/Warnings/HeroEnemies/PAF_HeroEnemy_Generic->PAF_HeroEnemy_Generic
+                RValue = [CallFunc_IsAfflictedBy_ReturnValue]
+100:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsAfflictedBy_ReturnValue]
+110:    EX_Context
+            EX_InstanceVariable [ContentSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [HealthBar_Elite]
+            RValue = []
+155:    EX_Jump 206
+160:    EX_Context
+            EX_InstanceVariable [ContentSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [HealthBar]
+            RValue = []
+205:    EX_PopExecutionFlow
+206:    EX_Return
+            EX_Nothing
+208:    EX_EndOfScript
+FunctionExport GetContent
+0:      EX_PushExecutionFlow 170
+5:      EX_PushExecutionFlow 151
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetActiveWidget_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ContentSwitcher]
+                EX_FinalFunction import /Script/UMG->WidgetSwitcher->GetActiveWidget
+                RValue = [CallFunc_GetActiveWidget_ReturnValue]
+52:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsLooking_at_Content_Widget]
+            EX_DynamicCast import /Script/FSD->LookingAtContentWidget
+                EX_LocalVariable [CallFunc_GetActiveWidget_ReturnValue]
+88:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsLooking_at_Content_Widget]
+117:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+127:    EX_LetObj
+            EX_LocalOutVariable
+                [OutActiveContent]
+            EX_LocalVariable [K2Node_DynamicCast_AsLooking_at_Content_Widget]
+146:    EX_Jump 170
+151:    EX_LetObj
+            EX_LocalOutVariable
+                [OutActiveContent]
+            EX_InstanceVariable [HealthBar]
+170:    EX_Return
+            EX_Nothing
+172:    EX_EndOfScript

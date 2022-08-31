@@ -1,0 +1,96 @@
+FunctionExport ExecuteUbergraph_ABP_LockOnRifle_A
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakRotator
+            EX_InstanceVariable [FrontRotation]
+            EX_LocalVariable [CallFunc_BreakRotator_Roll]
+            EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+            EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+56:     EX_Let
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeRotator
+                EX_LocalVariable [CallFunc_BreakRotator_Roll]
+                EX_LocalVariable [CallFunc_BreakRotator_Pitch]
+                EX_LocalVariable [CallFunc_BreakRotator_Yaw]
+111:    EX_Let
+            EX_StructMemberContext [Rotation]
+                EX_InstanceVariable [AnimGraphNode_ModifyBone]
+            EX_LocalVariable [CallFunc_MakeRotator_ReturnValue]
+147:    EX_Jump 366
+152:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningActor_ReturnValue]
+            EX_FinalFunction import /Script/Engine->AnimInstance->GetOwningActor
+172:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsLock_on_Weapon]
+            EX_DynamicCast import /Script/FSD->LockOnWeapon
+                EX_LocalVariable [CallFunc_GetOwningActor_ReturnValue]
+208:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsLock_on_Weapon]
+237:    EX_JumpIfNot 366
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+251:    EX_BindDelegate OnRotationUpdated
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+274:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsLock_on_Weapon]
+                EX_InstanceVariable [OnLockonTargetRotationUpdated]
+                RValue = [OnLockonTargetRotationUpdated]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+315:    EX_Jump 366
+320:    EX_LetBool
+            EX_InstanceVariable [HasLockedTarget]
+            EX_LocalVariable [K2Node_CustomEvent_hasTargetLockon]
+339:    EX_Let
+            EX_InstanceVariable [FrontRotation]
+            EX_LocalVariable [K2Node_CustomEvent_socketRotation]
+366:    EX_Return
+            EX_Nothing
+368:    EX_EndOfScript
+FunctionExport OnRotationUpdated
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_hasTargetLockon]
+            EX_LocalVariable [hasTargetLockon]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_socketRotation]
+            EX_LocalVariable [socketRotation]
+36:     EX_LocalFinalFunction export ABP_LockOnRifle_A_C->ExecuteUbergraph_ABP_LockOnRifle_A
+            EX_IntConst 320
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BlueprintBeginPlay
+0:      EX_LocalFinalFunction export ABP_LockOnRifle_A_C->ExecuteUbergraph_ABP_LockOnRifle_A
+            EX_IntConst 152
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_LockOnRifle_A_AnimGraphNode_ModifyBone_74E00D924E9336DBFBD36EA357389206
+0:      EX_LocalFinalFunction export ABP_LockOnRifle_A_C->ExecuteUbergraph_ABP_LockOnRifle_A
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetRotation
+0:      EX_Let
+            EX_InstanceVariable [FrontRotation]
+            EX_LocalVariable [WorldRotation]
+27:     EX_Return
+            EX_Nothing
+29:     EX_EndOfScript
+FunctionExport SetHasLockedTarget
+0:      EX_LetBool
+            EX_InstanceVariable [HasLockedTarget]
+            EX_LocalVariable [HasLockedTarget]
+19:     EX_Return
+            EX_Nothing
+21:     EX_EndOfScript
+FunctionExport AnimGraph
+0:      EX_Let
+            EX_LocalOutVariable
+                [AnimGraph]
+            EX_StructConst import /Script/Engine->PoseLink
+                EX_IntConst -1
+37:     EX_Return
+            EX_Nothing
+39:     EX_EndOfScript

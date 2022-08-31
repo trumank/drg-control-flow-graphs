@@ -1,0 +1,675 @@
+FunctionExport ExecuteUbergraph_BP_Phys_Barrel01
+0:      EX_PushExecutionFlow 4035
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_FinalFunction import /Script/Engine->Actor->SetActorEnableCollision
+            EX_False
+26:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+46:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+56:     EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 3
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 111
+                EX_IntConst -1043412817
+                EX_NameConst ExecuteUbergraph_BP_Phys_Barrel01
+                EX_Self
+110:    EX_PopExecutionFlow
+111:    EX_VirtualFunction K2_DestroyActor
+125:    EX_PopExecutionFlow
+126:    EX_LetBool
+            EX_InstanceVariable [CanTriggerSound]
+            EX_True
+137:    EX_PopExecutionFlow
+138:    EX_LetBool
+            EX_InstanceVariable [CanTriggerSound]
+            EX_True
+149:    EX_PopExecutionFlow
+150:    EX_LocalVirtualFunction OnRep_KickSoundLocation
+164:    EX_VirtualFunction Play_Kick
+            EX_InstanceVariable [KickedBy]
+187:    EX_VirtualFunction ForceNetUpdate
+201:    EX_PopExecutionFlow
+202:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst KickSoundLocation
+231:    EX_Jump 150
+236:    EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+246:    EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMeshComponent0]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst Center
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+313:    EX_Let
+            EX_InstanceVariable [KickSoundLocation]
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+340:    EX_Jump 202
+345:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentRotation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMeshComponent0]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentRotation
+                RValue = [CallFunc_K2_GetComponentRotation_ReturnValue]
+395:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+            EX_Context
+                EX_InstanceVariable [StaticMeshComponent0]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+445:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Enemies/Spider/Exploder/P_BarrelExplosion->P_BarrelExplosion
+                EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_2]
+                EX_LocalVariable [CallFunc_K2_GetComponentRotation_ReturnValue]
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+510:    EX_Context
+            EX_InstanceVariable [StaticMeshComponent0]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+544:    EX_Jump 15
+549:    EX_VirtualFunction K2_DestroyActor
+563:    EX_PopExecutionFlow
+564:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 126
+                EX_IntConst -1834773183
+                EX_NameConst ExecuteUbergraph_BP_Phys_Barrel01
+                EX_Self
+618:    EX_PopExecutionFlow
+619:    EX_LetBool
+            EX_InstanceVariable [CanTriggerSound]
+            EX_False
+630:    EX_Jump 564
+635:    EX_Let
+            EX_LocalVariable [CallFunc_GetComponentVelocity_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMeshComponent0]
+                EX_VirtualFunction GetComponentVelocity
+                RValue = [CallFunc_GetComponentVelocity_ReturnValue]
+689:    EX_Let
+            EX_LocalVariable [CallFunc_VSize_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VSize
+                EX_LocalVariable [CallFunc_GetComponentVelocity_ReturnValue]
+726:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_VSize_ReturnValue]
+                EX_FloatConst 25
+760:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+                EX_InstanceVariable [CanTriggerSound]
+798:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+808:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [K2Node_ComponentBoundEvent_Hit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+980:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/SpaceRig/BarrelImpact/BarrelImpact_Cue->BarrelImpact_Cue
+                EX_LocalVariable [CallFunc_BreakHitResult_Location]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+1050:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+1079:   EX_JumpIfNot 619
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1093:   EX_Let
+            EX_LocalVariable [CallFunc_GetComponentVelocity_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMeshComponent0]
+                EX_VirtualFunction GetComponentVelocity
+                RValue = [CallFunc_GetComponentVelocity_ReturnValue]
+1147:   EX_Let
+            EX_LocalVariable [CallFunc_VSize_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VSize
+                EX_LocalVariable [CallFunc_GetComponentVelocity_ReturnValue]
+1184:   EX_Context
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->AudioComponent->SetFloatParameter
+                EX_NameConst Barrel_Speed
+                EX_LocalVariable [CallFunc_VSize_ReturnValue]
+            RValue = []
+1238:   EX_Jump 619
+1243:   EX_PushExecutionFlow 2149
+1248:   EX_PushExecutionFlow 1473
+1253:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerController
+                RValue = [CallFunc_GetPlayerController_ReturnValue]
+1295:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerController_SpaceRig->BP_PlayerController_SpaceRig_C
+                EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+1331:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+1360:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1370:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+            RValue = []
+1402:   EX_LetBool
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+                EX_InstanceVariable [HasKickedABarrel]
+                RValue = [HasKickedABarrel]
+            EX_True
+1435:   EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_Controller_Space_Rig]
+            EX_IntConst 14
+            EX_NameConst HasKickedABarrel
+1472:   EX_PopExecutionFlow
+1473:   EX_LetObj
+            EX_InstanceVariable [KickedBy]
+            EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+1492:   EX_Let
+            EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMeshComponent0]
+                EX_VirtualFunction GetSocketLocation
+                    EX_NameConst Center
+                RValue = [CallFunc_GetSocketLocation_ReturnValue]
+1559:   EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst -0.1
+                EX_FloatConst 0.1
+1597:   EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst -0.1
+                EX_FloatConst 0.1
+1635:   EX_Let
+            EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomFloatInRange
+                EX_FloatConst -5
+                EX_FloatConst 5
+1673:   EX_Let
+            EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_1]
+                EX_FloatConst 1
+1724:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorFloat
+                EX_LocalVariable [CallFunc_GetSocketLocation_ReturnValue]
+                EX_LocalVariable [CallFunc_RandomFloatInRange_ReturnValue_2]
+1770:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [KickedBy]
+                EX_FinalFunction import /Script/Engine->Actor->GetActorForwardVector
+                RValue = [CallFunc_GetActorForwardVector_ReturnValue]
+1820:   EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_GetActorForwardVector_ReturnValue]
+                EX_LocalVariable [CallFunc_MakeVector_ReturnValue]
+1866:   EX_Let
+            EX_LocalVariable [CallFunc_GetStatValue_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [KickedBy]
+                    EX_InstanceVariable [PawnStatsComponent]
+                    RValue = [PawnStatsComponent]
+                EX_FinalFunction import /Script/FSD->PawnStatsComponent->GetStatValue
+                    EX_ObjectConst import /Game/GameElements/PawnStats/PST_BarrelKicking->PST_BarrelKicking
+                RValue = [CallFunc_GetStatValue_ReturnValue]
+1947:   EX_Let
+            EX_LocalVariable [CallFunc_Normal_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Normal
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_FloatConst 0.0001
+1989:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_GetStatValue_ReturnValue]
+                EX_FloatConst 25000
+2031:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_Normal_ReturnValue]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+2077:   EX_Context
+            EX_InstanceVariable [StaticMeshComponent0]
+            EX_VirtualFunction AddImpulseAtLocation
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_Add_VectorFloat_ReturnValue]
+                EX_NameConst None
+            RValue = []
+2144:   EX_Jump 236
+2149:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [K2Node_ComponentBoundEvent_user]
+                EX_ObjectConst import /Game/GameElements/Bar/DrinkEffects/DE_StrongerBarrelKicking->DE_StrongerBarrelKicking_C
+2187:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+2216:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+2226:   EX_PopExecutionFlowIfNot
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [EffectIsActive]
+                RValue = [EffectIsActive]
+2258:   EX_VirtualFunction Spawn Bronzehead Effects
+2272:   EX_PopExecutionFlow
+2273:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 138
+                EX_IntConst 1276153754
+                EX_NameConst ExecuteUbergraph_BP_Phys_Barrel01
+                EX_Self
+2327:   EX_PopExecutionFlow
+2328:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 345
+                EX_IntConst 616729404
+                EX_NameConst ExecuteUbergraph_BP_Phys_Barrel01
+                EX_Self
+2382:   EX_PopExecutionFlow
+2383:   EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 4
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 549
+                EX_IntConst -67661325
+                EX_NameConst ExecuteUbergraph_BP_Phys_Barrel01
+                EX_Self
+2437:   EX_PopExecutionFlow
+2438:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetTPAnimInstance_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Kicker]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetTPAnimInstance
+                RValue = [CallFunc_GetTPAnimInstance_ReturnValue]
+2480:   EX_Let
+            EX_LocalVariable [CallFunc_Montage_Play_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetTPAnimInstance_ReturnValue]
+                EX_FinalFunction import /Script/Engine->AnimInstance->Montage_Play
+                    EX_ObjectConst import /Game/CharacterStructure/Gear_Unarmed/TP/3P_Unarmed_Kick_A_Montage->3P_Unarmed_Kick_A_Montage
+                    EX_FloatConst 1
+                    EX_ByteConst 0
+                    EX_FloatConst 0
+                    EX_False
+                RValue = [CallFunc_Montage_Play_ReturnValue]
+2552:   EX_PopExecutionFlow
+2553:   EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+2582:   EX_Let
+            EX_InstanceVariable [RideBeginTime]
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue]
+2609:   EX_LetObj
+            EX_InstanceVariable [CurrentRider]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+2628:   EX_PopExecutionFlow
+2629:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [CurrentRider]
+2658:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+2668:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_InstanceVariable [RideBeginTime]
+                EX_FloatConst 0
+2702:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorGroundLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CurrentRider]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetActorGroundLocation
+                RValue = [CallFunc_GetActorGroundLocation_ReturnValue]
+2752:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorGroundLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X]
+            EX_LocalVariable [CallFunc_BreakVector_Y]
+            EX_LocalVariable [CallFunc_BreakVector_Z]
+2798:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [UseCapsule]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue]
+2848:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector_X_1]
+            EX_LocalVariable [CallFunc_BreakVector_Y_1]
+            EX_LocalVariable [CallFunc_BreakVector_Z_1]
+2894:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z]
+                EX_LocalVariable [CallFunc_BreakVector_Z_1]
+2932:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+                EX_InstanceVariable [CurrentRider]
+2970:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_1]
+3008:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CurrentRider]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+3054:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+                EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+3092:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_2]
+                EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_2]
+3130:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_3]
+3140:   EX_Let
+            EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetTimeSeconds
+                EX_Self
+3169:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [CallFunc_GetTimeSeconds_ReturnValue_1]
+                EX_InstanceVariable [RideBeginTime]
+3215:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [CurrentRider]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerController
+                RValue = [CallFunc_GetPlayerController_ReturnValue_1]
+3257:   EX_Context
+            EX_InstanceVariable [BarrelRiderAchievement]
+            EX_FinalFunction import /Script/FSD->FSDAchievement->SetAchievementProgress
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue_1]
+                EX_Self
+            RValue = []
+3308:   EX_Let
+            EX_InstanceVariable [RideBeginTime]
+            EX_FloatConst 0
+3331:   EX_LetObj
+            EX_InstanceVariable [CurrentRider]
+            EX_NoObject
+3342:   EX_PopExecutionFlow
+3343:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor_1]
+3379:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+3408:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+3418:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [UseCapsule]
+                EX_FinalFunction import /Script/Engine->SceneComponent->K2_GetComponentLocation
+                RValue = [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+3468:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_K2_GetComponentLocation_ReturnValue_1]
+            EX_LocalVariable [CallFunc_BreakVector_X_2]
+            EX_LocalVariable [CallFunc_BreakVector_Y_2]
+            EX_LocalVariable [CallFunc_BreakVector_Z_2]
+3514:   EX_Let
+            EX_LocalVariable [CallFunc_GetActorGroundLocation_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetActorGroundLocation
+                RValue = [CallFunc_GetActorGroundLocation_ReturnValue_1]
+3564:   EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector
+            EX_LocalVariable [CallFunc_GetActorGroundLocation_ReturnValue_1]
+            EX_LocalVariable [CallFunc_BreakVector_X_3]
+            EX_LocalVariable [CallFunc_BreakVector_Y_3]
+            EX_LocalVariable [CallFunc_BreakVector_Z_3]
+3610:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_BreakVector_Z_3]
+                EX_LocalVariable [CallFunc_BreakVector_Z_2]
+3648:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue_3]
+3658:   EX_Jump 2553
+3663:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [K2Node_ComponentBoundEvent_OtherActor]
+3699:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+3728:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_2]
+3738:   EX_Jump 2629
+3743:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAttached
+                EX_ObjectConst import /Game/GameElements/Bar/DrinkEffects/P_BeerEffect_PowerkickBarre_Trail->P_BeerEffect_PowerkickBarre_Trail
+                EX_InstanceVariable [UseCapsule]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_ByteConst 0
+                EX_True
+                EX_ByteConst 0
+                EX_True
+3839:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+3867:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Bar/DrinkEffects/P_BeerEffect_Powerkick_BronzeHeadBitter->P_BeerEffect_Powerkick_BronzeHeadBitter
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+3936:   EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+3964:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/BeerEffects/BeerEffect__BarrelPowerKick_Cue->BeerEffect__BarrelPowerKick_Cue
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+4034:   EX_PopExecutionFlow
+4035:   EX_Return
+            EX_Nothing
+4037:   EX_EndOfScript
+FunctionExport Spawn Bronzehead Effects
+0:      EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 3743
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__BarrelRiderCollission_K2Node_ComponentBoundEvent_7_ComponentEndOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 3663
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript
+FunctionExport BndEvt__BarrelRiderCollission_K2Node_ComponentBoundEvent_6_ComponentBeginOverlapSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OverlappedComponent_1]
+            EX_LocalVariable [OverlappedComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor_1]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp_1]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherBodyIndex_1]
+            EX_LocalVariable [OtherBodyIndex]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_bFromSweep]
+            EX_LocalVariable [bFromSweep]
+90:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_SweepResult]
+            EX_LocalOutVariable
+                [SweepResult]
+108:    EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 3343
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport Play_Kick
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Kicker]
+            EX_LocalVariable [Kicker]
+18:     EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 2438
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport DestroyOvertime
+0:      EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 2383
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Destroy
+0:      EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 2328
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 2273
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__InstantUsable_K2Node_ComponentBoundEvent_1_UsedBySignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_user]
+            EX_LocalVariable [user]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_key]
+            EX_LocalVariable [key]
+36:     EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 1243
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport BndEvt__StaticMeshComponent0_K2Node_ComponentBoundEvent_0_ComponentHitSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HitComponent]
+            EX_LocalVariable [HitComponent]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherActor_2]
+            EX_LocalVariable [OtherActor]
+36:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_OtherComp_2]
+            EX_LocalVariable [OtherComp]
+54:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_NormalImpulse]
+            EX_LocalVariable [NormalImpulse]
+72:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_Hit]
+            EX_LocalOutVariable
+                [Hit]
+90:     EX_LocalFinalFunction export BP_Phys_Barrel01_C->ExecuteUbergraph_BP_Phys_Barrel01
+            EX_IntConst 635
+105:    EX_Return
+            EX_Nothing
+107:    EX_EndOfScript
+FunctionExport OnRep_KickSoundLocation
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/SpaceRig/BarrelImpact/BarrelImpact_Cue->BarrelImpact_Cue
+                EX_InstanceVariable [KickSoundLocation]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+70:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+99:     EX_JumpIfNot 163
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+113:    EX_Context
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_FinalFunction import /Script/Engine->AudioComponent->SetFloatParameter
+                EX_NameConst Barrel_Speed
+                EX_FloatConst 250
+            RValue = []
+163:    EX_Return
+            EX_Nothing
+165:    EX_EndOfScript

@@ -1,0 +1,163 @@
+FunctionExport ExecuteUbergraph_BTN_UnlockItem
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetCharacterID
+                EX_LocalVariable [K2Node_CustomEvent_Character]
+39:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsOwned_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_CustomEvent_Item]
+                EX_VirtualFunction IsOwned
+                    EX_Self
+                    EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+                RValue = [CallFunc_IsOwned_ReturnValue]
+96:     EX_JumpIfNot 327
+            EX_LocalVariable [CallFunc_IsOwned_ReturnValue]
+110:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsVanity_Item]
+            EX_InterfaceToObjCast import /Script/FSD->VanityItem
+                EX_LocalVariable [K2Node_CustomEvent_Item]
+146:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsVanity_Item]
+175:    EX_JumpIfNot 284
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+189:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetCharacterID
+                EX_LocalVariable [K2Node_CustomEvent_Character]
+218:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsEquipped_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsVanity_Item]
+                EX_FinalFunction import /Script/FSD->VanityItem->IsEquipped
+                    EX_Self
+                    EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+                RValue = [CallFunc_IsEquipped_ReturnValue]
+270:    EX_JumpIfNot 284
+            EX_LocalVariable [CallFunc_IsEquipped_ReturnValue]
+284:    EX_Context
+            EX_InstanceVariable [RankLock]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+322:    EX_Jump 1012
+327:    EX_Let
+            EX_LocalVariable [CallFunc_GetRequiredPlayerRank_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_CustomEvent_Item]
+                EX_VirtualFunction GetRequiredPlayerRank
+                RValue = [CallFunc_GetRequiredPlayerRank_ReturnValue]
+382:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_GetRequiredPlayerRank_ReturnValue]
+                EX_False
+                EX_True
+                EX_IntConst 1
+                EX_IntConst 324
+431:    EX_Context
+            EX_InstanceVariable [DATA_Rank]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+476:    EX_LetBool
+            EX_LocalVariable [CallFunc_CanCraft_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_CustomEvent_Item]
+                EX_VirtualFunction CanCraft
+                    EX_Self
+                RValue = [CallFunc_CanCraft_ReturnValue]
+524:    EX_JumpIfNot 543
+            EX_LocalVariable [CallFunc_CanCraft_ReturnValue]
+538:    EX_Jump 284
+543:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+564:    EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerRank_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetPlayerRank
+                RValue = [CallFunc_GetPlayerRank_ReturnValue]
+614:    EX_Let
+            EX_LocalVariable [CallFunc_GetRequiredPlayerRank_ReturnValue]
+            EX_Context
+                EX_InterfaceContext
+                    EX_LocalVariable [K2Node_CustomEvent_Item]
+                EX_VirtualFunction GetRequiredPlayerRank
+                RValue = [CallFunc_GetRequiredPlayerRank_ReturnValue]
+669:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [CallFunc_GetPlayerRank_ReturnValue]
+                EX_LocalVariable [CallFunc_GetRequiredPlayerRank_ReturnValue]
+707:    EX_JumpIfNot 726
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+721:    EX_Jump 284
+726:    EX_Context
+            EX_InstanceVariable [RankLock]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 0
+            RValue = []
+764:    EX_Jump 1012
+769:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+817:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+853:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+882:    EX_Context
+            EX_InstanceVariable [DATA_Rank]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+923:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+971:    EX_Context
+            EX_InstanceVariable [ICON_Rank]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1012:   EX_Return
+            EX_Nothing
+1014:   EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export BTN_UnlockItem_C->ExecuteUbergraph_BTN_UnlockItem
+            EX_IntConst 769
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetData
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Item]
+            EX_LocalVariable [Item]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Character]
+            EX_LocalVariable [Character]
+36:     EX_LocalFinalFunction export BTN_UnlockItem_C->ExecuteUbergraph_BTN_UnlockItem
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

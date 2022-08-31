@@ -1,0 +1,168 @@
+FunctionExport ExecuteUbergraph_WND_MissionBar
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetMissionType
+            EX_False
+25:     EX_Jump 238
+30:     EX_LocalVirtualFunction SetGeneratedMission
+            EX_LocalVariable [K2Node_CustomEvent_OutGeneratedMission]
+53:     EX_Jump 238
+58:     EX_BindDelegate OnGeneratedMissionChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+81:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+102:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_InstanceVariable [OnGeneratedMissionChanged]
+                RValue = [OnGeneratedMissionChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+143:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+164:    EX_LocalVirtualFunction OnGeneratedMissionChanged
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+                EX_InstanceVariable [GeneratedMission]
+                RValue = [GeneratedMission]
+209:    EX_Jump 238
+214:    EX_Jump 58
+219:    EX_JumpIfNot 238
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+233:    EX_Jump 10
+238:    EX_Return
+            EX_Nothing
+240:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export WND_MissionBar_C->ExecuteUbergraph_WND_MissionBar
+            EX_IntConst 219
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export WND_MissionBar_C->ExecuteUbergraph_WND_MissionBar
+            EX_IntConst 214
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnGeneratedMissionChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OutGeneratedMission]
+            EX_LocalVariable [OutGeneratedMission]
+18:     EX_LocalFinalFunction export WND_MissionBar_C->ExecuteUbergraph_WND_MissionBar
+            EX_IntConst 30
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetGeneratedMission
+0:      EX_Context
+            EX_InstanceVariable [CanvasRoot]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+36:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InMission]
+65:     EX_JumpIfNot 144
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+79:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsSingleMission_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InMission]
+                EX_FinalFunction import /Script/FSD->GeneratedMission->IsSingleMission
+                RValue = [CallFunc_IsSingleMission_ReturnValue]
+121:    EX_LocalVirtualFunction SetMissionType
+            EX_LocalVariable [CallFunc_IsSingleMission_ReturnValue]
+144:    EX_Return
+            EX_Nothing
+146:    EX_EndOfScript
+FunctionExport SetMissionType
+0:      EX_Context
+            EX_InstanceVariable [CanvasRoot]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+36:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [IsSingleMission]
+55:     EX_LetObj
+            EX_LocalVariable [Temp_class_Variable]
+            EX_ObjectConst import /Game/UI/HUD_SpaceRig/MissionOverview/WND_MissionBar_Normal->WND_MissionBar_Normal_C
+74:     EX_LetObj
+            EX_LocalVariable [Temp_class_Variable_1]
+            EX_ObjectConst import /Game/UI/HUD_SpaceRig/MissionOverview/WND_MissionBar_DeepDive->WND_MissionBar_DeepDive_C
+93:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+117:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable]
+                        OffsetToSwitchEnd = 212
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 189
+                            EX_LocalVariable [Temp_class_Variable_1]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 203
+                            EX_LocalVariable [Temp_class_Variable]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default]
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+222:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+241:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToCanvas_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CanvasRoot]
+                EX_FinalFunction import /Script/UMG->CanvasPanel->AddChildToCanvas
+                    EX_LocalVariable [Widget]
+                RValue = [CallFunc_AddChildToCanvas_ReturnValue]
+292:    EX_LetObj
+            EX_LocalVariable [SlotWidget]
+            EX_LocalVariable [CallFunc_AddChildToCanvas_ReturnValue]
+311:    EX_Let
+            EX_StructMemberContext [Minimum]
+                EX_LocalVariable [K2Node_MakeStruct_Anchors]
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 0
+                EX_FloatConst 0
+362:    EX_Let
+            EX_StructMemberContext [Maximum]
+                EX_LocalVariable [K2Node_MakeStruct_Anchors]
+            EX_StructConst import /Script/CoreUObject->Vector2D
+                EX_FloatConst 1
+                EX_FloatConst 1
+413:    EX_Context
+            EX_LocalVariable [SlotWidget]
+            EX_FinalFunction import /Script/UMG->CanvasPanelSlot->SetAnchors
+                EX_LocalVariable [K2Node_MakeStruct_Anchors]
+            RValue = []
+454:    EX_Context
+            EX_LocalVariable [SlotWidget]
+            EX_FinalFunction import /Script/UMG->CanvasPanelSlot->SetAutoSize
+                EX_True
+            RValue = []
+487:    EX_Context
+            EX_LocalVariable [SlotWidget]
+            EX_FinalFunction import /Script/UMG->CanvasPanelSlot->SetOffsets
+                EX_StructConst import /Script/SlateCore->Margin
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+            RValue = []
+553:    EX_Return
+            EX_Nothing
+555:    EX_EndOfScript

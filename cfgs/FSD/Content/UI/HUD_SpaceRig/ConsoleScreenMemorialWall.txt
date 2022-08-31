@@ -1,0 +1,310 @@
+FunctionExport ExecuteUbergraph_ConsoleScreenMemorialWall
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_SetArray
+            EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+21:     EX_CallMath import /Script/Engine->DataTableFunctionLibrary->GetDataTableRowNames
+            EX_InstanceVariable [TestersDataTable]
+            EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+49:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+108:    EX_Let
+            EX_LocalVariable [CallFunc_RandomInteger_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomInteger
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+145:    EX_Let
+            EX_InstanceVariable [SpawnIndex]
+            EX_LocalVariable [CallFunc_RandomInteger_ReturnValue]
+172:    EX_Jump 425
+177:    EX_JumpIfNot 285
+            EX_InstanceVariable [IsFast]
+191:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_InstanceVariable [Timer]
+                EX_InstanceVariable [FastTimeToSpawn]
+229:    EX_JumpIfNot 425
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+243:    EX_LocalVirtualFunction SpawnNewLine
+257:    EX_Let
+            EX_InstanceVariable [Timer]
+            EX_FloatConst 0
+280:    EX_Jump 425
+285:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_InstanceVariable [Timer]
+                EX_InstanceVariable [SlowTimeToSpawn]
+323:    EX_JumpIfNot 425
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue_1]
+337:    EX_Jump 243
+342:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [K2Node_Event_InDeltaTime]
+                EX_InstanceVariable [Timer]
+388:    EX_Let
+            EX_InstanceVariable [Timer]
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+415:    EX_Jump 177
+420:    EX_Jump 10
+425:    EX_Return
+            EX_Nothing
+427:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ConsoleScreenMemorialWall_C->ExecuteUbergraph_ConsoleScreenMemorialWall
+            EX_IntConst 420
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Tick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_MyGeometry]
+            EX_LocalVariable [MyGeometry]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_InDeltaTime]
+            EX_LocalVariable [InDeltaTime]
+36:     EX_LocalFinalFunction export ConsoleScreenMemorialWall_C->ExecuteUbergraph_ConsoleScreenMemorialWall
+            EX_IntConst 342
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport GetNameFromRow
+0:      EX_SetArray
+            EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+11:     EX_CallMath import /Script/Engine->DataTableFunctionLibrary->GetDataTableRowNames
+            EX_InstanceVariable [TestersDataTable]
+            EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+39:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+                EX_LocalVariable [Row]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+98:     EX_LetBool
+            EX_LocalVariable [CallFunc_GetDataTableRowFromName_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__DataTableFunctionLibrary
+                EX_FinalFunction import /Script/Engine->DataTableFunctionLibrary->GetDataTableRowFromName
+                    EX_ObjectConst import /Game/Game/Text/DT_AlphaTesters->DT_AlphaTesters
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                    EX_LocalVariable [CallFunc_GetDataTableRowFromName_OutRow]
+                RValue = [CallFunc_GetDataTableRowFromName_ReturnValue]
+167:    EX_JumpIfNot 254
+            EX_LocalVariable [CallFunc_GetDataTableRowFromName_ReturnValue]
+181:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_StructMemberContext [SteamProfileName]
+                    EX_LocalVariable [CallFunc_GetDataTableRowFromName_OutRow]
+227:    EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+254:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+264:    EX_EndOfScript
+FunctionExport SpawnNewLine
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetNameFromRow_ReturnValue]
+            EX_LocalVirtualFunction GetNameFromRow
+                EX_InstanceVariable [SpawnIndex]
+41:     EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/HUD_SpaceRig/UI_ConsoleMemorialLine->UI_ConsoleMemorialLine_C
+                    EX_NoObject
+                RValue = [CallFunc_Create_ReturnValue]
+94:     EX_JumpIfNot 666
+            EX_InstanceVariable [IsFast]
+108:    EX_Let
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [AnimationSpeed]
+                RValue = [AnimationSpeed]
+            EX_InstanceVariable [FastSpeed]
+157:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Overlay_0]
+                EX_FinalFunction import /Script/UMG->Overlay->AddChildToOverlay
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChildToOverlay_ReturnValue]
+208:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_InstanceVariable [Lines]
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+276:    EX_Context
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_LocalVirtualFunction AddBoard
+                EX_Self
+            RValue = []
+313:    EX_Context
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetHorizontalAlignment
+                EX_ByteConst 0
+            RValue = []
+347:    EX_Context
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_GetNameFromRow_ReturnValue]
+            RValue = []
+392:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [SpawnIndex]
+                EX_IntConst 1
+434:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+461:    EX_Let
+            EX_InstanceVariable [SpawnIndex]
+            EX_LocalVariable [Temp_int_Variable]
+488:    EX_SetArray
+            EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+499:    EX_CallMath import /Script/Engine->DataTableFunctionLibrary->GetDataTableRowNames
+            EX_InstanceVariable [TestersDataTable]
+            EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+527:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetDataTableRowNames_OutRowNames]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+586:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+624:    EX_JumpIfNot 720
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+638:    EX_Let
+            EX_InstanceVariable [SpawnIndex]
+            EX_IntConst 0
+661:    EX_Jump 720
+666:    EX_Let
+            EX_Context
+                EX_LocalVariable [CallFunc_Create_ReturnValue]
+                EX_InstanceVariable [AnimationSpeed]
+                RValue = [AnimationSpeed]
+            EX_InstanceVariable [SlowSpeed]
+715:    EX_Jump 157
+720:    EX_Return
+            EX_Nothing
+722:    EX_EndOfScript
+FunctionExport SetAnimationSpeed
+0:      EX_LetBool
+            EX_InstanceVariable [IsFast]
+            EX_LocalVariable [IsFast]
+19:     EX_JumpIfNot 180
+            EX_InstanceVariable [IsFast]
+33:     EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_InstanceVariable [Timer]
+                EX_InstanceVariable [SlowTimeToSpawn]
+79:     EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue_1]
+                EX_InstanceVariable [FastTimeToSpawn]
+125:    EX_Let
+            EX_InstanceVariable [Timer]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+152:    EX_LocalVirtualFunction SetLinesSpeed
+            EX_InstanceVariable [FastSpeed]
+175:    EX_Jump 322
+180:    EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_InstanceVariable [Timer]
+                EX_InstanceVariable [FastTimeToSpawn]
+226:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+                EX_InstanceVariable [SlowTimeToSpawn]
+272:    EX_Let
+            EX_InstanceVariable [Timer]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+299:    EX_LocalVirtualFunction SetLinesSpeed
+            EX_InstanceVariable [SlowSpeed]
+322:    EX_Return
+            EX_Nothing
+324:    EX_EndOfScript
+FunctionExport RemoveLine
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Array_RemoveItem_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_RemoveItem
+                    EX_InstanceVariable [Lines]
+                    EX_LocalVariable [NewParam]
+                RValue = [CallFunc_Array_RemoveItem_ReturnValue]
+60:     EX_Return
+            EX_Nothing
+62:     EX_EndOfScript
+FunctionExport SetLinesSpeed
+0:      EX_PushExecutionFlow 369
+5:      EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+51:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Lines]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+110:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+148:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+158:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+185:    EX_PushExecutionFlow 295
+190:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [Lines]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+249:    EX_Context
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVirtualFunction SetSpeed
+                EX_LocalVariable [Speed]
+            RValue = []
+294:    EX_PopExecutionFlow
+295:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+337:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+364:    EX_Jump 51
+369:    EX_Return
+            EX_Nothing
+371:    EX_EndOfScript

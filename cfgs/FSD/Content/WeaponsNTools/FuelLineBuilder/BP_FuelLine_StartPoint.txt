@@ -1,0 +1,212 @@
+FunctionExport ExecuteUbergraph_BP_FuelLine_StartPoint
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+30:     EX_JumpIfNot 276
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+44:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetParentActor_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetParentActor
+64:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Salvage_Fuel_Pod]
+            EX_DynamicCast import /Game/GameElements/Objectives/Salvage/BP_Salvage_FuelPod->BP_Salvage_FuelPod_C
+                EX_LocalVariable [CallFunc_GetParentActor_ReturnValue]
+100:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Salvage_Fuel_Pod]
+129:    EX_JumpIfNot 276
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+143:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [K2Node_ComponentBoundEvent_InSegment]
+172:    EX_JumpIfNot 276
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+186:    EX_Jump 276
+191:    EX_LocalVirtualFunction UpdateState
+205:    EX_Jump 276
+210:    EX_LocalVirtualFunction UpdateState
+224:    EX_Jump 276
+229:    EX_Context
+            EX_InstanceVariable [UsableStartFuelLine]
+            EX_VirtualFunction SetCanUse
+                EX_True
+            RValue = []
+266:    EX_Jump 276
+271:    EX_Jump 10
+276:    EX_Return
+            EX_Nothing
+278:    EX_EndOfScript
+FunctionExport BndEvt__UsableStartFuelLine_K2Node_ComponentBoundEvent_1_SegmentDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_InUsable]
+            EX_LocalVariable [InUsable]
+18:     EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_InSegment]
+            EX_LocalVariable [InSegment]
+36:     EX_LocalFinalFunction export BP_FuelLine_StartPoint_C->ExecuteUbergraph_BP_FuelLine_StartPoint
+            EX_IntConst 271
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript
+FunctionExport FuelPodLanded
+0:      EX_LocalFinalFunction export BP_FuelLine_StartPoint_C->ExecuteUbergraph_BP_FuelLine_StartPoint
+            EX_IntConst 229
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_FuelLine_StartPoint_C->ExecuteUbergraph_BP_FuelLine_StartPoint
+            EX_IntConst 210
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__UsableStartFuelLine_K2Node_ComponentBoundEvent_0_UsableChangedSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_canUse]
+            EX_LocalVariable [canUse]
+18:     EX_LocalFinalFunction export BP_FuelLine_StartPoint_C->ExecuteUbergraph_BP_FuelLine_StartPoint
+            EX_IntConst 191
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetMaterials_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_VirtualFunction GetMaterials
+                RValue = [CallFunc_GetMaterials_ReturnValue]
+54:     EX_Let
+            EX_InstanceVariable [DefaultMaterials]
+            EX_LocalVariable [CallFunc_GetMaterials_ReturnValue]
+81:     EX_Return
+            EX_Nothing
+83:     EX_EndOfScript
+FunctionExport UpdateState
+0:      EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_Pipeline_StartDot_NotBlinking->M_Pipeline_StartDot_NotBlinking
+19:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_Pipeline_StartDot->M_Pipeline_StartDot
+38:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetMaterial_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_VirtualFunction GetMaterial
+                    EX_IntConst 0
+                RValue = [CallFunc_GetMaterial_ReturnValue]
+89:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+109:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPhotosensitiveMode
+                RValue = [CallFunc_GetPhotosensitiveMode_ReturnValue]
+151:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+170:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_Context
+                EX_InstanceVariable [UsableStartFuelLine]
+                EX_InstanceVariable [Usable]
+                RValue = [Usable]
+211:    EX_LocalVirtualFunction SetMaterial
+            EX_NameConst MarkerRingA
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 334
+                case 0:
+                    EX_False
+                    NextCaseOffset = 267
+                    EX_LocalVariable [CallFunc_GetMaterial_ReturnValue]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 325
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable]
+                        OffsetToSwitchEnd = 325
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 302
+                            EX_LocalVariable [Temp_object_Variable_1]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 316
+                            EX_LocalVariable [Temp_object_Variable]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+335:    EX_Context
+            EX_InstanceVariable [WidgetStartFuelLine]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_Context
+                    EX_InstanceVariable [UsableStartFuelLine]
+                    EX_InstanceVariable [Usable]
+                    RValue = [Usable]
+                EX_False
+            RValue = []
+399:    EX_Return
+            EX_Nothing
+401:    EX_EndOfScript
+FunctionExport SetMaterial
+0:      EX_Let
+            EX_LocalVariable [Index]
+            EX_IntConst 0
+23:     EX_Let
+            EX_LocalVariable [CallFunc_GetMaterialIndex_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [StaticMesh]
+                EX_VirtualFunction GetMaterialIndex
+                    EX_LocalVariable [InSlotName]
+                RValue = [CallFunc_GetMaterialIndex_ReturnValue]
+86:     EX_Let
+            EX_LocalVariable [Index]
+            EX_LocalVariable [CallFunc_GetMaterialIndex_ReturnValue]
+113:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [Index]
+                EX_IntConst 0
+147:    EX_JumpIfNot 366
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+161:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InMaterial]
+190:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+209:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [DefaultMaterials]
+                EX_LocalVariable [Index]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+268:    EX_Context
+            EX_InstanceVariable [StaticMesh]
+            EX_VirtualFunction SetMaterialByName
+                EX_LocalVariable [InSlotName]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 365
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 342
+                        EX_LocalVariable [CallFunc_Array_Get_Item]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 356
+                        EX_LocalVariable [InMaterial]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+366:    EX_Return
+            EX_Nothing
+368:    EX_EndOfScript

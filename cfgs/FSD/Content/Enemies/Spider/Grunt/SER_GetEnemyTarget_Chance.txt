@@ -1,0 +1,80 @@
+FunctionExport ExecuteUbergraph_SER_GetEnemyTarget_Chance
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction GetEnemyTargetChance
+            EX_LocalVariable [K2Node_Event_ControlledPawn]
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveTickAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+54:     EX_LocalFinalFunction export SER_GetEnemyTarget_Chance_C->ExecuteUbergraph_SER_GetEnemyTarget_Chance
+            EX_IntConst 10
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport GetEnemyTargetChance
+0:      EX_JumpIfNot 267
+            EX_InstanceVariable [UseFromActor]
+14:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [FromKey]
+44:     EX_LetObj
+            EX_LocalVariable [From]
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+63:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [From]
+92:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+111:    EX_LetObj
+            EX_LocalVariable [CallFunc_FindClosestEnemyFromActorWithSkipChance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->FindClosestEnemyFromActorWithSkipChance
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 183
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 160
+                        EX_LocalVariable [FromAcor]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 174
+                        EX_LocalVariable [From]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_InstanceVariable [Range]
+                EX_InstanceVariable [SkipChance]
+                EX_InstanceVariable [Require LoS]
+                EX_InstanceVariable [Query]
+                EX_VectorConst 0,0,0
+233:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [Target]
+            EX_LocalVariable [CallFunc_FindClosestEnemyFromActorWithSkipChance_ReturnValue_1]
+262:    EX_Jump 374
+267:    EX_LetObj
+            EX_LocalVariable [CallFunc_FindClosestEnemyFromActorWithSkipChance_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->FindClosestEnemyFromActorWithSkipChance
+                EX_LocalVariable [FromAcor]
+                EX_InstanceVariable [Range]
+                EX_InstanceVariable [SkipChance]
+                EX_InstanceVariable [Require LoS]
+                EX_InstanceVariable [Query]
+                EX_VectorConst 0,0,0
+345:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [Target]
+            EX_LocalVariable [CallFunc_FindClosestEnemyFromActorWithSkipChance_ReturnValue]
+374:    EX_Return
+            EX_Nothing
+376:    EX_EndOfScript

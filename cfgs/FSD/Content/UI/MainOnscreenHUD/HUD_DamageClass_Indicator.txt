@@ -1,0 +1,448 @@
+FunctionExport ExecuteUbergraph_HUD_DamageClass_Indicator
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction ClearIcons
+24:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+44:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+80:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+109:    EX_JumpIfNot 861
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+123:    EX_BindDelegate OnAfflictionActivated
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+146:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [PawnAfflictionComponent]
+                    RValue = [PawnAfflictionComponent]
+                EX_InstanceVariable [OnAfflictionActivatedEvent]
+                RValue = [OnAfflictionActivatedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+209:    EX_BindDelegate OnAfflictionDeactivated
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+232:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [PawnAfflictionComponent]
+                    RValue = [PawnAfflictionComponent]
+                EX_InstanceVariable [OnAfflictionDeactivatedEvent]
+                RValue = [OnAfflictionDeactivatedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+295:    EX_Jump 861
+300:    EX_JumpIfNot 861
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_affliction_1]
+                EX_InstanceVariable [bShowPlayerIcon]
+                RValue = [bShowPlayerIcon]
+336:    EX_LetObj
+            EX_LocalVariable [CallFunc_CreateIcon_ReturnValue]
+            EX_LocalVirtualFunction CreateIcon
+                EX_LocalVariable [K2Node_CustomEvent_affliction_1]
+369:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_CreateIcon_ReturnValue]
+398:    EX_JumpIfNot 861
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+412:    EX_Context
+            EX_LocalVariable [CallFunc_CreateIcon_ReturnValue]
+            EX_LocalVirtualFunction Activate
+            RValue = []
+448:    EX_BindDelegate Elapsed
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+471:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_CreateIcon_ReturnValue]
+                EX_InstanceVariable [Elapsed]
+                RValue = [Elapsed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+512:    EX_Jump 861
+517:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [Indicators]
+                    EX_LocalVariable [K2Node_CustomEvent_affliction]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+586:    EX_JumpIfNot 861
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+600:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [Indicators]
+                    EX_LocalVariable [K2Node_CustomEvent_affliction]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+669:    EX_Context
+            EX_LocalVariable [CallFunc_Map_Find_Value]
+            EX_LocalVirtualFunction Deactivate
+            RValue = []
+705:    EX_Jump 861
+710:    EX_Context
+            EX_LocalVariable [K2Node_CustomEvent_Item]
+            EX_VirtualFunction RemoveFromParent
+            RValue = []
+746:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Remove_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Remove
+                    EX_InstanceVariable [Indicators]
+                    EX_Context
+                        EX_LocalVariable [K2Node_CustomEvent_Item]
+                        EX_InstanceVariable [Affliction]
+                        RValue = [Affliction]
+                RValue = [CallFunc_Map_Remove_ReturnValue]
+828:    EX_LocalVirtualFunction UpdateSpacers
+842:    EX_Jump 861
+847:    EX_LocalVirtualFunction UpdateSpacers
+861:    EX_Return
+            EX_Nothing
+863:    EX_EndOfScript
+FunctionExport BndEvt__HUD_PlayerTemperature_K2Node_ComponentBoundEvent_0_VisibilityChangedDelegate__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_InVisibility]
+            EX_LocalVariable [InVisibility]
+18:     EX_LocalFinalFunction export HUD_DamageClass_Indicator_C->ExecuteUbergraph_HUD_DamageClass_Indicator
+            EX_IntConst 847
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Elapsed
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Item]
+            EX_LocalVariable [Item]
+18:     EX_LocalFinalFunction export HUD_DamageClass_Indicator_C->ExecuteUbergraph_HUD_DamageClass_Indicator
+            EX_IntConst 710
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAfflictionDeactivated
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_affliction]
+            EX_LocalVariable [affliction]
+18:     EX_LocalFinalFunction export HUD_DamageClass_Indicator_C->ExecuteUbergraph_HUD_DamageClass_Indicator
+            EX_IntConst 517
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAfflictionActivated
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_affliction_1]
+            EX_LocalVariable [affliction]
+18:     EX_LocalFinalFunction export HUD_DamageClass_Indicator_C->ExecuteUbergraph_HUD_DamageClass_Indicator
+            EX_IntConst 300
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_DamageClass_Indicator_C->ExecuteUbergraph_HUD_DamageClass_Indicator
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CreateIcon
+0:      EX_PushExecutionFlow 1060
+5:      EX_LetBool
+            EX_LocalVariable [LeftSize]
+            EX_False
+16:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_Context
+                    EX_LocalVariable [Affliction]
+                    EX_InstanceVariable [Icon]
+                    RValue = [Icon]
+67:     EX_JumpIfNot 375
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+81:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AfflictionBox_Right]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+131:    EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [AfflictionBox_Left]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue_1]
+181:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+219:    EX_LetBool
+            EX_LocalVariable [LeftSize]
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+238:    EX_PushExecutionFlow 391
+243:    EX_LetBool
+            EX_LocalVariable [CallFunc_Map_Find_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+                EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Find
+                    EX_InstanceVariable [Indicators]
+                    EX_LocalVariable [Affliction]
+                    EX_LocalVariable [CallFunc_Map_Find_Value]
+                RValue = [CallFunc_Map_Find_ReturnValue]
+312:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Map_Find_Value]
+331:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Widget]
+360:    EX_JumpIfNot 415
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+374:    EX_PopExecutionFlow
+375:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_NoObject
+386:    EX_Jump 1060
+391:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [Widget]
+410:    EX_Jump 1060
+415:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+439:    EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/MainOnscreenHUD/HUD_DamageClass_Item->HUD_DamageClass_Item_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+500:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Affliction
+            EX_LocalVariable [Affliction]
+541:    EX_LetObj
+            EX_LocalVariable [Widget]
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+560:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Add
+                EX_InstanceVariable [Indicators]
+                EX_LocalVariable [Affliction]
+                EX_LocalVariable [Widget]
+            RValue = []
+619:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [LeftSize]
+638:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_Context
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 702
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 679
+                        EX_InstanceVariable [AfflictionBox_Right]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 693
+                        EX_InstanceVariable [AfflictionBox_Left]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+                EX_FinalFunction import /Script/UMG->HorizontalBox->AddChildToHorizontalBox
+                    EX_LocalVariable [Widget]
+                RValue = [CallFunc_AddChildToHorizontalBox_ReturnValue]
+733:    EX_Let
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [K2Node_MakeStruct_SlateChildSize]
+            EX_FloatConst 1
+765:    EX_Let
+            EX_StructMemberContext [SizeRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateChildSize]
+            EX_ByteConst 0
+794:    EX_Context
+            EX_LocalVariable [CallFunc_AddChildToHorizontalBox_ReturnValue]
+            EX_FinalFunction import /Script/UMG->HorizontalBoxSlot->SetSize
+                EX_LocalVariable [K2Node_MakeStruct_SlateChildSize]
+            RValue = []
+835:    EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst -1
+858:    EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 1
+881:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [LeftSize]
+900:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 980
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 957
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 971
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FloatConst 1
+986:    EX_Context
+            EX_LocalVariable [Widget]
+            EX_FinalFunction import /Script/UMG->Widget->SetRenderScale
+                EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            RValue = []
+1027:   EX_LocalVirtualFunction UpdateSpacers
+1041:   EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [Widget]
+1060:   EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+1070:   EX_EndOfScript
+FunctionExport ClearIcons
+0:      EX_Context
+            EX_InstanceVariable [AfflictionBox_Left]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+36:     EX_Context
+            EX_InstanceVariable [AfflictionBox_Right]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+72:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Clear
+                EX_InstanceVariable [Indicators]
+            RValue = []
+113:    EX_Return
+            EX_Nothing
+115:    EX_EndOfScript
+FunctionExport UpdateSpacers
+0:      EX_LetBool
+            EX_LocalVariable [TempVisible]
+            EX_False
+11:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction IsFlaggedVisible
+                EX_InstanceVariable [HUD_PlayerTemperature]
+                EX_Self
+                EX_LocalVariable [CallFunc_IsFlaggedVisible_IsFlaggedVisible]
+            RValue = []
+66:     EX_LetBool
+            EX_LocalVariable [TempVisible]
+            EX_LocalVariable [CallFunc_IsFlaggedVisible_IsFlaggedVisible]
+85:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [AfflictionBox_Left]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue_1]
+135:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+                EX_IntConst 0
+169:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [AfflictionBox_Left]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue_1]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+255:    EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [AfflictionBox_Right]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+305:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+                EX_IntConst 0
+339:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [AfflictionBox_Right]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+425:    EX_LocalVirtualFunction UpdateThisSpacer
+            EX_InstanceVariable [Spacer_Left]
+            EX_InstanceVariable [AfflictionBox_Left]
+            EX_InstanceVariable [AfflictionBox_Right]
+            EX_LocalVariable [TempVisible]
+475:    EX_LocalVirtualFunction UpdateThisSpacer
+            EX_InstanceVariable [Spacer_Right]
+            EX_InstanceVariable [AfflictionBox_Right]
+            EX_InstanceVariable [AfflictionBox_Left]
+            EX_LocalVariable [TempVisible]
+525:    EX_Return
+            EX_Nothing
+527:    EX_EndOfScript
+FunctionExport UpdateThisSpacer
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_LocalVariable [OtherAfflictionBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+50:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [ThisAfflictionBox]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue_1]
+100:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue_1]
+                EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+138:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+                EX_LocalVariable [TemperatureIsVisible]
+176:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_LocalVariable [ThisSpacer]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+262:    EX_Return
+            EX_Nothing
+264:    EX_EndOfScript

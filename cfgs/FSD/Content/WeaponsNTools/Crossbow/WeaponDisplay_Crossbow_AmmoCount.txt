@@ -1,0 +1,274 @@
+FunctionExport ExecuteUbergraph_WeaponDisplay_Crossbow_AmmoCount
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction Refresh
+24:     EX_Jump 53
+29:     EX_LocalVirtualFunction Refresh
+43:     EX_Jump 53
+48:     EX_Jump 10
+53:     EX_Return
+            EX_Nothing
+55:     EX_EndOfScript
+FunctionExport OnArrowChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InDefaultArrow]
+            EX_LocalVariable [InDefaultArrow]
+18:     EX_LocalFinalFunction export WeaponDisplay_Crossbow_AmmoCount_C->ExecuteUbergraph_WeaponDisplay_Crossbow_AmmoCount
+            EX_IntConst 48
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnAmountChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_amount]
+            EX_LocalVariable [amount]
+18:     EX_LocalFinalFunction export WeaponDisplay_Crossbow_AmmoCount_C->ExecuteUbergraph_WeaponDisplay_Crossbow_AmmoCount
+            EX_IntConst 29
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetItem
+0:      EX_LetObj
+            EX_InstanceVariable [Item]
+            EX_LocalVariable [InItem]
+19:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsCrossbow]
+            EX_DynamicCast import /Script/FSD->Crossbow
+                EX_InstanceVariable [Item]
+55:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsCrossbow]
+84:     EX_JumpIfNot 281
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+98:     EX_LetObj
+            EX_InstanceVariable [Crossbow]
+            EX_LocalVariable [K2Node_DynamicCast_AsCrossbow]
+117:    EX_LocalVirtualFunction Refresh
+131:    EX_BindDelegate OnAmountChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+154:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [Crossbow]
+                    EX_InstanceVariable [Aggregator]
+                    RValue = [Aggregator]
+                EX_InstanceVariable [OnClipAndTotalChanged]
+                RValue = [OnClipAndTotalChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+217:    EX_BindDelegate OnArrowChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+240:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_InstanceVariable [OnDefaultArrowEquippedChanged]
+                RValue = [OnDefaultArrowEquippedChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+281:    EX_Return
+            EX_Nothing
+283:    EX_EndOfScript
+FunctionExport Refresh
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Crossbow]
+29:     EX_JumpIfNot 645
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetIsDefaultArrowEquipped
+                RValue = [CallFunc_GetIsDefaultArrowEquipped_ReturnValue_1]
+85:     EX_Let
+            EX_LocalVariable [CallFunc_GetTotalArrowCount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetTotalArrowCount
+                    EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue_1]
+                RValue = [CallFunc_GetTotalArrowCount_ReturnValue]
+144:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_IntToText
+                EX_LocalVariable [CallFunc_GetTotalArrowCount_ReturnValue]
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+193:    EX_Context
+            EX_InstanceVariable [Text_Default]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_IntToText_ReturnValue]
+            RValue = []
+238:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_Context
+                    EX_InstanceVariable [Crossbow]
+                    EX_InstanceVariable [CanTrifork]
+                    RValue = [CanTrifork]
+289:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetIsDefaultArrowEquipped
+                RValue = [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+331:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ClassClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ClassClass
+                EX_Context
+                    EX_InstanceVariable [Crossbow]
+                    EX_InstanceVariable [DefaultArrow]
+                    RValue = [DefaultArrow]
+                EX_ObjectConst import /Game/WeaponsNTools/Crossbow/Projectiles/PRJ_Crossbow_Projectile->PRJ_Crossbow_Projectile_C
+391:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+                EX_LocalVariable [CallFunc_EqualEqual_ClassClass_ReturnValue]
+429:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+467:    EX_JumpIfNot 531
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+481:    EX_Context
+            EX_InstanceVariable [ArrowSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [SimpleArrow]
+            RValue = []
+526:    EX_Jump 645
+531:    EX_Context
+            EX_InstanceVariable [ArrowSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [EffectArrow]
+            RValue = []
+576:    EX_LocalVirtualFunction GetArrowIcon
+            EX_LocalVariable [CallFunc_GetArrowIcon_OutIcon]
+599:    EX_Context
+            EX_InstanceVariable [EffectArrow]
+            EX_LocalVirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetArrowIcon_OutIcon]
+                EX_False
+            RValue = []
+645:    EX_Return
+            EX_Nothing
+647:    EX_EndOfScript
+FunctionExport GetArrowIcon
+0:      EX_PushExecutionFlow 696
+5:      EX_PushExecutionFlow 685
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetIsDefaultArrowEquipped
+                RValue = [CallFunc_GetIsDefaultArrowEquipped_ReturnValue_1]
+52:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue_1]
+71:     EX_LetObj
+            EX_LocalVariable [Arrow]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 178
+                case 0:
+                    EX_False
+                    NextCaseOffset = 133
+                    EX_Context
+                        EX_InstanceVariable [Crossbow]
+                        EX_InstanceVariable [SpecialArrow]
+                        RValue = [SpecialArrow]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 169
+                    EX_Context
+                        EX_InstanceVariable [Crossbow]
+                        EX_InstanceVariable [DefaultArrow]
+                        RValue = [DefaultArrow]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+178:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_LocalVariable [Arrow]
+207:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+217:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+            EX_MetaCast import /Script/FSD->CrossbowProjectileBase
+                EX_LocalVariable [Arrow]
+253:    EX_Let
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+282:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_ClassDynamicCast_bSuccess]
+292:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Crossbow]
+                EX_FinalFunction import /Script/FSD->Crossbow->GetIsDefaultArrowEquipped
+                RValue = [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+334:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_Context
+                    EX_InstanceVariable [Crossbow]
+                    EX_InstanceVariable [CanTrifork]
+                    RValue = [CanTrifork]
+                EX_LocalVariable [CallFunc_GetIsDefaultArrowEquipped_ReturnValue]
+394:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+413:    EX_Let
+            EX_LocalVariable [Icon]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 528
+                case 0:
+                    EX_False
+                    NextCaseOffset = 483
+                    EX_ClassContext
+                        EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+                        EX_DefaultVariable [Icon]
+                        RValue = [Icon]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 519
+                    EX_ClassContext
+                        EX_LocalVariable [K2Node_ClassDynamicCast_AsCrossbow_Projectile_Base]
+                        EX_DefaultVariable [TriforkIcon]
+                        RValue = [TriforkIcon]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+528:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidSoftObjectReference_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidSoftObjectReference
+                EX_LocalVariable [Icon]
+557:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValidSoftObjectReference_ReturnValue]
+567:    EX_LetObj
+            EX_LocalVariable [CallFunc_LoadAsset_Blocking_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->LoadAsset_Blocking
+                EX_LocalVariable [Icon]
+596:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+            EX_DynamicCast import /Script/Engine->Texture2D
+                EX_LocalVariable [CallFunc_LoadAsset_Blocking_ReturnValue]
+632:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+661:    EX_LetObj
+            EX_LocalOutVariable
+                [OutIcon]
+            EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+680:    EX_Jump 696
+685:    EX_LetObj
+            EX_LocalOutVariable
+                [OutIcon]
+            EX_NoObject
+696:    EX_Return
+            EX_Nothing
+698:    EX_EndOfScript

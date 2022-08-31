@@ -1,0 +1,932 @@
+FunctionExport ExecuteUbergraph_BP_AudioControl_LowHealth
+0:      EX_PushExecutionFlow 4779
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/AudioMixer->AudioMixerBlueprintLibrary->ClearSubmixEffects
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SoundControl/SubMixes/DuckableParent->DuckableParent
+35:     EX_PopExecutionFlow
+36:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlayerControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerCharacter]
+                EX_VirtualFunction IsPlayerControlled
+                RValue = [CallFunc_IsPlayerControlled_ReturnValue]
+82:     EX_JumpIfNot 422
+            EX_LocalVariable [CallFunc_IsPlayerControlled_ReturnValue]
+96:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_InstanceVariable [PlayerCharacter]
+                EX_ObjectConst import /Script/FSD->PlayerHealthComponent
+134:    EX_LetObj
+            EX_InstanceVariable [PlayerHealthComponent]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+153:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerCharacter]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue]
+199:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+209:    EX_BindDelegate HealthChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+232:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_InstanceVariable [OnHealthChanged]
+                RValue = [OnHealthChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+273:    EX_BindDelegate OnDeath_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+296:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+337:    EX_BindDelegate OnDestroyed_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+360:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+380:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue_1]
+                EX_InstanceVariable [OnDestroyed]
+                RValue = [OnDestroyed]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+421:    EX_PopExecutionFlow
+422:    EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 36
+                EX_IntConst 2067647078
+                EX_NameConst ExecuteUbergraph_BP_AudioControl_LowHealth
+                EX_Self
+476:    EX_PopExecutionFlow
+477:    EX_Context
+            EX_InstanceVariable [Health_Low_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 4
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+525:    EX_PopExecutionFlow
+526:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+546:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+582:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+611:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+621:    EX_LetObj
+            EX_InstanceVariable [PlayerCharacter]
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+640:    EX_Jump 36
+645:    EX_Jump 526
+650:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsDead_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_VirtualFunction IsDead
+                RValue = [CallFunc_IsDead_ReturnValue]
+696:    EX_JumpIfNot 711
+            EX_LocalVariable [CallFunc_IsDead_ReturnValue]
+710:    EX_PopExecutionFlow
+711:    EX_JumpIfNot 726
+            EX_InstanceVariable [IsFadingIn]
+725:    EX_PopExecutionFlow
+726:    EX_LocalVirtualFunction FadeInLowHealth
+740:    EX_PopExecutionFlow
+741:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsComponentTickEnabled_ReturnValue]
+            EX_VirtualFunction IsComponentTickEnabled
+765:    EX_JumpIfNot 917
+            EX_LocalVariable [CallFunc_IsComponentTickEnabled_ReturnValue]
+779:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_InstanceVariable [Alpha]
+821:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [FadeInTime]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_1]
+867:    EX_Let
+            EX_InstanceVariable [FadeTimeLeft]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+894:    EX_LetBool
+            EX_InstanceVariable [IsFadingIn]
+            EX_True
+905:    EX_LetBool
+            EX_InstanceVariable [On/Off]
+            EX_True
+916:    EX_PopExecutionFlow
+917:    EX_Let
+            EX_InstanceVariable [FadeTimeLeft]
+            EX_InstanceVariable [FadeInTime]
+944:    EX_Jump 894
+949:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsComponentTickEnabled_ReturnValue]
+            EX_VirtualFunction IsComponentTickEnabled
+973:    EX_JumpIfNot 1083
+            EX_LocalVariable [CallFunc_IsComponentTickEnabled_ReturnValue]
+987:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [FadeOutTime]
+                EX_InstanceVariable [Alpha]
+1033:   EX_Let
+            EX_InstanceVariable [FadeTimeLeft]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+1060:   EX_LetBool
+            EX_InstanceVariable [IsFadingIn]
+            EX_False
+1071:   EX_LetBool
+            EX_InstanceVariable [On/Off]
+            EX_True
+1082:   EX_PopExecutionFlow
+1083:   EX_Let
+            EX_InstanceVariable [FadeTimeLeft]
+            EX_InstanceVariable [FadeOutTime]
+1110:   EX_Jump 1060
+1115:   EX_LetBool
+            EX_LocalVariable [CallFunc_GetIronWillActive_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_FinalFunction import /Script/FSD->PlayerHealthComponent->GetIronWillActive
+                RValue = [CallFunc_GetIronWillActive_ReturnValue]
+1157:   EX_JumpIfNot 1259
+            EX_LocalVariable [CallFunc_GetIronWillActive_ReturnValue]
+1171:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Health_Low_Cue]
+1200:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_2]
+1210:   EX_Context
+            EX_InstanceVariable [Health_Low_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.1
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+1258:   EX_PopExecutionFlow
+1259:   EX_JumpIfNot 1377
+            EX_LocalVariable [K2Node_CustomEvent_TurnOn_1]
+1273:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Health_Low_Cue]
+1302:   EX_JumpIfNot 1465
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1316:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Health_Low_Cue]
+                EX_VirtualFunction IsPlaying
+                RValue = [CallFunc_IsPlaying_ReturnValue]
+1362:   EX_JumpIfNot 1554
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue]
+1376:   EX_PopExecutionFlow
+1377:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Health_Low_Cue]
+1406:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+1416:   EX_Context
+            EX_InstanceVariable [Health_Low_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 4
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+1464:   EX_PopExecutionFlow
+1465:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+                EX_FinalFunction import /Script/Engine->GameplayStatics->SpawnSound2D
+                    EX_Self
+                    EX_ObjectConst import /Game/Audio/SFX/Characters/PlayerLowHealth/PlayerHealthLowSingle_Cue->PlayerHealthLowSingle_Cue
+                    EX_FloatConst 1
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_NoObject
+                    EX_False
+                    EX_True
+                RValue = [CallFunc_SpawnSound2D_ReturnValue_1]
+1535:   EX_LetObj
+            EX_InstanceVariable [Health_Low_Cue]
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue_1]
+1554:   EX_Context
+            EX_InstanceVariable [Health_Low_Cue]
+            EX_VirtualFunction FadeIn
+                EX_FloatConst 0.5
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+1607:   EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 8
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 477
+                EX_IntConst 1821794052
+                EX_NameConst ExecuteUbergraph_BP_AudioControl_LowHealth
+                EX_Self
+1661:   EX_PopExecutionFlow
+1662:   EX_LocalVirtualFunction FadeOutLowHealth
+1676:   EX_PopExecutionFlow
+1677:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [On/Off]
+1687:   EX_Let
+            EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetWorldDeltaSeconds
+                EX_Self
+1716:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [FadeTimeLeft]
+                EX_LocalVariable [CallFunc_GetWorldDeltaSeconds_ReturnValue]
+1762:   EX_Let
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FMax
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_2]
+                EX_FloatConst 0
+1804:   EX_Let
+            EX_InstanceVariable [FadeTimeLeft]
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+1831:   EX_Let
+            EX_LocalVariable [CallFunc_SelectFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SelectFloat
+                EX_InstanceVariable [FadeInTime]
+                EX_InstanceVariable [FadeOutTime]
+                EX_InstanceVariable [IsFadingIn]
+1886:   EX_Let
+            EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Divide_FloatFloat
+                EX_InstanceVariable [FadeTimeLeft]
+                EX_LocalVariable [CallFunc_SelectFloat_ReturnValue]
+1932:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_Divide_FloatFloat_ReturnValue]
+1974:   EX_Let
+            EX_InstanceVariable [Alpha]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_3]
+2001:   EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_InstanceVariable [Alpha]
+                EX_FloatConst 1
+2035:   EX_JumpIfNot 2060
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+2049:   EX_LetBool
+            EX_InstanceVariable [On/Off]
+            EX_False
+2060:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_InstanceVariable [Alpha]
+2102:   EX_Let
+            EX_LocalVariable [CallFunc_SelectFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->SelectFloat
+                EX_InstanceVariable [Alpha]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_InstanceVariable [IsFadingIn]
+2157:   EX_LocalVirtualFunction SetSoundFromAlpha
+            EX_LocalVariable [CallFunc_SelectFloat_ReturnValue_1]
+2180:   EX_PopExecutionFlow
+2181:   EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [IsFadingIn]
+2191:   EX_Jump 1662
+2196:   EX_Jump 1115
+2201:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLowHealth_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_FinalFunction import /Script/FSD->PlayerHealthComponent->IsLowHealth
+                RValue = [CallFunc_IsLowHealth_ReturnValue]
+2243:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_BoolBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_BoolBool
+                EX_InstanceVariable [prevIsLowHealth]
+                EX_LocalVariable [CallFunc_IsLowHealth_ReturnValue]
+2281:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_BoolBool_ReturnValue]
+2291:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLowHealth_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_FinalFunction import /Script/FSD->PlayerHealthComponent->IsLowHealth
+                RValue = [CallFunc_IsLowHealth_ReturnValue]
+2333:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [IsLowHealthOn]
+2362:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsLowHealth_ReturnValue]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+2400:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+2410:   EX_LocalVirtualFunction HandleLowHealthMuffling
+            EX_True
+2425:   EX_LocalVirtualFunction HandleHeartbeat
+            EX_True
+2440:   EX_LetBool
+            EX_InstanceVariable [IsLowHealthOn]
+            EX_True
+2451:   EX_PopExecutionFlow
+2452:   EX_JumpIfNot 2181
+            EX_LocalVariable [K2Node_CustomEvent_TurnOn]
+2466:   EX_Jump 650
+2471:   EX_LocalVirtualFunction HandleHeartbeat
+            EX_False
+2486:   EX_LetBool
+            EX_InstanceVariable [IsLowHealthOn]
+            EX_False
+2497:   EX_PopExecutionFlow
+2498:   EX_LocalVirtualFunction HandleLowHealthMuffling
+            EX_False
+2513:   EX_Jump 2471
+2518:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [prevIsLowHealth]
+                EX_InstanceVariable [IsLowHealthOn]
+2556:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+2566:   EX_Jump 2498
+2571:   EX_PushExecutionFlow 2675
+2576:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_4]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_Amount]
+                EX_InstanceVariable [HealthChange]
+2622:   EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_4]
+                EX_FloatConst 0
+2656:   EX_JumpIfNot 2201
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+2670:   EX_Jump 2518
+2675:   EX_Let
+            EX_InstanceVariable [HealthChange]
+            EX_LocalVariable [K2Node_CustomEvent_Amount]
+2702:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLowHealth_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [PlayerHealthComponent]
+                EX_FinalFunction import /Script/FSD->PlayerHealthComponent->IsLowHealth
+                RValue = [CallFunc_IsLowHealth_ReturnValue_1]
+2744:   EX_LetBool
+            EX_InstanceVariable [prevIsLowHealth]
+            EX_LocalVariable [CallFunc_IsLowHealth_ReturnValue_1]
+2763:   EX_PopExecutionFlow
+2764:   EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_Amount]
+                EX_FloatConst 0
+2798:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_FloatFloat_ReturnValue]
+2808:   EX_Jump 2571
+2813:   EX_LocalVirtualFunction OnDeahtAndDestroyed
+2827:   EX_PopExecutionFlow
+2828:   EX_Jump 2813
+2833:   EX_LocalVirtualFunction SetSoundFromAlpha
+            EX_FloatConst 0
+2852:   EX_Jump 15
+2857:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue_2]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+2877:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue_2]
+2913:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+2942:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+2952:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+                EX_VirtualFunction IsLocallyControlled
+                RValue = [CallFunc_IsLocallyControlled_ReturnValue_1]
+2998:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue_1]
+3008:   EX_Let
+            EX_InstanceVariable [Infection Level max]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+                    EX_InstanceVariable [InfectionComponent]
+                    RValue = [InfectionComponent]
+                EX_InstanceVariable [InfectionLevel]
+                RValue = [InfectionLevel]
+3079:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+                        EX_InstanceVariable [InfectionComponent]
+                        RValue = [InfectionComponent]
+                    EX_InstanceVariable [InfectionLevel]
+                    RValue = [InfectionLevel]
+                EX_FloatConst 0.01
+3165:   EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+3202:   EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+                EX_FloatConst 0.1
+3236:   EX_JumpIfNot 4538
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue_1]
+3250:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [InfectedSound]
+3279:   EX_JumpIfNot 4350
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_3]
+3293:   EX_Context
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue]
+            EX_FinalFunction import /Script/Engine->AudioComponent->SetFloatParameter
+                EX_NameConst PlagueLevel
+                EX_InstanceVariable [Infection Level Current]
+            RValue = []
+3347:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+                        EX_InstanceVariable [InfectionComponent]
+                        RValue = [InfectionComponent]
+                    EX_InstanceVariable [InfectionLevel]
+                    RValue = [InfectionLevel]
+                EX_FloatConst 0.01
+3433:   EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+3470:   EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+                EX_FloatConst 0
+                EX_FloatConst 0.18
+3517:   EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_5]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+3559:   EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue_5]
+                EX_FloatConst 0.8
+                EX_FloatConst 1
+3606:   EX_Let
+            EX_StructMemberContext [DelayMode]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_ByteConst 2
+3635:   EX_Let
+            EX_StructMemberContext [DelayTimeMsec]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_FloatConst 100
+3667:   EX_Let
+            EX_StructMemberContext [Feedback]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_FloatConst 0.3
+3699:   EX_Let
+            EX_StructMemberContext [DelayRatio]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_FloatConst 0.5
+3731:   EX_Let
+            EX_StructMemberContext [WetLevel]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+3767:   EX_Let
+            EX_StructMemberContext [DryLevel]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue_1]
+3803:   EX_LetBool
+            EX_StructMemberContext [bFilterEnabled]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_True
+3823:   EX_Let
+            EX_StructMemberContext [FilterType]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_ByteConst 0
+3852:   EX_LetBool
+            EX_StructMemberContext [bFilterEnabled]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_True
+3872:   EX_Let
+            EX_StructMemberContext [FilterFrequency]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_FloatConst 800
+3904:   EX_LetBool
+            EX_StructMemberContext [bFilterEnabled]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_True
+3924:   EX_Let
+            EX_StructMemberContext [FilterQ]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_FloatConst 2
+3956:   EX_LetBool
+            EX_StructMemberContext [bFilterEnabled]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            EX_True
+3976:   EX_Context
+            EX_InstanceVariable [PlagueInfectedAudioEcho]
+            EX_FinalFunction import /Script/Synthesis->SubmixEffectStereoDelayPreset->SetSettings
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectStereoDelaySettings]
+            RValue = []
+4017:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_Context
+                    EX_Context
+                        EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character_1]
+                        EX_InstanceVariable [InfectionComponent]
+                        RValue = [InfectionComponent]
+                    EX_InstanceVariable [InfectionLevel]
+                    RValue = [InfectionLevel]
+                EX_FloatConst 0.01
+4103:   EX_Let
+            EX_LocalVariable [CallFunc_Abs_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Abs
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+4140:   EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_3]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Abs_ReturnValue]
+                EX_FloatConst 200
+4182:   EX_Let
+            EX_StructMemberContext [FilterType]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectFilterSettings]
+            EX_ByteConst 1
+4211:   EX_Let
+            EX_StructMemberContext [FilterAlgorithm]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectFilterSettings]
+            EX_ByteConst 1
+4240:   EX_Let
+            EX_StructMemberContext [FilterFrequency]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectFilterSettings]
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_3]
+4276:   EX_Let
+            EX_StructMemberContext [FilterQ]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectFilterSettings]
+            EX_FloatConst 2
+4308:   EX_Context
+            EX_InstanceVariable [PlagueInfectedFilter]
+            EX_FinalFunction import /Script/Synthesis->SubmixEffectFilterPreset->SetSettings
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectFilterSettings]
+            RValue = []
+4349:   EX_PopExecutionFlow
+4350:   EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+                EX_FinalFunction import /Script/Engine->GameplayStatics->SpawnSound2D
+                    EX_Self
+                    EX_ObjectConst import /Game/Audio/SFX/Characters/InfectedWithPlague/PlayerInfectedWithPlague_Cue->PlayerInfectedWithPlague_Cue
+                    EX_FloatConst 1
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_NoObject
+                    EX_False
+                    EX_True
+                RValue = [CallFunc_SpawnSound2D_ReturnValue]
+4420:   EX_LetObj
+            EX_InstanceVariable [InfectedSound]
+            EX_LocalVariable [CallFunc_SpawnSound2D_ReturnValue]
+4439:   EX_Let
+            EX_LocalVariable [CallFunc_AddSubmixEffect_ReturnValue]
+            EX_CallMath import /Script/AudioMixer->AudioMixerBlueprintLibrary->AddSubmixEffect
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SoundControl/SubMixes/DuckableParent->DuckableParent
+                EX_InstanceVariable [PlagueInfectedAudioEcho]
+4486:   EX_Let
+            EX_LocalVariable [CallFunc_AddSubmixEffect_ReturnValue_1]
+            EX_CallMath import /Script/AudioMixer->AudioMixerBlueprintLibrary->AddSubmixEffect
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SoundControl/SubMixes/DuckableParent->DuckableParent
+                EX_InstanceVariable [PlagueInfectedFilter]
+4533:   EX_Jump 3347
+4538:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_4]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [InfectedSound]
+4567:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_4]
+4577:   EX_Context
+            EX_InstanceVariable [InfectedSound]
+            EX_FinalFunction import /Script/Engine->ActorComponent->K2_DestroyComponent
+                EX_Self
+            RValue = []
+4610:   EX_LetObj
+            EX_InstanceVariable [InfectedSound]
+            EX_NoObject
+4621:   EX_CallMath import /Script/AudioMixer->AudioMixerBlueprintLibrary->RemoveSubmixEffect
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SoundControl/SubMixes/DuckableParent->DuckableParent
+            EX_InstanceVariable [PlagueInfectedAudioEcho]
+4650:   EX_CallMath import /Script/AudioMixer->AudioMixerBlueprintLibrary->RemoveSubmixEffect
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SoundControl/SubMixes/DuckableParent->DuckableParent
+            EX_InstanceVariable [PlagueInfectedFilter]
+4679:   EX_PopExecutionFlow
+4680:   EX_PushExecutionFlow 4695
+4685:   EX_PushExecutionFlow 2857
+4690:   EX_Jump 1677
+4695:   EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_InstanceVariable [Infection Level Current]
+                EX_InstanceVariable [Infection Level max]
+                EX_FloatConst 0.1
+4746:   EX_Let
+            EX_InstanceVariable [Infection Level Current]
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+4773:   EX_PopExecutionFlow
+4774:   EX_Jump 4680
+4779:   EX_Return
+            EX_Nothing
+4781:   EX_EndOfScript
+FunctionExport OnDeahtAndDestroyed
+0:      EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 2833
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDestroyed_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DestroyedActor]
+            EX_LocalVariable [DestroyedActor]
+18:     EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 2828
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDeath_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 2813
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport HandleLowHealthMuffling
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_TurnOn]
+            EX_LocalVariable [TurnOn]
+18:     EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 2452
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport HandleHeartbeat
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_TurnOn_1]
+            EX_LocalVariable [TurnOn]
+18:     EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 2196
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport FadeOutLowHealth
+0:      EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 949
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeInLowHealth
+0:      EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 741
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport HealthChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Amount]
+            EX_LocalVariable [Amount]
+18:     EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 2764
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveTick
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+18:     EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 4774
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_AudioControl_LowHealth_C->ExecuteUbergraph_BP_AudioControl_LowHealth
+            EX_IntConst 645
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ShouldSetTimestamp
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [IsActivate]
+29:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_InstanceVariable [wasAbove]
+67:     EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [wasAbove]
+96:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [IsActivate]
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+134:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+172:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+191:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+201:    EX_EndOfScript
+FunctionExport SetSoundFromAlpha
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetFloatValue_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [FadeInCurve]
+                EX_FinalFunction import /Script/Engine->CurveFloat->GetFloatValue
+                    EX_LocalVariable [FadeAlpha]
+                RValue = [CallFunc_GetFloatValue_ReturnValue]
+59:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_LocalVariable [CallFunc_GetFloatValue_ReturnValue]
+101:    EX_Let
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MapRangeClamped
+                EX_LocalVariable [CallFunc_GetFloatValue_ReturnValue]
+                EX_FloatConst 0
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst -5
+158:    EX_LetBool
+            EX_StructMemberContext [bBypassEarlyReflections]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_False
+178:    EX_Let
+            EX_StructMemberContext [ReflectionsDelay]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.007
+210:    EX_Let
+            EX_StructMemberContext [GainHF]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.89
+242:    EX_Let
+            EX_StructMemberContext [ReflectionsGain]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.05
+274:    EX_LetBool
+            EX_StructMemberContext [bBypassLateReflections]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_False
+294:    EX_Let
+            EX_StructMemberContext [LateDelay]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.1
+326:    EX_Let
+            EX_StructMemberContext [DecayTime]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 1.49
+358:    EX_Let
+            EX_StructMemberContext [Density]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.85
+390:    EX_Let
+            EX_StructMemberContext [Diffusion]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.85
+422:    EX_Let
+            EX_StructMemberContext [AirAbsorptionGainHF]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.994
+454:    EX_Let
+            EX_StructMemberContext [DecayHFRatio]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 0.83
+486:    EX_Let
+            EX_StructMemberContext [LateGain]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 1.26
+518:    EX_Let
+            EX_StructMemberContext [Gain]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_FloatConst 1
+550:    EX_Let
+            EX_StructMemberContext [WetLevel]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue_1]
+586:    EX_LetBool
+            EX_StructMemberContext [bBypass]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_True
+606:    EX_Let
+            EX_StructMemberContext [DryLevel]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+642:    EX_LetBool
+            EX_StructMemberContext [bBypass]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_True
+662:    EX_LetBool
+            EX_StructMemberContext [bBypass]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            EX_False
+682:    EX_Context
+            EX_InstanceVariable [LowHealthReverb]
+            EX_FinalFunction import /Script/AudioMixer->SubmixEffectReverbPreset->SetSettings
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectReverbSettings]
+            RValue = []
+723:    EX_Let
+            EX_LocalVariable [CallFunc_GetFloatValue_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [FadeInCurve]
+                EX_FinalFunction import /Script/Engine->CurveFloat->GetFloatValue
+                    EX_LocalVariable [FadeAlpha]
+                RValue = [CallFunc_GetFloatValue_ReturnValue]
+782:    EX_Let
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MapRangeClamped
+                EX_LocalVariable [CallFunc_GetFloatValue_ReturnValue]
+                EX_FloatConst 0
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_FloatConst 0.15
+839:    EX_Let
+            EX_StructMemberContext [Frequency]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectEQBand]
+            EX_FloatConst 3000
+871:    EX_Let
+            EX_StructMemberContext [Bandwidth]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectEQBand]
+            EX_FloatConst 4
+903:    EX_Let
+            EX_StructMemberContext [GainDb]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectEQBand]
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+939:    EX_LetBool
+            EX_StructMemberContext [bEnabled]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectEQBand]
+            EX_True
+959:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_SubmixEffectEQBand]
+979:    EX_Let
+            EX_StructMemberContext [EQBands]
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectSubmixEQSettings]
+            EX_LocalVariable [K2Node_MakeArray_Array]
+1015:   EX_Context
+            EX_InstanceVariable [LowHealthEq]
+            EX_FinalFunction import /Script/AudioMixer->SubmixEffectSubmixEQPreset->SetSettings
+                EX_LocalVariable [K2Node_MakeStruct_SubmixEffectSubmixEQSettings]
+            RValue = []
+1056:   EX_Return
+            EX_Nothing
+1058:   EX_EndOfScript

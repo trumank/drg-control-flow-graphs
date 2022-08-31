@@ -1,0 +1,204 @@
+FunctionExport CheckState__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_ITM_CommunityGoalRecruitment
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMulticastDelegate export ITM_CommunityGoalRecruitment_C->CheckState__DelegateSignature
+            EX_InstanceVariable [CheckState]
+29:     EX_Jump 108
+34:     EX_BindDelegate ResetFactionCheckState
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+57:     EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [ITM_ResetFaction]
+                EX_InstanceVariable [CheckState]
+                RValue = [CheckState]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+98:     EX_Jump 108
+103:    EX_Jump 10
+108:    EX_Return
+            EX_Nothing
+110:    EX_EndOfScript
+FunctionExport ResetFactionCheckState
+0:      EX_LocalFinalFunction export ITM_CommunityGoalRecruitment_C->ExecuteUbergraph_ITM_CommunityGoalRecruitment
+            EX_IntConst 103
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ITM_CommunityGoalRecruitment_C->ExecuteUbergraph_ITM_CommunityGoalRecruitment
+            EX_IntConst 34
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetTime
+0:      EX_Context
+            EX_InstanceVariable [RecruitmentCountDown]
+            EX_LocalVirtualFunction SetTime
+                EX_LocalVariable [Seconds]
+            RValue = []
+45:     EX_Return
+            EX_Nothing
+47:     EX_EndOfScript
+FunctionExport BuildRecruitmentUI
+0:      EX_PushExecutionFlow 474
+5:      EX_LetObj
+            EX_InstanceVariable [CurrentFaction]
+            EX_LocalVariable [Faction]
+24:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_ByteToInt
+                EX_Context
+                    EX_InstanceVariable [CurrentFaction]
+                    EX_InstanceVariable [FactionID]
+                    RValue = [FactionID]
+83:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_Conv_ByteToInt_ReturnValue]
+                EX_IntConst 1
+125:    EX_Let
+            EX_InstanceVariable [FactionIndex]
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+152:    EX_Context
+            EX_InstanceVariable [ITM_ResetFaction]
+            EX_LocalVirtualFunction Set Faction
+                EX_InstanceVariable [CurrentFaction]
+            RValue = []
+197:    EX_PushExecutionFlow 357
+202:    EX_PushExecutionFlow 240
+207:    EX_LocalVirtualFunction SetResult
+            EX_InstanceVariable [CurrentFactionGoalResult]
+            EX_InstanceVariable [FactionIndex]
+239:    EX_PopExecutionFlow
+240:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [FactionIndex]
+                EX_IntConst 1
+282:    EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue_1]
+                EX_IntConst 3
+324:    EX_LocalVirtualFunction SetResult
+            EX_InstanceVariable [Faction1GoalResult]
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue_1]
+356:    EX_PopExecutionFlow
+357:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [FactionIndex]
+                EX_IntConst 2
+399:    EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+                EX_IntConst 3
+441:    EX_LocalVirtualFunction SetResult
+            EX_InstanceVariable [Faction2GoalResult]
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+473:    EX_PopExecutionFlow
+474:    EX_Return
+            EX_Nothing
+476:    EX_EndOfScript
+FunctionExport SetResult
+0:      EX_PushExecutionFlow 716
+5:      EX_PushExecutionFlow 115
+10:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [FactionsArray]
+                EX_LocalVariable [FactionID]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+69:     EX_Context
+            EX_LocalVariable [ResultUI]
+            EX_LocalVirtualFunction SetFaction
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+114:    EX_PopExecutionFlow
+115:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+135:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->PresenceSubSystem
+165:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_StructMemberContext [Members]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                            EX_InstanceVariable [CommunityWI]
+                            RValue = [CommunityWI]
+                        EX_InstanceVariable [FactionData]
+                        RValue = [FactionData]
+                EX_LocalVariable [FactionID]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+277:    EX_LetObj
+            EX_LocalVariable [CallFunc_FindGoal_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [CommunityGoalSettings]
+                    RValue = [CommunityGoalSettings]
+                EX_FinalFunction import /Script/FSD->CommunityGoalSettings->FindGoal
+                    EX_ArrayGetByRef
+                        EX_StructMemberContext [Goals]
+                            EX_Context
+                                EX_Context
+                                    EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                                    EX_InstanceVariable [CommunityWI]
+                                    RValue = [CommunityWI]
+                                EX_InstanceVariable [FactionData]
+                                RValue = [FactionData]
+                        EX_LocalVariable [FactionID]
+                RValue = [CallFunc_FindGoal_ReturnValue]
+413:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_StructMemberContext [Values]
+                    EX_Context
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                            EX_InstanceVariable [CommunityWI]
+                            RValue = [CommunityWI]
+                        EX_InstanceVariable [FactionData]
+                        RValue = [FactionData]
+                EX_LocalVariable [FactionID]
+                EX_LocalVariable [CallFunc_Array_Get_Item_2]
+            RValue = []
+525:    EX_Let
+            EX_LocalVariable [CallFunc_RewardTier_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_FindGoal_ReturnValue]
+                EX_FinalFunction import /Script/FSD->CommunityGoal->RewardTier
+                    EX_LocalVariable [CallFunc_Array_Get_Item_2]
+                    EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                RValue = [CallFunc_RewardTier_ReturnValue]
+593:    EX_Let
+            EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FTrunc
+                EX_LocalVariable [CallFunc_Array_Get_Item_2]
+630:    EX_Context
+            EX_LocalVariable [ResultUI]
+            EX_LocalVirtualFunction SetResult
+                EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+                EX_LocalVariable [CallFunc_RewardTier_ReturnValue]
+                EX_Context
+                    EX_LocalVariable [CallFunc_FindGoal_ReturnValue]
+                    EX_InstanceVariable [Title]
+                    RValue = [Title]
+            RValue = []
+715:    EX_PopExecutionFlow
+716:    EX_Return
+            EX_Nothing
+718:    EX_EndOfScript

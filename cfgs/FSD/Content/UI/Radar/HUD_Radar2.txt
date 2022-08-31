@@ -1,0 +1,68 @@
+FunctionExport ExecuteUbergraph_HUD_Radar2
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/FSD->HUDVisibilityGroup->RegisterWidgetWithVisibilityGroup
+            EX_Self
+            EX_ObjectConst import /Game/UI/HUDVisibility/HG_RadarAndDepth->HG_RadarAndDepth
+            EX_ByteConst 4
+            EX_ByteConst 1
+34:     EX_Jump 352
+39:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+87:     EX_Context
+            EX_InstanceVariable [CompassImage]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+128:    EX_Jump 352
+133:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [CompassImage]
+                EX_FinalFunction import /Script/UMG->Image->GetDynamicMaterial
+                RValue = [CallFunc_GetDynamicMaterial_ReturnValue]
+175:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+199:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+                RValue = [CallFunc_K2_GetPawn_ReturnValue]
+241:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+277:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+306:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_FinalFunction import /Script/FSD->PlayerCharacter->SetRadarMaterialInstance
+                EX_LocalVariable [CallFunc_GetDynamicMaterial_ReturnValue]
+            RValue = []
+347:    EX_Jump 10
+352:    EX_Return
+            EX_Nothing
+354:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_Radar2_C->ExecuteUbergraph_HUD_Radar2
+            EX_IntConst 133
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_Radar2_C->ExecuteUbergraph_HUD_Radar2
+            EX_IntConst 39
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

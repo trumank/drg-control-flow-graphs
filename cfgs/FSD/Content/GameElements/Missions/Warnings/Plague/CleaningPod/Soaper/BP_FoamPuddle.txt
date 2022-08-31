@@ -1,0 +1,124 @@
+FunctionExport ExecuteUbergraph_BP_FoamPuddle
+0:      EX_PushExecutionFlow 486
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_VirtualFunction ForceNetUpdate
+29:     EX_PopExecutionFlow
+30:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+40:     EX_LetBool
+            EX_InstanceVariable [ShouldDestroy]
+            EX_True
+51:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 12
+            EX_NameConst ShouldDestroy
+80:     EX_LocalVirtualFunction OnRep_ShouldDestory
+94:     EX_Jump 15
+99:     EX_Context
+            EX_InstanceVariable [NS_Foam]
+            EX_FinalFunction import /Script/Niagara->NiagaraComponent->SetVariableFloat
+                EX_NameConst Scale
+                EX_InstanceVariable [Timeline_0_NewTrack_0_44A611F34AD5A6FAD05E20AB4D1BE0FB]
+            RValue = []
+153:    EX_PopExecutionFlow
+154:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+174:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+184:    EX_VirtualFunction K2_DestroyActor
+198:    EX_PopExecutionFlow
+199:    EX_Context
+            EX_InstanceVariable [Timeline_0]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+231:    EX_PopExecutionFlow
+232:    EX_Context
+            EX_InstanceVariable [NS_Foam]
+            EX_FinalFunction import /Script/Niagara->NiagaraComponent->SetVariableFloat
+                EX_NameConst Scale
+                EX_InstanceVariable [Timeline_1_NewTrack_0_FB8CEE454A0146654CCF979239EF7152]
+            RValue = []
+286:    EX_PopExecutionFlow
+287:    EX_Context
+            EX_InstanceVariable [Timeline_1]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->Play
+            RValue = []
+319:    EX_PopExecutionFlow
+320:    EX_Jump 199
+325:    EX_Jump 287
+330:    EX_Let
+            EX_LocalVariable [CallFunc_GetTimelineLength_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Timeline_1]
+                EX_FinalFunction import /Script/Engine->TimelineComponent->GetTimelineLength
+                RValue = [CallFunc_GetTimelineLength_ReturnValue]
+380:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_LocalVariable [K2Node_Event_lifeTime]
+                EX_LocalVariable [CallFunc_GetTimelineLength_ReturnValue]
+426:    EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 30
+                EX_IntConst 1092735833
+                EX_NameConst ExecuteUbergraph_BP_FoamPuddle
+                EX_Self
+484:    EX_PopExecutionFlow
+485:    EX_PopExecutionFlow
+486:    EX_Return
+            EX_Nothing
+488:    EX_EndOfScript
+FunctionExport SetPuddleLifetime
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_lifeTime]
+            EX_LocalVariable [lifeTime]
+18:     EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 330
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ScaleOutAndDestroy
+0:      EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 325
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 320
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_1__UpdateFunc
+0:      EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 232
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_1__FinishedFunc
+0:      EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 154
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_0__UpdateFunc
+0:      EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 99
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Timeline_0__FinishedFunc
+0:      EX_LocalFinalFunction export BP_FoamPuddle_C->ExecuteUbergraph_BP_FoamPuddle
+            EX_IntConst 485
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_ShouldDestory
+0:      EX_JumpIfNot 28
+            EX_InstanceVariable [ShouldDestroy]
+14:     EX_LocalVirtualFunction ScaleOutAndDestroy
+28:     EX_Return
+            EX_Nothing
+30:     EX_EndOfScript

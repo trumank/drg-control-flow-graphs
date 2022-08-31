@@ -1,0 +1,45 @@
+FunctionExport ExecuteUbergraph_SER_FindPlayer
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction FindNearestPlayer
+            EX_LocalVariable [K2Node_Event_ControlledPawn]
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveTickAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LetValueOnPersistentFrame [K2Node_Event_DeltaSeconds]
+            EX_LocalVariable [DeltaSeconds]
+54:     EX_LocalFinalFunction export SER_FindPlayer_C->ExecuteUbergraph_SER_FindPlayer
+            EX_IntConst 10
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport FindNearestPlayer
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetNearestPlayer_ReturnValue]
+            EX_CallMath import /Script/FSD->PlayerCharacterFunctionLibrary->GetNearestPlayer
+                EX_LocalVariable [From]
+                EX_InstanceVariable [MaxDistance]
+                EX_InstanceVariable [MustBeAlive]
+                EX_False
+                EX_False
+49:     EX_LetObj
+            EX_LocalVariable [NewPlayer]
+            EX_LocalVariable [CallFunc_GetNearestPlayer_ReturnValue]
+68:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [NewPlayer]
+97:     EX_JumpIfNot 140
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+111:    EX_CallMath import /Script/AIModule->BTFunctionLibrary->SetBlackboardValueAsObject
+            EX_Self
+            EX_InstanceVariable [PlayerKey]
+            EX_LocalVariable [NewPlayer]
+140:    EX_Return
+            EX_Nothing
+142:    EX_EndOfScript

@@ -1,0 +1,64 @@
+FunctionExport ExecuteUbergraph_BP_LunarFestival_Lamp01
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_Self
+            EX_IntConst 10
+            EX_NameConst Random_Seed
+39:     EX_LocalVirtualFunction OnRep_Random_Seed
+53:     EX_Jump 287
+58:     EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+68:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Materials]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+127:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 1
+169:    EX_Let
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomIntegerInRange
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+211:    EX_Let
+            EX_InstanceVariable [Random_Seed]
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+238:    EX_Jump 10
+243:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+263:    EX_JumpIfNot 287
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+277:    EX_Jump 58
+282:    EX_Jump 243
+287:    EX_Return
+            EX_Nothing
+289:    EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_LunarFestival_Lamp01_C->ExecuteUbergraph_BP_LunarFestival_Lamp01
+            EX_IntConst 282
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnRep_Random_Seed
+0:      EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [Materials]
+                EX_InstanceVariable [Random_Seed]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+59:     EX_Context
+            EX_InstanceVariable [SK_LunarFestival_Lamp_01]
+            EX_VirtualFunction SetMaterial
+                EX_IntConst 1
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+109:    EX_Return
+            EX_Nothing
+111:    EX_EndOfScript

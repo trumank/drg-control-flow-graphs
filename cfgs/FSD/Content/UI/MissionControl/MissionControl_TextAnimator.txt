@@ -1,0 +1,320 @@
+FunctionExport ExecuteUbergraph_MissionControl_TextAnimator
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetAnimProgress
+            EX_FloatConst 1
+29:     EX_Jump 71
+34:     EX_LocalVirtualFunction SetText
+            EX_InstanceVariable [Text]
+            EX_LocalVariable [CallFunc_SetText_Unformatted_Length]
+66:     EX_Jump 10
+71:     EX_Return
+            EX_Nothing
+73:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export MissionControl_TextAnimator_C->ExecuteUbergraph_MissionControl_TextAnimator
+            EX_IntConst 34
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetText
+0:      EX_Let
+            EX_InstanceVariable [Text]
+            EX_LocalVariable [InText]
+27:     EX_Context
+            EX_InstanceVariable [TextBlock]
+            EX_VirtualFunction SetText
+                EX_InstanceVariable [Text]
+            RValue = []
+72:     EX_Let
+            EX_LocalVariable [CallFunc_ParseRichText_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDRichTextFunctionlibrary->ParseRichText
+                EX_InstanceVariable [Text]
+109:    EX_Let
+            EX_InstanceVariable [Parser]
+            EX_LocalVariable [CallFunc_ParseRichText_ReturnValue]
+136:    EX_Let
+            EX_LocalOutVariable
+                [Unformatted Length]
+            EX_StructMemberContext [UnformattedLength]
+                EX_InstanceVariable [Parser]
+172:    EX_Return
+            EX_Nothing
+174:    EX_EndOfScript
+FunctionExport SetAnimProgress
+0:      EX_PushExecutionFlow 1618
+5:      EX_Let
+            EX_LocalVariable [SplitIndex]
+            EX_IntConst 0
+28:     EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [AnimProgress]
+                EX_FloatConst 0
+                EX_FloatConst 1
+75:     EX_Let
+            EX_InstanceVariable [AnimProgress]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+102:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_IntFloat
+                EX_StructMemberContext [UnformattedLength]
+                    EX_InstanceVariable [Parser]
+                EX_InstanceVariable [AnimProgress]
+157:    EX_Let
+            EX_LocalVariable [CallFunc_FCeil_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FCeil
+                EX_LocalVariable [CallFunc_Multiply_IntFloat_ReturnValue]
+194:    EX_Let
+            EX_LocalVariable [SplitIndex]
+            EX_LocalVariable [CallFunc_FCeil_ReturnValue]
+221:    EX_PushExecutionFlow 805
+226:    EX_CallMath import /Script/FSD->FSDRichTextFunctionlibrary->SplitRichText
+            EX_InstanceVariable [Parser]
+            EX_LocalVariable [SplitIndex]
+            EX_True
+            EX_False
+            EX_LocalVariable [CallFunc_SplitRichText_OutLeftText]
+            EX_LocalVariable [CallFunc_SplitRichText_OutRightText]
+274:    EX_Let
+            EX_LocalVariable [Visible]
+            EX_LocalVariable [CallFunc_SplitRichText_OutLeftText]
+301:    EX_CallMath import /Script/FSD->FSDRichTextFunctionlibrary->SplitRichText
+            EX_InstanceVariable [Parser]
+            EX_LocalVariable [SplitIndex]
+            EX_True
+            EX_False
+            EX_LocalVariable [CallFunc_SplitRichText_OutLeftText]
+            EX_LocalVariable [CallFunc_SplitRichText_OutRightText]
+349:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_TextToString
+                EX_LocalVariable [CallFunc_SplitRichText_OutRightText]
+386:    EX_LocalVirtualFunction GetFirstWord
+            EX_LocalVariable [CallFunc_Conv_TextToString_ReturnValue]
+            EX_LocalVariable [CallFunc_GetFirstWord_OutWord]
+418:    EX_Let
+            EX_LocalVariable [Hidden]
+            EX_LocalVariable [CallFunc_GetFirstWord_OutWord]
+445:    EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [Hidden]
+482:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue]
+                EX_IntConst 0
+516:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+526:    EX_Let
+            EX_LocalVariable [CallFunc_Mid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Mid
+                EX_LocalVariable [Hidden]
+                EX_IntConst 0
+                EX_IntConst 1
+573:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_StringConst <fading>
+                EX_LocalVariable [CallFunc_Mid_ReturnValue_1]
+620:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+                EX_StringConst </>
+662:    EX_Let
+            EX_LocalVariable [Caret]
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue_1]
+689:    EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [Hidden]
+726:    EX_Let
+            EX_LocalVariable [CallFunc_Mid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Mid
+                EX_LocalVariable [Hidden]
+                EX_IntConst 1
+                EX_LocalVariable [CallFunc_Len_ReturnValue_1]
+777:    EX_Let
+            EX_LocalVariable [Hidden]
+            EX_LocalVariable [CallFunc_Mid_ReturnValue]
+804:    EX_PopExecutionFlow
+805:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [Hidden]
+842:    EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_StringConst hidden
+877:    EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 4
+906:    EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+942:    EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_IntConst 0
+974:    EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_FloatConst 0
+1006:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+            EX_ByteConst 0
+1035:   EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [Caret]
+1072:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_StringConst caret
+1106:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 4
+1135:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue_1]
+1171:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_IntConst 0
+1203:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_FloatConst 0
+1235:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_ByteConst 0
+1264:   EX_Let
+            EX_StructMemberContext [ArgumentName]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_StringConst visible
+1300:   EX_Let
+            EX_StructMemberContext [ArgumentValueType]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_ByteConst 4
+1329:   EX_Let
+            EX_StructMemberContext [ArgumentValue]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_LocalVariable [Visible]
+1365:   EX_Let
+            EX_StructMemberContext [ArgumentValueInt]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_IntConst 0
+1397:   EX_Let
+            EX_StructMemberContext [ArgumentValueFloat]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_FloatConst 0
+1429:   EX_Let
+            EX_StructMemberContext [ArgumentValueGender]
+                EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_ByteConst 0
+1458:   EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_2]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData_1]
+            EX_LocalVariable [K2Node_MakeStruct_FormatArgumentData]
+1496:   EX_Let
+            EX_LocalVariable [CallFunc_Format_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Format
+                EX_TextConst
+                    SourceString = {visible}{caret}<Hidden>{hidden}</>
+                EX_LocalVariable [K2Node_MakeArray_Array]
+1572:   EX_Context
+            EX_InstanceVariable [TextBlock]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Format_ReturnValue]
+            RValue = []
+1617:   EX_PopExecutionFlow
+1618:   EX_Return
+            EX_Nothing
+1620:   EX_EndOfScript
+FunctionExport GetFirstWord
+0:      EX_PushExecutionFlow 525
+5:      EX_LetBool
+            EX_LocalVariable [FirstWhiteSpace]
+            EX_True
+16:     EX_PushExecutionFlow 392
+21:     EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+44:     EX_Let
+            EX_LocalVariable [CallFunc_Len_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Len
+                EX_LocalVariable [InString]
+81:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [CallFunc_Len_ReturnValue]
+                EX_IntConst 1
+123:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+161:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+171:    EX_PushExecutionFlow 424
+176:    EX_Let
+            EX_LocalVariable [CallFunc_Mid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Mid
+                EX_LocalVariable [InString]
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+227:    EX_Let
+            EX_LocalVariable [Char]
+            EX_LocalVariable [CallFunc_Mid_ReturnValue]
+254:    EX_Let
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->Concat_StrStr
+                EX_LocalVariable [Result]
+                EX_LocalVariable [Char]
+300:    EX_Let
+            EX_LocalVariable [Result]
+            EX_LocalVariable [CallFunc_Concat_StrStr_ReturnValue]
+327:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsWhiteSpace_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->IsWhiteSpace
+                EX_LocalVariable [Char]
+356:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsWhiteSpace_ReturnValue]
+366:    EX_JumpIfNot 498
+            EX_LocalVariable [FirstWhiteSpace]
+380:    EX_LetBool
+            EX_LocalVariable [FirstWhiteSpace]
+            EX_False
+391:    EX_PopExecutionFlow
+392:    EX_Let
+            EX_LocalOutVariable
+                [OutWord]
+            EX_LocalVariable [Result]
+419:    EX_Jump 525
+424:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+466:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+493:    EX_Jump 44
+498:    EX_Let
+            EX_LocalOutVariable
+                [OutWord]
+            EX_LocalVariable [Result]
+525:    EX_Return
+            EX_Nothing
+527:    EX_EndOfScript

@@ -1,0 +1,567 @@
+FunctionExport OnClicked__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnHovered__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport OnUnhovered__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_ITM_UpgGear_GearTab
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_BindDelegate OnItemChanged_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+33:     EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Menu]
+                EX_InstanceVariable [OnItemChanged]
+                RValue = [OnItemChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+74:     EX_BindDelegate OnItemUINotificationChange
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+97:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+118:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_InstanceVariable [OnItemUINotificationChange]
+                RValue = [OnItemUINotificationChange]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+159:    EX_Jump 1065
+164:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Menu]
+193:    EX_JumpIfNot 1065
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+207:    EX_Jump 10
+212:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Menu]
+241:    EX_JumpIfNot 1065
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+255:    EX_Context
+            EX_InstanceVariable [Menu]
+            EX_LocalVirtualFunction ChangeItem
+                EX_InstanceVariable [ItemClass]
+            RValue = []
+300:    EX_JumpIfNot 1065
+            EX_InstanceVariable [HasNewItem]
+314:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetItemID
+                EX_InstanceVariable [ItemClass]
+343:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+363:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_StructMemberContext [WeaponID]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [ItemCategoryIDs]
+                    RValue = [ItemCategoryIDs]
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+423:    EX_CallMath import /Script/FSD->UIFunctionLibrary->RemoveItemUINotification
+            EX_Self
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_False
+444:    EX_Jump 1065
+449:    EX_LetBool
+            EX_InstanceVariable [ItemHovered]
+            EX_LocalVariable [K2Node_CustomEvent_InItemHovered]
+468:    EX_LocalVirtualFunction Refresh
+482:    EX_Jump 1065
+487:    EX_LocalVirtualFunction SetHovered
+            EX_InstanceVariable [ItemHovered]
+510:    EX_Jump 1065
+515:    EX_LocalVirtualFunction SetHovered
+            EX_True
+530:    EX_CallMulticastDelegate export ITM_UpgGear_GearTab_C->OnHovered__DelegateSignature
+            EX_InstanceVariable [OnHovered]
+            EX_Self
+550:    EX_JumpIfNot 569
+            EX_InstanceVariable [ItemSelected]
+564:    EX_Jump 1065
+569:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/UI/Menu/Button_RollOver_Cue->Button_RollOver_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+629:    EX_Jump 1065
+634:    EX_LocalVirtualFunction SetHovered
+            EX_False
+649:    EX_CallMulticastDelegate export ITM_UpgGear_GearTab_C->OnUnhovered__DelegateSignature
+            EX_InstanceVariable [OnUnhovered]
+            EX_Self
+669:    EX_Jump 1065
+674:    EX_LocalVirtualFunction Refresh
+688:    EX_Jump 164
+693:    EX_Jump 634
+698:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/UI/Menu/Button_Click_Cue->Button_Click_Cue
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+758:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+779:    EX_Context
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_FinalFunction import /Script/FSD->WindowManager->SetSingletonWidgetVisibility
+                EX_ObjectConst import /Game/UI/Menu_Loadout/TOOLTIP_UpgGear_GearTab->TOOLTIP_UpgGear_GearTab_C
+                EX_ByteConst 1
+            RValue = []
+822:    EX_CallMulticastDelegate export ITM_UpgGear_GearTab_C->OnClicked__DelegateSignature
+            EX_InstanceVariable [OnClicked]
+            EX_Self
+842:    EX_Jump 212
+847:    EX_Jump 515
+852:    EX_LetBool
+            EX_InstanceVariable [ItemSelected]
+            EX_LocalVariable [K2Node_CustomEvent_ItemSelected]
+871:    EX_LocalVirtualFunction Refresh
+885:    EX_Jump 1065
+890:    EX_Jump 487
+895:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ClassClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ClassClass
+                EX_LocalVariable [K2Node_CustomEvent_NewItemClass]
+                EX_InstanceVariable [ItemClass]
+933:    EX_LocalVirtualFunction SetSelected
+            EX_LocalVariable [CallFunc_EqualEqual_ClassClass_ReturnValue]
+956:    EX_Jump 1065
+961:    EX_LocalVirtualFunction Refresh
+975:    EX_Jump 1065
+980:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1001:   EX_BindDelegate OnItemUINotificationChange
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+1024:   EX_RemoveMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_InstanceVariable [OnItemUINotificationChange]
+                RValue = [OnItemUINotificationChange]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+1065:   EX_Return
+            EX_Nothing
+1067:   EX_EndOfScript
+FunctionExport Destruct
+0:      EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 980
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnItemUINotificationChange
+0:      EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 961
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnItemChanged_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_NewItemClass]
+            EX_LocalVariable [NewItemClass]
+18:     EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 895
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 890
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetSelected
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_ItemSelected]
+            EX_LocalVariable [ItemSelected]
+18:     EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 852
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 847
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_29_OnButtonClickedEvent__DelegateSignature
+0:      EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 698
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__Button_0_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
+0:      EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 693
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 674
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetHovered
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InItemHovered]
+            EX_LocalVariable [InItemHovered]
+18:     EX_LocalFinalFunction export ITM_UpgGear_GearTab_C->ExecuteUbergraph_ITM_UpgGear_GearTab
+            EX_IntConst 449
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Refresh
+0:      EX_PushExecutionFlow 734
+5:      EX_LetBool
+            EX_LocalVariable [ItemUnlocked]
+            EX_False
+16:     EX_PushExecutionFlow 423
+21:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [UpgradableGear]
+50:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+60:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetItemID
+                EX_InstanceVariable [ItemClass]
+89:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsItemUnlocked_ReturnValue]
+            EX_CallMath import /Script/FSD->UpgradableGearComponent->IsItemUnlocked
+                EX_Self
+                EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+119:    EX_LetBool
+            EX_LocalVariable [ItemUnlocked]
+            EX_LocalVariable [CallFunc_IsItemUnlocked_ReturnValue]
+138:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetIconBG_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [UpgradableGear]
+                EX_FinalFunction import /Script/FSD->UpgradableGearComponent->GetIconBG
+                RValue = [CallFunc_GetIconBG_ReturnValue]
+180:    EX_Context
+            EX_InstanceVariable [ICON_GearFiller]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetIconBG_ReturnValue]
+                EX_False
+            RValue = []
+226:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetIconLine_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [UpgradableGear]
+                EX_FinalFunction import /Script/FSD->UpgradableGearComponent->GetIconLine
+                RValue = [CallFunc_GetIconLine_ReturnValue]
+268:    EX_Context
+            EX_InstanceVariable [ICON_GearOutline]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_GetIconLine_ReturnValue]
+                EX_False
+            RValue = []
+314:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [ItemUnlocked]
+333:    EX_Context
+            EX_InstanceVariable [IconSwitch]
+            EX_VirtualFunction SetActiveWidget
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 421
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 398
+                        EX_InstanceVariable [Locked]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 412
+                        EX_InstanceVariable [Unlocked]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+422:    EX_PopExecutionFlow
+423:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable]
+            EX_ByteConst 1
+443:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_1]
+            EX_ByteConst 2
+463:    EX_Let
+            EX_LocalVariable [Temp_byte_Variable_2]
+            EX_ByteConst 0
+483:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [ItemHovered]
+502:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_InstanceVariable [ItemSelected]
+521:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColorsAndOpacity
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_2]
+                    OffsetToSwitchEnd = 653
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 630
+                        EX_SwitchValue
+                            EX_LocalVariable [Temp_bool_Variable_1]
+                            OffsetToSwitchEnd = 630
+                            case 0:
+                                EX_False
+                                NextCaseOffset = 607
+                                EX_LocalVariable [Temp_byte_Variable_1]
+                            case 1:
+                                EX_True
+                                NextCaseOffset = 621
+                                EX_LocalVariable [Temp_byte_Variable]
+                            default:
+                                EX_LocalVariable [K2Node_Select_Default]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 644
+                        EX_LocalVariable [Temp_byte_Variable_2]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_2]
+                EX_FloatConst 1
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColorsAndOpacity_OutputColor]
+            RValue = []
+669:    EX_Context
+            EX_InstanceVariable [GearIconBG]
+            EX_FinalFunction import /Script/UMG->Border->SetBrushColor
+                EX_LocalVariable [CallFunc_MenuColorsAndOpacity_OutputColor]
+            RValue = []
+710:    EX_LocalVirtualFunction UpdateNotification
+            EX_LocalVariable [ItemUnlocked]
+733:    EX_PopExecutionFlow
+734:    EX_Return
+            EX_Nothing
+736:    EX_EndOfScript
+FunctionExport IsItemClass
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ClassClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ClassClass
+                EX_LocalVariable [InItemClass]
+                EX_InstanceVariable [ItemClass]
+38:     EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_EqualEqual_ClassClass_ReturnValue]
+57:     EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+67:     EX_EndOfScript
+FunctionExport GetItemClass
+0:      EX_LetObj
+            EX_LocalOutVariable
+                [ItemClass]
+            EX_InstanceVariable [ItemClass]
+19:     EX_Return
+            EX_Nothing
+21:     EX_EndOfScript
+FunctionExport UpdateNotification
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetItemID
+                EX_InstanceVariable [ItemClass]
+29:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+49:     EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array_1]
+            EX_StructMemberContext [WeaponID]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [ItemCategoryIDs]
+                    RValue = [ItemCategoryIDs]
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+109:    EX_CallMath import /Script/FSD->UIFunctionLibrary->CheckItemUINotification
+            EX_Self
+            EX_LocalVariable [K2Node_MakeArray_Array_1]
+            EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification_1]
+            EX_False
+139:    EX_LetBool
+            EX_InstanceVariable [HasNewItem]
+            EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification_1]
+158:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetItemID
+                EX_InstanceVariable [ItemClass]
+187:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetCharacterID
+                EX_InstanceVariable [CharacterClass]
+216:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+236:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_StructMemberContext [OverclockID]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [ItemCategoryIDs]
+                    RValue = [ItemCategoryIDs]
+305:    EX_CallMath import /Script/FSD->UIFunctionLibrary->CheckItemUINotification
+            EX_Self
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification]
+            EX_True
+335:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_InstanceVariable [HasNewItem]
+                EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification]
+373:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array_2]
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_StructMemberContext [ItemSkinID]
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                    EX_InstanceVariable [ItemCategoryIDs]
+                    RValue = [ItemCategoryIDs]
+442:    EX_CallMath import /Script/FSD->UIFunctionLibrary->CheckItemUINotification
+            EX_Self
+            EX_LocalVariable [K2Node_MakeArray_Array_2]
+            EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification_2]
+            EX_True
+472:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+                EX_LocalVariable [CallFunc_CheckItemUINotification_HasNotification_2]
+510:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [IsItemUnlocked]
+                EX_LocalVariable [CallFunc_BooleanOR_ReturnValue_1]
+548:    EX_JumpIfNot 603
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+562:    EX_Context
+            EX_InstanceVariable [ITM_ItemUnlockedIcon]
+            EX_LocalVirtualFunction SetVisible
+            RValue = []
+598:    EX_Jump 639
+603:    EX_Context
+            EX_InstanceVariable [ITM_ItemUnlockedIcon]
+            EX_LocalVirtualFunction HideIcon
+            RValue = []
+639:    EX_Return
+            EX_Nothing
+641:    EX_EndOfScript
+FunctionExport CreateToolTip
+0:      EX_PushExecutionFlow 504
+5:      EX_PushExecutionFlow 485
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValidClass
+                EX_InstanceVariable [ItemClass]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValidClass_ReturnValue]
+49:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+70:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOrCreateSingletonWidget_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->GetOrCreateSingletonWidget
+                    EX_ObjectConst import /Game/UI/Menu_Loadout/TOOLTIP_UpgGear_GearTab->TOOLTIP_UpgGear_GearTab_C
+                    EX_LocalVariable [CallFunc_GetOrCreateSingletonWidget_WidgetCreated]
+                RValue = [CallFunc_GetOrCreateSingletonWidget_ReturnValue]
+130:    EX_LetObj
+            EX_LocalVariable [ToolTip]
+            EX_LocalVariable [CallFunc_GetOrCreateSingletonWidget_ReturnValue]
+149:    EX_Let
+            EX_LocalVariable [Temp_text_Variable]
+            EX_TextConst
+                SourceString = Locked
+                LocalizedKey = 8FA9F02F401EF4D5FC9A5B8D6E9AD3C9
+                LocalizedNamespace = 
+213:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetItemID
+                EX_InstanceVariable [ItemClass]
+242:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsItemUnlocked_ReturnValue]
+            EX_CallMath import /Script/FSD->UpgradableGearComponent->IsItemUnlocked
+                EX_Self
+                EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+272:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsItemUnlocked_ReturnValue]
+291:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetItemData_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetItemID_ReturnValue]
+                EX_FinalFunction import /Script/FSD->ItemID->GetItemData
+                RValue = [CallFunc_GetItemData_ReturnValue]
+333:    EX_Context
+            EX_LocalVariable [ToolTip]
+            EX_LocalVirtualFunction SetText
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 443
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 398
+                        EX_LocalVariable [Temp_text_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 434
+                        EX_Context
+                            EX_LocalVariable [CallFunc_GetItemData_ReturnValue]
+                            EX_InstanceVariable [Name]
+                            RValue = [Name]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_ByteConst 2
+            RValue = []
+446:    EX_Context
+            EX_LocalVariable [ToolTip]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 3
+            RValue = []
+484:    EX_PopExecutionFlow
+485:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [ToolTip]
+504:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+514:    EX_EndOfScript

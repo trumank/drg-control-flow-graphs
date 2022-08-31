@@ -1,0 +1,389 @@
+FunctionExport ExecuteUbergraph_BP_FuelLine_Segment
+0:      EX_PushExecutionFlow 890
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_VirtualFunction SetLifeSpan
+            EX_FloatConst 0.1
+34:     EX_PopExecutionFlow
+35:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DeconstructHealthComponent]
+                EX_VirtualFunction IsAlive
+                RValue = [CallFunc_IsAlive_ReturnValue]
+81:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsAlive_ReturnValue]
+91:     EX_Let
+            EX_LocalVariable [CallFunc_GetHealth_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DeconstructHealthComponent]
+                EX_VirtualFunction GetHealth
+                RValue = [CallFunc_GetHealth_ReturnValue]
+145:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_Context
+                    EX_InstanceVariable [DeconstructHealthComponent]
+                    EX_InstanceVariable [MaxHealth]
+                    RValue = [MaxHealth]
+                EX_LocalVariable [CallFunc_GetHealth_ReturnValue]
+213:    EX_Let
+            EX_LocalVariable [CallFunc_Heal_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [DeconstructHealthComponent]
+                EX_VirtualFunction Heal
+                    EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                RValue = [CallFunc_Heal_ReturnValue]
+276:    EX_PopExecutionFlow
+277:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+297:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+307:    EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 1
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 35
+                EX_IntConst -1355713548
+                EX_NameConst ExecuteUbergraph_BP_FuelLine_Segment
+                EX_Self
+361:    EX_PopExecutionFlow
+362:    EX_LocalVirtualFunction UpdateVisualState
+376:    EX_Let
+            EX_LocalVariable [CallFunc_GetPlacementState_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TrackBuilderSegment->GetPlacementState
+404:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetPlacementState_ReturnValue]
+                EX_ByteConst 2
+435:    EX_JumpIfNot 450
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+449:    EX_PopExecutionFlow
+450:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetConnectPoint_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TrackBuilderSegment->GetConnectPoint
+470:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetConnectPoint_ReturnValue]
+499:    EX_JumpIfNot 621
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+513:    EX_Let
+            EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue_2]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->ComponentToWorldLocation
+                EX_InstanceVariable [FuelLineEndPostMesh]
+550:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/Pipes/PipeConnect_Cue->PipeConnect_Cue
+                EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue_2]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+620:    EX_PopExecutionFlow
+621:    EX_Let
+            EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->ComponentToWorldLocation
+                EX_InstanceVariable [FuelLineEndPostMesh]
+658:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Art/Particles/DestructionFX/P_Generic_Rock01_Dig->P_Generic_Rock01_Dig
+                EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+727:    EX_Let
+            EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue_1]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->ComponentToWorldLocation
+                EX_InstanceVariable [FuelLineEndPostMesh]
+764:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/Audio/SFX/WeaponsNTools/Pipes/PipePlace_Cue->PipePlace_Cue
+                EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue_1]
+                EX_RotationConst 0,0,0
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+834:    EX_PopExecutionFlow
+835:    EX_LocalVirtualFunction UpdateVisualState
+849:    EX_PopExecutionFlow
+850:    EX_LocalVirtualFunction UpdateVisualState
+864:    EX_PopExecutionFlow
+865:    EX_LocalVirtualFunction UpdateVisualState
+879:    EX_PopExecutionFlow
+880:    EX_Jump 277
+885:    EX_Jump 15
+890:    EX_Return
+            EX_Nothing
+892:    EX_EndOfScript
+FunctionExport BndEvt__DeconstructHealthComponent_K2Node_ComponentBoundEvent_2_DeathSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export BP_FuelLine_Segment_C->ExecuteUbergraph_BP_FuelLine_Segment
+            EX_IntConst 885
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__DeconstructHealthComponent_K2Node_ComponentBoundEvent_1_HealthChangedSig__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_health]
+            EX_LocalVariable [health]
+18:     EX_LocalFinalFunction export BP_FuelLine_Segment_C->ExecuteUbergraph_BP_FuelLine_Segment
+            EX_IntConst 880
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceivPlacementValidChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_InIsValid]
+            EX_LocalVariable [InIsValid]
+18:     EX_LocalFinalFunction export BP_FuelLine_Segment_C->ExecuteUbergraph_BP_FuelLine_Segment
+            EX_IntConst 865
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_FuelLine_Segment_C->ExecuteUbergraph_BP_FuelLine_Segment
+            EX_IntConst 850
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport BndEvt__NextSegmentUsable_K2Node_ComponentBoundEvent_0_UsableChangedSignature__DelegateSignature
+0:      EX_LetValueOnPersistentFrame [K2Node_ComponentBoundEvent_canUse]
+            EX_LocalVariable [canUse]
+18:     EX_LocalFinalFunction export BP_FuelLine_Segment_C->ExecuteUbergraph_BP_FuelLine_Segment
+            EX_IntConst 835
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceivePlacementStateChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_NewState]
+            EX_LocalVariable [NewState]
+18:     EX_LocalFinalFunction export BP_FuelLine_Segment_C->ExecuteUbergraph_BP_FuelLine_Segment
+            EX_IntConst 362
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_LetObj
+            EX_Context
+                EX_InstanceVariable [NextSegmentUsable]
+                EX_InstanceVariable [RestrictToCollider]
+                RValue = [RestrictToCollider]
+            EX_InstanceVariable [UsableSphere]
+41:     EX_Let
+            EX_LocalVariable [CallFunc_GetMaterials_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [FuelLineEndPostMesh]
+                EX_VirtualFunction GetMaterials
+                RValue = [CallFunc_GetMaterials_ReturnValue]
+95:     EX_Let
+            EX_InstanceVariable [MaterialsDefaultEndPost]
+            EX_LocalVariable [CallFunc_GetMaterials_ReturnValue]
+122:    EX_Return
+            EX_Nothing
+124:    EX_EndOfScript
+FunctionExport ReceiveCanPlaceAt
+0:      EX_Let
+            EX_LocalVariable [Dir]
+            EX_VectorConst 0,0,0
+31:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetNextSegment_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TrackBuilderSegment->GetNextSegment
+                EX_False
+52:     EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_Self
+            EX_LocalVariable [CallFunc_GetNextSegment_ReturnValue]
+73:     EX_LetBool
+            EX_LocalVariable [CallFunc_SplineComponentSphereTrace_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSplineLibrary->SplineComponentSphereTrace
+                EX_InstanceVariable [FuelLineSplineComponent]
+                EX_FloatConst 0
+                EX_ByteConst 0
+                EX_FloatConst 25
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_LocalVariable [CallFunc_SplineComponentSphereTrace_OutHitResult]
+                EX_VectorConst 0,0,0
+145:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_SplineComponentSphereTrace_ReturnValue]
+174:    EX_LetBool
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+193:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+203:    EX_EndOfScript
+FunctionExport UpdateVisualState
+0:      EX_Let
+            EX_LocalVariable [PlacementState]
+            EX_ByteConst 0
+20:     EX_Let
+            EX_LocalVariable [CallFunc_GetPlacementState_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TrackBuilderSegment->GetPlacementState
+48:     EX_Let
+            EX_LocalVariable [PlacementState]
+            EX_LocalVariable [CallFunc_GetPlacementState_ReturnValue]
+75:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Pipeline/Materials/M_Pipeline_Valid->M_Pipeline_Valid
+94:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Pipeline/Materials/MI_Pipeline_Invalid->MI_Pipeline_Invalid
+113:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_2]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_Pipeline_StartDot->M_Pipeline_StartDot
+132:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_3]
+            EX_NoObject
+143:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetIsSegmentEndTransformValid_ReturnValue]
+            EX_FinalFunction import /Script/FSD->TrackBuilderSegment->GetIsSegmentEndTransformValid
+163:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GetIsSegmentEndTransformValid_ReturnValue]
+182:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_Context
+                EX_InstanceVariable [NextSegmentUsable]
+                EX_InstanceVariable [Usable]
+                RValue = [Usable]
+223:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [PlacementState]
+                EX_ByteConst 2
+254:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_2]
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+273:    EX_LetObj
+            EX_LocalVariable [RingMaterialOverride]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_2]
+                OffsetToSwitchEnd = 424
+                case 0:
+                    EX_False
+                    NextCaseOffset = 357
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable]
+                        OffsetToSwitchEnd = 357
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 334
+                            EX_LocalVariable [Temp_object_Variable_1]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 348
+                            EX_LocalVariable [Temp_object_Variable]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 415
+                    EX_SwitchValue
+                        EX_LocalVariable [Temp_bool_Variable_1]
+                        OffsetToSwitchEnd = 415
+                        case 0:
+                            EX_False
+                            NextCaseOffset = 392
+                            EX_LocalVariable [Temp_object_Variable_3]
+                        case 1:
+                            EX_True
+                            NextCaseOffset = 406
+                            EX_LocalVariable [Temp_object_Variable_2]
+                        default:
+                            EX_LocalVariable [K2Node_Select_Default_1]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_2]
+424:    EX_LocalVirtualFunction OverrideMaterialByName
+            EX_InstanceVariable [FuelLineEndPostMesh]
+            EX_InstanceVariable [MaterialsDefaultEndPost]
+            EX_NameConst MarkerRingA
+            EX_LocalVariable [RingMaterialOverride]
+478:    EX_LocalVirtualFunction OverrideMaterialByName
+            EX_InstanceVariable [FuelLineEndPostMesh]
+            EX_InstanceVariable [MaterialsDefaultEndPost]
+            EX_NameConst MarkerRingB
+            EX_LocalVariable [RingMaterialOverride]
+532:    EX_Return
+            EX_Nothing
+534:    EX_EndOfScript
+FunctionExport OverrideMaterialByName
+0:      EX_Let
+            EX_LocalVariable [CallFunc_GetMaterialIndex_ReturnValue]
+            EX_Context
+                EX_LocalVariable [InMesh]
+                EX_VirtualFunction GetMaterialIndex
+                    EX_LocalVariable [InMaterialSlotName]
+                RValue = [CallFunc_GetMaterialIndex_ReturnValue]
+63:     EX_LocalVirtualFunction OverrideMaterialByIndex
+            EX_LocalVariable [InMesh]
+            EX_LocalOutVariable
+                [InDefaultMaterials]
+            EX_LocalVariable [CallFunc_GetMaterialIndex_ReturnValue]
+            EX_LocalVariable [InMaterial]
+113:    EX_Return
+            EX_Nothing
+115:    EX_EndOfScript
+FunctionExport OverrideMaterialByIndex
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_IntInt
+                EX_LocalVariable [InIndex]
+                EX_IntConst 0
+34:     EX_JumpIfNot 253
+            EX_LocalVariable [CallFunc_GreaterEqual_IntInt_ReturnValue]
+48:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalOutVariable
+                    [InDefaultMaterials]
+                EX_LocalVariable [InIndex]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+107:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [InMaterial]
+136:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+155:    EX_Context
+            EX_LocalOutVariable
+                [InMesh]
+            EX_VirtualFunction SetMaterial
+                EX_LocalVariable [InIndex]
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 252
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 229
+                        EX_LocalVariable [CallFunc_Array_Get_Item]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 243
+                        EX_LocalVariable [InMaterial]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+253:    EX_Return
+            EX_Nothing
+255:    EX_EndOfScript

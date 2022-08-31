@@ -1,0 +1,287 @@
+FunctionExport ExecuteUbergraph_UI_RetirementInfo
+0:      EX_PushExecutionFlow 1565
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_PushExecutionFlow 345
+20:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+44:     EX_LetObj
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/UMG->Default__WidgetBlueprintLibrary
+                EX_FinalFunction import /Script/UMG->WidgetBlueprintLibrary->Create
+                    EX_Self
+                    EX_ObjectConst import /Game/UI/Menu_Crafting/ITM_Craft_ResourceSmall->ITM_Craft_ResourceSmall_C
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_Create_ReturnValue]
+105:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+164:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetObjectPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Resource
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+205:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_ArrayGetByRef
+                    EX_LocalVariable [CallFunc_Map_Values_Values]
+                    EX_LocalVariable [Temp_int_Array_Index_Variable]
+252:    EX_CallMath import /Script/Engine->KismetSystemLibrary->SetFloatPropertyByName
+            EX_LocalVariable [CallFunc_Create_ReturnValue]
+            EX_NameConst Amount
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+293:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChild_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HorizontalBox_Cost]
+                EX_FinalFunction import /Script/UMG->PanelWidget->AddChild
+                    EX_LocalVariable [CallFunc_Create_ReturnValue]
+                RValue = [CallFunc_AddChild_ReturnValue]
+344:    EX_PopExecutionFlow
+345:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+387:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+414:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_Map_Keys_Keys]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+473:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+511:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+521:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+548:    EX_Jump 15
+553:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+576:    EX_Jump 414
+581:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+604:    EX_Jump 553
+609:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetCharacterID
+                EX_LocalVariable [K2Node_CustomEvent_Character]
+638:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+659:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAnyCharacterRetired_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->HasAnyCharacterRetired
+                RValue = [CallFunc_HasAnyCharacterRetired_ReturnValue]
+701:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+722:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [CallFunc_HasAnyCharacterRetired_ReturnValue]
+751:    EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterRetirementCount_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->FSDSaveGame->GetCharacterRetirementCount
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+                        EX_InstanceVariable [SaveGameID]
+                        RValue = [SaveGameID]
+                RValue = [CallFunc_GetCharacterRetirementCount_ReturnValue]
+832:    EX_LocalVirtualFunction UpdateBenefits
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_LocalVariable [CallFunc_GetCharacterRetirementCount_ReturnValue]
+864:    EX_Context
+            EX_InstanceVariable [HorizontalBox_Cost]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+900:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetCharacterID
+                EX_LocalVariable [K2Node_CustomEvent_Character]
+929:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+949:    EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterRetirementCost_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->GameData->GetCharacterRetirementCost
+                    EX_Self
+                    EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+                RValue = [CallFunc_GetCharacterRetirementCost_ReturnValue]
+1009:   EX_SetArray
+            EX_LocalVariable [CallFunc_Map_Keys_Keys]
+1020:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Keys
+                EX_StructMemberContext [RetirementCost]
+                    EX_LocalVariable [CallFunc_GetCharacterRetirementCost_ReturnValue]
+                EX_LocalVariable [CallFunc_Map_Keys_Keys]
+            RValue = []
+1079:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetCharacterID
+                EX_LocalVariable [K2Node_CustomEvent_Character]
+1108:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameData
+1128:   EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterRetirementCost_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameData_ReturnValue]
+                EX_FinalFunction import /Script/FSD->GameData->GetCharacterRetirementCost
+                    EX_Self
+                    EX_LocalVariable [CallFunc_GetCharacterID_ReturnValue]
+                RValue = [CallFunc_GetCharacterRetirementCost_ReturnValue]
+1188:   EX_SetArray
+            EX_LocalVariable [CallFunc_Map_Values_Values]
+1199:   EX_Context
+            EX_ObjectConst import /Script/Engine->Default__BlueprintMapLibrary
+            EX_FinalFunction import /Script/Engine->BlueprintMapLibrary->Map_Values
+                EX_StructMemberContext [RetirementCost]
+                    EX_LocalVariable [CallFunc_GetCharacterRetirementCost_ReturnValue]
+                EX_LocalVariable [CallFunc_Map_Values_Values]
+            RValue = []
+1258:   EX_Jump 581
+1263:   EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1311:   EX_Context
+            EX_InstanceVariable [Image_0]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1352:   EX_Context
+            EX_InstanceVariable [Image_1]
+            EX_FinalFunction import /Script/UMG->Image->SetColorAndOpacity
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+1393:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [K2Node_Event_IsDesignTime]
+                EX_InstanceVariable [Enable Preview]
+1431:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+1441:   EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_InstanceVariable [CharacterRetirementCount]
+                EX_IntConst 0
+1475:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [NoCharactersPromoted]
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+1513:   EX_LetBool
+            EX_InstanceVariable [NoCharactersPromoted]
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue_1]
+1532:   EX_LocalVirtualFunction UpdateBenefits
+            EX_InstanceVariable [NoCharactersPromoted]
+            EX_InstanceVariable [CharacterRetirementCount]
+1564:   EX_PopExecutionFlow
+1565:   EX_Return
+            EX_Nothing
+1567:   EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_RetirementInfo_C->ExecuteUbergraph_UI_RetirementInfo
+            EX_IntConst 1263
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetData
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Character]
+            EX_LocalVariable [Character]
+18:     EX_LocalFinalFunction export UI_RetirementInfo_C->ExecuteUbergraph_UI_RetirementInfo
+            EX_IntConst 609
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateBenefits
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [InCharacterRetirementCount]
+                EX_IntConst 0
+34:     EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [Character1stBox]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility]
+            RValue = []
+120:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [NoPromotionsBox]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [InNoCharactersPromoted]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_2]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_2]
+            RValue = []
+206:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [InCharacterRetirementCount]
+                EX_IntConst 0
+240:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [InNoCharactersPromoted]
+269:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+                EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+307:    EX_Context
+            EX_ObjectConst import /Game/Game/LIB_Game->Default__LIB_Game_C
+            EX_LocalVirtualFunction SelectVisibility
+                EX_InstanceVariable [AdditionalBenefitsBox]
+                EX_ByteConst 1
+                EX_ByteConst 4
+                EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+                EX_Self
+                EX_LocalVariable [CallFunc_SelectVisibility_IsVisible_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_VisibilityChanged_1]
+                EX_LocalVariable [CallFunc_SelectVisibility_New_Visibility_1]
+            RValue = []
+393:    EX_Return
+            EX_Nothing
+395:    EX_EndOfScript

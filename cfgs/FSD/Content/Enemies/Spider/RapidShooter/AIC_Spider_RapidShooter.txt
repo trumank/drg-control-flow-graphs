@@ -1,0 +1,90 @@
+FunctionExport ExecuteUbergraph_AIC_Spider_RapidShooter
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_NameName
+                EX_LocalVariable [K2Node_Event_keyName]
+                EX_NameConst Target
+52:     EX_JumpIfNot 71
+            EX_LocalVariable [K2Node_SwitchName_CmpSuccess]
+66:     EX_Jump 497
+71:     EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+91:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+            EX_DynamicCast import /Script/FSD->SpiderEnemy
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+127:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+156:    EX_JumpIfNot 497
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+170:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Target
+211:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_Self
+232:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+                EX_FinalFunction import /Script/AIModule->BlackboardComponent->GetValueAsObject
+                    EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                RValue = [CallFunc_GetValueAsObject_ReturnValue]
+283:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsActor]
+            EX_DynamicCast import /Script/Engine->Actor
+                EX_LocalVariable [CallFunc_GetValueAsObject_ReturnValue]
+319:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsActor]
+348:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsSpider_Enemy]
+            EX_FinalFunction import /Script/FSD->SpiderEnemy->SetLookAtTarget
+                EX_LocalVariable [K2Node_DynamicCast_AsActor]
+            RValue = []
+389:    EX_Jump 497
+394:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst Target
+435:    EX_FinalFunction import /Script/FSD->FSDAIController->RegisterBlackboardChanges
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+454:    EX_Jump 497
+459:    EX_LocalVirtualFunction Start Behaviour Tree
+473:    EX_LocalFinalFunction import /Game/Enemies/Spider/AIC_Spider->AIC_Spider_C->ReceivePossess
+            EX_LocalVariable [K2Node_Event_PossessedPawn]
+492:    EX_Jump 394
+497:    EX_Return
+            EX_Nothing
+499:    EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_Spider_RapidShooter_C->ExecuteUbergraph_AIC_Spider_RapidShooter
+            EX_IntConst 459
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Recieve_BlackboardValueChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_keyName]
+            EX_LocalOutVariable
+                [keyName]
+18:     EX_LocalFinalFunction export AIC_Spider_RapidShooter_C->ExecuteUbergraph_AIC_Spider_RapidShooter
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Spider_RapidShooter_C->ExecuteUbergraph_AIC_Spider_RapidShooter
+            EX_IntConst 497
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

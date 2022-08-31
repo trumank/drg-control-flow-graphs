@@ -1,0 +1,1335 @@
+FunctionExport ExecuteUbergraph_WPN_GooCannon
+0:      EX_PushExecutionFlow 1143
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_Let
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue]
+            EX_FinalFunction import /Script/FSD->AnimatedItem->GetMuzzle
+43:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+89:     EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Particles/P_GooCannon_Muzzleflash->P_GooCannon_Muzzleflash
+                EX_LocalVariable [CallFunc_BreakTransform_Location]
+                EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+                EX_LocalVariable [CallFunc_BreakTransform_Scale]
+                EX_True
+                EX_ByteConst 0
+                EX_True
+150:    EX_Let
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue]
+            EX_FinalFunction import /Script/FSD->AnimatedItem->GetMuzzle
+178:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+224:    EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_NoObject
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 5
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+276:    EX_Let
+            EX_LocalVariable [CallFunc_GetLocalRole_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetLocalRole
+304:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_LocalVariable [CallFunc_GetLocalRole_ReturnValue]
+                EX_ByteConst 1
+335:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_ByteByte_ReturnValue]
+345:    EX_Let
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_FloatFloat
+                EX_InstanceVariable [PuddleAmmoPool]
+                EX_FloatConst 0.5
+387:    EX_Let
+            EX_InstanceVariable [PuddleAmmoPool]
+            EX_LocalVariable [CallFunc_Add_FloatFloat_ReturnValue]
+414:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_InstanceVariable [PuddleAmmoPool]
+                EX_FloatConst 1
+448:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+458:    EX_FinalFunction import /Script/FSD->AmmoDrivenWeapon->ResupplyAmmo
+            EX_IntConst 1
+473:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_InstanceVariable [PuddleAmmoPool]
+                EX_FloatConst 1
+515:    EX_Let
+            EX_InstanceVariable [PuddleAmmoPool]
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+542:    EX_PopExecutionFlow
+543:    EX_PushExecutionFlow 591
+548:    EX_BindDelegate OnChargeChanged_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+571:    EX_AddMulticastDelegate
+            EX_InstanceVariable [OnChargeChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+590:    EX_PopExecutionFlow
+591:    EX_BindDelegate ReloadEvent
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+614:    EX_AddMulticastDelegate
+            EX_InstanceVariable [OnTryReloadEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+633:    EX_PopExecutionFlow
+634:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_FinalFunction import /Script/FSD->Item->IsLocallyControlled
+654:    EX_JumpIfNot 673
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+668:    EX_Jump 543
+673:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+693:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+703:    EX_PopExecutionFlow
+704:    EX_LocalVirtualFunction FadeOutIfValid
+            EX_InstanceVariable [GooCannonCharge_Cue]
+727:    EX_PopExecutionFlow
+728:    EX_LocalVirtualFunction Handle Charge Audio
+            EX_LocalVariable [K2Node_CustomEvent_charge]
+751:    EX_PopExecutionFlow
+752:    EX_LocalVirtualFunction GetNearbyPuddles
+766:    EX_PopExecutionFlow
+767:    EX_LocalVirtualFunction ApplyUpgradeModifiers
+            EX_LocalVariable [K2Node_Event_Event]
+790:    EX_PopExecutionFlow
+791:    EX_PopExecutionFlowIfNot
+            EX_InstanceVariable [HasVacuum]
+801:    EX_Jump 752
+806:    EX_Jump 791
+811:    EX_Jump 704
+816:    EX_Context
+            EX_LocalVariable [K2Node_CustomEvent_Puddle_1]
+            EX_FinalFunction import /Script/Engine->Actor->FlushNetDormancy
+            RValue = []
+848:    EX_LetObj
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Puddle_1]
+                EX_InstanceVariable [SuckToActor]
+                RValue = [SuckToActor]
+            EX_Self
+881:    EX_CallMath import /Script/Engine->NetPushModelHelpers->MarkPropertyDirtyFromRepIndex
+            EX_LocalVariable [K2Node_CustomEvent_Puddle_1]
+            EX_IntConst 12
+            EX_NameConst SuckToActor
+918:    EX_Context
+            EX_LocalVariable [K2Node_CustomEvent_Puddle_1]
+            EX_LocalVirtualFunction OnRep_SuckToActor
+            RValue = []
+954:    EX_PopExecutionFlow
+955:    EX_LocalVirtualFunction SuckInPuddle
+            EX_LocalVariable [K2Node_CustomEvent_Puddle]
+978:    EX_PopExecutionFlow
+979:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Widget_Ammo]
+                EX_FinalFunction import /Script/UMG->WidgetComponent->GetUserWidgetObject
+                RValue = [CallFunc_GetUserWidgetObject_ReturnValue]
+1021:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsGoo_Cannon_Ammo_Counter]
+            EX_DynamicCast import /Game/WeaponsNTools/GooCannon/UI/GooCannon_AmmoCounter->GooCannon_AmmoCounter_C
+                EX_LocalVariable [CallFunc_GetUserWidgetObject_ReturnValue]
+1057:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsGoo_Cannon_Ammo_Counter]
+1086:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1096:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsGoo_Cannon_Ammo_Counter]
+            EX_LocalVirtualFunction InitializeAmmoWidget
+                EX_Self
+                EX_InstanceVariable [Widget_Ammo]
+            RValue = []
+1142:   EX_PopExecutionFlow
+1143:   EX_Return
+            EX_Nothing
+1145:   EX_EndOfScript
+FunctionExport OnPuddleSuckedIn
+0:      EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 15
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 979
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport ServerSuckInPuddle
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Puddle]
+            EX_LocalVariable [Puddle]
+18:     EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 955
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SuckInPuddle
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Puddle_1]
+            EX_LocalVariable [Puddle]
+18:     EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 816
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReloadEvent
+0:      EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 806
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CustomEvent1
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_Event]
+            EX_LocalVariable [Event]
+18:     EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 767
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnChargeChanged_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_charge]
+            EX_LocalVariable [charge]
+18:     EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 728
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport AddedToInventory
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_ItemOwner]
+            EX_LocalVariable [ItemOwner]
+18:     EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 634
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport RecieveUnequipped
+0:      EX_LocalFinalFunction export WPN_GooCannon_C->ExecuteUbergraph_WPN_GooCannon
+            EX_IntConst 811
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_PushExecutionFlow 76
+5:      EX_PushExecutionFlow 30
+10:     EX_LetObj
+            EX_InstanceVariable [MuzzleFlashLight]
+            EX_InstanceVariable [MuzzlePointLight]
+29:     EX_PopExecutionFlow
+30:     EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMaterialLibrary->CreateDynamicMaterialInstance
+                EX_Self
+                EX_ObjectConst import /Game/WeaponsNTools/ChargeBlaster/Materials/M_WPN_ChargeBlaster_A_Light->M_WPN_ChargeBlaster_A_Light
+                EX_NameConst None
+                EX_ByteConst 0
+75:     EX_PopExecutionFlow
+76:     EX_Return
+            EX_Nothing
+78:     EX_EndOfScript
+FunctionExport GetGearStatEntry
+0:      EX_PushExecutionFlow 5502
+5:      EX_PushExecutionFlow 338
+10:     EX_PushExecutionFlow 4898
+15:     EX_PushExecutionFlow 4643
+20:     EX_PushExecutionFlow 4400
+25:     EX_PushExecutionFlow 4151
+30:     EX_PushExecutionFlow 3885
+35:     EX_PushExecutionFlow 3617
+40:     EX_PushExecutionFlow 3452
+45:     EX_PushExecutionFlow 3202
+50:     EX_PushExecutionFlow 2953
+55:     EX_PushExecutionFlow 2785
+60:     EX_PushExecutionFlow 2617
+65:     EX_PushExecutionFlow 2449
+70:     EX_PushExecutionFlow 2265
+75:     EX_PushExecutionFlow 2100
+80:     EX_PushExecutionFlow 1935
+85:     EX_PushExecutionFlow 1406
+90:     EX_PushExecutionFlow 343
+95:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+116:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_NormalGooProjectile->PRJ_NormalGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 4
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_3]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_3]
+            RValue = []
+204:    EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_3]
+            EX_TextConst
+                SourceString = Damage
+                LocalizedKey = FCB8525A4034B5C8046F8BBD7BEEAEA6
+                LocalizedNamespace = 
+269:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_10]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_3]
+                RValue = [CallFunc_Array_Add_ReturnValue_10]
+337:    EX_PopExecutionFlow
+338:    EX_Jump 5502
+343:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_2]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+364:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_2]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Overclocks/OC_BonusesAndPenalties/Bonus_Buckshot_Enabled_GooCannon->Bonus_Buckshot_Enabled_GooCannon
+                EX_False
+                EX_TextConst
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue]
+            RValue = []
+449:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_7]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+470:    EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_7]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_BigGooProjectile->PRJ_BigGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 4
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_1]
+            RValue = []
+558:    EX_JumpIfNot 992
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue]
+572:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 0
+612:    EX_JumpIfNot 843
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+626:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 1
+666:    EX_JumpIfNot 843
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+680:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 2
+720:    EX_JumpIfNot 5146
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+734:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 3
+774:    EX_JumpIfNot 5324
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+788:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 4
+828:    EX_JumpIfNot 5146
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess_1]
+842:    EX_PopExecutionFlow
+843:    EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+            EX_TextConst
+                SourceString = Blast Fragment Damage
+                LocalizedKey = E15F4DFD4EBB51C71DCC2C865F7320D2
+                LocalizedNamespace = 
+923:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_6]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_6]
+991:    EX_PopExecutionFlow
+992:    EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+            EX_TextConst
+                SourceString = Charged Splash Damage
+                LocalizedKey = 9494E6094F7364521385EA85FCDD4248
+                LocalizedNamespace = 
+1072:   EX_PushExecutionFlow 1146
+1077:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_7]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_7]
+1145:   EX_PopExecutionFlow
+1146:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1167:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_GooProjectile_Fragment_Base->PRJ_GooProjectile_Fragment_Base_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 4
+                EX_TextConst
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue]
+            RValue = []
+1255:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+            EX_TextConst
+                SourceString = Charged Fragment Damage
+                LocalizedKey = 7A342C294D98EB8AB7DC1FB4EB47B8C3
+                LocalizedNamespace = 
+1337:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_1]
+1405:   EX_PopExecutionFlow
+1406:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1427:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_GooCannon_Projectile
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_1]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_BigGooProjectile->PRJ_BigGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 1
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_GooCannon_Projectile_GearStatEntry]
+            RValue = []
+1502:   EX_JumpIfNot 1866
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue]
+1516:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 0
+1556:   EX_JumpIfNot 1787
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+1570:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 1
+1610:   EX_JumpIfNot 1787
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+1624:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 2
+1664:   EX_JumpIfNot 1787
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+1678:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 3
+1718:   EX_JumpIfNot 1866
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+1732:   EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_StructMemberContext [PreviewStatus]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry]
+                EX_ByteConst 4
+1772:   EX_JumpIfNot 1787
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+1786:   EX_PopExecutionFlow
+1787:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_GooCannon_Projectile_GearStatEntry]
+            EX_TextConst
+                SourceString = Blast Fragment Count
+                LocalizedKey = 67C6D8F04F6721454E87C083DA47D855
+                LocalizedNamespace = 
+1866:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_GooCannon_Projectile_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+1934:   EX_PopExecutionFlow
+1935:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+1956:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_GooCannon
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 3
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_GooCannon_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_GooCannon_HasAnyupgrades_1]
+            RValue = []
+2031:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_13]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_GooCannon_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_13]
+2099:   EX_PopExecutionFlow
+2100:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2121:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_GooCannon
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 2
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_GooCannon_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_GooCannon_HasAnyupgrades]
+            RValue = []
+2196:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_12]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_GooCannon_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_12]
+2264:   EX_PopExecutionFlow
+2265:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2286:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Projectile
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_NormalGooProjectile->PRJ_NormalGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue]
+            RValue = []
+2370:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Projectile_HasUpgradedValue]
+2380:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_14]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Projectile_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_14]
+2448:   EX_PopExecutionFlow
+2449:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2470:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_2]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades_2]
+            RValue = []
+2548:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_19]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_2]
+                RValue = [CallFunc_Array_Add_ReturnValue_19]
+2616:   EX_PopExecutionFlow
+2617:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2638:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 1
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades_1]
+            RValue = []
+2716:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_17]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_17]
+2784:   EX_PopExecutionFlow
+2785:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_3]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2806:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_AmmoDriven
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_3]
+                EX_LocalVariable [playerState]
+                EX_ByteConst 3
+                EX_False
+                EX_ByteConst 5
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_HasAnyUpgrades]
+            RValue = []
+2884:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_5]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_AmmoDriven_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_5]
+2952:   EX_PopExecutionFlow
+2953:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+2974:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_DynamicSTE
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_NormalGooProjectile->PRJ_NormalGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_DynamicSTE_GearStatEntry]
+                EX_LocalVariable [CallFunc_UPGDESC_DynamicSTE_HasAnyupgrades]
+            RValue = []
+3058:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_DynamicSTE_GearStatEntry]
+            EX_TextConst
+                SourceString = Effects Duration
+                LocalizedKey = C709B8584B99D35F0F767A975205FC83
+                LocalizedNamespace = 
+3133:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_11]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_DynamicSTE_GearStatEntry]
+                RValue = [CallFunc_Array_Add_ReturnValue_11]
+3201:   EX_PopExecutionFlow
+3202:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_8]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3223:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Damage
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_8]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_NormalGooProjectile->PRJ_NormalGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 5
+                EX_TextConst
+                EX_ByteConst 1
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_2]
+                EX_LocalVariable [CallFunc_UPGDESC_Damage_HasUpgradedValue_2]
+            RValue = []
+3311:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_2]
+            EX_TextConst
+                SourceString = Puddle Radius
+                LocalizedKey = 732C12E14224B1CF15C30288703BF907
+                LocalizedNamespace = 
+3383:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_8]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_2]
+                RValue = [CallFunc_Array_Add_ReturnValue_8]
+3451:   EX_PopExecutionFlow
+3452:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3473:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_GooCannon_Projectile
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_NormalGooProjectile->PRJ_NormalGooProjectile_C
+                EX_LocalVariable [playerState]
+                EX_ByteConst 0
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_GooCannon_Projectile_GearStatEntry_1]
+            RValue = []
+3548:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_9]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_GooCannon_Projectile_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_9]
+3616:   EX_PopExecutionFlow
+3617:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3638:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Upgrades/UPG_Goo_E_ImproveSlowAmount->UPG_Goo_E_ImproveSlowAmount
+                EX_True
+                EX_TextConst
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_6]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_6]
+            RValue = []
+3723:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_6]
+3733:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_6]
+            EX_TextConst
+                SourceString = Stronger Slowdown Effect
+                LocalizedKey = D75CF4BC44E15EA47D5C3CBFBA48EF3A
+                LocalizedNamespace = 
+3816:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_18]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_6]
+                RValue = [CallFunc_Array_Add_ReturnValue_18]
+3884:   EX_PopExecutionFlow
+3885:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+3906:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Upgrades/UPG_Goo_E_ImprovePoisonDamage->UPG_Goo_E_ImprovePoisonDamage
+                EX_True
+                EX_TextConst
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_5]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_5]
+            RValue = []
+3991:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_5]
+4001:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_5]
+            EX_TextConst
+                SourceString = Stronger Corrosive DoT
+                LocalizedKey = FB9B910C4132F9695AC64AAAD68093E7
+                LocalizedNamespace = 
+4082:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_15]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_5]
+                RValue = [CallFunc_Array_Add_ReturnValue_15]
+4150:   EX_PopExecutionFlow
+4151:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+4172:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_9]
+                EX_NoObject
+                EX_True
+                EX_TextConst
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_4]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_4]
+            RValue = []
+4249:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_4]
+4259:   EX_CallMath import /Script/FSD->UpgradableGearComponent->SetGearStatText
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_4]
+            EX_TextConst
+                SourceString = Armor Melting
+                LocalizedKey = B9058F734627E76E8A1DE8BA323BE01E
+                LocalizedNamespace = 
+4331:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_16]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_4]
+                RValue = [CallFunc_Array_Add_ReturnValue_16]
+4399:   EX_PopExecutionFlow
+4400:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_6]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+4421:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_6]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Overclocks/OC_BonusesAndPenalties/Bonus_ReduceGravity_GooCannon->Bonus_ReduceGravity_GooCannon
+                EX_True
+                EX_TextConst
+                    SourceString = Anti-gravity Mixture
+                    LocalizedKey = 98DEDFCB45F50E3FD982848E9D856384
+                    LocalizedNamespace = 
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_3]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_3]
+            RValue = []
+4564:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_3]
+4574:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_4]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_3]
+                RValue = [CallFunc_Array_Add_ReturnValue_4]
+4642:   EX_PopExecutionFlow
+4643:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_5]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+4664:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_5]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Overclocks/OC_BonusesAndPenalties/Bonus_PoisonDamageSmall_GooCannon->Bonus_PoisonDamageSmall_GooCannon
+                EX_True
+                EX_TextConst
+                    SourceString = Stronger DoT and Slowdown Effect
+                    LocalizedKey = 81F37CDA4B83F6873AC7B6B58E80D216
+                    LocalizedNamespace = 
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_2]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_2]
+            RValue = []
+4819:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_2]
+4829:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_3]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_2]
+                RValue = [CallFunc_Array_Add_ReturnValue_3]
+4897:   EX_PopExecutionFlow
+4898:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_4]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+4919:   EX_Context
+            EX_ObjectConst import /Game/WeaponsNTools/BPL_UpgradeHelpers->Default__BPL_UpgradeHelpers_C
+            EX_LocalVirtualFunction UPGDESC_Generic
+                EX_LocalVariable [playerState]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue_4]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Overclocks/OC_BonusesAndPenalties/Bonus_Buckshot_Enabled_GooCannon->Bonus_Buckshot_Enabled_GooCannon
+                EX_True
+                EX_TextConst
+                    SourceString = Sludge Blast Charged Shot
+                    LocalizedKey = A3BCB5A44325768333AC39BBB495DC81
+                    LocalizedNamespace = 
+                EX_Self
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_1]
+                EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_1]
+            RValue = []
+5067:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_UPGDESC_Generic_HasUpgradedValue_1]
+5077:   EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue_2]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalOutVariable
+                        [stats]
+                    EX_LocalVariable [CallFunc_UPGDESC_Generic_GearStatEntry_1]
+                RValue = [CallFunc_Array_Add_ReturnValue_2]
+5145:   EX_PopExecutionFlow
+5146:   EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5175:   EX_Let
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5204:   EX_Let
+            EX_StructMemberContext [BaseValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5233:   EX_Let
+            EX_StructMemberContext [UpgradeValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5262:   EX_Let
+            EX_StructMemberContext [PreviewStatus]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_ByteConst 1
+5291:   EX_CallMath import /Script/FSD->UpgradableGearComponent->MirrorUpgradePreviewStatus
+            EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+5319:   EX_Jump 843
+5324:   EX_Let
+            EX_StructMemberContext [Text]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5353:   EX_Let
+            EX_StructMemberContext [Value]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5382:   EX_Let
+            EX_StructMemberContext [BaseValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5411:   EX_Let
+            EX_StructMemberContext [UpgradeValue]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_TextConst
+5440:   EX_Let
+            EX_StructMemberContext [PreviewStatus]
+                EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_ByteConst 1
+5469:   EX_CallMath import /Script/FSD->UpgradableGearComponent->MirrorUpgradePreviewStatus
+            EX_LocalVariable [K2Node_MakeStruct_GearStatEntry]
+            EX_LocalVariable [CallFunc_UPGDESC_Damage_GearStatEntry_1]
+5497:   EX_Jump 992
+5502:   EX_Return
+            EX_Nothing
+5504:   EX_EndOfScript
+FunctionExport Handle Charge Audio
+0:      EX_Let
+            EX_LocalVariable [MaxLevel]
+            EX_IntConst 3
+23:     EX_Let
+            EX_LocalVariable [CurrentLevel]
+            EX_IntConst 0
+46:     EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [Charge]
+                EX_FloatConst 0
+80:     EX_JumpIfNot 391
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+94:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue_1]
+            EX_Context
+                EX_InstanceVariable [GooCannonCharge_Cue]
+                EX_VirtualFunction IsPlaying
+                RValue = [CallFunc_IsPlaying_ReturnValue_1]
+140:    EX_JumpIfNot 504
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue_1]
+154:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [Charge]
+                EX_FloatConst 1.3
+196:    EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+                EX_FloatConst 0
+                EX_FloatConst 1
+243:    EX_Context
+            EX_InstanceVariable [GooCannonCharge_Cue]
+            EX_FinalFunction import /Script/Engine->AudioComponent->SetFloatParameter
+                EX_NameConst Charge
+                EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            RValue = []
+297:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_FloatFloat
+                EX_LocalVariable [Charge]
+                EX_FloatConst 1
+331:    EX_JumpIfNot 550
+            EX_LocalVariable [CallFunc_EqualEqual_FloatFloat_ReturnValue]
+345:    EX_Context
+            EX_InstanceVariable [GooCannon_FullyCharged_Cue]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+386:    EX_Jump 550
+391:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [GooCannonCharge_Cue]
+                EX_VirtualFunction IsPlaying
+                RValue = [CallFunc_IsPlaying_ReturnValue]
+437:    EX_JumpIfNot 550
+            EX_LocalVariable [CallFunc_IsPlaying_ReturnValue]
+451:    EX_Context
+            EX_InstanceVariable [GooCannonCharge_Cue]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.01
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+499:    EX_Jump 550
+504:    EX_Context
+            EX_InstanceVariable [GooCannonCharge_Cue]
+            EX_VirtualFunction Play
+                EX_FloatConst 0
+            RValue = []
+545:    EX_Jump 154
+550:    EX_Return
+            EX_Nothing
+552:    EX_EndOfScript
+FunctionExport FadeOutIfValid
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalOutVariable
+                    [AC]
+29:     EX_JumpIfNot 91
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Context
+            EX_LocalOutVariable
+                [AC]
+            EX_VirtualFunction FadeOut
+                EX_FloatConst 0.1
+                EX_FloatConst 0
+                EX_ByteConst 0
+            RValue = []
+91:     EX_Return
+            EX_Nothing
+93:     EX_EndOfScript
+FunctionExport GetNearbyPuddles
+0:      EX_PushExecutionFlow 1346
+5:      EX_Let
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue]
+            EX_FinalFunction import /Script/FSD->AnimatedItem->GetMuzzle
+33:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale]
+79:     EX_CallMath import /Script/Engine->GameplayStatics->PlaySoundAtLocation
+            EX_Self
+            EX_ObjectConst import /Game/Audio/SFX/LevelElements/HydralicDoor/HydralicDoor_vacuumSuck_Cue->HydralicDoor_vacuumSuck_Cue
+            EX_LocalVariable [CallFunc_BreakTransform_Location]
+            EX_RotationConst 0,0,0
+            EX_FloatConst 3
+            EX_FloatConst 1
+            EX_FloatConst 0
+            EX_NoObject
+            EX_NoObject
+            EX_NoObject
+139:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetOwner
+159:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+195:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+224:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+234:    EX_Let
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->AnimatedItem->GetMuzzle
+262:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakTransform
+            EX_LocalVariable [CallFunc_GetMuzzle_ReturnValue_1]
+            EX_LocalVariable [CallFunc_BreakTransform_Location_1]
+            EX_LocalVariable [CallFunc_BreakTransform_Rotation_1]
+            EX_LocalVariable [CallFunc_BreakTransform_Scale_1]
+308:    EX_SetArray
+            EX_LocalVariable [K2Node_MakeArray_Array]
+            EX_ByteConst 0
+            EX_ByteConst 1
+323:    EX_Let
+            EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                    EX_InstanceVariable [FirstPersonCamera]
+                    RValue = [FirstPersonCamera]
+                EX_FinalFunction import /Script/Engine->SceneComponent->GetForwardVector
+                RValue = [CallFunc_GetForwardVector_ReturnValue]
+395:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+                EX_FloatConst 200
+437:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_LocalVariable [CallFunc_GetForwardVector_ReturnValue]
+                EX_FloatConst 100
+479:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_VectorConst 0,0,0
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+529:    EX_Let
+            EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_VectorVector
+                EX_LocalVariable [CallFunc_BreakTransform_Location_1]
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue_1]
+575:    EX_SetArray
+            EX_LocalVariable [CallFunc_SphereTraceMultiForObjects_OutHits]
+586:    EX_LetBool
+            EX_LocalVariable [CallFunc_SphereTraceMultiForObjects_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->SphereTraceMultiForObjects
+                EX_Self
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Add_VectorVector_ReturnValue]
+                EX_FloatConst 200
+                EX_LocalVariable [K2Node_MakeArray_Array]
+                EX_False
+                EX_LocalVariable [Temp_object_Variable]
+                EX_ByteConst 0
+                EX_LocalVariable [CallFunc_SphereTraceMultiForObjects_OutHits]
+                EX_True
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_StructConst import /Script/CoreUObject->LinearColor
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                    EX_FloatConst 0
+                    EX_FloatConst 1
+                EX_FloatConst 5
+734:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+757:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+780:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_SphereTraceMultiForObjects_OutHits]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+839:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+877:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+887:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+914:    EX_PushExecutionFlow 1272
+919:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_SphereTraceMultiForObjects_OutHits]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+978:    EX_CallMath import /Script/Engine->GameplayStatics->BreakHitResult
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+            EX_LocalVariable [CallFunc_BreakHitResult_bBlockingHit]
+            EX_LocalVariable [CallFunc_BreakHitResult_bInitialOverlap]
+            EX_LocalVariable [CallFunc_BreakHitResult_Time]
+            EX_LocalVariable [CallFunc_BreakHitResult_Distance]
+            EX_LocalVariable [CallFunc_BreakHitResult_Location]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactPoint]
+            EX_LocalVariable [CallFunc_BreakHitResult_Normal]
+            EX_LocalVariable [CallFunc_BreakHitResult_ImpactNormal]
+            EX_LocalVariable [CallFunc_BreakHitResult_PhysMat]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitComponent]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitBoneName]
+            EX_LocalVariable [CallFunc_BreakHitResult_HitItem]
+            EX_LocalVariable [CallFunc_BreakHitResult_ElementIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_FaceIndex]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceStart]
+            EX_LocalVariable [CallFunc_BreakHitResult_TraceEnd]
+1150:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Goo_Cannon_Goo_Puddle]
+            EX_DynamicCast import /Game/WeaponsNTools/GooCannon/BP_GooCannon_GooPuddle->BP_GooCannon_GooPuddle_C
+                EX_LocalVariable [CallFunc_BreakHitResult_HitActor]
+1186:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Goo_Cannon_Goo_Puddle]
+1215:   EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+1225:   EX_LocalVirtualFunction SuckInPuddle
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Goo_Cannon_Goo_Puddle]
+1248:   EX_VirtualFunction ServerSuckInPuddle
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Goo_Cannon_Goo_Puddle]
+1271:   EX_PopExecutionFlow
+1272:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1314:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1341:   EX_Jump 780
+1346:   EX_Return
+            EX_Nothing
+1348:   EX_EndOfScript
+FunctionExport ApplyUpgradeModifiers
+0:      EX_PushExecutionFlow 333
+5:      EX_PushExecutionFlow 70
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [ItemUpgrade]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Overclocks/OC_BonusesAndPenalties/Bonus_Vacuum_GooCannon->Bonus_Vacuum_GooCannon
+48:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue_1]
+58:     EX_LetBool
+            EX_InstanceVariable [HasVacuum]
+            EX_True
+69:     EX_PopExecutionFlow
+70:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_LocalVariable [ItemUpgrade]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/Overclocks/OC_BonusesAndPenalties/Bonus_Buckshot_Enabled_GooCannon->Bonus_Buckshot_Enabled_GooCannon
+108:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+118:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetLocalPlayerCharacter_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetLocalPlayerCharacter
+                EX_Self
+139:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetLocalPlayerCharacter_ReturnValue]
+                EX_FinalFunction import /Script/FSD->PlayerCharacter->GetPlayerState
+                RValue = [CallFunc_GetPlayerState_ReturnValue]
+181:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetObjectClass
+                EX_Self
+202:    EX_Let
+            EX_LocalVariable [CallFunc_GetUpgradedValue_ReturnValue]
+            EX_CallMath import /Script/FSD->GooGunProjectileUpgrade->GetUpgradedValue
+                EX_LocalVariable [CallFunc_GetPlayerState_ReturnValue]
+                EX_LocalVariable [CallFunc_GetObjectClass_ReturnValue]
+                EX_ObjectConst import /Game/WeaponsNTools/GooCannon/PRJ_BigGooProjectile->PRJ_BigGooProjectile_C
+                EX_ByteConst 1
+259:    EX_Let
+            EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FTrunc
+                EX_StructMemberContext [CurrentValue]
+                    EX_LocalVariable [CallFunc_GetUpgradedValue_ReturnValue]
+305:    EX_Let
+            EX_InstanceVariable [ChargedShotCount]
+            EX_LocalVariable [CallFunc_FTrunc_ReturnValue]
+332:    EX_PopExecutionFlow
+333:    EX_Return
+            EX_Nothing
+335:    EX_EndOfScript

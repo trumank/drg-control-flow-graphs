@@ -1,0 +1,133 @@
+FunctionExport ExecuteUbergraph_UI_ContagionSpike_HealthBar
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [AnimAttention]
+                EX_FloatConst 0
+                EX_IntConst 0
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+57:     EX_Jump 424
+62:     EX_LocalVirtualFunction SetPercent
+            EX_InstanceVariable [Percent]
+85:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_InstanceVariable [Size]
+122:    EX_Let
+            EX_StructMemberContext [WidthOverride]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+158:    EX_Let
+            EX_StructMemberContext [HeightOverride]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+194:    EX_Let
+            EX_StructMemberContext [MinDesiredWidth]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_FloatConst 0
+226:    EX_Let
+            EX_StructMemberContext [MinDesiredHeight]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_FloatConst 0
+258:    EX_Let
+            EX_StructMemberContext [MaxDesiredWidth]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_FloatConst 0
+290:    EX_Let
+            EX_StructMemberContext [MaxDesiredHeight]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_FloatConst 0
+322:    EX_Let
+            EX_StructMemberContext [MinAspectRatio]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_FloatConst 0
+354:    EX_Let
+            EX_StructMemberContext [MaxAspectRatio]
+                EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+            EX_FloatConst 0
+386:    EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->SetSizeBoxSettings
+            EX_InstanceVariable [SBox]
+            EX_LocalVariable [K2Node_MakeStruct_SizeBoxSettings]
+414:    EX_Jump 424
+419:    EX_Jump 10
+424:    EX_Return
+            EX_Nothing
+426:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export UI_ContagionSpike_HealthBar_C->ExecuteUbergraph_UI_ContagionSpike_HealthBar
+            EX_IntConst 419
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_ContagionSpike_HealthBar_C->ExecuteUbergraph_UI_ContagionSpike_HealthBar
+            EX_IntConst 62
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetPercent
+0:      EX_PushExecutionFlow 172
+5:      EX_Let
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MapRangeClamped
+                EX_LocalVariable [InPercent]
+                EX_FloatConst 0
+                EX_FloatConst 1
+                EX_FloatConst 0.06
+                EX_FloatConst 0.95
+62:     EX_Let
+            EX_InstanceVariable [Percent]
+            EX_LocalVariable [CallFunc_MapRangeClamped_ReturnValue]
+89:     EX_PushExecutionFlow 130
+94:     EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimationForward_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimationForward
+                EX_InstanceVariable [AnimGhostHealth]
+                EX_FloatConst 1
+                EX_False
+129:    EX_PopExecutionFlow
+130:    EX_Context
+            EX_InstanceVariable [HealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_InstanceVariable [Percent]
+            RValue = []
+171:    EX_PopExecutionFlow
+172:    EX_Return
+            EX_Nothing
+174:    EX_EndOfScript
+FunctionExport SetGhostProgress
+0:      EX_Let
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FClamp
+                EX_LocalVariable [InProgress]
+                EX_FloatConst 0
+                EX_FloatConst 1
+47:     EX_Let
+            EX_InstanceVariable [GhostProgress]
+            EX_LocalVariable [CallFunc_FClamp_ReturnValue]
+74:     EX_Let
+            EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Lerp
+                EX_Context
+                    EX_InstanceVariable [GhostHealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+                EX_Context
+                    EX_InstanceVariable [HealthBar]
+                    EX_InstanceVariable [Percent]
+                    RValue = [Percent]
+                EX_InstanceVariable [GhostProgress]
+173:    EX_Context
+            EX_InstanceVariable [GhostHealthBar]
+            EX_FinalFunction import /Script/UMG->ProgressBar->SetPercent
+                EX_LocalVariable [CallFunc_Lerp_ReturnValue]
+            RValue = []
+214:    EX_Return
+            EX_Nothing
+216:    EX_EndOfScript

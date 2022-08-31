@@ -1,0 +1,156 @@
+FunctionExport GetSRController
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetPlayerController
+                EX_LocalVariable [__WorldContext]
+                EX_IntConst 0
+34:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_SR_Player_Controller_Base]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_SR_PlayerControllerBase->BP_SR_PlayerControllerBase_C
+                EX_LocalVariable [CallFunc_GetPlayerController_ReturnValue]
+70:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_SR_Player_Controller_Base]
+99:     EX_JumpIfNot 137
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+113:    EX_LetObj
+            EX_LocalOutVariable
+                [SRController]
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_SR_Player_Controller_Base]
+132:    EX_Jump 156
+137:    EX_LetObj
+            EX_LocalOutVariable
+                [SRController]
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_SR_Player_Controller_Base]
+156:    EX_Return
+            EX_Nothing
+158:    EX_EndOfScript
+FunctionExport GetSRGameState
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameState_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetGameState
+                EX_LocalVariable [__WorldContext]
+29:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Game_State_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_GameState_SpaceRig->BP_GameState_SpaceRig_C
+                EX_LocalVariable [CallFunc_GetGameState_ReturnValue]
+65:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Game_State_Space_Rig]
+94:     EX_JumpIfNot 132
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+108:    EX_LetObj
+            EX_LocalOutVariable
+                [gameState]
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Game_State_Space_Rig]
+127:    EX_Jump 143
+132:    EX_LetObj
+            EX_LocalOutVariable
+                [gameState]
+            EX_NoObject
+143:    EX_Return
+            EX_Nothing
+145:    EX_EndOfScript
+FunctionExport SetSpaceRigUpgradePreview
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [PlayerController]
+29:     EX_JumpIfNot 207
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerState_SpaceRig->BP_PlayerState_SpaceRig_C
+                EX_Context
+                    EX_LocalVariable [PlayerController]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+101:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+130:    EX_JumpIfNot 207
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+144:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+                EX_InstanceVariable [ItemUpgradePreview]
+                RValue = [ItemUpgradePreview]
+            EX_FinalFunction import /Script/FSD->ItemUpgradePreviewComponent->SetPreviewUpgrade
+                EX_LocalVariable [ItemUpgrade]
+            RValue = []
+207:    EX_Return
+            EX_Nothing
+209:    EX_EndOfScript
+FunctionExport GetSpaceRigUpgradePreview
+0:      EX_PushExecutionFlow 225
+5:      EX_PushExecutionFlow 214
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [PlayerController]
+39:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+49:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerState_SpaceRig->BP_PlayerState_SpaceRig_C
+                EX_Context
+                    EX_LocalVariable [PlayerController]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+107:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+136:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+146:    EX_LetObj
+            EX_LocalOutVariable
+                [PreviewUpgrade]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+                    EX_InstanceVariable [ItemUpgradePreview]
+                    RValue = [ItemUpgradePreview]
+                EX_InstanceVariable [PreviewUpgrade]
+                RValue = [PreviewUpgrade]
+209:    EX_Jump 225
+214:    EX_LetObj
+            EX_LocalOutVariable
+                [PreviewUpgrade]
+            EX_NoObject
+225:    EX_Return
+            EX_Nothing
+227:    EX_EndOfScript
+FunctionExport RefreshSpacerigUpgradePreview
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [PlayerController]
+29:     EX_JumpIfNot 198
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+            EX_DynamicCast import /Game/Game/SpaceRig/BP_PlayerState_SpaceRig->BP_PlayerState_SpaceRig_C
+                EX_Context
+                    EX_LocalVariable [PlayerController]
+                    EX_InstanceVariable [PlayerState]
+                    RValue = [PlayerState]
+101:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+130:    EX_JumpIfNot 198
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+144:    EX_Context
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Player_State_Space_Rig]
+                EX_InstanceVariable [ItemUpgradePreview]
+                RValue = [ItemUpgradePreview]
+            EX_FinalFunction import /Script/FSD->ItemUpgradePreviewComponent->RefreshPreviewUpgrade
+            RValue = []
+198:    EX_Return
+            EX_Nothing
+200:    EX_EndOfScript

@@ -1,0 +1,58 @@
+FunctionExport ExecuteUbergraph_UI_MaskedCanvas
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetMask
+            EX_InstanceVariable [Mask]
+33:     EX_Jump 43
+38:     EX_Jump 10
+43:     EX_Return
+            EX_Nothing
+45:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_MaskedCanvas_C->ExecuteUbergraph_UI_MaskedCanvas
+            EX_IntConst 38
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateMaterial
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Material]
+29:     EX_JumpIfNot 48
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Jump 153
+48:     EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMaterialLibrary->CreateDynamicMaterialInstance
+                EX_Self
+                EX_ObjectConst import /Game/UI/_GlobalAssets/MaskedImage/M_MaskMaterial->M_MaskMaterial
+                EX_NameConst None
+                EX_ByteConst 0
+93:     EX_LetObj
+            EX_InstanceVariable [Material]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+112:    EX_Context
+            EX_InstanceVariable [MaskRetainer]
+            EX_FinalFunction import /Script/UMG->RetainerBox->SetEffectMaterial
+                EX_InstanceVariable [Material]
+            RValue = []
+153:    EX_Return
+            EX_Nothing
+155:    EX_EndOfScript
+FunctionExport SetMask
+0:      EX_LetObj
+            EX_InstanceVariable [Mask]
+            EX_LocalVariable [Texture]
+19:     EX_LocalVirtualFunction UpdateMaterial
+33:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Mask
+                EX_InstanceVariable [Mask]
+            RValue = []
+87:     EX_Return
+            EX_Nothing
+89:     EX_EndOfScript

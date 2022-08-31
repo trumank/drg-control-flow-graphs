@@ -1,0 +1,162 @@
+FunctionExport ExecuteUbergraph_HUD_HitIndicator
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 4
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+58:     EX_FinalFunction import /Script/UMG->UserWidget->SetColorAndOpacity
+            EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+77:     EX_Jump 295
+82:     EX_Jump 295
+87:     EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+103:    EX_BindDelegate OnHitAnimStarted
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+126:    EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationStarted
+            EX_InstanceVariable [HitAnim]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+154:    EX_BindDelegate OnHitAnimFinished
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+177:    EX_FinalFunction import /Script/UMG->UserWidget->BindToAnimationFinished
+            EX_InstanceVariable [HitAnim]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+205:    EX_Jump 295
+210:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+226:    EX_Let
+            EX_InstanceVariable [CurrentPriority]
+            EX_IntConst 0
+249:    EX_Jump 295
+254:    EX_Jump 87
+259:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 3
+275:    EX_Jump 295
+280:    EX_Jump 259
+285:    EX_Jump 210
+290:    EX_Jump 10
+295:    EX_Return
+            EX_Nothing
+297:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export HUD_HitIndicator_C->ExecuteUbergraph_HUD_HitIndicator
+            EX_IntConst 290
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnHitAnimFinished
+0:      EX_LocalFinalFunction export HUD_HitIndicator_C->ExecuteUbergraph_HUD_HitIndicator
+            EX_IntConst 285
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnHitAnimStarted
+0:      EX_LocalFinalFunction export HUD_HitIndicator_C->ExecuteUbergraph_HUD_HitIndicator
+            EX_IntConst 280
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_HitIndicator_C->ExecuteUbergraph_HUD_HitIndicator
+            EX_IntConst 254
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDamagedEnemy_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_EnemyHealth]
+            EX_LocalOutVariable
+                [EnemyHealth]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Damage]
+            EX_LocalVariable [Damage]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_DamageModifier]
+            EX_LocalVariable [DamageModifier]
+54:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthRemaining]
+            EX_LocalVariable [HealthRemaining]
+72:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_IsWeakpoint]
+            EX_LocalVariable [IsWeakpoint]
+90:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_IsRadial]
+            EX_LocalVariable [IsRadial]
+108:    EX_LocalFinalFunction export HUD_HitIndicator_C->ExecuteUbergraph_HUD_HitIndicator
+            EX_IntConst 82
+123:    EX_Return
+            EX_Nothing
+125:    EX_EndOfScript
+FunctionExport StartAnimation
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_InstanceVariable [CurrentPriority]
+                EX_IntConst 0
+34:     EX_JumpIfNot 408
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+48:     EX_Let
+            EX_InstanceVariable [CurrentPriority]
+            EX_InstanceVariable [Priority]
+75:     EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_LocalVariable [Scale]
+                EX_LocalVariable [Scale]
+121:    EX_FinalFunction import /Script/UMG->Widget->SetRenderScale
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+140:    EX_FinalFunction import /Script/UMG->UserWidget->SetColorAndOpacity
+            EX_LocalVariable [Color]
+159:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_InstanceVariable [HitAnim]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 3
+                EX_False
+206:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [ShowKillImage]
+225:    EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 279
+                case 0:
+                    EX_False
+                    NextCaseOffset = 256
+                    EX_InstanceVariable [IndicatorImage]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 270
+                    EX_InstanceVariable [KillImage]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 3
+            RValue = []
+307:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [ShowKillImage]
+326:    EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 380
+                case 0:
+                    EX_False
+                    NextCaseOffset = 357
+                    EX_InstanceVariable [KillImage]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 371
+                    EX_InstanceVariable [IndicatorImage]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+408:    EX_Return
+            EX_Nothing
+410:    EX_EndOfScript

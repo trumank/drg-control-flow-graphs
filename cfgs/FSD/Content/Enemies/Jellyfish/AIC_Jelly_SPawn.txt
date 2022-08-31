@@ -1,0 +1,210 @@
+FunctionExport ExecuteUbergraph_AIC_Jelly_Spawn
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_BindDelegate OnDeath
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+33:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->EnemyHealthComponent
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+84:     EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+125:    EX_Jump 221
+130:    EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_ObjectConst import /Game/Enemies/Jellyfish/BT_Jelly_Spawn->BT_Jelly_Spawn
+163:    EX_Jump 221
+168:    EX_Context
+            EX_InstanceVariable [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+211:    EX_Jump 221
+216:    EX_Jump 10
+221:    EX_Return
+            EX_Nothing
+223:    EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_Jelly_Spawn_C->ExecuteUbergraph_AIC_Jelly_Spawn
+            EX_IntConst 216
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDeath
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export AIC_Jelly_Spawn_C->ExecuteUbergraph_AIC_Jelly_Spawn
+            EX_IntConst 168
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Jelly_Spawn_C->ExecuteUbergraph_AIC_Jelly_Spawn
+            EX_IntConst 130
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FindNewMother
+0:      EX_PushExecutionFlow 1093
+5:      EX_SetArray
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+16:     EX_CallMath import /Script/Engine->GameplayStatics->GetAllActorsOfClass
+            EX_Self
+            EX_ObjectConst import /Game/Critters/JellyPlatform/ENE_Jelly_Passive_Mother->ENE_Jelly_Passive_Mother_C
+            EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+45:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+68:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+91:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+150:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+188:    EX_JumpIfNot 668
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+202:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+229:    EX_PushExecutionFlow 1019
+234:    EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+254:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue]
+304:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+363:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                EX_FinalFunction import /Script/Engine->Actor->K2_GetActorLocation
+                RValue = [CallFunc_K2_GetActorLocation_ReturnValue_1]
+413:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_VectorVector
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue_1]
+                EX_LocalVariable [CallFunc_K2_GetActorLocation_ReturnValue]
+459:    EX_Let
+            EX_LocalVariable [CallFunc_VSize_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->VSize
+                EX_LocalVariable [CallFunc_Subtract_VectorVector_ReturnValue]
+496:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_FloatFloat
+                EX_LocalVariable [CallFunc_VSize_ReturnValue]
+                EX_FloatConst 3500
+530:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_FloatFloat_ReturnValue]
+540:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [CallFunc_GetAllActorsOfClass_OutActors]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item_1]
+            RValue = []
+599:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Add_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Add
+                    EX_LocalVariable [PotentialMothers]
+                    EX_LocalVariable [CallFunc_Array_Get_Item_1]
+                RValue = [CallFunc_Array_Add_ReturnValue]
+667:    EX_PopExecutionFlow
+668:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_NoObject
+679:    EX_Let
+            EX_LocalVariable [CallFunc_Array_LastIndex_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_LastIndex
+                    EX_LocalVariable [PotentialMothers]
+                RValue = [CallFunc_Array_LastIndex_ReturnValue]
+738:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalVariable [PotentialMothers]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+797:    EX_Let
+            EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->RandomIntegerInRange
+                EX_IntConst 0
+                EX_LocalVariable [CallFunc_Array_LastIndex_ReturnValue]
+839:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 0
+873:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [PotentialMothers]
+                EX_LocalVariable [CallFunc_RandomIntegerInRange_ReturnValue]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+932:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+951:    EX_LetObj
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 1014
+                case 0:
+                    EX_False
+                    NextCaseOffset = 991
+                    EX_LocalVariable [Temp_object_Variable]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 1005
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+1014:   EX_Jump 1093
+1019:   EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+1061:   EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+1088:   EX_Jump 91
+1093:   EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+1103:   EX_EndOfScript

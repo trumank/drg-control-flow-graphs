@@ -1,0 +1,165 @@
+FunctionExport ExecuteUbergraph_HUD_AmmoCount_Holder
+0:      EX_PushExecutionFlow 397
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LocalVirtualFunction SetDefault
+29:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->GetOwningPlayerPawn
+49:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+            EX_DynamicCast import /Script/FSD->PlayerCharacter
+                EX_LocalVariable [CallFunc_GetOwningPlayerPawn_ReturnValue]
+85:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+114:    EX_JumpIfNot 298
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+128:    EX_LetObj
+            EX_InstanceVariable [Inventory]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsPlayer_Character]
+                EX_InstanceVariable [InventoryComponent]
+                RValue = [InventoryComponent]
+169:    EX_BindDelegate OnItemEquipped_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+192:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Inventory]
+                EX_InstanceVariable [OnItemEquipped]
+                RValue = [OnItemEquipped]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+233:    EX_BindDelegate OnItemUnequipped_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+256:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [Inventory]
+                EX_InstanceVariable [OnItemUnequipped]
+                RValue = [OnItemUnequipped]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+297:    EX_PopExecutionFlow
+298:    EX_CallMath import /Script/FSD->PendingLatentActionLibrary->WaitOneFrame
+            EX_Self
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 348
+                EX_IntConst -1860042111
+                EX_NameConst ExecuteUbergraph_HUD_AmmoCount_Holder
+                EX_Self
+347:    EX_PopExecutionFlow
+348:    EX_Jump 29
+353:    EX_Jump 15
+358:    EX_LocalVirtualFunction SetFromItem
+            EX_LocalVariable [K2Node_CustomEvent_Item_1]
+381:    EX_PopExecutionFlow
+382:    EX_LocalVirtualFunction SetDefault
+396:    EX_PopExecutionFlow
+397:    EX_Return
+            EX_Nothing
+399:    EX_EndOfScript
+FunctionExport OnItemUnequipped_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Item]
+            EX_LocalVariable [Item]
+18:     EX_LocalFinalFunction export HUD_AmmoCount_Holder_C->ExecuteUbergraph_HUD_AmmoCount_Holder
+            EX_IntConst 382
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnItemEquipped_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Item_1]
+            EX_LocalVariable [Item]
+18:     EX_LocalFinalFunction export HUD_AmmoCount_Holder_C->ExecuteUbergraph_HUD_AmmoCount_Holder
+            EX_IntConst 358
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export HUD_AmmoCount_Holder_C->ExecuteUbergraph_HUD_AmmoCount_Holder
+            EX_IntConst 353
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport SetFromItem
+0:      EX_PushExecutionFlow 460
+5:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [InItem]
+                EX_ObjectConst import /Script/FSD->CrosshairAggregator
+43:     EX_LetObj
+            EX_LocalVariable [Aggregator]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+62:     EX_PushExecutionFlow 445
+67:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Aggregator]
+96:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+106:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+130:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetCustomAmmoCounterWidget_ReturnValue]
+            EX_Context
+                EX_LocalVariable [Aggregator]
+                EX_FinalFunction import /Script/FSD->CrosshairAggregator->GetCustomAmmoCounterWidget
+                    EX_Self
+                    EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                RValue = [CallFunc_GetCustomAmmoCounterWidget_ReturnValue]
+182:    EX_LetObj
+            EX_LocalVariable [CustomCounter]
+            EX_LocalVariable [CallFunc_GetCustomAmmoCounterWidget_ReturnValue]
+201:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CustomCounter]
+230:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+240:    EX_Context
+            EX_InstanceVariable [Holder_Custom]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+276:    EX_LetObj
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Holder_Custom]
+                EX_FinalFunction import /Script/UMG->Overlay->AddChildToOverlay
+                    EX_LocalVariable [CustomCounter]
+                RValue = [CallFunc_AddChildToOverlay_ReturnValue]
+327:    EX_Context
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetVerticalAlignment
+                EX_ByteConst 0
+            RValue = []
+361:    EX_Context
+            EX_LocalVariable [CallFunc_AddChildToOverlay_ReturnValue]
+            EX_FinalFunction import /Script/UMG->OverlaySlot->SetHorizontalAlignment
+                EX_ByteConst 0
+            RValue = []
+395:    EX_Context
+            EX_InstanceVariable [CounterSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [Holder_Custom]
+            RValue = []
+440:    EX_Jump 460
+445:    EX_LocalVirtualFunction SetDefault
+459:    EX_PopExecutionFlow
+460:    EX_Return
+            EX_Nothing
+462:    EX_EndOfScript
+FunctionExport SetDefault
+0:      EX_Context
+            EX_InstanceVariable [CounterSwitcher]
+            EX_VirtualFunction SetActiveWidget
+                EX_InstanceVariable [Holder_Default]
+            RValue = []
+45:     EX_Context
+            EX_InstanceVariable [Holder_Custom]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+81:     EX_Return
+            EX_Nothing
+83:     EX_EndOfScript

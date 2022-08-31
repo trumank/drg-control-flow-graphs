@@ -1,0 +1,417 @@
+FunctionExport ExecuteUbergraph_Basic_Dots
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction Clear
+24:     EX_LocalVirtualFunction SetCountAndSelected
+            EX_InstanceVariable [DotCount]
+            EX_InstanceVariable [SelectedDotIndex]
+56:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Horizontal]
+75:     EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 129
+                case 0:
+                    EX_False
+                    NextCaseOffset = 106
+                    EX_InstanceVariable [Vertical_Dots]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 120
+                    EX_InstanceVariable [Horizontal_Dots]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 3
+            RValue = []
+157:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [Horizontal]
+176:    EX_Context
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable_1]
+                OffsetToSwitchEnd = 230
+                case 0:
+                    EX_False
+                    NextCaseOffset = 207
+                    EX_InstanceVariable [Horizontal_Dots]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 221
+                    EX_InstanceVariable [Vertical_Dots]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default_1]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+258:    EX_Jump 268
+263:    EX_Jump 10
+268:    EX_Return
+            EX_Nothing
+270:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export Basic_Dots_C->ExecuteUbergraph_Basic_Dots
+            EX_IntConst 263
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Clear
+0:      EX_Context
+            EX_InstanceVariable [Horizontal_Dots]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+36:     EX_Context
+            EX_InstanceVariable [Vertical_Dots]
+            EX_VirtualFunction ClearChildren
+            RValue = []
+72:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Clear
+                EX_InstanceVariable [Dots]
+            RValue = []
+113:    EX_Return
+            EX_Nothing
+115:    EX_EndOfScript
+FunctionExport SetCount
+0:      EX_LocalVirtualFunction SetCountAndSelected
+            EX_InstanceVariable [DotCount]
+            EX_InstanceVariable [SelectedDotIndex]
+32:     EX_Return
+            EX_Nothing
+34:     EX_EndOfScript
+FunctionExport SetSelectedIndex
+0:      EX_PushExecutionFlow 654
+5:      EX_LetBool
+            EX_LocalVariable [Selected]
+            EX_False
+16:     EX_Let
+            EX_InstanceVariable [SelectedDotIndex]
+            EX_LocalVariable [InSelectedDotIndex]
+43:     EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+66:     EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+89:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Dots]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+148:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+186:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+196:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+223:    EX_PushExecutionFlow 580
+228:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [Dots]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+287:    EX_LetObj
+            EX_LocalVariable [Dot]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+306:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_InstanceVariable [SelectedDotIndex]
+344:    EX_LetBool
+            EX_LocalVariable [Selected]
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+363:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [Selected]
+382:    EX_Context
+            EX_LocalVariable [Dot]
+            EX_LocalVirtualFunction SetBrush
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 470
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 447
+                        EX_InstanceVariable [UnselectedDotBrush]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 461
+                        EX_InstanceVariable [SelectedDotBrush]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+471:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [Selected]
+490:    EX_Context
+            EX_LocalVariable [Dot]
+            EX_LocalVirtualFunction SetTint
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 578
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 555
+                        EX_InstanceVariable [UnselectedTint]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 569
+                        EX_InstanceVariable [SelectedTint]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+579:    EX_PopExecutionFlow
+580:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+622:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+649:    EX_Jump 89
+654:    EX_Return
+            EX_Nothing
+656:    EX_EndOfScript
+FunctionExport SetCountAndSelected
+0:      EX_PushExecutionFlow 1377
+5:      EX_Let
+            EX_InstanceVariable [DotCount]
+            EX_LocalVariable [InCount]
+32:     EX_Let
+            EX_InstanceVariable [SelectedDotIndex]
+            EX_LocalVariable [InSelected]
+59:     EX_PushExecutionFlow 739
+64:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Dots]
+                RValue = [CallFunc_Array_Length_ReturnValue_1]
+123:    EX_LetBool
+            EX_LocalVariable [CallFunc_NotEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_IntInt
+                EX_InstanceVariable [DotCount]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue_1]
+161:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_NotEqual_IntInt_ReturnValue]
+171:    EX_LocalVirtualFunction Clear
+185:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [Horizontal]
+204:    EX_Let
+            EX_LocalVariable [CallFunc_CreateOrReuseChildren_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->CreateOrReuseChildren
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 284
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 261
+                        EX_InstanceVariable [Vertical_Dots]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 275
+                        EX_InstanceVariable [Horizontal_Dots]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+                EX_InstanceVariable [DotCount]
+                EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Image->Basic_Image_C
+303:    EX_Let
+            EX_InstanceVariable [Dots]
+            EX_LocalVariable [CallFunc_CreateOrReuseChildren_ReturnValue]
+330:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_IntConst 0
+353:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_IntConst 0
+376:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_InstanceVariable [Dots]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+435:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+473:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+483:    EX_Let
+            EX_LocalVariable [Temp_int_Array_Index_Variable]
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+510:    EX_PushExecutionFlow 763
+515:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [Dots]
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+574:    EX_LetObj
+            EX_LocalVariable [Dot]
+            EX_LocalVariable [CallFunc_Array_Get_Item]
+593:    EX_PushExecutionFlow 837
+598:    EX_JumpIfNot 1250
+            EX_InstanceVariable [Horizontal]
+612:    EX_LetObj
+            EX_LocalVariable [CallFunc_SlotAsHorizontalBoxSlot_ReturnValue_1]
+            EX_CallMath import /Script/UMG->WidgetLayoutLibrary->SlotAsHorizontalBoxSlot
+                EX_LocalVariable [Dot]
+641:    EX_Context
+            EX_LocalVariable [CallFunc_SlotAsHorizontalBoxSlot_ReturnValue_1]
+            EX_FinalFunction import /Script/UMG->HorizontalBoxSlot->SetHorizontalAlignment
+                EX_ByteConst 2
+            RValue = []
+675:    EX_LetObj
+            EX_LocalVariable [CallFunc_SlotAsHorizontalBoxSlot_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetLayoutLibrary->SlotAsHorizontalBoxSlot
+                EX_LocalVariable [Dot]
+704:    EX_Context
+            EX_LocalVariable [CallFunc_SlotAsHorizontalBoxSlot_ReturnValue]
+            EX_FinalFunction import /Script/UMG->HorizontalBoxSlot->SetVerticalAlignment
+                EX_ByteConst 2
+            RValue = []
+738:    EX_PopExecutionFlow
+739:    EX_LocalVirtualFunction SetSelectedIndex
+            EX_InstanceVariable [SelectedDotIndex]
+762:    EX_PopExecutionFlow
+763:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+                EX_IntConst 1
+805:    EX_Let
+            EX_LocalVariable [Temp_int_Loop_Counter_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+832:    EX_Jump 376
+837:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [Temp_int_Array_Index_Variable]
+                EX_IntConst 0
+871:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+881:    EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+913:    EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_InstanceVariable [DotSpacing]
+949:    EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+981:    EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0
+1013:   EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_InstanceVariable [DotSpacing]
+1049:   EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_FloatConst 0
+1081:   EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_FloatConst 0
+1113:   EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+            EX_FloatConst 0
+1145:   EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Horizontal]
+1164:   EX_Context
+            EX_LocalVariable [Dot]
+            EX_FinalFunction import /Script/UMG->UserWidget->SetPadding
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 1248
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 1225
+                        EX_LocalVariable [K2Node_MakeStruct_Margin]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 1239
+                        EX_LocalVariable [K2Node_MakeStruct_Margin_1]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+1249:   EX_PopExecutionFlow
+1250:   EX_LetObj
+            EX_LocalVariable [CallFunc_SlotAsVerticalBoxSlot_ReturnValue_1]
+            EX_CallMath import /Script/UMG->WidgetLayoutLibrary->SlotAsVerticalBoxSlot
+                EX_LocalVariable [Dot]
+1279:   EX_Context
+            EX_LocalVariable [CallFunc_SlotAsVerticalBoxSlot_ReturnValue_1]
+            EX_FinalFunction import /Script/UMG->VerticalBoxSlot->SetHorizontalAlignment
+                EX_ByteConst 2
+            RValue = []
+1313:   EX_LetObj
+            EX_LocalVariable [CallFunc_SlotAsVerticalBoxSlot_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetLayoutLibrary->SlotAsVerticalBoxSlot
+                EX_LocalVariable [Dot]
+1342:   EX_Context
+            EX_LocalVariable [CallFunc_SlotAsVerticalBoxSlot_ReturnValue]
+            EX_FinalFunction import /Script/UMG->VerticalBoxSlot->SetVerticalAlignment
+                EX_ByteConst 2
+            RValue = []
+1376:   EX_PopExecutionFlow
+1377:   EX_Return
+            EX_Nothing
+1379:   EX_EndOfScript
+FunctionExport SetFromWidgetSwitcher
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalOutVariable
+                    [InSwitcher]
+29:     EX_JumpIfNot 180
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [CallFunc_GetActiveWidgetIndex_ReturnValue]
+            EX_Context
+                EX_LocalOutVariable
+                    [InSwitcher]
+                EX_FinalFunction import /Script/UMG->WidgetSwitcher->GetActiveWidgetIndex
+                RValue = [CallFunc_GetActiveWidgetIndex_ReturnValue]
+93:     EX_Let
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_Context
+                EX_LocalOutVariable
+                    [InSwitcher]
+                EX_FinalFunction import /Script/UMG->PanelWidget->GetChildrenCount
+                RValue = [CallFunc_GetChildrenCount_ReturnValue]
+143:    EX_LocalVirtualFunction SetCountAndSelected
+            EX_LocalVariable [CallFunc_GetChildrenCount_ReturnValue]
+            EX_LocalVariable [CallFunc_GetActiveWidgetIndex_ReturnValue]
+175:    EX_Jump 204
+180:    EX_LocalVirtualFunction SetCountAndSelected
+            EX_IntConst 0
+            EX_IntConst 0
+204:    EX_Return
+            EX_Nothing
+206:    EX_EndOfScript

@@ -1,0 +1,84 @@
+FunctionExport ExecuteUbergraph_AIC_Donkey
+0:      EX_PushExecutionFlow 454
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/Engine->KismetSystemLibrary->Delay
+            EX_Self
+            EX_FloatConst 0.2
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 70
+                EX_IntConst 333176166
+                EX_NameConst ExecuteUbergraph_AIC_Donkey
+                EX_Self
+69:     EX_PopExecutionFlow
+70:     EX_LetObj
+            EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Controller->K2_GetPawn
+90:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+            EX_DynamicCast import /Game/GameElements/Donkey/BP_Donkey->BP_Donkey_C
+                EX_LocalVariable [CallFunc_K2_GetPawn_ReturnValue]
+126:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+155:    EX_JumpIfNot 15
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+169:    EX_BindDelegate OnOverlapsChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+192:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_Donkey]
+                EX_InstanceVariable [PlayerOverlapsChanged]
+                RValue = [PlayerOverlapsChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+233:    EX_PopExecutionFlow
+234:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+254:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+264:    EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_ObjectConst import /Game/GameElements/Donkey/BT_Donkey->BT_Donkey
+297:    EX_Jump 70
+302:    EX_Jump 234
+307:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [K2Node_CustomEvent_OverlapCount]
+                EX_IntConst 0
+341:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_CallMath import /Script/AIModule->AIBlueprintHelperLibrary->GetBlackboard
+                EX_Self
+362:    EX_Let
+            EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->MakeLiteralName
+                EX_NameConst OverlapsPlayer
+403:    EX_Context
+            EX_LocalVariable [CallFunc_GetBlackboard_ReturnValue]
+            EX_FinalFunction import /Script/AIModule->BlackboardComponent->SetValueAsBool
+                EX_LocalVariable [CallFunc_MakeLiteralName_ReturnValue]
+                EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            RValue = []
+453:    EX_PopExecutionFlow
+454:    EX_Return
+            EX_Nothing
+456:    EX_EndOfScript
+FunctionExport OnOverlapsChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_OverlapCount]
+            EX_LocalVariable [OverlapCount]
+18:     EX_LocalFinalFunction export AIC_Donkey_C->ExecuteUbergraph_AIC_Donkey
+            EX_IntConst 307
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Donkey_C->ExecuteUbergraph_AIC_Donkey
+            EX_IntConst 302
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

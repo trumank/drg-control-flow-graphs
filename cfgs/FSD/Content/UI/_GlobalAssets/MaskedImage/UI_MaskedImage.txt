@@ -1,0 +1,353 @@
+FunctionExport ExecuteUbergraph_UI_MaskedImage
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction UpdateMaterial
+24:     EX_LocalVirtualFunction SetImage
+            EX_InstanceVariable [Image]
+            EX_InstanceVariable [AutoSize]
+56:     EX_JumpIfNot 190
+            EX_InstanceVariable [AutoSize]
+70:     EX_LocalVirtualFunction SetImageTint
+            EX_InstanceVariable [ImageTint]
+93:     EX_LocalVirtualFunction SetMask
+            EX_InstanceVariable [Mask]
+116:    EX_LocalVirtualFunction SetMaskInverted
+            EX_InstanceVariable [Invert Mask]
+139:    EX_LocalVirtualFunction SetMaskBlack
+            EX_InstanceVariable [Mask Black]
+162:    EX_LocalVirtualFunction SetDrawAs
+            EX_InstanceVariable [DrawAs]
+185:    EX_Jump 218
+190:    EX_LocalVirtualFunction SetImageSize
+            EX_InstanceVariable [ImageSize]
+213:    EX_Jump 70
+218:    EX_Return
+            EX_Nothing
+220:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_MaskedImage_C->ExecuteUbergraph_UI_MaskedImage
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetImage
+0:      EX_LetObj
+            EX_InstanceVariable [Image]
+            EX_LocalVariable [Value]
+19:     EX_LetBool
+            EX_InstanceVariable [AutoSize]
+            EX_LocalVariable [Match Size]
+38:     EX_LocalVirtualFunction UpdateMaterial
+52:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Texture
+                EX_InstanceVariable [Image]
+            RValue = []
+106:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Image]
+135:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_InstanceVariable [AutoSize]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+173:    EX_JumpIfNot 448
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+187:    EX_Let
+            EX_LocalVariable [CallFunc_Blueprint_GetSizeY_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Image]
+                EX_FinalFunction import /Script/Engine->Texture2D->Blueprint_GetSizeY
+                RValue = [CallFunc_Blueprint_GetSizeY_ReturnValue]
+237:    EX_Let
+            EX_LocalVariable [CallFunc_Blueprint_GetSizeX_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Image]
+                EX_FinalFunction import /Script/Engine->Texture2D->Blueprint_GetSizeX
+                RValue = [CallFunc_Blueprint_GetSizeX_ReturnValue]
+287:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [CallFunc_Blueprint_GetSizeY_ReturnValue]
+324:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Conv_IntToFloat
+                EX_LocalVariable [CallFunc_Blueprint_GetSizeX_ReturnValue]
+361:    EX_Let
+            EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->MakeVector2D
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue_1]
+                EX_LocalVariable [CallFunc_Conv_IntToFloat_ReturnValue]
+407:    EX_Context
+            EX_InstanceVariable [MaskedImage]
+            EX_FinalFunction import /Script/UMG->Image->SetBrushSize
+                EX_LocalVariable [CallFunc_MakeVector2D_ReturnValue]
+            RValue = []
+448:    EX_Return
+            EX_Nothing
+450:    EX_EndOfScript
+FunctionExport SetImageSize
+0:      EX_Let
+            EX_InstanceVariable [ImageSize]
+            EX_LocalVariable [DesiredSize]
+27:     EX_Context
+            EX_InstanceVariable [MaskedImage]
+            EX_FinalFunction import /Script/UMG->Image->SetBrushSize
+                EX_InstanceVariable [ImageSize]
+            RValue = []
+68:     EX_Return
+            EX_Nothing
+70:     EX_EndOfScript
+FunctionExport SetImageTint
+0:      EX_Let
+            EX_InstanceVariable [ImageTint]
+            EX_LocalVariable [TintColor]
+27:     EX_Context
+            EX_InstanceVariable [MaskedImage]
+            EX_FinalFunction import /Script/UMG->Image->SetBrushTintColor
+                EX_InstanceVariable [ImageTint]
+            RValue = []
+68:     EX_Return
+            EX_Nothing
+70:     EX_EndOfScript
+FunctionExport SetMask
+0:      EX_LetObj
+            EX_InstanceVariable [Mask]
+            EX_LocalVariable [Value]
+19:     EX_LocalVirtualFunction UpdateMaterial
+33:     EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/Art/Textures/T_WhiteTile->T_WhiteTile
+52:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Mask]
+81:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+100:    EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Mask
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 197
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 174
+                        EX_LocalVariable [Temp_object_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 188
+                        EX_InstanceVariable [Mask]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+198:    EX_Return
+            EX_Nothing
+200:    EX_EndOfScript
+FunctionExport SetMaskInverted
+0:      EX_LetBool
+            EX_InstanceVariable [Invert Mask]
+            EX_LocalVariable [Invert]
+19:     EX_LocalVirtualFunction UpdateMaterial
+33:     EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 1
+56:     EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 0
+79:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Invert Mask]
+98:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst Inverted
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 195
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 172
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 186
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+196:    EX_Return
+            EX_Nothing
+198:    EX_EndOfScript
+FunctionExport SetDrawAs
+0:      EX_PushExecutionFlow 781
+5:      EX_Let
+            EX_LocalVariable [Margin]
+            EX_StructConst import /Script/SlateCore->Margin
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 0
+                EX_FloatConst 0
+57:     EX_Let
+            EX_InstanceVariable [DrawAs]
+            EX_LocalVariable [InBrush_DrawAs]
+84:     EX_PushExecutionFlow 180
+89:     EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [DrawAs]
+                EX_ByteConst 1
+120:    EX_JumpIfNot 625
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+134:    EX_LetBool
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->NotEqual_ByteByte
+                EX_InstanceVariable [DrawAs]
+                EX_ByteConst 2
+165:    EX_JumpIfNot 625
+            EX_LocalVariable [K2Node_SwitchEnum_CmpSuccess]
+179:    EX_PopExecutionFlow
+180:    EX_Let
+            EX_StructMemberContext [ImageSize]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [ImageSize]
+                EX_Context
+                    EX_InstanceVariable [MaskedImage]
+                    EX_InstanceVariable [Brush]
+                    RValue = [Brush]
+247:    EX_Let
+            EX_StructMemberContext [Margin]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_LocalVariable [Margin]
+283:    EX_Let
+            EX_StructMemberContext [TintColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [TintColor]
+                EX_Context
+                    EX_InstanceVariable [MaskedImage]
+                    EX_InstanceVariable [Brush]
+                    RValue = [Brush]
+350:    EX_LetObj
+            EX_StructMemberContext [ResourceObject]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [ResourceObject]
+                EX_Context
+                    EX_InstanceVariable [MaskedImage]
+                    EX_InstanceVariable [Brush]
+                    RValue = [Brush]
+409:    EX_Let
+            EX_StructMemberContext [DrawAs]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_InstanceVariable [DrawAs]
+445:    EX_Let
+            EX_StructMemberContext [Tiling]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [Tiling]
+                EX_Context
+                    EX_InstanceVariable [MaskedImage]
+                    EX_InstanceVariable [Brush]
+                    RValue = [Brush]
+512:    EX_Let
+            EX_StructMemberContext [Mirroring]
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            EX_StructMemberContext [Mirroring]
+                EX_Context
+                    EX_InstanceVariable [MaskedImage]
+                    EX_InstanceVariable [Brush]
+                    RValue = [Brush]
+579:    EX_Context
+            EX_InstanceVariable [MaskedImage]
+            EX_VirtualFunction SetBrush
+                EX_LocalVariable [K2Node_MakeStruct_SlateBrush]
+            RValue = []
+624:    EX_PopExecutionFlow
+625:    EX_Let
+            EX_StructMemberContext [Left]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0.5
+657:    EX_Let
+            EX_StructMemberContext [Top]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0.5
+689:    EX_Let
+            EX_StructMemberContext [Right]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0.5
+721:    EX_Let
+            EX_StructMemberContext [Bottom]
+                EX_LocalVariable [K2Node_MakeStruct_Margin]
+            EX_FloatConst 0.5
+753:    EX_Let
+            EX_LocalVariable [Margin]
+            EX_LocalVariable [K2Node_MakeStruct_Margin]
+780:    EX_PopExecutionFlow
+781:    EX_Return
+            EX_Nothing
+783:    EX_EndOfScript
+FunctionExport UpdateMaterial
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Material]
+29:     EX_JumpIfNot 48
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Jump 157
+48:     EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMaterialLibrary->CreateDynamicMaterialInstance
+                EX_Self
+                EX_ObjectConst import /Game/UI/_GlobalAssets/MaskedImage/M_MaskMaterial->M_MaskMaterial
+                EX_NameConst None
+                EX_ByteConst 0
+93:     EX_LetObj
+            EX_InstanceVariable [Material]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+112:    EX_Context
+            EX_InstanceVariable [MaskedImage]
+            EX_VirtualFunction SetBrushFromMaterial
+                EX_InstanceVariable [Material]
+            RValue = []
+157:    EX_Return
+            EX_Nothing
+159:    EX_EndOfScript
+FunctionExport SetMaskBlack
+0:      EX_LetBool
+            EX_InstanceVariable [Mask Black]
+            EX_LocalVariable [Index]
+19:     EX_LocalVirtualFunction UpdateMaterial
+33:     EX_Let
+            EX_LocalVariable [Temp_float_Variable]
+            EX_FloatConst 1
+56:     EX_Let
+            EX_LocalVariable [Temp_float_Variable_1]
+            EX_FloatConst 0
+79:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [Mask Black]
+98:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst MaskBlack
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 195
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 172
+                        EX_LocalVariable [Temp_float_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 186
+                        EX_LocalVariable [Temp_float_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+            RValue = []
+196:    EX_Return
+            EX_Nothing
+198:    EX_EndOfScript

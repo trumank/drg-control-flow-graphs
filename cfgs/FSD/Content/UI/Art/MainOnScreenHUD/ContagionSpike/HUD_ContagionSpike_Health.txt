@@ -1,0 +1,321 @@
+FunctionExport ExecuteUbergraph_HUD_ContagionSpike_Health
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_1]
+            EX_VirtualFunction GetOwningPlayer
+34:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetHUD_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue_1]
+                EX_FinalFunction import /Script/Engine->PlayerController->GetHUD
+                RValue = [CallFunc_GetHUD_ReturnValue_1]
+76:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_HUD_1]
+            EX_DynamicCast import /Game/UI/MainOnscreenHUD/BP_HUD->BP_HUD_C
+                EX_LocalVariable [CallFunc_GetHUD_ReturnValue_1]
+112:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess_1]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_HUD_1]
+141:    EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_HUD_1]
+            EX_LocalVirtualFunction PopEvent
+                EX_Self
+                EX_True
+            RValue = []
+179:    EX_Jump 1698
+184:    EX_BindDelegate OnStayVisibleTimeOut
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+207:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_FloatConst 2
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+260:    EX_Let
+            EX_InstanceVariable [DelayHandle]
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+287:    EX_Jump 1698
+292:    EX_JumpIfNot 311
+            EX_InstanceVariable [IsHealthBarVisible]
+306:    EX_Jump 1698
+311:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+327:    EX_Jump 1698
+332:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_InstanceVariable [FirstIntro]
+351:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/UI/Art/MainOnScreenHUD/ContagionSpike/ContagionSpike_AnimIn_Cue->ContagionSpike_AnimIn_Cue
+370:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/Audio/SFX/MenusButtonsEtc/UI_ElementsA_2_Cue->UI_ElementsA_2_Cue
+389:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__GameplayStatics
+            EX_FinalFunction import /Script/Engine->GameplayStatics->PlaySound2D
+                EX_Self
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable_1]
+                    OffsetToSwitchEnd = 474
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 451
+                        EX_LocalVariable [Temp_object_Variable_1]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 465
+                        EX_LocalVariable [Temp_object_Variable]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default]
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+            RValue = []
+493:    EX_LetBool
+            EX_InstanceVariable [FirstIntro]
+            EX_False
+504:    EX_Jump 1698
+509:    EX_JumpIfNot 766
+            EX_LocalVariable [K2Node_CustomEvent_InIsNearby]
+523:    EX_LocalVirtualFunction Try Init Health Bar
+537:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DelayHandle]
+557:    EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [IsHealthBarVisible]
+586:    EX_JumpIfNot 1698
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue_1]
+600:    EX_LetBool
+            EX_InstanceVariable [IsHealthBarVisible]
+            EX_True
+611:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 3
+627:    EX_LocalVirtualFunction RefreshHealth
+641:    EX_FinalFunction import /Script/UMG->UserWidget->StopAllAnimations
+651:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_InstanceVariable [FirstIntro]
+670:    EX_LetObj
+            EX_LocalVariable [CallFunc_PlayAnimation_ReturnValue]
+            EX_FinalFunction import /Script/UMG->UserWidget->PlayAnimation
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 742
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 719
+                        EX_InstanceVariable [AnimIntro]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 733
+                        EX_InstanceVariable [AnimFirstIntro]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+                EX_False
+761:    EX_Jump 332
+766:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DelayHandle]
+786:    EX_Jump 184
+791:    EX_LocalVirtualFunction RefreshHealth
+805:    EX_Jump 1698
+810:    EX_Let
+            EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_FinalFunction import /Script/FSD->HealthComponentBase->GetHealthPct
+                RValue = [CallFunc_GetHealthPct_ReturnValue]
+860:    EX_Context
+            EX_InstanceVariable [HealthBar]
+            EX_LocalVirtualFunction SetPercent
+                EX_LocalVariable [CallFunc_GetHealthPct_ReturnValue]
+            RValue = []
+905:    EX_Jump 1698
+910:    EX_JumpIfNot 1698
+            EX_InstanceVariable [IsHealthBarVisible]
+924:    EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_ClearAndInvalidateTimerHandle
+            EX_Self
+            EX_InstanceVariable [DelayHandle]
+944:    EX_LetObj
+            EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue]
+            EX_CallMath import /Script/UMG->WidgetAnimationPlayCallbackProxy->CreatePlayAnimationProxyObject
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_Result]
+                EX_Self
+                EX_InstanceVariable [AnimDeath]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 0
+                EX_FloatConst 1
+1000:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue]
+1029:   EX_JumpIfNot 1698
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+1043:   EX_BindDelegate Finished_3ADA294E4411BFB7634E1DAAB2BF7E75
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+1066:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue]
+                EX_InstanceVariable [Finished]
+                RValue = [Finished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+1107:   EX_Jump 1698
+1112:   EX_BindDelegate OnDeath_Event
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+1135:   EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+1176:   EX_Jump 1698
+1181:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_InstanceVariable [Initialized]
+1210:   EX_JumpIfNot 1698
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+1224:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+1248:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetHUD_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+                EX_FinalFunction import /Script/Engine->PlayerController->GetHUD
+                RValue = [CallFunc_GetHUD_ReturnValue]
+1290:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_HUD]
+            EX_DynamicCast import /Game/UI/MainOnscreenHUD/BP_HUD->BP_HUD_C
+                EX_LocalVariable [CallFunc_GetHUD_ReturnValue]
+1326:   EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsBP_HUD]
+1355:   EX_JumpIfNot 1698
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+1369:   EX_Context
+            EX_LocalVariable [K2Node_DynamicCast_AsBP_HUD]
+            EX_LocalVirtualFunction PushEvent
+                EX_Self
+                EX_True
+                EX_LocalVariable [CallFunc_PushEvent_Success]
+            RValue = []
+1416:   EX_JumpIfNot 1698
+            EX_LocalVariable [CallFunc_PushEvent_Success]
+1430:   EX_LetBool
+            EX_InstanceVariable [Initialized]
+            EX_True
+1441:   EX_LocalVirtualFunction RefreshHealth
+1455:   EX_BindDelegate OnHealthChanged_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+            EX_Self
+1478:   EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_InstanceVariable [OnHealthChanged]
+                RValue = [OnHealthChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_4]
+1519:   EX_Jump 1112
+1524:   EX_LetBool
+            EX_InstanceVariable [IsHealthBarVisible]
+            EX_False
+1535:   EX_LetObj
+            EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue_1]
+            EX_CallMath import /Script/UMG->WidgetAnimationPlayCallbackProxy->CreatePlayAnimationProxyObject
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_Result_1]
+                EX_Self
+                EX_InstanceVariable [AnimIntro]
+                EX_FloatConst 0
+                EX_IntConst 1
+                EX_ByteConst 1
+                EX_FloatConst 1
+1591:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue_1]
+1620:   EX_JumpIfNot 1698
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+1634:   EX_BindDelegate Finished_7DCB89564DBC24AC88ED3CA4A6B0E489
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+1657:   EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_CreatePlayAnimationProxyObject_ReturnValue_1]
+                EX_InstanceVariable [Finished]
+                RValue = [Finished]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+1698:   EX_Return
+            EX_Nothing
+1700:   EX_EndOfScript
+FunctionExport OnStayVisibleTimeOut
+0:      EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 1524
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Try Init Health Bar
+0:      EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 1181
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnDeath_Event
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 910
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport RefreshHealth
+0:      EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 810
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnHealthChanged_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_health]
+            EX_LocalVariable [health]
+18:     EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 791
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetIsNearby
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InIsNearby]
+            EX_LocalVariable [InIsNearby]
+18:     EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 509
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Finished_7DCB89564DBC24AC88ED3CA4A6B0E489
+0:      EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 292
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport Finished_3ADA294E4411BFB7634E1DAAB2BF7E75
+0:      EX_LocalFinalFunction export HUD_ContagionSpike_Health_C->ExecuteUbergraph_HUD_ContagionSpike_Health
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

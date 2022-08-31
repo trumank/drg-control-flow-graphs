@@ -1,0 +1,145 @@
+FunctionExport ExecuteUbergraph_BP_Donkey_Escort
+0:      EX_PushExecutionFlow 781
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ObjectObject
+                EX_Context
+                    EX_LocalVariable [K2Node_CustomEvent_resource]
+                    EX_InstanceVariable [Data]
+                    RValue = [Data]
+                EX_ObjectConst import /Game/GameElements/Resources/Embedded/EscortGem/RES_EMBED_EscortGem->RES_EMBED_EscortGem
+75:     EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_ObjectObject_ReturnValue]
+85:     EX_PushExecutionFlow 367
+90:     EX_Context
+            EX_InstanceVariable [HearthStone]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetHiddenInGame
+                EX_False
+                EX_True
+            RValue = []
+124:    EX_Context
+            EX_InstanceVariable [HearthStone]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 3
+            RValue = []
+162:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnSoundAttached_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnSoundAttached
+                EX_ObjectConst import /Game/Audio/SFX/DrillingVehicle/Escort_Heartstone_AttatchedTo_Molly_Cue->Escort_Heartstone_AttatchedTo_Molly_Cue
+                EX_InstanceVariable [HearthStone]
+                EX_NameConst None
+                EX_VectorConst 0,0,0
+                EX_RotationConst 0,0,0
+                EX_ByteConst 0
+                EX_False
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 0
+                EX_NoObject
+                EX_NoObject
+                EX_True
+260:    EX_Let
+            EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDConversionLibrary->ComponentToWorldLocation
+                EX_InstanceVariable [HearthStone]
+297:    EX_LetObj
+            EX_LocalVariable [CallFunc_SpawnEmitterAtLocation_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->SpawnEmitterAtLocation
+                EX_Self
+                EX_ObjectConst import /Game/GameElements/Objectives/Escort/P_HeartstoneAttachToMolly->P_HeartstoneAttachToMolly
+                EX_LocalVariable [CallFunc_ComponentToWorldLocation_ReturnValue]
+                EX_RotationConst 0,0,0
+                EX_VectorConst 1,1,1
+                EX_True
+                EX_ByteConst 0
+                EX_True
+366:    EX_PopExecutionFlow
+367:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+387:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+397:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/Character/Shouts/SpaceRig/CampaignNRetirement/Shout_DD_Escort_HeartStone_Completed->Shout_DD_Escort_HeartStone_Completed
+416:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/Character/Shouts/MissionControl/MissionObjective/EscortMission/Shout_EscortMission_HeartstoneDepsoitedSendDropPod->Shout_EscortMission_HeartstoneDepsoitedSendDropPod
+435:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+456:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGeneratedMission_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameInstance->GetGeneratedMission
+                RValue = [CallFunc_GetGeneratedMission_ReturnValue]
+498:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsDeepDive_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGeneratedMission_ReturnValue]
+                EX_FinalFunction import /Script/FSD->GeneratedMission->IsDeepDive
+                RValue = [CallFunc_IsDeepDive_ReturnValue]
+540:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_IsDeepDive_ReturnValue]
+559:    EX_CallMath import /Script/FSD->CommunicationComponent->MissionShout
+            EX_Self
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 622
+                case 0:
+                    EX_False
+                    NextCaseOffset = 599
+                    EX_LocalVariable [Temp_object_Variable_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 613
+                    EX_LocalVariable [Temp_object_Variable]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+            EX_False
+624:    EX_PopExecutionFlow
+625:    EX_LocalFinalFunction import /Game/GameElements/Donkey/BP_Donkey->BP_Donkey_C->ReceiveBeginPlay
+635:    EX_BindDelegate OnResourceAdded_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+658:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+679:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                    EX_InstanceVariable [TeamResources]
+                    RValue = [TeamResources]
+                EX_InstanceVariable [OnResourceAdded]
+                RValue = [OnResourceAdded]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+742:    EX_Context
+            EX_InstanceVariable [HearthStone]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+780:    EX_PopExecutionFlow
+781:    EX_Return
+            EX_Nothing
+783:    EX_EndOfScript
+FunctionExport OnResourceAdded_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_resource]
+            EX_LocalVariable [resource]
+18:     EX_LocalFinalFunction export BP_Donkey_Escort_C->ExecuteUbergraph_BP_Donkey_Escort
+            EX_IntConst 15
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_Donkey_Escort_C->ExecuteUbergraph_BP_Donkey_Escort
+            EX_IntConst 625
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

@@ -1,0 +1,133 @@
+FunctionExport ExecuteUbergraph_ITM_Craft_ResourceSmall
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetAmount
+            EX_InstanceVariable [Amount]
+33:     EX_Context
+            EX_InstanceVariable [Basic_ResourceIcon]
+            EX_LocalVirtualFunction SetResource
+                EX_InstanceVariable [Resource]
+            RValue = []
+78:     EX_Return
+            EX_Nothing
+80:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_Craft_ResourceSmall_C->ExecuteUbergraph_ITM_Craft_ResourceSmall
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetAmount
+0:      EX_Let
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->FMax
+                EX_LocalVariable [InAmount]
+                EX_FloatConst 0
+42:     EX_Let
+            EX_InstanceVariable [Amount]
+            EX_LocalVariable [CallFunc_FMax_ReturnValue]
+69:     EX_Let
+            EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_FloatToText
+                EX_InstanceVariable [Amount]
+                EX_ByteConst 5
+                EX_False
+                EX_False
+                EX_IntConst 1
+                EX_IntConst 324
+                EX_IntConst 0
+                EX_IntConst 3
+130:    EX_Context
+            EX_InstanceVariable [DATAAmount]
+            EX_VirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_FloatToText_ReturnValue]
+            RValue = []
+175:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Resource]
+204:    EX_JumpIfNot 581
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+218:    EX_Let
+            EX_LocalVariable [CallFunc_GetOwnedAmount_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [Resource]
+                EX_VirtualFunction GetOwnedAmount
+                    EX_Self
+                RValue = [CallFunc_GetOwnedAmount_ReturnValue]
+273:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 8
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+            RValue = []
+321:    EX_Context
+            EX_ObjectConst import /Game/UI/Art/WidgetParts/LIB_MenuColors->Default__LIB_MenuColors_C
+            EX_LocalVirtualFunction MenuColors
+                EX_ByteConst 12
+                EX_Self
+                EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+            RValue = []
+369:    EX_LetBool
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->GreaterEqual_FloatFloat
+                EX_LocalVariable [CallFunc_GetOwnedAmount_ReturnValue]
+                EX_InstanceVariable [Amount]
+407:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_GreaterEqual_FloatFloat_ReturnValue]
+426:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor_1]
+            EX_SwitchValue
+                EX_LocalVariable [Temp_bool_Variable]
+                OffsetToSwitchEnd = 506
+                case 0:
+                    EX_False
+                    NextCaseOffset = 483
+                    EX_LocalVariable [CallFunc_MenuColors_OutputColor_1]
+                case 1:
+                    EX_True
+                    NextCaseOffset = 497
+                    EX_LocalVariable [CallFunc_MenuColors_OutputColor]
+                default:
+                    EX_LocalVariable [K2Node_Select_Default]
+506:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor_1]
+            EX_ByteConst 0
+535:    EX_Context
+            EX_InstanceVariable [DATAAmount]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor_1]
+            RValue = []
+576:    EX_Jump 712
+581:    EX_Let
+            EX_StructMemberContext [SpecifiedColor]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 1
+                EX_FloatConst 1
+642:    EX_Let
+            EX_StructMemberContext [ColorUseRule]
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            EX_ByteConst 0
+671:    EX_Context
+            EX_InstanceVariable [DATAAmount]
+            EX_FinalFunction import /Script/UMG->TextBlock->SetColorAndOpacity
+                EX_LocalVariable [K2Node_MakeStruct_SlateColor]
+            RValue = []
+712:    EX_Return
+            EX_Nothing
+714:    EX_EndOfScript
+FunctionExport Refresh
+0:      EX_LocalVirtualFunction SetAmount
+            EX_InstanceVariable [Amount]
+23:     EX_Return
+            EX_Nothing
+25:     EX_EndOfScript

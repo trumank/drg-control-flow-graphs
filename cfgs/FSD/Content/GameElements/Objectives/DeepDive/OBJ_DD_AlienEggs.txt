@@ -1,0 +1,170 @@
+FunctionExport ExecuteUbergraph_OBJ_DD_AlienEggs
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction TurnOnSpecialEggs
+24:     EX_Jump 98
+29:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameMode_ReturnValue]
+            EX_CallMath import /Script/Engine->GameplayStatics->GetGameMode
+                EX_Self
+50:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetGameMode_ReturnValue]
+79:     EX_JumpIfNot 98
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+93:     EX_Jump 10
+98:     EX_Return
+            EX_Nothing
+100:    EX_EndOfScript
+FunctionExport Receive_StartTracking
+0:      EX_LocalFinalFunction export OBJ_DD_AlienEggs_C->ExecuteUbergraph_OBJ_DD_AlienEggs
+            EX_IntConst 29
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport TurnOnSpecialEggs
+0:      EX_PushExecutionFlow 559
+5:      EX_Let
+            EX_LocalVariable [SpecialEggCount]
+            EX_IntConst 0
+28:     EX_SetArray
+            EX_LocalVariable [CallFunc_GetAllActorsWithInterface_OutActors]
+39:     EX_CallMath import /Script/Engine->GameplayStatics->GetAllActorsWithInterface
+            EX_Self
+            EX_ObjectConst import /Game/GameElements/Resources/Embedded/AlienEgg/IAlienEgg->IAlienEgg_C
+            EX_LocalVariable [CallFunc_GetAllActorsWithInterface_OutActors]
+68:     EX_Let
+            EX_LocalVariable [FoundEggs]
+            EX_LocalVariable [CallFunc_GetAllActorsWithInterface_OutActors]
+95:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Shuffle
+                EX_LocalVariable [FoundEggs]
+            RValue = []
+136:    EX_LocalVirtualFunction GetNumberOfSpeicalEggs
+            EX_LocalVariable [FoundEggs]
+            EX_LocalVariable [CallFunc_GetNumberOfSpeicalEggs_Count]
+168:    EX_Let
+            EX_LocalVariable [SpecialEggCount]
+            EX_LocalVariable [CallFunc_GetNumberOfSpeicalEggs_Count]
+195:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_IntConst 0
+218:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [SpecialEggCount]
+                EX_IntConst 1
+260:    EX_LetBool
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->LessEqual_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+298:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_LessEqual_IntInt_ReturnValue]
+308:    EX_PushExecutionFlow 485
+313:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_LocalVariable [FoundEggs]
+                EX_LocalVariable [Temp_int_Variable]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+372:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsIAlien_Egg]
+            EX_ObjToInterfaceCast import /Game/GameElements/Resources/Embedded/AlienEgg/IAlienEgg->IAlienEgg_C
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+408:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast InterfaceToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsIAlien_Egg]
+437:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+447:    EX_Context
+            EX_InterfaceContext
+                EX_LocalVariable [K2Node_DynamicCast_AsIAlien_Egg]
+            EX_LocalVirtualFunction SetSpecialEgg
+            RValue = []
+484:    EX_PopExecutionFlow
+485:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_LocalVariable [Temp_int_Variable]
+                EX_IntConst 1
+527:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+554:    EX_Jump 218
+559:    EX_Return
+            EX_Nothing
+561:    EX_EndOfScript
+FunctionExport GetNumberOfSpeicalEggs
+0:      EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [TargetArray]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+59:     EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 6
+93:     EX_JumpIfNot 135
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue_1]
+107:    EX_Let
+            EX_LocalOutVariable
+                [Count]
+            EX_IntConst 1
+130:    EX_Jump 293
+135:    EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_LocalOutVariable
+                        [TargetArray]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+194:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+                EX_IntConst 8
+228:    EX_JumpIfNot 270
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+242:    EX_Let
+            EX_LocalOutVariable
+                [Count]
+            EX_IntConst 2
+265:    EX_Jump 293
+270:    EX_Let
+            EX_LocalOutVariable
+                [Count]
+            EX_IntConst 3
+293:    EX_Return
+            EX_Nothing
+295:    EX_EndOfScript
+FunctionExport GetMissionIcon
+0:      EX_LetObj
+            EX_StructMemberContext [Texture]
+                EX_LocalVariable [K2Node_MakeStruct_ObjectiveMissionIcon]
+            EX_ObjectConst import /Game/UI/Menu_MissionSelectionMK3/Assets/MissionIcon_Type_EggCollection_HD->MissionIcon_Type_EggCollection_HD
+28:     EX_Let
+            EX_StructMemberContext [Tint]
+                EX_LocalVariable [K2Node_MakeStruct_ObjectiveMissionIcon]
+            EX_StructConst import /Script/CoreUObject->LinearColor
+                EX_FloatConst 0.482353
+                EX_FloatConst 0
+                EX_FloatConst 0.258824
+                EX_FloatConst 1
+89:     EX_Let
+            EX_LocalOutVariable
+                [ReturnValue]
+            EX_LocalVariable [K2Node_MakeStruct_ObjectiveMissionIcon]
+116:    EX_Return
+            EX_LocalOutVariable
+                [ReturnValue]
+126:    EX_EndOfScript

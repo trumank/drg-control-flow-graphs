@@ -1,0 +1,45 @@
+FunctionExport ExecuteUbergraph_TSK_GetDashPoint
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetComponentByClass
+                EX_LocalVariable [K2Node_Event_ControlledPawn]
+                EX_ObjectConst import /Script/FSD->DashPoints
+48:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+77:     EX_JumpIfNot 213
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+91:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+            EX_CallMath import /Script/AIModule->BTFunctionLibrary->GetBlackboardValueAsActor
+                EX_Self
+                EX_InstanceVariable [TargetKey]
+121:    EX_Let
+            EX_LocalVariable [CallFunc_GetDashPoint_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+                EX_FinalFunction import /Script/FSD->DashPoints->GetDashPoint
+                    EX_LocalVariable [CallFunc_GetBlackboardValueAsActor_ReturnValue]
+                    EX_LocalVariable [CallFunc_GetDashPoint_success]
+                RValue = [CallFunc_GetDashPoint_ReturnValue]
+189:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_LocalVariable [CallFunc_GetDashPoint_success]
+208:    EX_Jump 224
+213:    EX_FinalFunction import /Script/AIModule->BTTask_BlueprintBase->FinishExecute
+            EX_False
+224:    EX_Return
+            EX_Nothing
+226:    EX_EndOfScript
+FunctionExport ReceiveExecuteAI
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_OwnerController]
+            EX_LocalVariable [OwnerController]
+18:     EX_LetValueOnPersistentFrame [K2Node_Event_ControlledPawn]
+            EX_LocalVariable [ControlledPawn]
+36:     EX_LocalFinalFunction export TSK_GetDashPoint_C->ExecuteUbergraph_TSK_GetDashPoint
+            EX_IntConst 10
+51:     EX_Return
+            EX_Nothing
+53:     EX_EndOfScript

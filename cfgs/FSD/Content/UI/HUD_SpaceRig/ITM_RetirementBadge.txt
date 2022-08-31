@@ -1,0 +1,207 @@
+FunctionExport ExecuteUbergraph_ITM_RetirementBadge
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetCharacterClass
+            EX_NoObject
+            EX_NoObject
+26:     EX_Jump 256
+31:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [K2Node_CustomEvent_Player]
+60:     EX_JumpIfNot 10
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+74:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetSelectedCharacterID_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_CustomEvent_Player]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSelectedCharacterID
+                RValue = [CallFunc_GetSelectedCharacterID_ReturnValue]
+116:    EX_LocalVirtualFunction SetCharacterClass
+            EX_LocalVariable [K2Node_CustomEvent_Player]
+            EX_LocalVariable [CallFunc_GetSelectedCharacterID_ReturnValue]
+148:    EX_Jump 256
+153:    EX_JumpIfNot 256
+            EX_LocalVariable [K2Node_Event_IsDesignTime]
+167:    EX_Jump 256
+172:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->AsyncManager
+202:    EX_Context
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_FinalFunction import /Script/FSD->AsyncManager->AsyncLoadSoftObjects
+                EX_InstanceVariable [SoftTextures]
+                EX_ByteConst 2
+                EX_LocalVariable [Temp_delegate_Variable]
+                EX_ByteConst 0
+            RValue = []
+256:    EX_Return
+            EX_Nothing
+258:    EX_EndOfScript
+FunctionExport Construct
+0:      EX_LocalFinalFunction export ITM_RetirementBadge_C->ExecuteUbergraph_ITM_RetirementBadge
+            EX_IntConst 172
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export ITM_RetirementBadge_C->ExecuteUbergraph_ITM_RetirementBadge
+            EX_IntConst 153
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SetData
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Player]
+            EX_LocalVariable [Player]
+18:     EX_LocalFinalFunction export ITM_RetirementBadge_C->ExecuteUbergraph_ITM_RetirementBadge
+            EX_IntConst 31
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport SelectIcon
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_LocalVariable [RetirementLevel]
+                EX_IntConst 19
+34:     EX_JumpIfNot 146
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+48:     EX_Let
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_IntInt
+                EX_LocalVariable [RetirementLevel]
+                EX_IntConst 1
+90:     EX_LocalVirtualFunction GetTexture
+            EX_LocalVariable [CallFunc_Subtract_IntInt_ReturnValue]
+            EX_LocalVariable [CallFunc_GetTexture_AsTexture_2D_1]
+122:    EX_LetObj
+            EX_LocalOutVariable
+                [Icon]
+            EX_LocalVariable [CallFunc_GetTexture_AsTexture_2D_1]
+141:    EX_Jump 256
+146:    EX_Let
+            EX_LocalVariable [CallFunc_Array_LastIndex_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_LastIndex
+                    EX_InstanceVariable [SoftTextures]
+                RValue = [CallFunc_Array_LastIndex_ReturnValue]
+205:    EX_LocalVirtualFunction GetTexture
+            EX_LocalVariable [CallFunc_Array_LastIndex_ReturnValue]
+            EX_LocalVariable [CallFunc_GetTexture_AsTexture_2D]
+237:    EX_LetObj
+            EX_LocalOutVariable
+                [Icon]
+            EX_LocalVariable [CallFunc_GetTexture_AsTexture_2D]
+256:    EX_Return
+            EX_Nothing
+258:    EX_EndOfScript
+FunctionExport SetCharacterClass
+0:      EX_VirtualFunction SetVisibility
+            EX_ByteConst 4
+16:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [Character]
+45:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [PlayerState]
+74:     EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanAND
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue_1]
+                EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+112:    EX_JumpIfNot 244
+            EX_LocalVariable [CallFunc_BooleanAND_ReturnValue]
+126:    EX_Let
+            EX_LocalVariable [CallFunc_GetCharacterStat_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [PlayerState]
+                    EX_InstanceVariable [SaveGameStateComponent]
+                    RValue = [SaveGameStateComponent]
+                EX_FinalFunction import /Script/FSD->SaveGameStateComponent->GetCharacterStat
+                    EX_LocalVariable [Character]
+                RValue = [CallFunc_GetCharacterStat_ReturnValue]
+207:    EX_LocalVirtualFunction SetTimesRetired
+            EX_StructMemberContext [TimesRetired]
+                EX_LocalVariable [CallFunc_GetCharacterStat_ReturnValue]
+239:    EX_Jump 263
+244:    EX_LocalVirtualFunction SetTimesRetired
+            EX_IntConst 0
+263:    EX_Return
+            EX_Nothing
+265:    EX_EndOfScript
+FunctionExport SetTimesRetired
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_IntInt
+                EX_LocalVariable [TimesRetired]
+                EX_IntConst 0
+34:     EX_JumpIfNot 169
+            EX_LocalVariable [CallFunc_Greater_IntInt_ReturnValue]
+48:     EX_Context
+            EX_InstanceVariable [ICON_Badge]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 3
+            RValue = []
+86:     EX_LocalVirtualFunction SelectIcon
+            EX_LocalVariable [TimesRetired]
+            EX_LocalVariable [CallFunc_SelectIcon_Icon]
+118:    EX_Context
+            EX_InstanceVariable [ICON_Badge]
+            EX_VirtualFunction SetBrushFromTexture
+                EX_LocalVariable [CallFunc_SelectIcon_Icon]
+                EX_False
+            RValue = []
+164:    EX_Jump 207
+169:    EX_Context
+            EX_InstanceVariable [ICON_Badge]
+            EX_VirtualFunction SetVisibility
+                EX_ByteConst 1
+            RValue = []
+207:    EX_Return
+            EX_Nothing
+209:    EX_EndOfScript
+FunctionExport GetTexture
+0:      EX_LetObj
+            EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+            EX_CallMath import /Script/Engine->SubsystemBlueprintLibrary->GetGameInstanceSubsystem
+                EX_Self
+                EX_ObjectConst import /Script/FSD->AsyncManager
+30:     EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_InstanceVariable [SoftTextures]
+                EX_LocalVariable [Index]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+89:     EX_LetObj
+            EX_LocalVariable [CallFunc_SyncLoadAsset_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetGameInstanceSubsystem_ReturnValue]
+                EX_FinalFunction import /Script/FSD->AsyncManager->SyncLoadAsset
+                    EX_LocalVariable [CallFunc_Array_Get_Item]
+                RValue = [CallFunc_SyncLoadAsset_ReturnValue]
+140:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+            EX_DynamicCast import /Script/Engine->Texture2D
+                EX_LocalVariable [CallFunc_SyncLoadAsset_ReturnValue]
+176:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+205:    EX_JumpIfNot 238
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+219:    EX_LetObj
+            EX_LocalOutVariable
+                [AsTexture 2D]
+            EX_LocalVariable [K2Node_DynamicCast_AsTexture_2D]
+238:    EX_Return
+            EX_Nothing
+240:    EX_EndOfScript

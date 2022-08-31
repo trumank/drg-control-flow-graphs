@@ -1,0 +1,58 @@
+FunctionExport OnEnemySpawned__DelegateSignature
+0:      EX_Return
+            EX_Nothing
+2:      EX_EndOfScript
+FunctionExport ExecuteUbergraph_MOD_Proxy_SpawnEnemy
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+30:     EX_JumpIfNot 263
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+44:     EX_BindDelegate Spawned
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+67:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameMode
+                EX_Self
+88:     EX_Let
+            EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetTransform
+116:    EX_LetBool
+            EX_LocalVariable [CallFunc_SpawnEnemy_ReturnValue]
+            EX_Context
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameMode_ReturnValue]
+                    EX_InstanceVariable [EnemySpawnManager]
+                    RValue = [EnemySpawnManager]
+                EX_FinalFunction import /Script/FSD->EnemySpawnManager->SpawnEnemy
+                    EX_InstanceVariable [Enemy]
+                    EX_LocalVariable [CallFunc_GetTransform_ReturnValue]
+                    EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                    EX_InstanceVariable [UseSpawnFX]
+                    EX_InstanceVariable [IsAlert]
+                RValue = [CallFunc_SpawnEnemy_ReturnValue]
+225:    EX_Jump 263
+230:    EX_Jump 10
+235:    EX_CallMulticastDelegate export MOD_Proxy_SpawnEnemy_C->OnEnemySpawned__DelegateSignature
+            EX_InstanceVariable [OnEnemySpawned]
+            EX_LocalVariable [K2Node_CustomEvent_enemy]
+263:    EX_Return
+            EX_Nothing
+265:    EX_EndOfScript
+FunctionExport Spawned
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_enemy]
+            EX_LocalVariable [enemy]
+18:     EX_LocalFinalFunction export MOD_Proxy_SpawnEnemy_C->ExecuteUbergraph_MOD_Proxy_SpawnEnemy
+            EX_IntConst 235
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export MOD_Proxy_SpawnEnemy_C->ExecuteUbergraph_MOD_Proxy_SpawnEnemy
+            EX_IntConst 230
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

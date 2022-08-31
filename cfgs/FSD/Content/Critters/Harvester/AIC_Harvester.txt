@@ -1,0 +1,79 @@
+FunctionExport ExecuteUbergraph_AIC_Harvester
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_BindDelegate OnDeath
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+33:     EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [HealthComponent]
+                EX_InstanceVariable [OnDeath]
+                RValue = [OnDeath]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+74:     EX_Jump 366
+79:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [HealthComponent]
+108:    EX_JumpIfNot 366
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+122:    EX_Jump 10
+127:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+147:    EX_JumpIfNot 366
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue]
+161:    EX_LetBool
+            EX_LocalVariable [CallFunc_RunBehaviorTree_ReturnValue]
+            EX_VirtualFunction RunBehaviorTree
+                EX_InstanceVariable [BehaviorTree]
+194:    EX_Jump 366
+199:    EX_LetBool
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+            EX_FinalFunction import /Script/Engine->Actor->HasAuthority
+219:    EX_JumpIfNot 366
+            EX_LocalVariable [CallFunc_HasAuthority_ReturnValue_1]
+233:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_Event_PossessedPawn]
+                EX_FinalFunction import /Script/Engine->Actor->GetComponentByClass
+                    EX_ObjectConst import /Script/FSD->HealthComponentBase
+                RValue = [CallFunc_GetComponentByClass_ReturnValue]
+284:    EX_LetObj
+            EX_InstanceVariable [HealthComponent]
+            EX_LocalVariable [CallFunc_GetComponentByClass_ReturnValue]
+303:    EX_Jump 79
+308:    EX_Jump 127
+313:    EX_Context
+            EX_InstanceVariable [BrainComponent]
+            EX_VirtualFunction StopLogic
+                EX_StringConst Death
+            RValue = []
+356:    EX_Jump 366
+361:    EX_Jump 199
+366:    EX_Return
+            EX_Nothing
+368:    EX_EndOfScript
+FunctionExport ReceivePossess
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_PossessedPawn]
+            EX_LocalVariable [PossessedPawn]
+18:     EX_LocalFinalFunction export AIC_Harvester_C->ExecuteUbergraph_AIC_Harvester
+            EX_IntConst 361
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport OnDeath
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_HealthComponent]
+            EX_LocalVariable [HealthComponent]
+18:     EX_LocalFinalFunction export AIC_Harvester_C->ExecuteUbergraph_AIC_Harvester
+            EX_IntConst 313
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export AIC_Harvester_C->ExecuteUbergraph_AIC_Harvester
+            EX_IntConst 308
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

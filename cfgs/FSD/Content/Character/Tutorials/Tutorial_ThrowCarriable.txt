@@ -1,0 +1,131 @@
+FunctionExport ExecuteUbergraph_Tutorial_ThrowCarriable
+0:      EX_PushExecutionFlow 598
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_JumpIfNot 30
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+29:     EX_PopExecutionFlow
+30:     EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+41:     EX_FinalFunction import /Script/FSD->TutorialComponent->CancelTutorial
+            EX_True
+52:     EX_PopExecutionFlow
+53:     EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_True
+64:     EX_PopExecutionFlow
+65:     EX_LetBool
+            EX_LocalVariable [Temp_bool_IsClosed_Variable]
+            EX_False
+76:     EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+87:     EX_PopExecutionFlow
+88:     EX_PushExecutionFlow 15
+93:     EX_JumpIfNot 108
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+107:    EX_PopExecutionFlow
+108:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Has_Been_Initd_Variable]
+            EX_True
+119:    EX_PopExecutionFlowIfNot
+            EX_False
+121:    EX_Jump 53
+126:    EX_Let
+            EX_InstanceVariable [PickupCount]
+            EX_LocalVariable [Temp_int_Variable]
+153:    EX_Jump 65
+158:    EX_Let
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Add_IntInt
+                EX_InstanceVariable [PickupCount]
+                EX_IntConst 1
+200:    EX_Let
+            EX_LocalVariable [Temp_int_Variable]
+            EX_LocalVariable [CallFunc_Add_IntInt_ReturnValue]
+227:    EX_Jump 126
+232:    EX_BindDelegate OnThrowCarriableProgress
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+255:    EX_AddMulticastDelegate
+            EX_Context
+                EX_InstanceVariable [PlayerCharacter]
+                EX_InstanceVariable [OnThrowCarriableProgress]
+                RValue = [OnThrowCarriableProgress]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+296:    EX_BindDelegate OnCarriableChangedEvent
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+319:    EX_AddMulticastDelegate
+            EX_Context
+                EX_Context
+                    EX_InstanceVariable [PlayerCharacter]
+                    EX_InstanceVariable [InventoryComponent]
+                    RValue = [InventoryComponent]
+                EX_InstanceVariable [OnCarriableChangedEvent]
+                RValue = [OnCarriableChangedEvent]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+382:    EX_PopExecutionFlow
+383:    EX_FinalFunction import /Script/FSD->TutorialComponent->MarkTutorialReadyInSeconds
+            EX_FloatConst 1
+398:    EX_Jump 158
+403:    EX_FinalFunction import /Script/FSD->TutorialComponent->CancelTutorial
+            EX_False
+414:    EX_PopExecutionFlow
+415:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [K2Node_CustomEvent_carriedActor]
+444:    EX_JumpIfNot 403
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+458:    EX_Let
+            EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Percent_IntInt
+                EX_InstanceVariable [PickupCount]
+                EX_IntConst 4
+500:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_IntInt
+                EX_LocalVariable [CallFunc_Percent_IntInt_ReturnValue]
+                EX_IntConst 0
+534:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_EqualEqual_IntInt_ReturnValue]
+544:    EX_Jump 383
+549:    EX_LetBool
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Greater_FloatFloat
+                EX_LocalVariable [K2Node_CustomEvent_progress]
+                EX_FloatConst 0.5
+583:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_Greater_FloatFloat_ReturnValue]
+593:    EX_Jump 88
+598:    EX_Return
+            EX_Nothing
+600:    EX_EndOfScript
+FunctionExport OnThrowCarriableProgress
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_progress]
+            EX_LocalVariable [progress]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_timeToCancel]
+            EX_LocalVariable [timeToCancel]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_isDone]
+            EX_LocalVariable [isDone]
+54:     EX_LocalFinalFunction export Tutorial_ThrowCarriable_C->ExecuteUbergraph_Tutorial_ThrowCarriable
+            EX_IntConst 549
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport OnCarriableChangedEvent
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_carriedActor]
+            EX_LocalVariable [carriedActor]
+18:     EX_LocalFinalFunction export Tutorial_ThrowCarriable_C->ExecuteUbergraph_Tutorial_ThrowCarriable
+            EX_IntConst 415
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveOnInitialized
+0:      EX_LocalFinalFunction export Tutorial_ThrowCarriable_C->ExecuteUbergraph_Tutorial_ThrowCarriable
+            EX_IntConst 232
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

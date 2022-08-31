@@ -1,0 +1,118 @@
+FunctionExport ExecuteUbergraph_BP_Refinery_RocketLamp
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetParentActor_ReturnValue]
+            EX_FinalFunction import /Script/Engine->Actor->GetParentActor
+30:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+            EX_DynamicCast import /Script/FSD->FSDRefinery
+                EX_LocalVariable [CallFunc_GetParentActor_ReturnValue]
+66:     EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+95:     EX_JumpIfNot 622
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+109:    EX_BindDelegate OnRefineryStateChanged
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+132:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+                EX_InstanceVariable [OnRefineryStateChanged]
+                RValue = [OnRefineryStateChanged]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+173:    EX_LocalVirtualFunction OnRefineryStateChanged
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDRefinery]
+                EX_InstanceVariable [RefineryState]
+                RValue = [RefineryState]
+218:    EX_Jump 622
+223:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+243:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetPhotosensitiveMode
+                RValue = [CallFunc_GetPhotosensitiveMode_ReturnValue]
+285:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_Refinery_Rocket_Light_NotFull->M_Refinery_Rocket_Light_NotFull
+304:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable_1]
+            EX_LocalVariable [CallFunc_GetPhotosensitiveMode_ReturnValue]
+323:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_1]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_Refinery_Rocket_Light_Full_NotBlinking->M_Refinery_Rocket_Light_Full_NotBlinking
+342:    EX_LetObj
+            EX_LocalVariable [Temp_object_Variable_2]
+            EX_ObjectConst import /Game/LevelElements/Refinery/Refinery/Materials/M_Refinery_Rocket_Light_Full->M_Refinery_Rocket_Light_Full
+361:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_InRefineryState]
+                EX_ByteConst 5
+392:    EX_LetBool
+            EX_LocalVariable [Temp_bool_Variable]
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+411:    EX_Context
+            EX_InstanceVariable [Lamp Mesh]
+            EX_VirtualFunction SetMaterial
+                EX_IntConst 0
+                EX_SwitchValue
+                    EX_LocalVariable [Temp_bool_Variable]
+                    OffsetToSwitchEnd = 548
+                    case 0:
+                        EX_False
+                        NextCaseOffset = 481
+                        EX_LocalVariable [Temp_object_Variable]
+                    case 1:
+                        EX_True
+                        NextCaseOffset = 539
+                        EX_SwitchValue
+                            EX_LocalVariable [Temp_bool_Variable_1]
+                            OffsetToSwitchEnd = 539
+                            case 0:
+                                EX_False
+                                NextCaseOffset = 516
+                                EX_LocalVariable [Temp_object_Variable_2]
+                            case 1:
+                                EX_True
+                                NextCaseOffset = 530
+                                EX_LocalVariable [Temp_object_Variable_1]
+                            default:
+                                EX_LocalVariable [K2Node_Select_Default]
+                    default:
+                        EX_LocalVariable [K2Node_Select_Default_1]
+            RValue = []
+549:    EX_LetBool
+            EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->EqualEqual_ByteByte
+                EX_LocalVariable [K2Node_CustomEvent_InRefineryState]
+                EX_ByteConst 5
+580:    EX_Context
+            EX_InstanceVariable [PointLight1]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_LocalVariable [CallFunc_EqualEqual_ByteByte_ReturnValue]
+                EX_True
+            RValue = []
+622:    EX_Return
+            EX_Nothing
+624:    EX_EndOfScript
+FunctionExport OnRefineryStateChanged
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InRefineryState]
+            EX_LocalVariable [InRefineryState]
+18:     EX_LocalFinalFunction export BP_Refinery_RocketLamp_C->ExecuteUbergraph_BP_Refinery_RocketLamp
+            EX_IntConst 223
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_Refinery_RocketLamp_C->ExecuteUbergraph_BP_Refinery_RocketLamp
+            EX_IntConst 10
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

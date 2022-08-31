@@ -1,0 +1,255 @@
+FunctionExport ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+            EX_FinalFunction import /Script/FSD->CrossbowProjectileStuck->IsLocallyControlled
+30:     EX_JumpIfNot 1126
+            EX_LocalVariable [CallFunc_IsLocallyControlled_ReturnValue]
+44:     EX_LocalVirtualFunction DoIndicatorPulse
+58:     EX_Jump 1126
+63:     EX_Context
+            EX_InstanceVariable [RingPulse]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+95:     EX_Jump 1126
+100:    EX_LetBool
+            EX_InstanceVariable [FirstTimeFadeOut]
+            EX_False
+111:    EX_JumpIfNot 1126
+            EX_InstanceVariable [IsPlayingElectricRangeEffect]
+125:    EX_Context
+            EX_InstanceVariable [FadeIn]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+157:    EX_Jump 1126
+162:    EX_Context
+            EX_InstanceVariable [ArcAreaDynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst GlobalFade
+                EX_InstanceVariable [FadeOut_Scale_0B2089634E6A5E37A98116BA23E26A4F]
+            RValue = []
+216:    EX_Jump 1126
+221:    EX_LocalVirtualFunction FadeInAndOut
+235:    EX_Jump 1126
+240:    EX_Context
+            EX_InstanceVariable [FadeOut]
+            EX_FinalFunction import /Script/Engine->TimelineComponent->PlayFromStart
+            RValue = []
+272:    EX_Jump 1126
+277:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetSpecialArrowEquipped_ReturnValue]
+            EX_FinalFunction import /Script/FSD->CrossbowProjectileStuck->GetSpecialArrowEquipped
+297:    EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_GetSpecialArrowEquipped_ReturnValue]
+                EX_InstanceVariable [FirstTimeFadeOut]
+335:    EX_JumpIfNot 1126
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue]
+349:    EX_Context
+            EX_InstanceVariable [ArcAreaDynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst GlobalFade
+                EX_InstanceVariable [FadeIn_Scale_643276574A22DD1BAF32FA8777128C4F]
+            RValue = []
+403:    EX_LetBool
+            EX_InstanceVariable [FirstTimeFadeOut]
+            EX_True
+414:    EX_Jump 1126
+419:    EX_BindDelegate CancelEffect
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+442:    EX_Let
+            EX_LocalVariable [CallFunc_K2_SetTimerDelegate_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->K2_SetTimerDelegate
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+                EX_InstanceVariable [StatusEffectTime]
+                EX_False
+                EX_FloatConst 0
+                EX_FloatConst 0
+499:    EX_Context
+            EX_InstanceVariable [ArcAreaDisplay]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_True
+                EX_True
+            RValue = []
+533:    EX_Jump 63
+538:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_FloatConst 0.01
+                EX_FloatConst 600
+576:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_InstanceVariable [RingPulse_Scale_60E9F5BE447AB5F280A154BA86AB1702]
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue]
+622:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_FloatFloat
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_1]
+                EX_FloatConst 2
+664:    EX_Let
+            EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Multiply_VectorFloat
+                EX_VectorConst 1,1,1
+                EX_LocalVariable [CallFunc_Multiply_FloatFloat_ReturnValue_2]
+714:    EX_Context
+            EX_InstanceVariable [ArcAreaDisplay]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetRelativeScale3D
+                EX_LocalVariable [CallFunc_Multiply_VectorFloat_ReturnValue]
+            RValue = []
+755:    EX_Let
+            EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Subtract_FloatFloat
+                EX_FloatConst 1
+                EX_InstanceVariable [RingPulse_Scale_60E9F5BE447AB5F280A154BA86AB1702]
+797:    EX_CallMath import /Script/Engine->KismetMathLibrary->RGBToHSV
+            EX_InstanceVariable [IndicatorAreaColor]
+            EX_LocalVariable [CallFunc_RGBToHSV_H]
+            EX_LocalVariable [CallFunc_RGBToHSV_S]
+            EX_LocalVariable [CallFunc_RGBToHSV_V]
+            EX_LocalVariable [CallFunc_RGBToHSV_A]
+852:    EX_Let
+            EX_LocalVariable [CallFunc_HSVToRGB_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->HSVToRGB
+                EX_LocalVariable [CallFunc_RGBToHSV_H]
+                EX_LocalVariable [CallFunc_RGBToHSV_S]
+                EX_LocalVariable [CallFunc_Subtract_FloatFloat_ReturnValue]
+                EX_LocalVariable [CallFunc_RGBToHSV_A]
+916:    EX_Context
+            EX_InstanceVariable [ArcAreaDynamicMaterial]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetVectorParameterValue
+                EX_NameConst Color1
+                EX_LocalVariable [CallFunc_HSVToRGB_ReturnValue]
+            RValue = []
+970:    EX_Jump 1126
+975:    EX_LocalVirtualFunction FadeInAndOut
+989:    EX_Jump 1126
+994:    EX_LetBool
+            EX_LocalVariable [CallFunc_GetSpecialArrowEquipped_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->CrossbowProjectileStuck->GetSpecialArrowEquipped
+1014:   EX_LetBool
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue_1]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->BooleanOR
+                EX_LocalVariable [CallFunc_GetSpecialArrowEquipped_ReturnValue_1]
+                EX_InstanceVariable [FirstTimeFadeOut]
+1052:   EX_JumpIfNot 111
+            EX_LocalVariable [CallFunc_BooleanOR_ReturnValue_1]
+1066:   EX_Jump 240
+1071:   EX_Context
+            EX_InstanceVariable [ArcAreaDisplay]
+            EX_FinalFunction import /Script/Engine->SceneComponent->SetVisibility
+                EX_False
+                EX_True
+            RValue = []
+1105:   EX_LetBool
+            EX_InstanceVariable [IsPlayingElectricRangeEffect]
+            EX_False
+1116:   EX_Jump 1126
+1121:   EX_Jump 10
+1126:   EX_Return
+            EX_Nothing
+1128:   EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 1121
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport CancelEffect
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 1071
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeInAndOut
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 994
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport DoIndicatorPulse
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 419
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeIn__UpdateFunc
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 277
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeIn__FinishedFunc
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 221
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeOut__UpdateFunc
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 162
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport FadeOut__FinishedFunc
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 100
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport RingPulse__UpdateFunc
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 538
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport RingPulse__FinishedFunc
+0:      EX_LocalFinalFunction export BP_Crossbow_Projectile_Stuck_Electric_C->ExecuteUbergraph_BP_Crossbow_Projectile_Stuck_Electric
+            EX_IntConst 975
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport UserConstructionScript
+0:      EX_Context
+            EX_InstanceVariable [AttachmentRoot]
+            EX_VirtualFunction SetSimulatePhysics
+                EX_False
+            RValue = []
+37:     EX_Context
+            EX_InstanceVariable [AttachmentRoot]
+            EX_VirtualFunction SetEnableGravity
+                EX_False
+            RValue = []
+74:     EX_Context
+            EX_InstanceVariable [AttachmentRoot]
+            EX_VirtualFunction SetCollisionEnabled
+                EX_ByteConst 0
+            RValue = []
+112:    EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ArcAreaDisplay]
+                EX_VirtualFunction CreateDynamicMaterialInstance
+                    EX_IntConst 0
+                    EX_ObjectConst import /Game/WeaponsNTools/Crossbow/M_Crossbow_Taser_ArcRange_TEMP->M_Crossbow_Taser_ArcRange_TEMP
+                    EX_NameConst None
+                RValue = [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+185:    EX_LetObj
+            EX_InstanceVariable [ArcAreaDynamicMaterial]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+204:    EX_Let
+            EX_LocalVariable [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [ArcAreaDynamicMaterial]
+                EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->K2_GetVectorParameterValue
+                    EX_NameConst Color1
+                RValue = [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+267:    EX_Let
+            EX_InstanceVariable [IndicatorAreaColor]
+            EX_LocalVariable [CallFunc_K2_GetVectorParameterValue_ReturnValue]
+294:    EX_Return
+            EX_Nothing
+296:    EX_EndOfScript

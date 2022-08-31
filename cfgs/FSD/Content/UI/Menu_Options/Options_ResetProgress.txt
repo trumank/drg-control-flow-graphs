@@ -1,0 +1,263 @@
+FunctionExport ExecuteUbergraph_Options_ResetProgress
+0:      EX_PushExecutionFlow 1672
+5:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+15:     EX_CallMath import /Script/FSD->FadeScreenSubSystem->FadeScreenToBlack
+            EX_Self
+            EX_FloatConst 1.5
+            EX_FloatConst 0
+            EX_True
+            EX_False
+            EX_False
+            EX_False
+            EX_NoObject
+41:     EX_CallMath import /Script/Engine->KismetSystemLibrary->RetriggerableDelay
+            EX_Self
+            EX_FloatConst 1.5
+            EX_StructConst import /Script/Engine->LatentActionInfo
+                EX_SkipOffsetConst 96
+                EX_IntConst -1970488390
+                EX_NameConst ExecuteUbergraph_Options_ResetProgress
+                EX_Self
+95:     EX_PopExecutionFlow
+96:     EX_CallMath import /Script/Engine->GameplayStatics->OpenLevel
+            EX_Self
+            EX_NameConst Lvl_StartingScreen
+            EX_True
+            EX_StringConst 
+123:    EX_PopExecutionFlow
+124:    EX_Jump 15
+129:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+150:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenSingleUseWindow
+                    EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Popup_YesNoPrompt->Basic_Popup_YesNoPrompt_C
+                    EX_IntConst 250
+                RValue = [CallFunc_OpenSingleUseWindow_ReturnValue]
+206:    EX_BindDelegate Answer
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            EX_Self
+229:    EX_Context
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue]
+            EX_FinalFunction import /Script/FSD->YesNoPromptWidget->Show
+                EX_TextConst
+                    SourceString = Reset Progress
+                    LocalizedKey = AC0A3263441ABB2DE90DA2A767A38F8D
+                    LocalizedNamespace = 
+                EX_TextConst
+                    SourceString = Warning: Are you sure? Pressing Yes will reset ALL your progress.
+                    LocalizedKey = 5AA0B67F4055FBC0A69F73BD896CB383
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_3]
+            RValue = []
+429:    EX_PopExecutionFlow
+430:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [K2Node_CustomEvent_Yes_1]
+440:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+461:    EX_LetObj
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue_1]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_1]
+                EX_FinalFunction import /Script/FSD->WindowManager->OpenSingleUseWindow
+                    EX_ObjectConst import /Game/UI/Art/WidgetParts/Basic_Popup_YesNoPrompt->Basic_Popup_YesNoPrompt_C
+                    EX_IntConst 250
+                RValue = [CallFunc_OpenSingleUseWindow_ReturnValue_1]
+517:    EX_BindDelegate TutorialAnswer
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            EX_Self
+540:    EX_Context
+            EX_LocalVariable [CallFunc_OpenSingleUseWindow_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->YesNoPromptWidget->Show
+                EX_TextConst
+                    SourceString = Tutorial level
+                    LocalizedKey = 4BDD2D3A47F3CC6D4E50B7A1C0AC6CD1
+                    LocalizedNamespace = 
+                EX_TextConst
+                    SourceString = Do you want to restart the tutorial level?
+                    LocalizedKey = DAC4D55646CB397DC9EC74B670AC8563
+                    LocalizedNamespace = 
+                EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_1]
+            RValue = []
+717:    EX_PopExecutionFlow
+718:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+            EX_VirtualFunction GetOwningPlayer
+742:    EX_LetObj
+            EX_LocalVariable [CallFunc_DestroySession_ReturnValue]
+            EX_CallMath import /Script/OnlineSubsystemUtils->DestroySessionCallbackProxy->DestroySession
+                EX_Self
+                EX_LocalVariable [CallFunc_GetOwningPlayer_ReturnValue]
+772:    EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_LocalVariable [CallFunc_DestroySession_ReturnValue]
+801:    EX_PopExecutionFlowIfNot
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+811:    EX_BindDelegate OnSuccess_E60EC8DB4E80DB2E20AA1A9F09A53224
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+834:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_DestroySession_ReturnValue]
+                EX_InstanceVariable [OnSuccess]
+                RValue = [OnSuccess]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+875:    EX_BindDelegate OnFailure_E60EC8DB4E80DB2E20AA1A9F09A53224
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+            EX_Self
+898:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_DestroySession_ReturnValue]
+                EX_InstanceVariable [OnFailure]
+                RValue = [OnFailure]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate_2]
+939:    EX_Context
+            EX_LocalVariable [CallFunc_DestroySession_ReturnValue]
+            EX_VirtualFunction Activate
+            RValue = []
+975:    EX_PopExecutionFlow
+976:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+996:    EX_Let
+            EX_LocalVariable [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetCurrentUserSaveSlotName
+                RValue = [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+1046:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDGameUserSettings->SetCurrentUserSaveSlotName
+                EX_Self
+                EX_LocalVariable [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+                EX_ByteConst 0
+            RValue = []
+1090:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+1110:   EX_Let
+            EX_LocalVariable [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetCurrentUserSaveSlotName
+                RValue = [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+1160:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1181:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+1202:   EX_Let
+            EX_LocalVariable [CallFunc_GetAvailableUserSlotIndex_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDSaveGame->GetAvailableUserSlotIndex
+                EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue]
+1239:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SetIndexAndName
+                EX_LocalVariable [CallFunc_GetAvailableUserSlotIndex_ReturnValue]
+                EX_LocalVariable [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+            RValue = []
+1289:   EX_LetBool
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Not_PreBool
+                EX_LocalVariable [K2Node_CustomEvent_Yes]
+1318:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1339:   EX_LetBool
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+                EX_InstanceVariable [HasPlayedTutorial]
+                RValue = [HasPlayedTutorial]
+            EX_LocalVariable [CallFunc_Not_PreBool_ReturnValue]
+1380:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDSaveGame
+                EX_Self
+1401:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDSaveGame_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->FSDSaveGame->SaveToDisk
+            RValue = []
+1433:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_2]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetWindowManager
+                EX_Self
+1454:   EX_Context
+            EX_LocalVariable [CallFunc_GetWindowManager_ReturnValue_2]
+            EX_FinalFunction import /Script/FSD->WindowManager->CloseAllWindows
+            RValue = []
+1486:   EX_Jump 718
+1491:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDGameUserSettings->GetFSDGameUserSettings
+1511:   EX_Let
+            EX_LocalVariable [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+            EX_Context
+                EX_LocalVariable [CallFunc_GetFSDGameUserSettings_ReturnValue]
+                EX_FinalFunction import /Script/FSD->FSDGameUserSettings->GetCurrentUserSaveSlotName
+                RValue = [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+1561:   EX_LetBool
+            EX_LocalVariable [CallFunc_IsEmpty_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetStringLibrary->IsEmpty
+                EX_LocalVariable [CallFunc_GetCurrentUserSaveSlotName_ReturnValue]
+1590:   EX_JumpIfNot 976
+            EX_LocalVariable [CallFunc_IsEmpty_ReturnValue]
+1604:   EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameInstance
+                EX_Self
+1625:   EX_Context
+            EX_LocalVariable [CallFunc_GetFSDGameInstance_ReturnValue_1]
+            EX_FinalFunction import /Script/FSD->FSDGameInstance->ResetSaveGame
+            RValue = []
+1657:   EX_Jump 1289
+1662:   EX_Jump 15
+1667:   EX_Jump 1491
+1672:   EX_Return
+            EX_Nothing
+1674:   EX_EndOfScript
+FunctionExport TutorialAnswer
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Yes]
+            EX_LocalVariable [Yes]
+18:     EX_LocalFinalFunction export Options_ResetProgress_C->ExecuteUbergraph_Options_ResetProgress
+            EX_IntConst 1667
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport Answer
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Yes_1]
+            EX_LocalVariable [Yes]
+18:     EX_LocalFinalFunction export Options_ResetProgress_C->ExecuteUbergraph_Options_ResetProgress
+            EX_IntConst 430
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport BndEvt__Basic_ButtonWithControls_K2Node_ComponentBoundEvent_21_OnClicked__DelegateSignature
+0:      EX_LocalFinalFunction export Options_ResetProgress_C->ExecuteUbergraph_Options_ResetProgress
+            EX_IntConst 129
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnSuccess_E60EC8DB4E80DB2E20AA1A9F09A53224
+0:      EX_LocalFinalFunction export Options_ResetProgress_C->ExecuteUbergraph_Options_ResetProgress
+            EX_IntConst 124
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript
+FunctionExport OnFailure_E60EC8DB4E80DB2E20AA1A9F09A53224
+0:      EX_LocalFinalFunction export Options_ResetProgress_C->ExecuteUbergraph_Options_ResetProgress
+            EX_IntConst 1662
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

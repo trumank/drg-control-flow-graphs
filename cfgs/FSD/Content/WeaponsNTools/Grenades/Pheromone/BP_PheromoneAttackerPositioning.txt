@@ -1,0 +1,64 @@
+FunctionExport ExecuteUbergraph_BP_PheromoneAttackerPositioning
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LetBool
+            EX_LocalVariable [CallFunc_TryPushActiveStatusEffect_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/FSD->Default__StatusEffectsComponent
+                EX_FinalFunction import /Script/FSD->StatusEffectsComponent->TryPushActiveStatusEffect
+                    EX_ObjectConst import /Game/WeaponsNTools/Grenades/Pheromone/STE_Grenade_Pheromone_PropogatedAttacker->STE_Grenade_Pheromone_PropogatedAttacker_C
+                    EX_StructMemberContext [DamageCauser]
+                        EX_LocalVariable [K2Node_CustomEvent_damageData]
+                    EX_NoObject
+                RValue = [CallFunc_TryPushActiveStatusEffect_ReturnValue]
+80:     EX_Jump 294
+85:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+            EX_FinalFunction import /Script/Engine->ActorComponent->GetOwner
+105:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+            EX_DynamicCast import /Script/FSD->FSDPawn
+                EX_LocalVariable [CallFunc_GetOwner_ReturnValue]
+141:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+170:    EX_JumpIfNot 294
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+184:    EX_BindDelegate OnHit_Event_0
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+            EX_Self
+207:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetHealthComponent_ReturnValue]
+            EX_Context
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPawn]
+                EX_VirtualFunction GetHealthComponent
+                RValue = [CallFunc_GetHealthComponent_ReturnValue]
+253:    EX_AddMulticastDelegate
+            EX_Context
+                EX_LocalVariable [CallFunc_GetHealthComponent_ReturnValue]
+                EX_InstanceVariable [OnHit]
+                RValue = [OnHit]
+            EX_LocalVariable [K2Node_CreateDelegate_OutputDelegate]
+294:    EX_Return
+            EX_Nothing
+296:    EX_EndOfScript
+FunctionExport OnHit_Event_0
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_Damage]
+            EX_LocalVariable [Damage]
+18:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_damageData]
+            EX_LocalOutVariable
+                [damageData]
+36:     EX_LetValueOnPersistentFrame [K2Node_CustomEvent_anyHealthLost]
+            EX_LocalVariable [anyHealthLost]
+54:     EX_LocalFinalFunction export BP_PheromoneAttackerPositioning_C->ExecuteUbergraph_BP_PheromoneAttackerPositioning
+            EX_IntConst 10
+69:     EX_Return
+            EX_Nothing
+71:     EX_EndOfScript
+FunctionExport ReceiveBeginPlay
+0:      EX_LocalFinalFunction export BP_PheromoneAttackerPositioning_C->ExecuteUbergraph_BP_PheromoneAttackerPositioning
+            EX_IntConst 85
+15:     EX_Return
+            EX_Nothing
+17:     EX_EndOfScript

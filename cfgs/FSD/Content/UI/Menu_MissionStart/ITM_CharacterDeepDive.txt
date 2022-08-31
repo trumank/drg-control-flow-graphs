@@ -1,0 +1,138 @@
+FunctionExport ExecuteUbergraph_ITM_CharacterDeepDive
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_Let
+            EX_InstanceVariable [PlayerArrayIndex]
+            EX_LocalVariable [K2Node_CustomEvent_InPlayerArrayIndex]
+37:     EX_VirtualFunction SetVisibility
+            EX_ByteConst 1
+53:     EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+74:     EX_Let
+            EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+            EX_Context
+                EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+                EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Length
+                    EX_Context
+                        EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue]
+                        EX_InstanceVariable [PlayerArray]
+                        RValue = [PlayerArray]
+                RValue = [CallFunc_Array_Length_ReturnValue]
+155:    EX_LetBool
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMathLibrary->Less_IntInt
+                EX_InstanceVariable [PlayerArrayIndex]
+                EX_LocalVariable [CallFunc_Array_Length_ReturnValue]
+193:    EX_JumpIfNot 1006
+            EX_LocalVariable [CallFunc_Less_IntInt_ReturnValue]
+207:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue_1]
+            EX_CallMath import /Script/FSD->GameFunctionLibrary->GetFSDGameState
+                EX_Self
+228:    EX_Context
+            EX_ObjectConst import /Script/Engine->Default__KismetArrayLibrary
+            EX_FinalFunction import /Script/Engine->KismetArrayLibrary->Array_Get
+                EX_Context
+                    EX_LocalVariable [CallFunc_GetFSDGameState_ReturnValue_1]
+                    EX_InstanceVariable [PlayerArray]
+                    RValue = [PlayerArray]
+                EX_InstanceVariable [PlayerArrayIndex]
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+            RValue = []
+309:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+            EX_DynamicCast import /Script/FSD->FSDPlayerState
+                EX_LocalVariable [CallFunc_Array_Get_Item]
+345:    EX_Let
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+            EX_PrimitiveCast ObjectToBool
+                EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+374:    EX_JumpIfNot 1006
+            EX_LocalVariable [K2Node_DynamicCast_bSuccess]
+388:    EX_LetObj
+            EX_InstanceVariable [PlayerState]
+            EX_LocalVariable [K2Node_DynamicCast_AsFSDPlayer_State]
+407:    EX_VirtualFunction SetVisibility
+            EX_ByteConst 4
+423:    EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerState]
+                EX_FinalFunction import /Script/Engine->PlayerState->GetPlayerName
+                RValue = [CallFunc_GetPlayerName_ReturnValue]
+473:    EX_Let
+            EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetTextLibrary->Conv_StringToText
+                EX_LocalVariable [CallFunc_GetPlayerName_ReturnValue]
+510:    EX_Context
+            EX_InstanceVariable [DATA_Player]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_Conv_StringToText_ReturnValue]
+                EX_True
+            RValue = []
+556:    EX_Let
+            EX_LocalVariable [CallFunc_GetPlayerRank_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerState]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetPlayerRank
+                RValue = [CallFunc_GetPlayerRank_ReturnValue]
+606:    EX_Context
+            EX_InstanceVariable [DATA_Player]
+            EX_LocalVirtualFunction SetLevel
+                EX_LocalVariable [CallFunc_GetPlayerRank_ReturnValue]
+            RValue = []
+651:    EX_Context
+            EX_InstanceVariable [ITM_CharacterIcon]
+            EX_LocalVirtualFunction SetFromPlayerState
+                EX_InstanceVariable [PlayerState]
+            RValue = []
+696:    EX_Context
+            EX_InstanceVariable [UI_ScalableMissionStats]
+            EX_LocalVirtualFunction FromPlayerState
+                EX_InstanceVariable [PlayerState]
+            RValue = []
+741:    EX_Context
+            EX_InstanceVariable [UI_Character_Supplies]
+            EX_LocalVirtualFunction SetData
+                EX_InstanceVariable [PlayerState]
+            RValue = []
+786:    EX_LetObj
+            EX_LocalVariable [CallFunc_GetSelectedCharacter_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerState]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSelectedCharacter
+                RValue = [CallFunc_GetSelectedCharacter_ReturnValue]
+828:    EX_Let
+            EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+            EX_CallMath import /Script/FSD->ActorFunctionLibrary->GetHeroName
+                EX_LocalVariable [CallFunc_GetSelectedCharacter_ReturnValue]
+865:    EX_Context
+            EX_InstanceVariable [DATA_Class]
+            EX_LocalVirtualFunction SetText
+                EX_LocalVariable [CallFunc_GetHeroName_ReturnValue]
+                EX_True
+            RValue = []
+911:    EX_Let
+            EX_LocalVariable [CallFunc_GetSelectedCharacterLevel_ReturnValue]
+            EX_Context
+                EX_InstanceVariable [PlayerState]
+                EX_FinalFunction import /Script/FSD->FSDPlayerState->GetSelectedCharacterLevel
+                RValue = [CallFunc_GetSelectedCharacterLevel_ReturnValue]
+961:    EX_Context
+            EX_InstanceVariable [DATA_Class]
+            EX_LocalVirtualFunction SetLevel
+                EX_LocalVariable [CallFunc_GetSelectedCharacterLevel_ReturnValue]
+            RValue = []
+1006:   EX_Return
+            EX_Nothing
+1008:   EX_EndOfScript
+FunctionExport SetData
+0:      EX_LetValueOnPersistentFrame [K2Node_CustomEvent_InPlayerArrayIndex]
+            EX_LocalVariable [InPlayerArrayIndex]
+18:     EX_LocalFinalFunction export ITM_CharacterDeepDive_C->ExecuteUbergraph_ITM_CharacterDeepDive
+            EX_IntConst 10
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript

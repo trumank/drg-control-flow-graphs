@@ -1,0 +1,112 @@
+FunctionExport ExecuteUbergraph_UI_RoundedImage
+0:      EX_ComputedJump
+            EX_LocalVariable [EntryPoint]
+10:     EX_LocalVirtualFunction SetImage
+            EX_InstanceVariable [Texture]
+33:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst Radius
+                EX_InstanceVariable [Radius]
+            RValue = []
+87:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst EdgeSharpness
+                EX_InstanceVariable [EdgeSharpness]
+            RValue = []
+141:    EX_Jump 151
+146:    EX_Jump 10
+151:    EX_Return
+            EX_Nothing
+153:    EX_EndOfScript
+FunctionExport PreConstruct
+0:      EX_LetValueOnPersistentFrame [K2Node_Event_IsDesignTime]
+            EX_LocalVariable [IsDesignTime]
+18:     EX_LocalFinalFunction export UI_RoundedImage_C->ExecuteUbergraph_UI_RoundedImage
+            EX_IntConst 146
+33:     EX_Return
+            EX_Nothing
+35:     EX_EndOfScript
+FunctionExport UpdateMaterial
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Material]
+29:     EX_JumpIfNot 48
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Jump 157
+48:     EX_LetObj
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetMaterialLibrary->CreateDynamicMaterialInstance
+                EX_Self
+                EX_ObjectConst import /Game/Art/Materials/MB_UI_RoundCorners->MB_UI_RoundCorners
+                EX_NameConst None
+                EX_ByteConst 0
+93:     EX_LetObj
+            EX_InstanceVariable [Material]
+            EX_LocalVariable [CallFunc_CreateDynamicMaterialInstance_ReturnValue]
+112:    EX_Context
+            EX_InstanceVariable [RoundedImage]
+            EX_VirtualFunction SetBrushFromMaterial
+                EX_InstanceVariable [Material]
+            RValue = []
+157:    EX_Return
+            EX_Nothing
+159:    EX_EndOfScript
+FunctionExport OnPaint
+0:      EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Material]
+29:     EX_JumpIfNot 267
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+43:     EX_Let
+            EX_LocalVariable [CallFunc_GetDrawSize_ReturnValue]
+            EX_CallMath import /Script/FSD->FSDWidgetBlueprintLibrary->GetDrawSize
+                EX_LocalOutVariable
+                    [Context]
+80:     EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector2D
+            EX_LocalVariable [CallFunc_GetDrawSize_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector2D_X]
+            EX_LocalVariable [CallFunc_BreakVector2D_Y]
+117:    EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst SizeX
+                EX_LocalVariable [CallFunc_BreakVector2D_X]
+            RValue = []
+171:    EX_CallMath import /Script/Engine->KismetMathLibrary->BreakVector2D
+            EX_LocalVariable [CallFunc_GetDrawSize_ReturnValue]
+            EX_LocalVariable [CallFunc_BreakVector2D_X]
+            EX_LocalVariable [CallFunc_BreakVector2D_Y]
+208:    EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetScalarParameterValue
+                EX_NameConst SizeY
+                EX_LocalVariable [CallFunc_BreakVector2D_Y]
+            RValue = []
+262:    EX_Jump 267
+267:    EX_Return
+            EX_Nothing
+269:    EX_EndOfScript
+FunctionExport SetImage
+0:      EX_LetObj
+            EX_InstanceVariable [Texture]
+            EX_LocalVariable [Texture]
+19:     EX_LocalVirtualFunction UpdateMaterial
+33:     EX_LetBool
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+            EX_CallMath import /Script/Engine->KismetSystemLibrary->IsValid
+                EX_InstanceVariable [Material]
+62:     EX_JumpIfNot 130
+            EX_LocalVariable [CallFunc_IsValid_ReturnValue]
+76:     EX_Context
+            EX_InstanceVariable [Material]
+            EX_FinalFunction import /Script/Engine->MaterialInstanceDynamic->SetTextureParameterValue
+                EX_NameConst Texture
+                EX_InstanceVariable [Texture]
+            RValue = []
+130:    EX_Return
+            EX_Nothing
+132:    EX_EndOfScript
