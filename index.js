@@ -4,7 +4,9 @@ const minimapView = document.getElementById('minimap-view');
 const minimapContainer = document.getElementById('minimap-container');
 const map = document.getElementById('map');
 
+let loading = false;
 function loadSvg(url) {
+  loading = true;
   minimap.src = url;
   map.data = url;
 }
@@ -79,6 +81,7 @@ function update() {
 }
 
 function updateHash() {
+  if (loading) return;
   const state = getState();
 
   history.replaceState(null, null, `${document.location.pathname}#${state.url};${window.scrollX};${window.scrollY};${map.style.scale}`);
@@ -93,6 +96,7 @@ map.addEventListener('load', () => {
   }
 
   const state = getState();
+  loading = false;
 
   if (state.s) {
     setScale(state.s);
