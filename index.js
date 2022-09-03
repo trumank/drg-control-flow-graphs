@@ -105,7 +105,9 @@ map.addEventListener('load', () => {
     const bounds = map.getBoundingClientRect();
     const scaleW = document.documentElement.clientWidth / bounds.width;
     const scaleH = document.documentElement.clientHeight / bounds.height;
-    setScale(Math.min(scaleW, scaleH));
+    const maxAspectRatio = 0.2;
+    const scale = Math.min(Math.max(maxAspectRatio, scaleW / scaleH) * scaleH, Math.max(maxAspectRatio, scaleH / scaleW) * scaleW);
+    setScale(Math.min(scale, 1));
   }
 
   window.scrollTo(state.x, state.y);
