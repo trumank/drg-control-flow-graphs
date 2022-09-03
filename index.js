@@ -23,7 +23,6 @@ function getState() {
 
 function load() {
   const state = getState();
-  console.log(state);
   loadSvg(state.url);
 }
 
