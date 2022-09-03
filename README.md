@@ -1,6 +1,6 @@
 # Deep Rock Galactic Control Flow Graphs
 
-[Class hierarchy](https://trumank.github.io/drg-control-flow-graphs/hierarchy.svg)
+[Class hierarchy](https://trumank.github.io/drg-control-flow-graphs)
 
 Generated using [kismet-analyzer](https://github.com/trumank/kismet-analyzer):
 
