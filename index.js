@@ -22,8 +22,7 @@ function getState() {
 }
 
 function load() {
-  const state = getState();
-  loadSvg(state.url);
+  loadSvg(getState().url);
 }
 
 function setScale(s) {
