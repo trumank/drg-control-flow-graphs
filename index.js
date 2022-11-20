@@ -88,8 +88,10 @@ function updateHash() {
 let drag = false;
 
 map.addEventListener('load', () => {
+  const base = getState().url.match(/.*\//) || '';
+
   for (let a of map.getSVGDocument().getElementsByTagName('a')) {
-    a.setAttribute('xlink:href', window.location.pathname + '#' + a.getAttribute('xlink:href'));
+    a.setAttribute('xlink:href', window.location.pathname + '#' + base + a.getAttribute('xlink:href'));
     a.setAttribute('target', '_top');
   }
 
